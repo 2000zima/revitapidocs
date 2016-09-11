@@ -11,9 +11,6 @@ class Config(object):
     SEND_FILE_MAX_AGE_DEFAULT = 604800  # 60*60*24*7 = 1 Week
     GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 
-    # DEV TOKEN
-    # GITHUB_TOKEN = '94e9d489cc282b34a41c9ea89a3c0f396fb42f58'
-    # GITHUB_TOKEN = '94e9d489cc282b34a41c9ea89a3c0f396fb42f58zzzzz'
 
 class ProductionConfig(Config):
     PRODUCTION = True

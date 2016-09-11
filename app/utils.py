@@ -13,7 +13,6 @@ def check_available_years(filename):
     for year in AVAILABLE_APIS:
         template_dir = app.config['TEMPLATEDIR']
         fullpath = '{}/{}/{}'.format(template_dir, year, filename)
-
         if os.path.exists(fullpath):
             available_in.append(year)
     return available_in

@@ -115,8 +115,6 @@ def add_header(response):
 
 @app.route('/python/', methods=['GET'])
 def python():
-    # ordered_gist = OrderedDict(sorted(get_gists().items()))
     gists_by_categories = get_gists()
     d = OrderedDict(sorted(gists_by_categories.items()))
-    # d = {'error':'Nothing'}
     return render_template('python.html', gists_categories=d)
