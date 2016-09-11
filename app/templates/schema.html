@@ -1,6 +1,6 @@
 
         <script type="application/ld+json">
-        [
+        [   {% if not schema %}
             {
               "@context" : "http://schema.org",
               "@type" : "APIReference",
@@ -46,8 +46,8 @@
                 "@type" : "Organization",
                 "name" : "Autodesk Inc." }
             }
-            {% if schema %}
-                ,{
+            {% else %}
+                {
                   "@context" : "http://schema.org",
                   "@type" : "APIReference",
                   "executableLibraryName" : "RevitAPI.dll",

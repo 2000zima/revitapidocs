@@ -7,7 +7,7 @@ from app.logger import logger
 AVAILABLE_APIS = ['2015', '2016', '2017']
 
 
-@cache.cached(timeout=86400)
+# @cache.cached(timeout=86400)
 def check_available_years(filename):
     available_in = []
     for year in AVAILABLE_APIS:
@@ -19,13 +19,13 @@ def check_available_years(filename):
     return available_in
 
 
-@cache.cached(timeout=86400)
+# @cache.cached(timeout=86400)
 def get_schema(*path):
     """This should be stored/cached in database"""
     template_dir = app.config['TEMPLATEDIR']
     filepath = '/'.join(path)
     fullpath = '{}/{}'.format(template_dir, filepath)
-    logger.debug('Getting schema for : %s', fullpath)
+    logger.debug('*** Getting schema for : %s', fullpath)
     try:
         with open(fullpath) as fp:
             soup = BeautifulSoup(fp.read(), 'html.parser')
