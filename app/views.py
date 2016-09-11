@@ -117,4 +117,6 @@ def add_header(response):
 def python():
     gists_by_categories = get_gists()
     d = OrderedDict(sorted(gists_by_categories.items()))
-    return render_template('python.html', gists_categories=d)
+    schema = {'name': 'Revit API - Python',
+              'description': 'Python Examples for the Revit API'}
+    return render_template('python.html', gists_categories=d, schema=schema)
