@@ -44,7 +44,7 @@ def api_year(year, filename=None):
         content_path = 'home.html'
         available_in = AVAILABLE_APIS
         schema = {'name': "Revit API {} Index".format(year),
-                  'description': 'Full Online Documenation for Revit API {}'.format(year)}
+                  'description': 'Full Online Documentation for Revit API {}'.format(year)}
     else:
         abort(404)
     try:

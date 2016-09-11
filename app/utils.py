@@ -38,7 +38,7 @@ def get_schema(*path):
             # Pages that have no summary description return symbol "A"
             # If description is too short (< 3), name is used instead
             if len(description) < 3 or len(description) > 300:
-                description = 'Documenation of {}'.format(name)
+                description = 'Documentation of {}'.format(name)
             namespace = soup.find(id='mainBody').find('a').text.strip()
         except AttributeError as errmsg:
             logger.error(errmsg)
