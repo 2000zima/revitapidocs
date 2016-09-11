@@ -24,7 +24,7 @@
             </div>
           </div>
           <div class="modal-footer">
-            <span class="text-muted small pull-left" style="line-height:40px">Could not find what you were looking for? Try a 
+            <span class="text-muted small pull-left" style="line-height:40px">Could not find what you were looking for? Try a
             <a id="google-link" target="=_blank">Google Search</a></span>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
@@ -131,7 +131,7 @@ $(document).ready(function() {
 
         var is_desktop = ($(window).width() > 990)
         if (("{{active_href}}" != 'None') && is_desktop){
-            console.log('active_href is not None. Iterating to find matching href');
+            // console.log('active_href is not None. Iterating to find matching href');
             var node, activeNode
             var activeNodeId, nodeId = 0;
                 do {
@@ -148,7 +148,7 @@ $(document).ready(function() {
         };
 
         if (activeNodeId != undefined){
-            console.log('Found Node.')
+            // console.log('Found Node.')
 
             $('#treeview').treeview('revealNode', [ activeNodeId, { silent: false } ]);
             $('#treeview').treeview('toggleNodeSelected', [ activeNodeId, { silent: false } ]);
@@ -159,10 +159,10 @@ $(document).ready(function() {
         }
 
         else {
-            console.log('Could not find matching node.')
+            // console.log('Could not find matching node.')
              if (is_desktop) {
                 // Auto Expand First level on Desktop
-                console.log("Active Node Not found, but it's a desktop. Open Node1")
+                // console.log("Active Node Not found, but it's a desktop. Open Node1")
                 $('#treeview').treeview('revealNode', [ 1, { silent: false } ]);
                 };
         };
@@ -195,14 +195,12 @@ $(document).ready(function() {
             // Search successful
             buildResults(results_json, pattern)
             ga('send', 'pageview', '?query=' + pattern);
-            console.log('GA PV Sent:' + '?query=' + pattern)
+            // console.log('GA PV Sent:' + '?query=' + pattern)
         });
     };
 
     function buildResults(results, pattern){
         if (pattern.length < 1) { pattern = 'None'}
-        $('.modal-title').html('Query: <strong>'+pattern+'</stron>');
-        $('#modal-loading').show();
         // var output
         var content = ''
         $.each(results, function (index, value) {
@@ -215,7 +213,8 @@ $(document).ready(function() {
     $("#form-quicksearch").submit(function(e) {
         var pattern = $('#input-search').val();
         e.preventDefault() // Keeps page from submitting and reloading
-        $('#result-div').html('<span id="menu-loading" class="small text-muted"><img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp;Loading</span>');
+        $('.modal-title').html('Query: <strong>'+pattern+'</stron>');
+        $('#result-div').html('<span id="menu-loading" class="small text-muted"><img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp; Loading</span>');
         $('#google-link').attr("href", "http://www.google.com/search?q=site:www.revitapidocs.com " + pattern)
         search(pattern)
     });

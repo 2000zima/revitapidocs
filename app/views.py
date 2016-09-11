@@ -24,7 +24,7 @@ from app.gists import get_gists
 @app.route('/index.html', methods=['GET'])
 def index():
     title = 'Revit API Docs'
-    return render_template('index.html', title=title, schema=None)
+    return render_template('index.html', title=title)
 
 # API: /2015/
 # API Pages: /2015/123sda-asds-asd.htmll
