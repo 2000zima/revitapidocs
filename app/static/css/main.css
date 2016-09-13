@@ -27,7 +27,7 @@ html, body {
   /*bottom: 20px;*/
   /*left: 20px;*/
   width: 300px;
-  right: 20px;
+  right: 15px;
   height: 50px;
 }
 
@@ -42,7 +42,7 @@ html, body {
 }
 
 #main-full{
-    padding:20px;
+    padding:15px;
     overflow-y: auto;
     width: 100%;
 }
@@ -79,7 +79,7 @@ html, body {
         bottom: 40px;       /* Height of Footer*/
         right: 0;
         overflow-y: auto;
-        padding: 20px;
+        padding: 15px;
     }
 
     #sidebar-search {
@@ -87,7 +87,7 @@ html, body {
         /*width: inherit;*/
         z-index: 99;
         position: relative;
-        padding:20px;
+        padding:15px;
         padding-top:15px;
         padding-bottom: 8px;
         margin:0px;
@@ -96,12 +96,12 @@ html, body {
     }
 
     #sidebar #menu-loading{
-        padding-left: 20px;
+        padding-left: 15px;
     }
 
     #alsofor {
-            top:20px;
-            right:20px;
+            top:15px;
+            right:15px;
             position: absolute;
             background-color: #eee;
             border: 1px solid #ddd;
