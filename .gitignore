@@ -1,6 +1,9 @@
 .git
-.env
 *.pyc
 *__pycache__*
 app/static/.webassets-cache/
 app/static/packed/
+.env
+.development
+.production
+.staging

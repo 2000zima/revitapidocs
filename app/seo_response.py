@@ -20,10 +20,6 @@ def static_from_root():
 @app.route("/<int:year>/sitemap.xml", methods=["GET"])
 def year_sitemap(year):
     """Generate sitemap.xml """
-    # pages = ['http://www.revitapidocs.com/',
-            #  'http://www.revitapidocs.com/2015/',
-            #  'http://www.revitapidocs.com/2016/',
-            #  'http://www.revitapidocs.com/2017']
     pages = ['http://www.revitapidocs.com/{year}/'.format(year=year)]
     templates = os.path.join('app', 'templates', str(year))
     for filename in os.listdir(templates):

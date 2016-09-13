@@ -84,7 +84,7 @@
         <!-- END JS WEBASSETS -->
 
         {# Google Analytics Script#}
-        {% if config.PRODUCTION and not config.STAGING %}
+        {% if config.PRODUCTION %}
         <!-- BASE: START GOOGLE ANALYTICS - HIDDEN WHEN DEBUG -->
         {% include 'analytics.html' %}
         <script>console.log('GA Loaded')</script>

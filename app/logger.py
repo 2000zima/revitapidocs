@@ -25,7 +25,7 @@ log_levels = {50: 'CRITICAL',
 dictConfig(LOGGER_CONFIG)
 
 logger = logging.getLogger()
-logger.info('LOG LEVEL IS: {}'.format(log_levels[logger.getEffectiveLevel()]))
+logger.info('** LOG LEVEL: {}'.format(log_levels[logger.getEffectiveLevel()]))
 
 # Disable urllib loggger
 logging.getLogger("github").setLevel(logging.WARNING)

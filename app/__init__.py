@@ -9,22 +9,23 @@ from app.assets import css_assets, js_assets
 from app.assets import css_chm, js_chm
 from app.logger import logger
 
+# Config
 app = Flask(__name__)
+flask_config = os.environ['FLASK_CONFIG']
+logger.info('** FLASK_CONFIG: {}'.format(flask_config))
+app.config.from_object('app.config.{}'.format(flask_config))
+
 Compress(app)
-cache = Cache(app, config={'CACHE_TYPE': 'simple'})
+cache = Cache(app)
 
 # ASSETS
 assets = Environment(app)
-assets.debug = bool(int(os.getenv('ASSETS_DEBUG', False)))
+assets.debug = bool(int(os.getenv('** ASSETS_DEBUG', False)))
 assets.register('css_assets', css_assets)
 assets.register('js_assets', js_assets)
 assets.register('css_chm', css_chm)
 assets.register('js_chm', js_chm)
-logger.info('ASSETS DEBUG: {}'.format(assets.debug))
-
-
-from app.config import config
-app.config.from_object(config)
+logger.debug('ASSETS DEBUG: {}'.format(assets.debug))
 
 from app import views, seo_response, errors
 from app import assets
