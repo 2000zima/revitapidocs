@@ -10,6 +10,7 @@ from flask import session, request, make_response
 from flask import abort, flash, jsonify
 from jinja2.exceptions import TemplateNotFound
 from werkzeug.exceptions import NotFound
+import flask_s3
 
 from app import app
 from app import cache

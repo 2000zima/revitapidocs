@@ -8,8 +8,17 @@ class Config(object):
     STAGING = False
     BASEDIR = os.path.abspath(os.path.dirname(__file__))
     TEMPLATEDIR = os.path.join(BASEDIR, 'templates')
-    SEND_FILE_MAX_AGE_DEFAULT = 604800  # 60*60*24*7 = 1 Week
+    DEFAULT_CACHE_EXP = 604800
+    SEND_FILE_MAX_AGE_DEFAULT = DEFAULT_CACHE_EXP  # 60*60*24*7 = 1 Week
     GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+    CACHE_TYPE = 'simple'
+
+    FLASKS3_BUCKET_NAME = 'revitapidocs'
+    FLASKS3_HEADERS = {'Cache-Control': 'max-age='.format(DEFAULT_CACHE_EXP)}
+    FLASKS3_ONLY_MODIFIED = True
+    FLASKS3_GZIP = True
+    AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 
 
 class ProductionConfig(Config):
