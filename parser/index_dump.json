@@ -1,0 +1,839 @@
+{
+ "PushButtonData Methods": {
+  "namespace": "Autodesk.Revit.UI",
+  "member_of": "PushButtonData Class",
+  "tag": "Methods",
+  "title": "PushButtonData",
+  "href": "00d25ffd-fea0-b020-951c-9ae91eb9082b.htm",
+  "year": "2015",
+  "description": "Determines whether the specified Object is equal to the current Object."
+ },
+ "TrussNotJoinedWebs Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..TrussFailures Class",
+  "tag": "Property",
+  "title": "TrussNotJoinedWebs",
+  "href": "00abe21f-ebd1-edd7-e05c-4f4515b3cbb7.htm",
+  "year": "2015",
+  "description": "The current edits are causing some webs to disjoin.  The truss layout family requires additional constraints to maintain these joins."
+ },
+ "ConcreteBendingReinforcement Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "StructuralAsset Class",
+  "tag": "Property",
+  "title": "ConcreteBendingReinforcement",
+  "href": "0005810b-32f5-0623-b094-c0c47fb50d32.htm",
+  "year": "2015",
+  "description": "The bending reinforcement of the asset."
+ },
+ "Separator Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "LayerModifier Class",
+  "tag": "Property",
+  "title": "Separator",
+  "href": "007e4867-d885-3c7b-1a4c-3552bb9bc2b4.htm",
+  "year": "2015",
+  "description": "The separator string that will follow this modifier in the export layer name."
+ },
+ "DXFExportOptions Class": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "Members",
+  "tag": "Class",
+  "title": "DXFExportOptions",
+  "href": "00783eca-208f-cc58-d56f-b47814a6957a.htm",
+  "year": "2015",
+  "description": "The export options used by exporting DXF format file."
+ },
+ "GetMacroManagerIterator Method": {
+  "namespace": "Autodesk.Revit.DB.Macros",
+  "member_of": "MacroManager Class",
+  "tag": "Method",
+  "title": "GetMacroManagerIterator",
+  "href": "00849391-fb3b-9381-4b9a-af908024c311.htm",
+  "year": "2015",
+  "description": "Returns a Macro manager iterator that iterates through the collection."
+ },
+ "TriangulationInterfaceForTriangulatedShellComponent Members": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "TriangulationInterfaceForTriangulatedShellComponent Class",
+  "tag": "Members",
+  "title": "TriangulationInterfaceForTriangulatedShellComponent",
+  "href": "001aaa1d-fe9c-fc7b-0066-3116ec2b0bc3.htm",
+  "year": "2015",
+  "description": "Constructs an interface object for a TriangulatedShellComponent."
+ },
+ "TextElement Class": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "Members",
+  "tag": "Class",
+  "title": "TextElement",
+  "href": "013e58c3-f3d2-d976-89f0-ff4ff701951d.htm",
+  "year": "2015",
+  "description": "Represents the TextElement."
+ },
+ "ImageExportOptions Methods": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "ImageExportOptions Class",
+  "tag": "Methods",
+  "title": "ImageExportOptions",
+  "href": "0059977e-2eca-c0c9-c005-8c74065d072f.htm",
+  "year": "2015",
+  "description": "Determines whether the specified Object is equal to the current Object."
+ },
+ "UIThemeManager Properties": {
+  "namespace": "Autodesk.Revit.UI",
+  "member_of": "UIThemeManager Class",
+  "tag": "Method",
+  "title": "UIThemeManager Properties",
+  "href": "00d02b6f-0fb7-ca55-b493-49784a86b050.htm",
+  "year": "2015",
+  "description": "The current theme."
+ },
+ "AssemblyDifferenceConfiguration Members": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "AssemblyDifferenceConfiguration Class",
+  "tag": "Members",
+  "title": "AssemblyDifferenceConfiguration",
+  "href": "002c9b86-ed74-97ef-1b54-0af69e0656a3.htm",
+  "year": "2015",
+  "description": "Determines whether the specified Object is equal to the current Object."
+ },
+ "GetHashCode Method": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "Document Class",
+  "tag": "Method",
+  "title": "GetHashCode",
+  "href": "006a71c2-4393-e036-9987-14467342a7d3.htm",
+  "year": "2015",
+  "description": "Gets the hash code of this document instance."
+ },
+ "WrongConstraintInJoistSystemSketch Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..DimensionFailures Class",
+  "tag": "Property",
+  "title": "WrongConstraintInJoistSystemSketch",
+  "href": "0157d83b-ec20-e596-49c3-ff541714148b.htm",
+  "year": "2015",
+  "description": "Structural Beam System sketch can't be constrained to its beam."
+ },
+ "RoofType Class": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "Members",
+  "tag": "Class",
+  "title": "RoofType",
+  "href": "00b5948e-1cb6-4f3b-acc1-9f000e8cc40d.htm",
+  "year": "2015",
+  "description": "Represents a specific type of roof."
+ },
+ "GetEvaluator Method": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "FilterStringRule Class",
+  "tag": "Method",
+  "title": "GetEvaluator",
+  "href": "00247f33-3684-dc0e-e371-954d14c19536.htm",
+  "year": "2015",
+  "description": "Gets the evaluator that implements the test for this rule."
+ },
+ "ReloadLatestOptions Members": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "ReloadLatestOptions Class",
+  "tag": "Members",
+  "title": "ReloadLatestOptions",
+  "href": "013d301e-8cb1-e816-00a5-69461d88eb5a.htm",
+  "year": "2015",
+  "description": "Constructs a new ReloadLatestOptions object."
+ },
+ "DistributionSystem Property": {
+  "namespace": "Autodesk.Revit.DB.Electrical",
+  "member_of": "ElectricalEquipment Class",
+  "tag": "Property",
+  "title": "DistributionSystem",
+  "href": "007c2efd-757f-dda3-c875-50622e546406.htm",
+  "year": "2015",
+  "description": "get or set the Distribution System for the Electrical Equipment."
+ },
+ "MaxRange Property": {
+  "namespace": "Autodesk.Revit.DB.Electrical",
+  "member_of": "ElectricalDemandFactorValue Class",
+  "tag": "Property",
+  "title": "MaxRange",
+  "href": "0003f9f7-1be6-9bcb-212a-d38767d01e10.htm",
+  "year": "2015",
+  "description": "The maximum range for this demand factor value.  For example, objects 1 to 3 can have 100% demand factor.\n   In the example above, the maximum range will be 3."
+ },
+ "GetOpeningData Method": {
+  "namespace": "Autodesk.Revit.DB.IFC",
+  "member_of": "ExporterIFCUtils Class",
+  "tag": "Method",
+  "title": "GetOpeningData",
+  "href": "00cd2edf-357c-88e0-6c90-853e11a896b9.htm",
+  "year": "2015",
+  "description": "Gets the openings data from the element."
+ },
+ "DimensionWithCommonLengthUnit Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..RebarShapeFailures Class",
+  "tag": "Property",
+  "title": "DimensionWithCommonLengthUnit",
+  "href": "010ac28a-d4d0-b299-a464-7c1fba8c0653.htm",
+  "year": "2015",
+  "description": "A shape dimension is labelled with a parameter that uses the Common Length unit."
+ },
+ "CannotCreateGroup Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..GroupFailures Class",
+  "tag": "Property",
+  "title": "CannotCreateGroup",
+  "href": "003db3a7-789a-dc15-222d-fe0eae1e559c.htm",
+  "year": "2015",
+  "description": "Cannot create group of these elements."
+ },
+ "ReferenceArrayArray Properties": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "ReferenceArrayArray Class",
+  "tag": "Method",
+  "title": "ReferenceArrayArray Properties",
+  "href": "00e78a4e-1fa5-bdf1-3144-94c33ec2cc99.htm",
+  "year": "2015",
+  "description": "Test to see if the array is empty."
+ },
+ "CannotFindHost Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..FamilyFailures Class",
+  "tag": "Property",
+  "title": "CannotFindHost",
+  "href": "006678e2-6ad1-e945-7dc2-cf6aeb9a6070.htm",
+  "year": "2015",
+  "description": "Couldn't find an appropriate Host.  Try selecting a different Host Face or switch Placement Mode."
+ },
+ "RevitServerException Members": {
+  "namespace": "Autodesk.Revit.Exceptions",
+  "member_of": "RevitServerException Class",
+  "tag": "Members",
+  "title": "RevitServerException",
+  "href": "00732c50-a7db-ee10-cadc-89921c8587ed.htm",
+  "year": "2015",
+  "description": "Determines whether the specified Object is equal to the current Object."
+ },
+ "GetElementFilterFromRule Method (PerformanceAdviserRuleId, Document)": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "PerformanceAdviser Class",
+  "tag": "Method",
+  "title": "GetElementFilterFromRule",
+  "href": "00d71deb-c805-5def-2205-87e20bd5de07.htm",
+  "year": "2015",
+  "description": "Retrieves a filter to restrict elements to be checked."
+ },
+ "NewFloor Method (CurveArray, FloorType, Level, Boolean)": {
+  "namespace": "Autodesk.Revit.Creation",
+  "member_of": "Document Class",
+  "tag": "Method",
+  "title": "NewFloor",
+  "href": "0092a6a8-c9cb-38be-769a-cd9fa58407e0.htm",
+  "year": "2015",
+  "description": "Creates a floor within the project with the given horizontal profile and floor style on the specified level."
+ },
+ "InsulationType Methods": {
+  "namespace": "Autodesk.Revit.DB.Electrical",
+  "member_of": "InsulationType Class",
+  "tag": "Methods",
+  "title": "InsulationType",
+  "href": "014b028d-7ade-6ee6-044b-c3c1a754c96b.htm",
+  "year": "2015",
+  "description": "Returns true if the properties CreatedPhaseId and DemolishedPhaseId can be modified for this Element."
+ },
+ "NewDimension Method": {
+  "namespace": "Autodesk.Revit.Creation",
+  "member_of": "FamilyItemFactory Class",
+  "tag": "Method",
+  "title": "NewDimension",
+  "href": "007003a1-baa9-0c96-a48d-dc204c832160.htm",
+  "year": "2015",
+  "description": "Creates a new linear dimension object."
+ },
+ "RuleString Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "FilterStringRule Class",
+  "tag": "Property",
+  "title": "RuleString",
+  "href": "00e9b7aa-61b7-ba3a-74ff-d430630566b7.htm",
+  "year": "2015",
+  "description": "The user-supplied string against which strings from a Revit document will be tested."
+ },
+ "Current Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "FormArrayIterator Class",
+  "tag": "Property",
+  "title": "Current",
+  "href": "00ad01bb-55ff-316c-ea47-2019ba2a62c7.htm",
+  "year": "2015",
+  "description": "Retrieves the item that is the current focus of the iterator."
+ },
+ "Outline Constructor": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "Outline Class",
+  "tag": "Constructor",
+  "title": "Outline",
+  "href": "01149575-7e21-f97d-89bb-151d3600d7f3.htm",
+  "year": "2015",
+  "description": "Constructs a new copy of the input Outline object."
+ },
+ "NumberOfPoints Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "DividedPath Class",
+  "tag": "Property",
+  "title": "NumberOfPoints",
+  "href": "001d103b-61ca-62e1-e7d4-eadaf73cfa3f.htm",
+  "year": "2015",
+  "description": "The total number of points of the divided surface.\n   This combines the layout points and the intersection points."
+ },
+ "MeshTriangle Class": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "Members",
+  "tag": "Class",
+  "title": "MeshTriangle",
+  "href": "00af4985-b107-cb1a-8954-b4078a9347ad.htm",
+  "year": "2015",
+  "description": "One triangle of a mesh."
+ },
+ "SelectPanel Method": {
+  "namespace": "Autodesk.Revit.DB.Electrical",
+  "member_of": "ElectricalSystem Class",
+  "tag": "Method",
+  "title": "SelectPanel",
+  "href": "008dafa1-ca02-d3fb-6bb8-0b0ac7fadcbc.htm",
+  "year": "2015",
+  "description": "Set the panel for the Electrical System."
+ },
+ "DigitGroupingAmount Enumeration": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "See Also",
+  "tag": "Method",
+  "title": "DigitGroupingAmount Enumeration",
+  "href": "0141b154-5863-50a9-050c-ad90c6247da1.htm",
+  "year": "2015",
+  "description": "The number of digits in each group when numbers are formatted with digit grouping."
+ },
+ "NewBlend Method": {
+  "namespace": "Autodesk.Revit.Creation",
+  "member_of": "FamilyItemFactory Class",
+  "tag": "Method",
+  "title": "NewBlend",
+  "href": "00173a0d-6075-0270-fd7e-080da420d339.htm",
+  "year": "2015",
+  "description": "Add a new Blend instance into the Autodesk Revit family document."
+ },
+ "WireType Methods": {
+  "namespace": "Autodesk.Revit.DB.Electrical",
+  "member_of": "WireType Class",
+  "tag": "Methods",
+  "title": "WireType",
+  "href": "0126218a-1957-221c-0fd1-b73891d8ccee.htm",
+  "year": "2015",
+  "description": "Returns true if the properties CreatedPhaseId and DemolishedPhaseId can be modified for this Element."
+ },
+ "StairsZeroDesiredRisers Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..StairRampFailures Class",
+  "tag": "Property",
+  "title": "StairsZeroDesiredRisers",
+  "href": "00077047-bcc4-4b8f-8a52-07340ec04412.htm",
+  "year": "2015",
+  "description": "The number of desired risers for a staircase cannot be 0."
+ },
+ "InfillNoSlopeGlazing Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..InfillFailures Class",
+  "tag": "Property",
+  "title": "InfillNoSlopeGlazing",
+  "href": "00feb0be-205e-2c2d-abdf-939d3a672fb5.htm",
+  "year": "2015",
+  "description": "Could not change type due to highlighted infilling element. 'Sloped glazing' infills are not allowed."
+ },
+ "MechanicalSystemType Members": {
+  "namespace": "Autodesk.Revit.DB.Mechanical",
+  "member_of": "MechanicalSystemType Class",
+  "tag": "Members",
+  "title": "MechanicalSystemType",
+  "href": "0016242c-2955-54a9-ff34-916634431d83.htm",
+  "year": "2015",
+  "description": "Returns true if the properties CreatedPhaseId and DemolishedPhaseId can be modified for this Element."
+ },
+ "CentralModelException Members": {
+  "namespace": "Autodesk.Revit.Exceptions",
+  "member_of": "CentralModelException Class",
+  "tag": "Members",
+  "title": "CentralModelException",
+  "href": "013d6963-ddce-0f42-07c2-c6e6cf728509.htm",
+  "year": "2015",
+  "description": "Determines whether the specified Object is equal to the current Object."
+ },
+ "TorsionalMomentOfInertia Property": {
+  "namespace": "Autodesk.Revit.DB.Structure.StructuralSections",
+  "member_of": "StructuralSectionRectangular Class",
+  "tag": "Property",
+  "title": "TorsionalMomentOfInertia",
+  "href": "00839547-8c7a-7947-f146-9e03e739cdc5.htm",
+  "year": "2015",
+  "description": "Torsional Moment of inertia (J, IT, K), for calculation of torsional deformation"
+ },
+ "SATExportOptions Constructor (SATExportOptions)": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "SATExportOptions Class",
+  "tag": "Constructor",
+  "title": "SATExportOptions",
+  "href": "00776865-9477-5550-9516-333c0a4726d2.htm",
+  "year": "2015",
+  "description": "Constructs a new instance of SATImportOptions as a copy of the export options."
+ },
+ "ChangePanelType Method": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "CurtainGrid Class",
+  "tag": "Method",
+  "title": "ChangePanelType",
+  "href": "00a3e500-c61a-4f6a-7a98-7340bef88f4c.htm",
+  "year": "2015",
+  "description": "Change the type of a curtain panel."
+ },
+ "ExtensibleStorageFilter Members": {
+  "namespace": "Autodesk.Revit.DB.ExtensibleStorage",
+  "member_of": "ExtensibleStorageFilter Class",
+  "tag": "Members",
+  "title": "ExtensibleStorageFilter",
+  "href": "004fe9d1-0b32-4ed3-b8c6-42e0ae00a5a3.htm",
+  "year": "2015",
+  "description": "Constructs a new instance of a filter to match elements with extensible storage data based on specific Schema id."
+ },
+ "MoveNext Method": {
+  "namespace": "Autodesk.Revit.DB.Structure",
+  "member_of": "PointLoadTypeSetIterator Class",
+  "tag": "Method",
+  "title": "MoveNext",
+  "href": "015209bf-bb60-26ab-0db0-3c2373f4f401.htm",
+  "year": "2015",
+  "description": "Move the iterator one item forward."
+ },
+ "RoomTagFilter Properties": {
+  "namespace": "Autodesk.Revit.DB.Architecture",
+  "member_of": "RoomTagFilter Class",
+  "tag": "Method",
+  "title": "RoomTagFilter Properties",
+  "href": "013ae467-316e-76c0-4544-7f7190ddfc95.htm",
+  "year": "2015",
+  "description": "True if the results of the filter are inverted; elements that would normally be accepted by this filter will be rejected,\n   and elements that would normally be rejected will be accepted."
+ },
+ "BadRailProfile Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..StairRampFailures Class",
+  "tag": "Property",
+  "title": "BadRailProfile",
+  "href": "00f3aeb4-8b39-c3ee-245d-2ddc1c478eb1.htm",
+  "year": "2015",
+  "description": "One or more Profile Loops are invalid, probably because of self-intersection."
+ },
+ "RegenerationAttribute Class": {
+  "namespace": "Autodesk.Revit.Attributes",
+  "member_of": "Members",
+  "tag": "Class",
+  "title": "RegenerationAttribute",
+  "href": "0145b116-6d5c-8a29-ae86-5a558e198575.htm",
+  "year": "2015",
+  "description": "The custom regeneration attribute to control the regeneration behavior of the external command or external application."
+ },
+ "JoinType Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "LocationCurve Class",
+  "tag": "Property",
+  "title": "JoinType",
+  "href": "00b7a1a8-0e12-d02e-7e25-4716baf6dcdc.htm",
+  "year": "2015",
+  "description": "Get/change the type of the join at the specified end."
+ },
+ "HostMeasurementError Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..PointFailures Class",
+  "tag": "Property",
+  "title": "HostMeasurementError",
+  "href": "003495bb-a494-64d5-650f-9d216266c255.htm",
+  "year": "2015",
+  "description": "Invalid host curve measurement type or value or justification"
+ },
+ "HasValue Property": {
+  "namespace": "Autodesk.Revit.DB.IFC",
+  "member_of": "IFCAnyHandle Class",
+  "tag": "Property",
+  "title": "HasValue",
+  "href": "0059a98c-ceba-3656-56d5-46ff8a95c6a0.htm",
+  "year": "2015",
+  "description": "Identifies if the handle is empty or contains a value."
+ },
+ "PopTransform Method": {
+  "namespace": "Autodesk.Revit.DB.IFC",
+  "member_of": "ExporterIFC Class",
+  "tag": "Method",
+  "title": "PopTransform",
+  "href": "004039fe-8364-af98-6a51-7df026ea4fc0.htm",
+  "year": "2015",
+  "description": "Resets the internal transform of the exporter to process the previously active input element (if any), or\n   the default transform if the stack is empty."
+ },
+ "TotalDepth Property": {
+  "namespace": "Autodesk.Revit.DB.Architecture",
+  "member_of": "StairsRunType Class",
+  "tag": "Property",
+  "title": "TotalDepth",
+  "href": "00e10880-4a18-381a-44fb-51dd1ba226b8.htm",
+  "year": "2015",
+  "description": "The total depth of the stairs run, only available for monolithic stairs run."
+ },
+ "GetLabelFor Method (UnitType)": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "LabelUtils Class",
+  "tag": "Method",
+  "title": "GetLabelFor",
+  "href": "00ec03f9-0636-ca6e-0f45-501ff1073b18.htm",
+  "year": "2015",
+  "description": "Gets the user-visible name for a UnitType."
+ },
+ "Transformed Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "Mesh Class",
+  "tag": "Property",
+  "title": "Transformed",
+  "href": "00e8a597-b351-cc16-e236-87095e84d6f6.htm",
+  "year": "2015",
+  "description": "Transforms this mesh and returns the result."
+ },
+ "RevitLink Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "ExternalResourceTypes..::..BuiltInExternalResourceTypes Class",
+  "tag": "Property",
+  "title": "RevitLink",
+  "href": "0010ac27-ce75-aae5-af64-0f58a6411109.htm",
+  "year": "2015",
+  "description": "An external resource type representing Revit Links data."
+ },
+ "Contains Method": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "ProjectLocationSet Class",
+  "tag": "Method",
+  "title": "Contains",
+  "href": "007b3a3e-e714-28a1-d019-a8fef1757a7b.htm",
+  "year": "2015",
+  "description": "Tests for the existence of a project location within the set."
+ },
+ "DesignOptionAndWorksetViolation Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..AutoJoinFailures Class",
+  "tag": "Property",
+  "title": "DesignOptionAndWorksetViolation",
+  "href": "01402346-36db-2c1a-390b-54c421b918a2.htm",
+  "year": "2015",
+  "description": "Can't make the expected join because of editability and design option restrictions."
+ },
+ "CannotCreateRailWarn Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..StairRampFailures Class",
+  "tag": "Property",
+  "title": "CannotCreateRailWarn",
+  "href": "01472603-e391-f859-e9d3-90ba1a3a1c33.htm",
+  "year": "2015",
+  "description": "Can't create Railing. Thickness of Rail or Balusters might be too small. If you don't want Balusters,  specify \"None\" for Baluster Shape."
+ },
+ "ScheduleDefinition Properties": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "ScheduleDefinition Class",
+  "tag": "Method",
+  "title": "ScheduleDefinition Properties",
+  "href": "0060d39a-f1a9-c867-a3bb-f9fe9abbcf7d.htm",
+  "year": "2015",
+  "description": "In an area schedule, the ID of the area scheme to display."
+ },
+ "GetReferenceCallouts Method": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "View Class",
+  "tag": "Method",
+  "title": "GetReferenceCallouts",
+  "href": "00cf51d8-dfcd-3bb3-91e8-91b49d0c4f0d.htm",
+  "year": "2015",
+  "description": "Returns element ids of all reference callouts in the view."
+ },
+ "Definition Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "FamilyParameter Class",
+  "tag": "Property",
+  "title": "Definition",
+  "href": "00308c2a-5024-e7d8-5e6a-90c656ea2db9.htm",
+  "year": "2015",
+  "description": "The definition."
+ },
+ "CannotUpdateWall Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..CreationFailures Class",
+  "tag": "Property",
+  "title": "CannotUpdateWall",
+  "href": "01168e9e-ef0d-a8de-cb47-5731c09973e6.htm",
+  "year": "2015",
+  "description": "Can't update Wall."
+ },
+ "GetAlignmentMethod Method (AnalyticalElementSelector)": {
+  "namespace": "Autodesk.Revit.DB.Structure",
+  "member_of": "AnalyticalModelStick Class",
+  "tag": "Method",
+  "title": "GetAlignment",
+  "href": "006d8b29-e66a-e329-fa12-72f5a86add3a.htm",
+  "year": "2015",
+  "description": "Gets the alignment method for a given selector."
+ },
+ "FasciaTypeSetIterator Methods": {
+  "namespace": "Autodesk.Revit.DB.Architecture",
+  "member_of": "FasciaTypeSetIterator Class",
+  "tag": "Methods",
+  "title": "FasciaTypeSetIterator",
+  "href": "001ac387-d6c6-9df7-150f-8ed091fb7bf0.htm",
+  "year": "2015",
+  "description": "Causes the object to release immediately any resources it may be utilizing."
+ },
+ "DataStorage Class": {
+  "namespace": "Autodesk.Revit.DB.ExtensibleStorage",
+  "member_of": "Members",
+  "tag": "Class",
+  "title": "DataStorage",
+  "href": "015081b6-3a45-1b4c-991a-93419e9acd51.htm",
+  "year": "2015",
+  "description": "An element which allows an API applications to organize and store data."
+ },
+ "IsValidObject Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "SATExportOptions Class",
+  "tag": "Property",
+  "title": "IsValidObject",
+  "href": "00b47708-0e6b-0bfa-2616-b4ae93c76e53.htm",
+  "year": "2015",
+  "description": "Specifies whether the .NET object represents a valid Revit entity."
+ },
+ "PickedBox Properties": {
+  "namespace": "Autodesk.Revit.UI.Selection",
+  "member_of": "PickedBox Class",
+  "tag": "Method",
+  "title": "PickedBox Properties",
+  "href": "00e8d907-85aa-d1ad-7aaf-308f6524f07c.htm",
+  "year": "2015",
+  "description": "Maximum coordinates (upper-right-front corner of the pick box)."
+ },
+ "GetTemplate Method": {
+  "namespace": "Autodesk.Revit.DB.Electrical",
+  "member_of": "PanelScheduleView Class",
+  "tag": "Method",
+  "title": "GetTemplate",
+  "href": "0150a58d-4d48-6552-384f-d5faa08d08e0.htm",
+  "year": "2015",
+  "description": "Gets the template for this view (to set the template, you must go through generateInstanceFromTemplate)"
+ },
+ "ReverseIterator Method": {
+  "namespace": "Autodesk.Revit.DB.Electrical",
+  "member_of": "CorrectionFactorSet Class",
+  "tag": "Method",
+  "title": "ReverseIterator",
+  "href": "012415ba-04a3-3c94-e48b-9b6684d94f5d.htm",
+  "year": "2015",
+  "description": "Retrieve a backward moving iterator to the set."
+ },
+ "BaseEquipment Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "MEPSystem Class",
+  "tag": "Property",
+  "title": "BaseEquipment",
+  "href": "00d90c4f-1946-1069-7887-f12899846481.htm",
+  "year": "2015",
+  "description": "The base panel or equipment of the system."
+ },
+ "GeometryWarning Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..InterferenceFailures Class",
+  "tag": "Property",
+  "title": "GeometryWarning",
+  "href": "0062e7ac-874a-ee7e-7918-974187af0d66.htm",
+  "year": "2015",
+  "description": "A geometrical error has occurred while checking for Interference. Reported interference may not be accurate."
+ },
+ "Parameter Property": {
+  "namespace": "Autodesk.Revit.DB.Structure",
+  "member_of": "Truss Class",
+  "tag": "Property",
+  "title": "Parameter",
+  "href": "00a27cc7-2ed2-800c-3dda-3c76abafe655.htm",
+  "year": "2015",
+  "description": "Retrieves a parameter from the element given an identifier."
+ },
+ "SpatialElementCalculationPoint Class": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "Members",
+  "tag": "Class",
+  "title": "SpatialElementCalculationPoint",
+  "href": "01206063-c774-da20-48ef-2cabf599e106.htm",
+  "year": "2015",
+  "description": "SpatialElementCalculationPoint is used as the search point for family instances\n   placement inside rooms and spaces."
+ },
+ "IsShownInMedium Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "FamilyElementVisibility Class",
+  "tag": "Property",
+  "title": "IsShownInMedium",
+  "href": "001f297f-a413-1c47-3374-52368a1dc157.htm",
+  "year": "2015",
+  "description": "Indicates if the instance is display with Medium detail level in the view \nof project document."
+ },
+ "GetRuleDescription Method (Int32)": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "PerformanceAdviser Class",
+  "tag": "Method",
+  "title": "GetRuleDescription",
+  "href": "00e4ff47-36d6-4183-57d0-6a1992dd9ffb.htm",
+  "year": "2015",
+  "description": "Retrieves the description of the rule."
+ },
+ "Dispose Method": {
+  "namespace": "Autodesk.Revit.DB.Structure",
+  "member_of": "StructuralSectionsServiceData Class",
+  "tag": "Method",
+  "title": "Dispose",
+  "href": "00c06a85-1d38-586a-da53-f9df84288959.htm",
+  "year": "2015",
+  "description": "Releases all resources used by the StructuralSectionsServiceData"
+ },
+ "Material Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "Category Class",
+  "tag": "Property",
+  "title": "Material",
+  "href": "00aa768a-fca2-172f-e5d4-a4d787803983.htm",
+  "year": "2015",
+  "description": "Retrieves or changes the material of the category."
+ },
+ "Curve Methods": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "Curve Class",
+  "tag": "Methods",
+  "title": "Curve",
+  "href": "00f449d5-911f-205b-99f8-88f180ab5104.htm",
+  "year": "2015",
+  "description": "Returns a copy of this curve."
+ },
+ "SetGlobal3DDirectionHandles Method": {
+  "namespace": "Autodesk.Revit.DB.IFC",
+  "member_of": "ExporterIFCUtils Class",
+  "tag": "Method",
+  "title": "SetGlobal3DDirectionHandles",
+  "href": "003adb28-a381-05f5-6490-e80ecc13b4fe.htm",
+  "year": "2015",
+  "description": "Sets the handles representing the cardinal directions in 3D."
+ },
+ "BarsTooCloseNumber Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..RebarSystemFailures Class",
+  "tag": "Property",
+  "title": "BarsTooCloseNumber",
+  "href": "002e7b26-815c-a9e8-e625-3be04e12589d.htm",
+  "year": "2015",
+  "description": "Bars are too close together. Decrease the Number Of Lines parameter."
+ },
+ "AtomTouchedNotAllowed Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..GroupFailures Class",
+  "tag": "Property",
+  "title": "AtomTouchedNotAllowed",
+  "href": "004161a3-2f19-89de-6478-3d7441123235.htm",
+  "year": "2015",
+  "description": "Changes to groups are only allowed during Edit Group mode. Use Edit Group to make this change."
+ },
+ "Erase Method": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BeamSystemTypeSet Class",
+  "tag": "Method",
+  "title": "Erase",
+  "href": "00ec189b-82c9-1f09-c934-d2e9e2f03110.htm",
+  "year": "2015",
+  "description": ""
+ },
+ "IsEmpty Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "AnnotationSymbolTypeSet Class",
+  "tag": "Property",
+  "title": "IsEmpty",
+  "href": "01263ce8-93a2-a731-09f8-49cd03019b3c.htm",
+  "year": "2015",
+  "description": "Test to see if the set is empty."
+ },
+ "PointLoadTypeSetIterator Class": {
+  "namespace": "Autodesk.Revit.DB.Structure",
+  "member_of": "Members",
+  "tag": "Class",
+  "title": "PointLoadTypeSetIterator",
+  "href": "0117ab04-4632-c7f7-8f8a-b09679c1421d.htm",
+  "year": "2015",
+  "description": "An iterator to a pointload type set."
+ },
+ "Basis Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "Transform Class",
+  "tag": "Property",
+  "title": "Basis",
+  "href": "00944fa6-49d9-4564-9f55-c0f71fa14706.htm",
+  "year": "2015",
+  "description": "Defines the basis of the old coordinate system in the new coordinate system."
+ },
+ "SetLocalPlacement Method": {
+  "namespace": "Autodesk.Revit.DB.IFC",
+  "member_of": "IFCExtrusionCreationData Class",
+  "tag": "Method",
+  "title": "SetLocalPlacement",
+  "href": "0053794b-01e0-bc6e-ff1c-f78b16be0c71.htm",
+  "year": "2015",
+  "description": "Sets the data to reference an IfcLocalPlacement handle when creating the extrusion.\n   Side effect: will set ReuseLocalPlacement to true."
+ },
+ "ValueAtPoint Class": {
+  "namespace": "Autodesk.Revit.DB.Analysis",
+  "member_of": "Members",
+  "tag": "Class",
+  "title": "ValueAtPoint",
+  "href": "00d82cae-806a-8145-5228-bb362c641790.htm",
+  "year": "2015",
+  "description": "Stores values at one domain point.\n   Each value corresponds to a \"measurement\" for which this value was calculated."
+ },
+ "FailedUpdateCurveChain Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..GeometryFailures Class",
+  "tag": "Property",
+  "title": "FailedUpdateCurveChain",
+  "href": "00eff26a-414c-e0f0-4849-c815a733d0af.htm",
+  "year": "2015",
+  "description": "Failed to update curve chain."
+ },
+ "IExportContext Members": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "IExportContext Interface",
+  "tag": "Members",
+  "title": "IExportContext",
+  "href": "00dd06f6-d262-fd7f-5886-6ae200cb64aa.htm",
+  "year": "2015",
+  "description": "This method is called at the very end of the export proces,\n   after all entities were processed (or after the process was cancelled)."
+ },
+ "Type Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "LinePatternSegment Class",
+  "tag": "Property",
+  "title": "Type",
+  "href": "0045c894-895c-978a-40bd-06bae49abc34.htm",
+  "year": "2015",
+  "description": "Gets and sets the type of the segment."
+ },
+ "WinderFirstLegTooShortOrRunWidthTooGreatFailure Property": {
+  "namespace": "Autodesk.Revit.DB",
+  "member_of": "BuiltInFailures..::..StairRampFailures Class",
+  "tag": "Property",
+  "title": "WinderFirstLegTooShortOrRunWidthTooGreatFailure",
+  "href": "00481994-b5bf-018e-e1fb-268597f16440.htm",
+  "year": "2015",
+  "description": "The first leg of winder run is too short or the runwidth is too great."
+ }
+}

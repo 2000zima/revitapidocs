@@ -71,6 +71,7 @@ def namespace_get(year):
         j = json.load(fp)
     return jsonify(j)
 
+# Add a get name_space json function that get's cached
 
 # Not Cached to Prevent High Memory Usage
 @app.route('/<string:year>/search', methods=['GET'])
