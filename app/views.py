@@ -16,44 +16,46 @@ from app import cache
 from app.logger import logger
 from app.utils import AVAILABLE_APIS
 from app.utils import get_schema, check_available_years, Timer
-from app.utils import get_index_json, create_permutation_query
+from app.utils import create_permutation_query
 from app.gists import get_gists
-from app.db import db, Page
+from app.db import db, db_query
 
 
-# @cache.cached(timeout=60)
+@cache.cached(timeout=600)
 @app.route('/')
 @app.route('/index.html', methods=['GET'])
 def index():
     title = 'Revit API Docs'
     return render_template('index.html', title=title)
 
-# API: /2015/
 # API Pages: /2015/123sda-asds-asd.htmll
 @cache.cached(timeout=600)
 @app.route('/<string:year>/', methods=["GET"])
 @app.route('/<string:year>/<path:filename>', methods=["GET"])
 def api_year(year, filename=None):
     """Add Docs"""
-    active_href = filename
+    template = 'api.html'
 
     if filename:
         content_path = '{year}/{html}'.format(year=year, html=filename)
+        schema = get_schema(filename, year=year)
         available_in = check_available_years(filename)
-        active_href = filename
-        schema = get_schema(year, filename)
-    elif year in AVAILABLE_APIS:
+        if available_in and year not in available_in:
+            # file exists but not year requested
+            template = 'missing.html'
+
+    elif not filename and year in AVAILABLE_APIS:
         content_path = 'home.html'
         available_in = AVAILABLE_APIS
-        schema = {'name': "Revit API {} Index".format(year),
+        schema = {'title': "Revit API {} Index".format(year),
                   'description': 'Full Online Documentation for Revit API {}'.format(year)}
+
     else:
         abort(404)
     try:
-        logger.debug('Schema: %s', schema)
-        return render_template('api.html', year=year, active_href=active_href,
-                               content=content_path,
-                               available_in=available_in, schema=schema)
+        return render_template(template, year=year, active_href=filename,
+                               content=content_path, available_in=available_in,
+                               schema=schema)
 
     except TemplateNotFound as error:
         """Must handle it since { include } inside template is generated
@@ -73,35 +75,32 @@ def namespace_get(year):
         j = json.load(fp)
     return jsonify(j)
 
-# Add a get name_space json function that get's cached
-# Not Cached to Prevent High Memory Usage
-@app.route('/<string:year>/search', methods=['GET'])
-def api_member_search(year):
+@app.route('/<string:year>/searchapi', methods=['GET'])
+def search_api(year):
     t = Timer()
-    results = []
+    MAX_RESULTS = 300
+
     query = request.args.get('query')
     # query = re.sub(r'\s', r'(\s|\.)?', query)
     logger.debug('Search Query: ' + str(query))
 
-    if not query or query == '0' or len(query) == 0:
+    if not query or query == '0':
         return jsonify({'error': 'Invalid Query'})
 
     query = create_permutation_query(query)
     final_query_pat = re.compile(query, re.IGNORECASE)
-    results = db.search(Page.title.search(final_query_pat))
+    results = db.search(db_query.title.search(final_query_pat))
 
     if not results:
         return jsonify({'error': 'No Results'})
 
     sorted_results = sorted(results, key=lambda k: k['title'])
-    if len(sorted_results) > 100:
-        sorted_results = sorted_results[:100]
+    if len(sorted_results) > MAX_RESULTS:
+        flash('Results Truncated to 300. Try narrowing your search.')
+        sorted_results = sorted_results[:MAX_RESULTS]
 
     logger.info('*** TIME: ' + str(t.stop()))
     return jsonify(sorted_results)
-
-
-
 
 
 # This handles the static files form the .CHM content
@@ -126,6 +125,6 @@ def add_header(response):
 def python():
     gists_by_categories = get_gists()
     d = OrderedDict(sorted(gists_by_categories.items()))
-    schema = {'name': 'Revit API - Python',
+    schema = {'title': 'Revit API - Python',
               'description': 'Python Examples for the Revit API'}
     return render_template('python.html', gists_categories=d, schema=schema)

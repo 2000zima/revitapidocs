@@ -1,6 +1,9 @@
+Misc:
+☐ Document Views and API.html
+☐ Add Context for testing
+
 Core Tasks:
-✔ Python Gists: add handling
-✔ Fix Google Search
+✔ Python Gists: add handling @done(2016-10-03 09:37)
 ✔ Improve Namespace menu (long html) @done(2016-08-14 12:55)
 ✔ Solution for Chm static @done(2016-08-14 12:55)
 ✔ Parse 2015 @done
@@ -16,6 +19,9 @@ Minor Tasks:
 Features:
 ✔ Roll Panes separately @done(2016-08-14 12:56)
 ✔ Add Commenting System @done(2016-08-02 01:27)
+✔ DB Index @done(2016-10-03 09:36)
+✔ Search Result Interface @done(2016-10-03 09:36)
+✔ Redirect Missign Resource @done(2016-10-03 09:36)
 
 Bugs:
 ✔ Make it Mobile responsive @done(2016-08-02 01:27)

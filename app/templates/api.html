@@ -188,9 +188,7 @@ $(document).ready(function() {
     $('#google-link').attr("href", "http://www.google.com/search?q=site:www.revitapidocs.com " + pattern)
 
     var results_json;
-    $.getJSON("search?query=" + pattern, function(json) {
-        // results_json = JSON.parse(json);
-        // results_json = JSON.stringify(json);
+    $.getJSON("searchapi?query=" + pattern, function(json) {
         results_json = json;
         })
         .done(function(){
@@ -218,7 +216,7 @@ $(document).ready(function() {
 
             '<span class="badge pull-right">' + value.tag + '</span>' + '</h5>' +
             '<p class="member-of small">' + value.namespace + ' : ' + '<a href="' + value.member_of_href +'">' + value.member_of +'</a>' +
-            '<span class="small year">' +  value.year +'</span></p>' +
+            '<span class="small year">' +  value.year.join(' / ') +'</span></p>' +
             // '<span class="member-of small">::' + value.namespace +'</span></p>' +
             '<p class="description small">' + value.description + '</p>' +
             '</div>'

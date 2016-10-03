@@ -2,10 +2,11 @@ import os
 import time
 from bs4 import BeautifulSoup
 from itertools import permutations
-import ujson
+import json
 
 from app import app, cache
 from app.logger import logger
+from app.db import db, db_query
 
 AVAILABLE_APIS = ['2015', '2016', '2017']
 
@@ -22,48 +23,17 @@ def check_available_years(filename):
 
 
 # @cache.cached(timeout=86400)
-def get_schema(*path):
+def get_schema(filename, year=None):
     """This should be stored/cached in database"""
-    template_dir = app.config['TEMPLATEDIR']
-    filepath = '/'.join(path)
-    fullpath = '{}/{}'.format(template_dir, filepath)
-    logger.debug('*** Getting schema for : %s', fullpath)
-    try:
-        with open(fullpath) as fp:
-            soup = BeautifulSoup(fp.read(), 'html.parser')
-    except IOError as errmsg:
-        logger.error(errmsg)
-    else:
-        try:
-            name = soup.title.string.strip()
-            description = soup.find(id='mainBody').find('div').text.strip()
-            # description = soup.find(id='mainBody').find('div', { "class": "summary"}).text.strip()
-            # Pages that have no summary description return symbol "A"
-            # If description is too short (< 3), name is used instead
-            if len(description) < 3 or len(description) > 300:
-                description = 'Documentation of {}'.format(name)
-            namespace = soup.find(id='mainBody').find('a').text.strip()
-        except AttributeError as errmsg:
-            logger.error(errmsg)
-        else:
-            return {'name': name,
-                    'description': description,
-                    'namespace': namespace}
-    logger.error('Failed to get schema:: %s', fullpath)
-    return
+    results = db.search(db_query.href == filename)
+    if not results:
+        return
+    entry = results[0]
+    if year is None or year in entry.get('year'):
+        return entry
+    logger.error('Failed to get schema:: %s', filename)
+    return None
 
-
-@cache.cached(timeout=86400)
-def get_index_json():
-    # NOT USED: see db.py
-    # filename = 'members_{year}.json'.format(year=year)
-    # fullpath = '{}/{}/{}/{}'.format(cwd, app.template_folder, 'json', filename)
-    cwd = app.config['BASEDIR']
-    fullpath = 'parser/ns_index4.json'
-    with open(fullpath) as fp:
-        members = ujson.load(fp)
-        # members = json.load(fp, object_pairs_hook=OrderedDict)
-    return members
 
 def create_permutation_query(query):
     # query = 'Create Wall Method'
