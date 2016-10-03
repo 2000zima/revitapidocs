@@ -12,7 +12,7 @@
 <!-- START  API HTML -->
 
     <!-- MODAL SEARCH -->
-    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -20,8 +20,10 @@
             <h4 class="modal-title" id="myModalLabel"></h4>
           </div>
           <div class="modal-body">
-            <div class="list-group" id="result-div">
+            {# <div class="list-group" id="result-div">#}
+            <div id="result-div">
             </div>
+
           </div>
           <div class="modal-footer">
             <span class="text-muted small pull-left" style="line-height:40px">Could not find what you were looking for? Try a
@@ -45,7 +47,7 @@
                   <div class="input-group input-group-sm">
                     <input type="text" class="form-control" id="input-search" placeholder="Regex">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" id="btn-search" type="submit" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-search"></span></button>
+                        <button class="btn btn-default" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
                       </span>
                   </div>
             </div>
@@ -107,7 +109,7 @@ $(document).ready(function() {
     });
 
     // Needs fail handling
-    ajax.always(function() {
+    ajax.done(function() {
         console.log('Ajax JSON namespace loaded.');
         });
 
@@ -131,7 +133,7 @@ $(document).ready(function() {
 
         var is_desktop = ($(window).width() > 990)
         if (("{{active_href}}" != 'None') && is_desktop){
-            // console.log('active_href is not None. Iterating to find matching href');
+            console.log('active_href is not None. Iterating to find matching href');
             var node, activeNode
             var activeNodeId, nodeId = 0;
                 do {
@@ -167,6 +169,7 @@ $(document).ready(function() {
                 };
         };
 
+        console.log("Hiding Loader Gif...")
         $('#menu-loading').animate({opacity: 0},200);
         $('#menu-loading').hide();
         $('#treeview').animate({opacity: 1}, 200);
@@ -185,6 +188,11 @@ $(document).ready(function() {
     };  // End of Build Menue Call Back Function
 
     function search(pattern){
+
+    $('.modal-title').html('Query: <strong>'+pattern+'</strong>');
+    $('#result-div').html('<span class="small text-muted"><img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp; Loading</span>');
+    $('#google-link').attr("href", "http://www.google.com/search?q=site:www.revitapidocs.com " + pattern)
+
     var results_json;
     $.getJSON("search?query=" + pattern, function(json) {
         // results_json = JSON.parse(json);
@@ -196,6 +204,7 @@ $(document).ready(function() {
             buildResults(results_json, pattern)
             ga('send', 'pageview', '?query=' + pattern);
             // console.log('GA PV Sent:' + '?query=' + pattern)
+            $('.modal-title').append('<span class="text-muted small"> [' +  results_json.length +']</span>');
         });
     };
 
@@ -203,22 +212,54 @@ $(document).ready(function() {
         if (pattern.length < 1) { pattern = 'None'}
         // var output
         var content = ''
-        $.each(results, function (index, value) {
-        var ahref = '<a href="' + value.link + '" class="list-group-item">' + value.name + '</a>'
-        content += ahref
-        });
+
+        if ( results[0].error ){
+            content = results[0].error
+        }
+        else{
+            $.each(results, function (index, value) {
+            var ahref =
+
+            '<h5><a href="' + value.href + '">' + value.title + '</a>' +
+
+            '<span class="badge pull-right">' + value.tag + '</span>' + '</h5>' +
+            '<p class="member-of small">: <a href="' + value.member_of_href +'">' + value.member_of +'</a>' +
+            '<span class="small year">' + value.year +'</span></p>' +
+            '<p class="description small">' + value.description + '</p>'
+
+
+            content += ahref
+            });
+        };
         $('#result-div').html(content);
+
     };
 
     $("#form-quicksearch").submit(function(e) {
         var pattern = $('#input-search').val();
         e.preventDefault() // Keeps page from submitting and reloading
-        $('.modal-title').html('Query: <strong>'+pattern+'</stron>');
-        $('#result-div').html('<span id="menu-loading" class="small text-muted"><img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp; Loading</span>');
-        $('#google-link').attr("href", "http://www.google.com/search?q=site:www.revitapidocs.com " + pattern)
+        history.pushState(null, null, '?query=' + pattern + '&#searchModal');
         search(pattern)
     });
 
+    $.urlParam = function(name){
+        var url = decodeURIComponent(window.location.href)
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(url);
+        if (results==null){
+           return null;
+        }
+        else{
+           return results[1] || 0;
+        }
+    };
+    // Build Model and Results From URL
+    if(window.location.href.indexOf('#searchModal') != -1) {
+    $('#searchModal').modal('show');
+    var pattern = $.urlParam('query')
+    search(pattern)
+    };
+
+    // Sidebar Search
     $("#sidebar").scroll(function(){
     if ($("#sidebar").scrollTop() > 1){
         $("#sidebar-search").css("top", $("#sidebar").scrollTop() + 0 + "px");
@@ -231,6 +272,7 @@ $(document).ready(function() {
         $("#sidebar-search").removeClass("bottom-shadow")
     }
     });
+
 
 
 

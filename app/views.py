@@ -15,8 +15,10 @@ from app import app
 from app import cache
 from app.logger import logger
 from app.utils import AVAILABLE_APIS
-from app.utils import get_schema, check_available_years
+from app.utils import get_schema, check_available_years, Timer
+from app.utils import get_index_json, create_permutation_query
 from app.gists import get_gists
+from app.db import db, Page
 
 
 # @cache.cached(timeout=60)
@@ -72,28 +74,29 @@ def namespace_get(year):
     return jsonify(j)
 
 # Add a get name_space json function that get's cached
-
 # Not Cached to Prevent High Memory Usage
 @app.route('/<string:year>/search', methods=['GET'])
-def namespace_search(year):
-    cwd = app.config['BASEDIR']
-    filename = 'members_{year}.json'.format(year=year)
-    fullpath = '{}/{}/{}/{}'.format(cwd, app.template_folder, 'json', filename)
-    with open(fullpath) as fp:
-        members = json.load(fp, object_pairs_hook=OrderedDict)
+def api_member_search(year):
+    members = get_index_json()
+    t = Timer()
     results = []
-    NO_RESULTS_RESPONSE = [{'name':'No Results', 'link': '#'}]
+    NO_RESULTS_RESPONSE = [{'error':'No Results'}]
     query = request.args.get('query')
-    query = re.sub(r'\s', r'(\s|\.)?', query)
+    # query = re.sub(r'\s', r'(\s|\.)?', query)
+    query = create_permutation_query(query)
+
+    final_query_pat = re.compile(query, re.IGNORECASE)
     if not query:
         return jsonify(NO_RESULTS_RESPONSE)
-    for name, href in members.items():
-        match = re.findall(query.lower(), name.lower())
-        if match:
-            results.append({'name': name, 'link': href})
+
+    results = db.search(Page.title.search(final_query_pat))
     if not results:
-        results = NO_RESULTS_RESPONSE
+        return jsonify(NO_RESULTS_RESPONSE)
+    logger.info(t.stop())
     return jsonify(results)
+
+
+
 
 
 # This handles the static files form the .CHM content

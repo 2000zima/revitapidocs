@@ -1,5 +1,8 @@
 import os
+import time
 from bs4 import BeautifulSoup
+from itertools import permutations
+import ujson
 
 from app import app, cache
 from app.logger import logger
@@ -48,3 +51,38 @@ def get_schema(*path):
                     'namespace': namespace}
     logger.error('Failed to get schema:: %s', fullpath)
     return
+
+@cache.cached(timeout=86400)
+def get_index_json():
+    cwd = app.config['BASEDIR']
+    fullpath = 'parser/ns_index3.json'
+    with open(fullpath) as fp:
+        members = ujson.load(fp)
+        # members = json.load(fp, object_pairs_hook=OrderedDict)
+    return members
+
+def create_permutation_query(query):
+    # filename = 'members_{year}.json'.format(year=year)
+    # fullpath = '{}/{}/{}/{}'.format(cwd, app.template_folder, 'json', filename)
+    # query = 'Create Wall Method'
+    split_query = query.lower().split(' ')
+    # query = ['create', 'wall', 'method']
+    perm_query = permutations(split_query)
+    # (('create', 'wall', 'method'), ('wall', 'create')
+
+    final_query = ''
+    for combo in perm_query:
+        combo = '.+'.join('({})'.format(x) for x in combo)
+        final_query += '({})|'.format(combo)
+    query = final_query[0:-1]
+    return query
+
+class Timer(object):
+    "Simple Timer."
+    def __init__(self):
+        self.start_time = time.time()
+
+    def stop(self):
+        end_time = time.time()
+        duration = end_time - self.start_time
+        return duration
