@@ -77,23 +77,28 @@ def namespace_get(year):
 # Not Cached to Prevent High Memory Usage
 @app.route('/<string:year>/search', methods=['GET'])
 def api_member_search(year):
-    members = get_index_json()
     t = Timer()
     results = []
-    NO_RESULTS_RESPONSE = [{'error':'No Results'}]
     query = request.args.get('query')
     # query = re.sub(r'\s', r'(\s|\.)?', query)
+    logger.debug('Search Query: ' + str(query))
+
+    if not query or query == '0' or len(query) == 0:
+        return jsonify({'error': 'Invalid Query'})
+
     query = create_permutation_query(query)
-
     final_query_pat = re.compile(query, re.IGNORECASE)
-    if not query:
-        return jsonify(NO_RESULTS_RESPONSE)
-
     results = db.search(Page.title.search(final_query_pat))
+
     if not results:
-        return jsonify(NO_RESULTS_RESPONSE)
-    logger.info(t.stop())
-    return jsonify(results)
+        return jsonify({'error': 'No Results'})
+
+    sorted_results = sorted(results, key=lambda k: k['title'])
+    if len(sorted_results) > 100:
+        sorted_results = sorted_results[:100]
+
+    logger.info('*** TIME: ' + str(t.stop()))
+    return jsonify(sorted_results)
 
 
 

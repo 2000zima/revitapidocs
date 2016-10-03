@@ -52,18 +52,20 @@ def get_schema(*path):
     logger.error('Failed to get schema:: %s', fullpath)
     return
 
+
 @cache.cached(timeout=86400)
 def get_index_json():
+    # NOT USED: see db.py
+    # filename = 'members_{year}.json'.format(year=year)
+    # fullpath = '{}/{}/{}/{}'.format(cwd, app.template_folder, 'json', filename)
     cwd = app.config['BASEDIR']
-    fullpath = 'parser/ns_index3.json'
+    fullpath = 'parser/ns_index4.json'
     with open(fullpath) as fp:
         members = ujson.load(fp)
         # members = json.load(fp, object_pairs_hook=OrderedDict)
     return members
 
 def create_permutation_query(query):
-    # filename = 'members_{year}.json'.format(year=year)
-    # fullpath = '{}/{}/{}/{}'.format(cwd, app.template_folder, 'json', filename)
     # query = 'Create Wall Method'
     split_query = query.lower().split(' ')
     # query = ['create', 'wall', 'method']

@@ -28,8 +28,7 @@
           <div class="modal-footer">
             <span class="text-muted small pull-left" style="line-height:40px">Could not find what you were looking for? Try a
             <a id="google-link" target="=_blank">Google Search</a></span>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+            {# <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>#}
           </div>
         </div>
       </div>
@@ -179,11 +178,6 @@ $(document).ready(function() {
         //     $(event.target).addClass("node-expanded")
         //     $(event.target).removeClass("node-collapsed")
         // });
-        //
-        // $('#treeview').on('nodeCollapsed', function(event, node) {
-        //     $(event.target).addClass("node-collapsed")
-        //     $(event.target).removeClass("node-expanded")
-        // });
 
     };  // End of Build Menue Call Back Function
 
@@ -204,7 +198,6 @@ $(document).ready(function() {
             buildResults(results_json, pattern)
             ga('send', 'pageview', '?query=' + pattern);
             // console.log('GA PV Sent:' + '?query=' + pattern)
-            $('.modal-title').append('<span class="text-muted small"> [' +  results_json.length +']</span>');
         });
     };
 
@@ -213,31 +206,35 @@ $(document).ready(function() {
         // var output
         var content = ''
 
-        if ( results[0].error ){
-            content = results[0].error
+        if ( results.error ){
+            content = results.error
         }
         else{
             $.each(results, function (index, value) {
             var ahref =
 
+            '<div class="result-entry">' +
             '<h5><a href="' + value.href + '">' + value.title + '</a>' +
 
             '<span class="badge pull-right">' + value.tag + '</span>' + '</h5>' +
-            '<p class="member-of small">: <a href="' + value.member_of_href +'">' + value.member_of +'</a>' +
-            '<span class="small year">' + value.year +'</span></p>' +
-            '<p class="description small">' + value.description + '</p>'
+            '<p class="member-of small">' + value.namespace + ' : ' + '<a href="' + value.member_of_href +'">' + value.member_of +'</a>' +
+            '<span class="small year">' +  value.year +'</span></p>' +
+            // '<span class="member-of small">::' + value.namespace +'</span></p>' +
+            '<p class="description small">' + value.description + '</p>' +
+            '</div>'
 
 
             content += ahref
             });
+            $('.modal-title').append('<span class="text-muted small"> [' +  results.length +']</span>');
         };
         $('#result-div').html(content);
 
     };
 
     $("#form-quicksearch").submit(function(e) {
-        var pattern = $('#input-search').val();
         e.preventDefault() // Keeps page from submitting and reloading
+        var pattern = $('#input-search').val();
         history.pushState(null, null, '?query=' + pattern + '&#searchModal');
         search(pattern)
     });

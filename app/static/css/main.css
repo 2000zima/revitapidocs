@@ -252,13 +252,26 @@ a > img:hover {
   background-color: #fff;
   color: #666;
   border-radius: 1px;
-  border: 1px solid #999;
+  border: 1px solid #ddd;
   font-size: 10px;
+}
+
+#searchModal {
+    /*max-height: 800px;*/
+}
+
+#result-div {
+    /*overflow-y: scroll;*/
+}
+
+#result-div .result-entry{
+border-bottom: 1px solid #ddd;
+margin-bottom: 20px;
 }
 
 #result-div h5 {
     font-size:13px;
-    margin-bottom: 6px;
+    margin-bottom: 8px;
     /*font-weight: bold;*/
 }
 
@@ -266,18 +279,20 @@ a > img:hover {
     /*color: #666;*/
 }
 
-#result-div .description {
+
+#result-div .member-of{
     color: #666;
-    margin-bottom: 20px;
-    font-size: 80%;
+}
+#result-div .year{
+    color: #777;
+    line-height: 18px;
+    float: right;
 }
 
-#result-div .member-of , #result-div .year{
-    margin-bottom: 4px;
+#result-div .description {
     color: #666;
-}
-#result-div .year {
-    float: right;
+    font-size: 80%;
+    margin-top: 4px;
 }
 
 #result-div .member-of a {

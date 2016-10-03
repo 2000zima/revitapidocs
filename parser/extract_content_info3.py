@@ -99,7 +99,7 @@ def get_data_from_href(filename, year):
     return data
 
 try:
-    with open('parser/ns_index3.json', 'r') as fp:
+    with open('parser/ns_index4.json', 'r') as fp:
         jdata = ujson.load(fp)
 except:
     jdata = []
@@ -108,7 +108,7 @@ count = 0
 MAX = 110000000
 # MAX = 30
 MAX_YEAR = 1
-# MAX_YEAR = None
+MAX_YEAR = None
 # MAX = None
 # members_index = jdata
 members_index = {}
@@ -181,11 +181,16 @@ for year in YEARS[0:MAX_YEAR]:
 flat_members_index = members_index.values()
 # pprint(index)
 cwd = os.path.dirname(__file__)
-OUTFILE = 'ns_index3.json'
+OUTFILE = 'ns_index4.json'
+OUTFILE_DICT = 'ns_index4_dict.json'
 os.chdir(cwd)
 # print(__file__)
 duration = time.time() - t1
 print('Done: ', duration)
+
+with open(OUTFILE_DICT, 'w') as fp:
+    ujson.dump(members_index, fp, indent=1)
+
 with open(OUTFILE, 'w') as fp:
     ujson.dump(flat_members_index, fp, indent=1)
 # pprint(ul)
