@@ -1,6 +1,8 @@
 Misc:
-☐ Document Views and API.html
+☐ Merge Master
+☐ Add Time It Decorator
 ☐ Add Context for testing
+☐ Implement Search Results as template with object for filtering
 
 Core Tasks:
 ✔ Python Gists: add handling @done(2016-10-03 09:37)
@@ -26,3 +28,11 @@ Features:
 Bugs:
 ✔ Make it Mobile responsive @done(2016-08-02 01:27)
 ✔ Remove + from UL item wiht children @done(2016-07-31 16:09)
+
+Refactor:
+☐ Change Schema/GetSchema > meta
+☐ Consitent query / Page
+☐ clean up api.html
+☐ Organize Folders, Parsers
+☐ Create components folder for html
+☐ Document Views and API.html

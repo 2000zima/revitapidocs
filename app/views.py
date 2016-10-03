@@ -88,8 +88,8 @@ def search_api(year):
     query = create_permutation_query(query)
     final_query_pat = re.compile(query, re.IGNORECASE)
     results = db.search(db_query.title.search(final_query_pat))
-    logger.info('Search Query: ' + str(final_query_pat))
-    logger.info('Search Results: ' + str(results))
+    logger.debug('Search Query: ' + str(final_query_pat))
+    logger.debug('Search Results: ' + str(results))
 
     if not results:
         return jsonify({'error': 'No Results'})
@@ -101,7 +101,7 @@ def search_api(year):
 
 
 
-    logger.info('*** TIME: ' + str(t.stop()))
+    logger.debug('*** TIME [API SEARCH]: ' + str(t.stop()))
     return jsonify(sorted_results)
 
 
