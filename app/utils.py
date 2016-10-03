@@ -44,7 +44,7 @@ def create_permutation_query(query):
 
     final_query = ''
     for combo in perm_query:
-        combo = '.+'.join('({})'.format(x) for x in combo)
+        combo = '.*'.join('({})'.format(x) for x in combo)
         final_query += '({})|'.format(combo)
     query = final_query[0:-1]
     return query

@@ -82,14 +82,14 @@ def search_api(year):
 
     query = request.args.get('query')
     # query = re.sub(r'\s', r'(\s|\.)?', query)
-    logger.debug('Search Query: ' + str(query))
-
     if not query or query == '0':
         return jsonify({'error': 'Invalid Query'})
 
     query = create_permutation_query(query)
     final_query_pat = re.compile(query, re.IGNORECASE)
     results = db.search(db_query.title.search(final_query_pat))
+    logger.info('Search Query: ' + str(final_query_pat))
+    logger.info('Search Results: ' + str(results))
 
     if not results:
         return jsonify({'error': 'No Results'})
@@ -98,6 +98,8 @@ def search_api(year):
     if len(sorted_results) > MAX_RESULTS:
         flash('Results Truncated to 300. Try narrowing your search.')
         sorted_results = sorted_results[:MAX_RESULTS]
+
+
 
     logger.info('*** TIME: ' + str(t.stop()))
     return jsonify(sorted_results)
