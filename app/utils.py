@@ -11,7 +11,7 @@ from app.db import db, db_query
 AVAILABLE_APIS = ['2015', '2016', '2017']
 
 
-# @cache.cached(timeout=86400)
+@cache.cached(timeout=86400)
 def check_available_years(filename):
     available_in = []
     for year in AVAILABLE_APIS:
@@ -37,11 +37,10 @@ def get_schema(filename, year=None):
 
 def create_permutation_query(query):
     # query = 'Create Wall Method'
-    split_query = query.lower().split(' ')
     # query = ['create', 'wall', 'method']
-    perm_query = permutations(split_query)
     # (('create', 'wall', 'method'), ('wall', 'create')
-
+    split_query = query.lower().split(' ')
+    perm_query = permutations(split_query)
     final_query = ''
     for combo in perm_query:
         combo = '.*'.join('({})'.format(x) for x in combo)

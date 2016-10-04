@@ -6,10 +6,9 @@ import requests
 from collections import OrderedDict
 
 from flask import render_template, redirect, url_for, send_from_directory
-from flask import session, request, make_response
+from flask import request
 from flask import abort, flash, jsonify
 from jinja2.exceptions import TemplateNotFound
-from werkzeug.exceptions import NotFound
 
 from app import app
 from app import cache

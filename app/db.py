@@ -1,10 +1,7 @@
 import json
-import ujson
 import os
-import time
-from flask import jsonify
 from app import app
-from tinydb import TinyDB, where, Query
+from tinydb import TinyDB, Query
 from tinydb.storages import MemoryStorage
 
 db = TinyDB(storage=MemoryStorage)
@@ -19,18 +16,3 @@ db_query = Query()
 
 # results = db.search(Page.namespace.search('Autodesk'))
 # results = db.search(Page.namespace == 'Autodesk')
-
-if __name__ == '__main__':
-    Q = Query()
-    app.config['TESTING'] = True
-    test_app = app.test_client()
-    with app.test_request_context('/?name=Peter'):
-        app.config['TESTING'] = True
-        app.config['JSONIFY_PRETTYPRINT_REGULAR'] = False
-        for i in range(0,10):
-            db.clear_cache()
-            t1 = time.time()
-            r = db.search(Q.title.search('(add).*(wall)'))
-            # sorted_results = sorted(r, key=lambda k: k['title'])
-            # jsonify(r)
-            print('Done: ', str(time.time()-t1))
