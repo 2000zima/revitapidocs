@@ -22,7 +22,7 @@ html, body {
 }
 
 .alert {
-  z-index: 1100;
+  z-index: 1200;
   position: absolute;
   top: 60px;
   right: 40px;

@@ -94,7 +94,6 @@ def search_api(year):
         return jsonify({'error': 'No Results'})
 
     sorted_results = sorted(results, key=lambda k: k['title'])
-    sorted_results = results
     if len(sorted_results) > MAX_RESULTS:
         flash('Results Truncated to 300. Try narrowing your search.')
         sorted_results = sorted_results[:MAX_RESULTS]
