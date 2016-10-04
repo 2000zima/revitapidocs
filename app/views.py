@@ -89,17 +89,16 @@ def search_api(year):
     final_query_pat = re.compile(query, re.IGNORECASE)
     results = db.search(db_query.title.search(final_query_pat))
     logger.debug('Search Query: ' + str(final_query_pat))
-    logger.debug('Search Results: ' + str(results))
+    # logger.debug('Search Results: ' + str(results))
 
     if not results:
         return jsonify({'error': 'No Results'})
 
     sorted_results = sorted(results, key=lambda k: k['title'])
+    sorted_results = results
     if len(sorted_results) > MAX_RESULTS:
         flash('Results Truncated to 300. Try narrowing your search.')
         sorted_results = sorted_results[:MAX_RESULTS]
-
-
 
     logger.debug('*** TIME [API SEARCH]: ' + str(t.stop()))
     return jsonify(sorted_results)
