@@ -51,8 +51,14 @@ def create_permutation_query(query):
 
 
 def search_db(pattern, keyname):
-    return [member for member in db_json.values() if
-               re.search(pattern, member.get(keyname))]
+    try:
+        results = [member for member in db_json.values() if
+                   re.search(pattern, member.get(keyname))]
+    except Exception as errmsg:
+        logger.error('search_db query error: {}|{}'.format(pattern, keyname))
+        return []
+    else:
+        return results
 
 
 class Timer(object):
