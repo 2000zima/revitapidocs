@@ -12,7 +12,7 @@ from app.db import db, db_query, db_json
 AVAILABLE_APIS = ['2015', '2016', '2017']
 
 
-@cache.cached(timeout=86400)
+@cache.memoize(timeout=86400)
 def check_available_years(filename):
     available_in = []
     for year in AVAILABLE_APIS:
@@ -23,7 +23,7 @@ def check_available_years(filename):
     return available_in
 
 
-@cache.cached(timeout=86400)
+@cache.memoize(timeout=86400)
 def get_schema(filename, year=None):
     """This should be stored/cached in database"""
     results = search_db(filename, 'href')

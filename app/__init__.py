@@ -17,6 +17,7 @@ app.config.from_object('app.config.{}'.format(flask_config))
 
 Compress(app)
 cache = Cache(app)
+# cache.clear()
 
 # ASSETS
 assets = Environment(app)
