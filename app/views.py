@@ -17,7 +17,7 @@ from app.utils import AVAILABLE_APIS
 from app.utils import get_schema, check_available_years, Timer
 from app.utils import create_permutation_query, search_db
 from app.gists import get_gists
-from app.db import db, db_query, db_json
+from app.db import db_json
 
 
 @cache.cached(timeout=600)
@@ -78,7 +78,6 @@ def namespace_get(year):
 def search_api(year):
     t = Timer()
     MAX_RESULTS = 300
-
     query = request.args.get('query')
 
     if not query or query == '0':
@@ -88,20 +87,16 @@ def search_api(year):
 
     final_query_pat = re.compile(query, re.IGNORECASE)
     logger.debug('Search Query: ' + str(final_query_pat))
-
     results = search_db(final_query_pat, 'title')
 
-    if not results:
-        return jsonify({'error': 'No Results'})
+    if not results: return jsonify({'error': 'No Results'})
 
     sorted_results = sorted(results, key=lambda k: k['title'])
     if len(sorted_results) > MAX_RESULTS:
         flash('Results Truncated to 300. Try narrowing your search.')
         sorted_results = sorted_results[:MAX_RESULTS]
-
     logger.debug('*** TIME [API SEARCH]: ' + str(t.stop()))
-    db.clear_cache()
-    return jsonify(sorted_results)
+    return jsonify(results)
 
 
 # This handles the static files form the .CHM content
