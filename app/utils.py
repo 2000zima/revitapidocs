@@ -49,7 +49,7 @@ def create_permutation_query(query):
     return query
 
 class Timer(object):
-    "Simple Timer."
+    "Time and TimeIt Decorator"
     def __init__(self):
         self.start_time = time.time()
 
@@ -57,3 +57,16 @@ class Timer(object):
         end_time = time.time()
         duration = end_time - self.start_time
         return duration
+
+    @staticmethod
+    def time_function(name):
+        def wrapper(func):
+            def wrap(*ags):
+                logger.debug('START: {}'.format(name))
+                t = Timer()
+                rv = func(*ags)
+                duration = t.stop()
+                logger.debug('Done: {} sec'.format(duration))
+                return rv
+            return wrap
+        return wrapper

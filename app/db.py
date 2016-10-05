@@ -9,7 +9,8 @@ db = TinyDB(storage=MemoryStorage)
 template_dir = app.config['TEMPLATEDIR']
 db_path = os.path.join(template_dir, 'json', 'db_index.json')
 with open(db_path) as fp:
-    jdata = json.load(fp)
+    flat_jdata = fp.read()
+    jdata = json.loads(flat_jdata)
 
 db.insert_multiple(jdata.values())
 db_query = Query()
