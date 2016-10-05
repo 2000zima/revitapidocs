@@ -85,7 +85,7 @@ def search_api(year):
         return jsonify({'error': 'Invalid Query'})
 
     query = create_permutation_query(query)
-    
+
     final_query_pat = re.compile(query, re.IGNORECASE)
     logger.debug('Search Query: ' + str(final_query_pat))
     results = search_db(final_query_pat, 'title')
@@ -94,7 +94,7 @@ def search_api(year):
 
     sorted_results = sorted(results, key=lambda k: k['title'])
     if len(sorted_results) > MAX_RESULTS:
-        flash('Results Truncated to 300. Try narrowing your search.')
+        # flash('Results Truncated to 300. Try narrowing your search.')
         sorted_results = sorted_results[:MAX_RESULTS]
     logger.debug('*** TIME [API SEARCH]: ' + str(t.stop()))
     return jsonify(sorted_results)
