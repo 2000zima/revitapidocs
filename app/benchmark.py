@@ -1,7 +1,7 @@
 import json
 import os
 import re
-from app.db import db, db_query, jdata, where
+from app.db import db, db_query, db_json
 from app.utils import Timer
 
 
@@ -23,8 +23,8 @@ def bench_tiny_func(pat):
 @Timer.time_function('ITER----------')
 def bench_iter_re(query):
     "Average: 0.5-0.8"
-    return [d for k, d in jdata.items() if re.search(pat, d['title']) is not None]
-    # print(type(jdata.keys()))
+    return [d for k, d in db_json.items() if re.search(pat, d['title']) is not None]
+    # print(type(db_json.keys()))
 
 
 pat = re.compile(r'((add).*(wall))|(tag).*(property)', re.IGNORECASE)
@@ -35,4 +35,5 @@ r3 = bench_iter_re(bench_iter_re)
 print(len(r1))
 print(len(r2))
 print(len(r3))
+# print(len(r3))
 # bench_tiny('((add).*(wall))|(tag).*(property)')
