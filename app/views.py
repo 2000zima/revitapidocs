@@ -74,6 +74,7 @@ def namespace_get(year):
         j = json.load(fp)
     return jsonify(j)
 
+
 @app.route('/<string:year>/searchapi', methods=['GET'])
 def search_api(year):
     t = Timer()

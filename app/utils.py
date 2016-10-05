@@ -23,7 +23,7 @@ def check_available_years(filename):
     return available_in
 
 
-# @cache.cached(timeout=86400)
+@cache.cached(timeout=86400)
 def get_schema(filename, year=None):
     """This should be stored/cached in database"""
     results = search_db(filename, 'href')
@@ -49,9 +49,11 @@ def create_permutation_query(query):
     query = final_query[0:-1]
     return query
 
+
 def search_db(pattern, keyname):
     return [member for member in db_json.values() if
                re.search(pattern, member.get(keyname))]
+
 
 class Timer(object):
     "Time and TimeIt Decorator"
