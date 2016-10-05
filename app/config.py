@@ -11,8 +11,7 @@ class Config(object):
     TEMPLATEDIR = os.path.join(BASEDIR, 'templates')
     SEND_FILE_MAX_AGE_DEFAULT = 604800  # 60*60*24*7 = 1 Week
     CACHE_TYPE = 'redis'
-    CACHE_REDIS_URL = os.getenv('CACHE_REDIS_URL', None)
-    print(CACHE_REDIS_URL)
+    CACHE_REDIS_URL = os.getenv('REDIS_URL', None)
     GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 
 
