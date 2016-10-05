@@ -85,7 +85,7 @@ def search_api(year):
         return jsonify({'error': 'Invalid Query'})
 
     query = create_permutation_query(query)
-
+    
     final_query_pat = re.compile(query, re.IGNORECASE)
     logger.debug('Search Query: ' + str(final_query_pat))
     results = search_db(final_query_pat, 'title')
@@ -97,7 +97,7 @@ def search_api(year):
         flash('Results Truncated to 300. Try narrowing your search.')
         sorted_results = sorted_results[:MAX_RESULTS]
     logger.debug('*** TIME [API SEARCH]: ' + str(t.stop()))
-    return jsonify(results)
+    return jsonify(sorted_results)
 
 
 # This handles the static files form the .CHM content
