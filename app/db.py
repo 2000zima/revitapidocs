@@ -9,10 +9,9 @@ db = TinyDB(storage=MemoryStorage)
 template_dir = app.config['TEMPLATEDIR']
 db_path = os.path.join(template_dir, 'json', 'db_index.json')
 with open(db_path) as fp:
-    flat_jdata = fp.read()
-    jdata = json.loads(flat_jdata)
+    db_json = json.load(fp)
 
-db.insert_multiple(jdata.values())
+db.insert_multiple(db_json.values())
 db_query = Query()
 
 # results = db.search(Page.namespace.search('Autodesk'))

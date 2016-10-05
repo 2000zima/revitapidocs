@@ -1,12 +1,13 @@
 import os
 import time
+import re
 from bs4 import BeautifulSoup
 from itertools import permutations
 import json
 
 from app import app, cache
 from app.logger import logger
-from app.db import db, db_query
+from app.db import db, db_query, db_json
 
 AVAILABLE_APIS = ['2015', '2016', '2017']
 
@@ -25,7 +26,7 @@ def check_available_years(filename):
 # @cache.cached(timeout=86400)
 def get_schema(filename, year=None):
     """This should be stored/cached in database"""
-    results = db.search(db_query.href == filename)
+    results = search_db(filename, 'href')
     if not results:
         return
     entry = results[0]
@@ -47,6 +48,10 @@ def create_permutation_query(query):
         final_query += '({})|'.format(combo)
     query = final_query[0:-1]
     return query
+
+def search_db(pattern, keyname):
+    return [member for member in db_json.values() if
+               re.search(pattern, member.get(keyname))]
 
 class Timer(object):
     "Time and TimeIt Decorator"

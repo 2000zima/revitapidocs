@@ -15,9 +15,9 @@ from app import cache
 from app.logger import logger
 from app.utils import AVAILABLE_APIS
 from app.utils import get_schema, check_available_years, Timer
-from app.utils import create_permutation_query
+from app.utils import create_permutation_query, search_db
 from app.gists import get_gists
-from app.db import db, db_query
+from app.db import db, db_query, db_json
 
 
 @cache.cached(timeout=600)
@@ -80,15 +80,16 @@ def search_api(year):
     MAX_RESULTS = 300
 
     query = request.args.get('query')
-    # query = re.sub(r'\s', r'(\s|\.)?', query)
+
     if not query or query == '0':
         return jsonify({'error': 'Invalid Query'})
 
     query = create_permutation_query(query)
+
     final_query_pat = re.compile(query, re.IGNORECASE)
-    results = db.search(db_query.title.search(final_query_pat))
     logger.debug('Search Query: ' + str(final_query_pat))
-    # logger.debug('Search Results: ' + str(results))
+
+    results = search_db(final_query_pat, 'title')
 
     if not results:
         return jsonify({'error': 'No Results'})
@@ -99,6 +100,7 @@ def search_api(year):
         sorted_results = sorted_results[:MAX_RESULTS]
 
     logger.debug('*** TIME [API SEARCH]: ' + str(t.stop()))
+    db.clear_cache()
     return jsonify(sorted_results)
 
 

@@ -7,12 +7,14 @@ from app.utils import Timer
 
 @Timer.time_function('TINY---------')
 def bench_tiny(pat):
+    "Average: 0.25"
     results = db.search(db_query.title.search(pat))
     return results
 
 
 @Timer.time_function('TINY WHERE---------')
 def bench_tiny_func(pat):
+    "Average: 0.20"
     # test_func = lambda s: re.search(pat, s)
     results = db.search(db_query.title.test(lambda s: re.search(pat, s)))
     return results
@@ -20,6 +22,7 @@ def bench_tiny_func(pat):
 
 @Timer.time_function('ITER----------')
 def bench_iter_re(query):
+    "Average: 0.5-0.8"
     return [d for k, d in jdata.items() if re.search(pat, d['title']) is not None]
     # print(type(jdata.keys()))
 
