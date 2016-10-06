@@ -7,14 +7,13 @@ from app.logger import logger
 
 @app.route('/robots.txt', methods=["GET"])
 def static_from_root():
-    logger.info('ROBOTS: STAGING: %s', app.config['STAGING'])
-    if app.config['STAGING']:
-        path = os.path.join('static', 'block_robots.txt')
-        return redirect(path, code=302)
-    else:
+    logger.debug('ROBOTS FLASK_CONFIG: %s', app.config['STAGING'])
+    if app.config['PRODUCTION']:
         path = os.path.join('static', 'robots.txt')
         return redirect(path, code=302)
-    # return app.send_static_file(os.path.join('static', request.path[1:]))
+    else:
+        path = os.path.join('static', 'block_robots.txt')
+        return redirect(path, code=302)
 
 
 @app.route("/<int:year>/sitemap.xml", methods=["GET"])

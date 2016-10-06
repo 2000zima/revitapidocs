@@ -82,7 +82,7 @@ def search_api(year):
     query = request.args.get('query')
 
     if not query or query == '0':
-        return jsonify({'error': 'Invalid Query'})
+        return jsonify({'error': 'Invalid Query Param'})
 
     query = create_permutation_query(query)
 

@@ -44,6 +44,7 @@ class UrlsTestCase(unittest.TestCase):
         self.assertEqual(r.status_code, 200)
 
     def test_robot(self):
+        # Need to add test for dev/production
         r = self.app.get('/robot.txt')
         self.assertEqual(r.status_code, 301)
         self.assertEqual(r.mimetype, 'text/html')

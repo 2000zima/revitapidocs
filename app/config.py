@@ -26,9 +26,8 @@ class Staging(Config):
     STAGING = True
     SECRET_KEY = os.getenv('SECRET_KEY', None)
 
-
 class Development(Config):
-    DEBUG = False
+    DEBUG = True
     SECRET_KEY = 'SuperSecretKey'
 
 

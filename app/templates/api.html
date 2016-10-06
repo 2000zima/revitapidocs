@@ -189,14 +189,19 @@ $(document).ready(function() {
 
     var results_json;
     $.getJSON("searchapi?query=" + pattern, function(json) {
+        console.log('Search Ajax call successful. ')
         results_json = json;
         })
         .done(function(){
             // Search successful
-            buildResults(results_json, pattern)
+            buildResults(results_json, pattern);
             ga('send', 'pageview', '?query=' + pattern);
             // console.log('GA PV Sent:' + '?query=' + pattern)
-        });
+        }).fail(function(){
+            console.log('Search Ajax call FAILED.')
+            var results = {'error':'Could not reach search API'};
+            buildResults(results, pattern);
+        })
     };
 
     function buildResults(results, pattern){
@@ -204,7 +209,7 @@ $(document).ready(function() {
         // var output
         var content = ''
 
-        if ( results.error ){
+        if (results.error) {
             content = results.error
         }
         else{
@@ -217,7 +222,6 @@ $(document).ready(function() {
             '<span class="badge pull-right">' + value.tag + '</span>' + '</h5>' +
             '<p class="member-of small">' + value.namespace + ' : ' + '<a href="' + value.member_of_href +'">' + value.member_of +'</a>' +
             '<span class="small year">' +  value.year.join(' / ') +'</span></p>' +
-            // '<span class="member-of small">::' + value.namespace +'</span></p>' +
             '<p class="description small">' + value.description + '</p>' +
             '</div>'
 
@@ -238,7 +242,7 @@ $(document).ready(function() {
                 });
             };
         };
-        
+
         $('#result-div').html(content);
 
     };
