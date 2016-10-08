@@ -19,7 +19,7 @@ Compress(app)
 cache = Cache(app)
 logger.info('** CACHE_TYPE: {}'.format(os.environ['CACHE_TYPE']))
 if bool(os.getenv('CACHE_CLEAR', False)):
-    cache.clear_cache()
+    cache.clear()
     logger.info('** Cached cleared [CLEAR_CACHE] True')
 
 # ASSETS
