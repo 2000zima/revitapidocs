@@ -7,7 +7,7 @@ import json
 
 from app import app, cache
 from app.logger import logger
-from app.db import db, db_query, db_json
+from app.db import db_json  # db, db_query
 
 AVAILABLE_APIS = ['2015', '2016', '2017']
 
