@@ -17,7 +17,7 @@ app.config.from_object('app.config.{}'.format(flask_config))
 
 Compress(app)
 cache = Cache(app)
-logger.info('** CACHE_TYPE: {}'.format(CACHE_TYPE=os.environ['CACHE_TYPE']))
+logger.info('** CACHE_TYPE: {}'.format(os.environ['CACHE_TYPE']))
 if bool(os.getenv('CACHE_CLEAR', False)):
     cache.clear_cache()
     logger.info('** Cached cleared [CLEAR_CACHE] True')

@@ -16,7 +16,6 @@ class Config(object):
 
 
 class Production(Config):
-    CACHE_TYPE = 'redis'
     PRODUCTION = True
     SECRET_KEY = os.getenv('SECRET_KEY', None)
 
