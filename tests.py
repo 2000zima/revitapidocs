@@ -9,7 +9,7 @@ import logging
 from app import app
 from app.logger import logger
 from app.utils import check_available_years, get_schema, create_permutation_query
-from app.db import db, db_query
+# from app.db import db, db_query
 
 logger.setLevel(logging.ERROR)
 
@@ -78,23 +78,23 @@ class UtilsTestCase(unittest.TestCase):
         perm_query = create_permutation_query(query)
         self.assertEqual('((create).*(wall))|((wall).*(create))', perm_query)
 
-class DbTestCase(unittest.TestCase):
-
-    def setUp(self):
-        self.db = db
-
-    def test_href(self):
-        rv = self.db.search(db_query.title=='Namespaces')[0]
-        self.assertEqual(rv['href'], 'd4648875-d41a-783b-d5f4-638df39ee413.htm')
-
-    def test_title(self):
-        rv = self.db.search(db_query.title=='Namespaces')[0]
-        print(rv)
-        self.assertEqual(rv['title'], 'Namespaces')
-
-    def test_all(self):
-        rv = self.db.all()
-        self.assertGreater(len(rv), 10000)
+# class DbTestCase(unittest.TestCase):
+#
+#     def setUp(self):
+#         self.db = db
+#
+#     def test_href(self):
+#         rv = self.db.search(db_query.title=='Namespaces')[0]
+#         self.assertEqual(rv['href'], 'd4648875-d41a-783b-d5f4-638df39ee413.htm')
+#
+#     def test_title(self):
+#         rv = self.db.search(db_query.title=='Namespaces')[0]
+#         print(rv)
+#         self.assertEqual(rv['title'], 'Namespaces')
+#
+#     def test_all(self):
+#         rv = self.db.all()
+#         self.assertGreater(len(rv), 10000)
 
 class HtmlContentCase(unittest.TestCase):
 
