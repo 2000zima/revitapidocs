@@ -10,13 +10,12 @@ class Config(object):
     BASEDIR = os.path.abspath(os.path.dirname(__file__))
     TEMPLATEDIR = os.path.join(BASEDIR, 'templates')
     SEND_FILE_MAX_AGE_DEFAULT = 604800  # 60*60*24*7 = 1 Week
-    CACHE_TYPE = 'simple'
+    CACHE_TYPE = os.getenv('CACHE_TYPE', 'simple')  # simple, redis
     CACHE_REDIS_URL = os.getenv('REDIS_URL', None)
     GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 
 
 class Production(Config):
-    CACHE_TYPE = 'redis'
     PRODUCTION = True
     SECRET_KEY = os.getenv('SECRET_KEY', None)
 
