@@ -2,7 +2,10 @@ import os
 from flask_assets import Bundle
 
 join = os.path.join
-css_assets = Bundle('css/yeti.css',
+css_assets = Bundle(
+                    # 'css/less/bootswatch.less',
+                    # 'css/less/variables.less',
+                    'css/yeti.css',
                     'css/main.css',
                     'css/overrides.css',
                     'css/treeview.css',

@@ -9,7 +9,7 @@
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     color:#666 !important;
 }
-gi
+
 #mainSection .summary{
     margin-top:12px;
 }
@@ -32,8 +32,9 @@ gi
 
 div.code pre {
 font-family: 'Roboto Mono','Consolas','monospace' !important;
-border:1px #ddd solid;
-background-color: #fafaff!important;
+border:1px #dadada solid;
+background-color: #fafbfb!important;
+/*background-color: #fafaff!important;*/
 padding:12px;
 }
 
@@ -52,39 +53,40 @@ background-color:#fff !important;
 
 
 #mainSection span .identifier  {
-    font-weight:bold;
-    color:#f04d24;
+    font-weight:normal;
+    color:#f74200;
     /*color:#e74c3c; red-orange*/
 }
 
-#mainSection span .keyword {
-    font-weight:normal;
-    color:#54b593;
+#mainSection span .keyword, .highlight-keyword {
+    font-weight: 400;
+    color:#4290a9 !important;
     /*color:#008cba; blue */
 }
-.highlight-keyword{
-    font-weight:normal;
-    color:#54b593 !important;
+
+.highlight-number{
+    color:#4b1fcc !important;
     /*color:#18bc9c !important;*/
     }
 
-.highlight-number{
-    color:#70678e !important;
-    /*color:#18bc9c !important;*/
+pre a{
+  font-weight: bold;
+  /*text-decoration: underline;;*/
     }
 
 .code pre{
-    color:#666 !important;
+    color:#222 !important;
 }
 
 .highlight-literal{
     font-style: italic;
-    color: #e89066 !important;
+    color: #bb7200 !important;
 }
 
 .highlight-comment{
-    font-weight: bold;
-    color:#b7b9b8 !important;
+    font-style: italic;
+    /*font-weight: bold;*/
+    color:#838785 !important;
 }
 
 .footerLine {
