@@ -78,7 +78,7 @@ def namespace_get(year):
 @app.route('/<string:year>/searchapi', methods=['GET'])
 def search_api(year):
     t = Timer()
-    MAX_RESULTS = 300
+    MAX_RESULTS = 500
     query = request.args.get('query')
 
     if not query or query == '0':

@@ -60,3 +60,7 @@
     cursor:  url("/static/cursors/both.png") 8 8, auto !important;
     /*cursor:  s-resize !important;*/
 }
+
+.treeview .expand-icon{
+  color: #222;
+}

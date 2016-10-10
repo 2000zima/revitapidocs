@@ -18,7 +18,7 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel"></h4>
-            <div id="result-filter-list" class="text-muted small">Filter: </span><span id="result-filter" class="result-tag badge"></div>
+            <div id="result-filter-list" class="text-muted small">Filter: <span id="result-filter" class="result-tag badge"></span><span id="result-size" class="pull-right"></span></div>
           </div>
           <div class="modal-body">
             <div id="result-div">
@@ -168,7 +168,7 @@ $(document).ready(function() {
                 };
         };
 
-        console.log("Hiding Loader Gif...")
+        // console.log("Hiding Loader Gif...")
         $('#menu-loading').animate({opacity: 0},200);
         $('#menu-loading').hide();
         $('#treeview').animate({opacity: 1}, 200);
@@ -227,12 +227,12 @@ $(document).ready(function() {
           });
 
             // This shit should really be handled somewhere else. Show alert if results is 300
-            $('.modal-title').append('<span class="text-muted small"> [' +  results.length +']</span>');
-            if (results.length == 300) {
+            $('#result-size').html('Results: ' +  results.length);
+            if (results.length == 500) {
                 console.log('Results Truncated')
                 $('#content').append(
                 '<div class = "alert alert-info" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
-                'Results Truncated to 300.</br> Try narrowing your search.</div>')
+                'Results Truncated to 500.</br> Try narrowing your search.</div>')
 
                 $(".alert").delay(8000).fadeOut(300, function() {
                     $(this).alert('close');
@@ -259,7 +259,6 @@ $(document).ready(function() {
             $('.modal').scrollTop(result_scroll);
         };
         // result_scroll
-
 
         // Toggle Tag Filter Function
         function toggle_tag(tag_name){
@@ -299,12 +298,6 @@ $(document).ready(function() {
            return results[1] || 0;
         }
     };
-    // Build Model and Results From URL
-    if(window.location.href.indexOf('#searchModal') != -1) {
-    $('#searchModal').modal('show');
-    var pattern = $.urlParam('query')
-    search(pattern)
-    };
 
     // Sidebar Search
     $("#sidebar").scroll(function(){
@@ -324,6 +317,30 @@ $(document).ready(function() {
       var result_scroll = $(".modal").scrollTop()
       localStorage.setItem('result_scroll', result_scroll);
     });
+
+    $('.modal').on('hide.bs.modal', function () {
+    localStorage.setItem('tag_name', '');
+    // localStorage.setItem('result_scroll', '');
+    history.pushState(null, null, '/{{year}}/');
+    console.log('Cleared.')
+    });
+
+    // Build Model and Results From URL
+    function check_modal_url(){
+      if(window.location.href.indexOf('#searchModal') != -1) {
+      $('#searchModal').modal('show');
+      var pattern = $.urlParam('query')
+      search(pattern)
+      };
+    };
+    // Check Url on loading - When coming back from another page
+    check_modal_url()
+
+    // Check Url from when using back button but staying on the same page
+    window.onpopstate = function(event) {
+      check_modal_url()
+    }
+
 
 }); //END OF DOC READY
 
