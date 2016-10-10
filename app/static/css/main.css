@@ -263,10 +263,6 @@ a.navbar-brand {
     color: #999;
 }
 
-/* Results list */
-li.list-group-item-text {
-    /*list-style: none;*/
-}
 
 #myfooter span.spaced {
 margin-left:6px;
@@ -303,11 +299,17 @@ border:0px !important;
 }
 
 .badge {
-  background-color: #fff;
-  color: #666;
-  border-radius: 1px;
-  border: 1px solid #ddd;
+  /*background-color: #fff;*/
+  /*color: #666;*/
+  /*border: 1px solid #ddd;*/
+  background-color: #21a3a3;
+  color: #fff;
+  border: 1px solid #239292;
+  border-radius: 0px;
   font-size: 10px;
+  margin-left: 5px;
+  cursor:pointer;
+  margin-top: -2px;
 }
 
 #searchModal {
@@ -329,10 +331,15 @@ margin-bottom: 20px;
     /*font-weight: bold;*/
 }
 
-#result-div a {
-    /*color: #666;*/
+.modal-header{
+  padding-bottom: 10px;
 }
 
+#result-filter-list {
+  min-height: 25px;
+  padding-left: 5px;
+  padding-top: 8px;
+}
 
 #result-div .member-of{
     color: #666;

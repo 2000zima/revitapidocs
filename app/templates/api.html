@@ -18,9 +18,9 @@
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title" id="myModalLabel"></h4>
+            <div id="result-filter-list" class="text-muted small">Filter: </span><span id="result-filter" class="result-tag badge"></div>
           </div>
           <div class="modal-body">
-            {# <div class="list-group" id="result-div">#}
             <div id="result-div">
             </div>
 
@@ -203,6 +203,7 @@ $(document).ready(function() {
             buildResults(results, pattern);
         })
     };
+    // End Search
 
     function buildResults(results, pattern){
         if (pattern.length < 1) { pattern = 'None'}
@@ -213,26 +214,22 @@ $(document).ready(function() {
             content = results.error
         }
         else{
-            $.each(results, function (index, value) {
+          $.each(results, function (index, value) {
             var ahref =
-
-            '<div class="result-entry">' +
+            '<div class="result-entry" data-tag="' + value.tag + '">' +
             '<h5><a href="' + value.href + '">' + value.title + '</a>' +
-
-            '<span class="badge pull-right">' + value.tag + '</span>' + '</h5>' +
+            '<span class="result-tag badge pull-right">' + value.tag + '</span>' + '</h5>' +
             '<p class="member-of small">' + value.namespace + ' : ' + '<a href="' + value.member_of_href +'">' + value.member_of +'</a>' +
             '<span class="small year">' +  value.year.join(' / ') +'</span></p>' +
             '<p class="description small">' + value.description + '</p>' +
             '</div>'
-
-
             content += ahref
-            });
+          });
 
-            // This shit should really be handled somewhere else
+            // This shit should really be handled somewhere else. Show alert if results is 300
             $('.modal-title').append('<span class="text-muted small"> [' +  results.length +']</span>');
             if (results.length == 300) {
-                console.log('Truncated')
+                console.log('Results Truncated')
                 $('#content').append(
                 '<div class = "alert alert-info" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
                 'Results Truncated to 300.</br> Try narrowing your search.</div>')
@@ -245,7 +242,44 @@ $(document).ready(function() {
 
         $('#result-div').html(content);
 
+        // Add Badge Click Listener
+        $('.result-tag.badge').on('click', function(e){
+          var tag_name = e.target.innerText;
+          toggle_tag(tag_name)
+        });
+
+        // Restore Stored Filter
+        if(localStorage && localStorage.getItem('tag_name')){
+            var tag_name = localStorage.getItem('tag_name')
+            toggle_tag(tag_name)
+        };
+
+        if(localStorage && localStorage.getItem('result_scroll')){
+            var result_scroll = localStorage.getItem('result_scroll');
+            $('.modal').scrollTop(result_scroll);
+        };
+        // result_scroll
+
+
+        // Toggle Tag Filter Function
+        function toggle_tag(tag_name){
+          $('.result-entry[data-tag!="' + tag_name + '"]').fadeToggle('fast','swing');
+
+          var current_filter = $('#result-filter').text()
+          if (current_filter.indexOf(tag_name) === 0){
+            $('#result-filter').html('')
+            localStorage.setItem('tag_name','');
+          }
+          else{
+            $('#result-filter').html(tag_name)
+            localStorage.setItem('tag_name',tag_name);
+          };
+        }
+
+
+
     };
+    // End Build Results
 
     $("#form-quicksearch").submit(function(e) {
         e.preventDefault() // Keeps page from submitting and reloading
@@ -254,6 +288,7 @@ $(document).ready(function() {
         search(pattern)
     });
 
+    // Extracts Decoded Param from url param
     $.urlParam = function(name){
         var url = decodeURIComponent(window.location.href)
         var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(url);
@@ -285,8 +320,10 @@ $(document).ready(function() {
     }
     });
 
-
-
+    $(".modal").scroll(function(){
+      var result_scroll = $(".modal").scrollTop()
+      localStorage.setItem('result_scroll', result_scroll);
+    });
 
 }); //END OF DOC READY
 
