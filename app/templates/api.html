@@ -319,13 +319,6 @@ $(document).ready(function() {
 
         };
 
-        // Restore Scroll
-        if(sessionStorage && sessionStorage.getItem('result_scroll')){
-            var result_scroll = sessionStorage.getItem('result_scroll');
-            $('.modal').scrollTop(result_scroll);
-        };
-
-
     };
     // End Build Results
 
@@ -357,6 +350,7 @@ $(document).ready(function() {
     }
     });
 
+    // Store Scroll
     $(".modal").scroll(function(){
       var result_scroll = $(".modal").scrollTop()
       sessionStorage.setItem('result_scroll', result_scroll);
@@ -376,7 +370,6 @@ $(document).ready(function() {
       var modalOpen = window.location.href.indexOf('#searchModal') != -1
       if(modalOpen) {
         $('#searchModal').modal('show');
-        console.log('>>>' + filter)
         search(pattern, filter, false)
       }
       else {
@@ -389,6 +382,16 @@ $(document).ready(function() {
     // Check Url from when using back button but staying on the same page
     window.addEventListener('popstate', function(event) {
       check_modal_url()
+    });
+
+
+    // Restore Scroll
+    $('.modal').on('shown.bs.modal', function () {
+      if(sessionStorage && sessionStorage.getItem('result_scroll')){
+          var result_scroll = sessionStorage.getItem('result_scroll');
+          $('.modal').scrollTop(result_scroll);
+          console.log('Scroll Restored')
+      };
     });
 
 
