@@ -230,6 +230,10 @@ a.navbar-brand {
     #alsofor {
     display:none;
     }
+
+    #result-div {
+      font-size: 75%;
+    }
 }
 
 #comment-bar{
