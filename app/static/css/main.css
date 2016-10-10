@@ -260,11 +260,11 @@ a.navbar-brand {
 #myfooter p {
     font-size: 70%;
     text-align: center;
-    color: #aaa;
+    color: #777;
 }
 #myfooter a {
     text-align: center;
-    color: #999;
+    color: #777;
 }
 
 
@@ -284,7 +284,7 @@ border:0px !important;
 }
 
 
-#content a > img {
+#content a > img{
     opacity:0.7;
     filter:alpha(opacity=70);
     -webkit-transition: all 0.1s ease-in-out;
@@ -302,18 +302,27 @@ border:0px !important;
     transition: all 0.1s ease-in-out;
 }
 
-.badge {
-  /*background-color: #fff;*/
-  /*color: #666;*/
-  /*border: 1px solid #ddd;*/
+.result-tag {
   background-color: #21a3a3;
   color: #fff;
-  border: 1px solid #239292;
+  /*border: 1px solid #239292;*/
   border-radius: 0px;
   font-size: 10px;
   margin-left: 5px;
   cursor:pointer;
   margin-top: -2px;
+}
+
+.result-tag:hover {
+    /*border: 1px solid #539292;*/
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    -o-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    -webkit-transition: all 0.1s ease-in-out;
+    -moz-transition: all 0.1s ease-in-out;
+    -o-transition: all 0.1s ease-in-out;
+    transition: all 0.1s ease-in-out;
 }
 
 #searchModal {

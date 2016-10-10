@@ -98,6 +98,33 @@
 {% block script %}
 <!-- START API SCRIPT  -->
 <script>
+
+function updateQueryStringParameter(key, value) {
+  var uri_parts = window.location.href.split('/')
+  var uri_local = uri_parts[uri_parts.length - 1]
+  var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+  var separator = uri_local.indexOf('?') !== -1 ? "&" : "?";
+  if (uri_local.match(re)) {
+    return uri_local.replace(re, '$1' + key + "=" + value + '$2');
+  }
+  else {
+    return uri_local + separator + key + "=" + value;
+  }
+};
+
+// Extracts Decoded Param from url param
+function getUrlParam (name){
+    var url = decodeURIComponent(window.location.href)
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(url);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
+};
+
+
 $(document).ready(function() {
 
     // LOAD MENU
@@ -181,7 +208,16 @@ $(document).ready(function() {
 
     };  // End of Build Menue Call Back Function
 
-    function search(pattern){
+    function search(pattern, filter, pushHistory){
+
+    var filter = getUrlParam('filter')
+    if ((filter == null)&&(filter == undefined)&&(filter == '0')){
+      filter = ''
+    };
+
+    if (pushHistory) {
+      history.pushState(null, null, '?query=' + pattern + '&filter=' + filter +'&#searchModal');
+    };
 
     $('.modal-title').html('Query: <strong>'+pattern+'</strong>');
     $('#result-div').html('<span class="small text-muted"><img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp; Loading</span>');
@@ -242,6 +278,32 @@ $(document).ready(function() {
 
         $('#result-div').html(content);
 
+
+        // Toggle Tag Filter Function
+        function toggle_tag(tag_name){
+
+          // Ignore when empty. Patch
+          if (tag_name != ''){
+            var filter = getUrlParam('filter')
+            if (filter == tag_name){
+              $('#result-filter').html('');
+              $('.result-entry').show();
+
+              var new_uri = updateQueryStringParameter('filter', '');
+              history.pushState(null, null, new_uri);
+              // console.log('RESET FILTER')
+            }
+            else {
+              $('#result-filter').html(tag_name);
+              $('.result-entry[data-tag!="' + tag_name + '"]').hide();
+              var new_uri = updateQueryStringParameter('filter', tag_name);
+              history.pushState(null, null, new_uri);
+              // console.log('ACTIVE FILTER')
+            };
+          };
+
+        };
+
         // Add Badge Click Listener
         $('.result-tag.badge').on('click', function(e){
           var tag_name = e.target.innerText;
@@ -249,32 +311,19 @@ $(document).ready(function() {
         });
 
         // Restore Stored Filter
-        if(localStorage && localStorage.getItem('tag_name')){
-            var tag_name = localStorage.getItem('tag_name')
-            toggle_tag(tag_name)
+        var tag_name = getUrlParam('filter')
+        if ((tag_name != null)&&(tag_name != '')&&(tag_name != 0)){
+            $('#result-filter').html(tag_name)
+            $('.result-entry[data-tag!="' + tag_name + '"]').hide();
+            $('.result-entry[data-tag*="' + tag_name + '"]').show();
+
         };
 
-        if(localStorage && localStorage.getItem('result_scroll')){
-            var result_scroll = localStorage.getItem('result_scroll');
+        // Restore Scroll
+        if(sessionStorage && sessionStorage.getItem('result_scroll')){
+            var result_scroll = sessionStorage.getItem('result_scroll');
             $('.modal').scrollTop(result_scroll);
         };
-        // result_scroll
-
-        // Toggle Tag Filter Function
-        function toggle_tag(tag_name){
-          $('.result-entry[data-tag!="' + tag_name + '"]').fadeToggle('fast','swing');
-
-          var current_filter = $('#result-filter').text()
-          if (current_filter.indexOf(tag_name) === 0){
-            $('#result-filter').html('')
-            localStorage.setItem('tag_name','');
-          }
-          else{
-            $('#result-filter').html(tag_name)
-            localStorage.setItem('tag_name',tag_name);
-          };
-        }
-
 
 
     };
@@ -283,21 +332,16 @@ $(document).ready(function() {
     $("#form-quicksearch").submit(function(e) {
         e.preventDefault() // Keeps page from submitting and reloading
         var pattern = $('#input-search').val();
-        history.pushState(null, null, '?query=' + pattern + '&#searchModal');
-        search(pattern)
+        sessionStorage.removeItem('result_scroll');
+        sessionStorage.removeItem('tag_name');
+        $('#result-filter').html('')
+
+        var clean_uri = updateQueryStringParameter('filter', '');
+        history.pushState(null, null, clean_uri);
+
+        search(pattern, null, true)
     });
 
-    // Extracts Decoded Param from url param
-    $.urlParam = function(name){
-        var url = decodeURIComponent(window.location.href)
-        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(url);
-        if (results==null){
-           return null;
-        }
-        else{
-           return results[1] || 0;
-        }
-    };
 
     // Sidebar Search
     $("#sidebar").scroll(function(){
@@ -315,31 +359,37 @@ $(document).ready(function() {
 
     $(".modal").scroll(function(){
       var result_scroll = $(".modal").scrollTop()
-      localStorage.setItem('result_scroll', result_scroll);
+      sessionStorage.setItem('result_scroll', result_scroll);
     });
 
-    $('.modal').on('hide.bs.modal', function () {
-    localStorage.setItem('tag_name', '');
-    // localStorage.setItem('result_scroll', '');
-    history.pushState(null, null, '/{{year}}/');
-    console.log('Cleared.')
+    $('.modal').on('hidden.bs.modal', function (event) {
+        $('#searchModal').modal('hide');
+        event.stopPropagation();
+        history.pushState(null, null, '/{{year}}/');
+        // history.replaceState(null, null, '/{{year}}/');
     });
 
     // Build Model and Results From URL
     function check_modal_url(){
-      if(window.location.href.indexOf('#searchModal') != -1) {
-      $('#searchModal').modal('show');
-      var pattern = $.urlParam('query')
-      search(pattern)
-      };
+      var pattern = getUrlParam('query')
+      var filter = getUrlParam('filter')
+      var modalOpen = window.location.href.indexOf('#searchModal') != -1
+      if(modalOpen) {
+        $('#searchModal').modal('show');
+        console.log('>>>' + filter)
+        search(pattern, filter, false)
+      }
+      else {
+        $('#searchModal').modal('hide');
+      }
     };
     // Check Url on loading - When coming back from another page
     check_modal_url()
 
     // Check Url from when using back button but staying on the same page
-    window.onpopstate = function(event) {
+    window.addEventListener('popstate', function(event) {
       check_modal_url()
-    }
+    });
 
 
 }); //END OF DOC READY
