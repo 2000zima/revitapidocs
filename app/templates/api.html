@@ -181,6 +181,7 @@ $(document).ready(function() {
 
             $('#treeview').treeview('revealNode', [ activeNodeId, { silent: false } ]);
             $('#treeview').treeview('toggleNodeSelected', [ activeNodeId, { silent: false } ]);
+            $('#treeview').treeview('toggleNodeExpanded', [ activeNodeId, { silent: false } ]);
 
             var scrollto = $('a[href="' + activeNode.href +'"]').offset().top - 200;
             // $('#sidebar').animate({ scrollTop: scrollto }, 500, "swing");
