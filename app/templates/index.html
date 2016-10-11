@@ -6,21 +6,19 @@
 
 {% block content %}
 <div id="main-full">
-    <h4>Online Documentation for the Revit API</h4>
-    <hr />
+    <img id="index-logo" alt="Revit API Docs Logo" height="70px" src="{{ url_for('static', filename="img/logos/logo-title.svg") }}"/>
+    <!-- <h4>Online Documentation for the Revit API</h4> -->
+    <!-- <hr /> -->
     <p>This website was created to facilitate access to the
-        Revit API documentation by providing a web-based,
-        searchable copy of the official API documentation.</p>
+        Revit API documentation by providing a web-based, searchable version of the official documentation.</p>
         <p>For more information about the API visit the
         <a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
-        Autodesk Developer Network</a></p>
-    <h5 class="margin-top">Available APIs</h5>
+        Autodesk Developer Network</a>.</p>
+
+    <h4 class="margin-top">Available APIs</h4>
     <a class="btn btn-default" href="/2015/">2015</a>
     <a class="btn btn-default" href="/2016/">2016</a>
     <a class="btn btn-default" href="/2017/">2017</a>
-
-    {# <p class="small text-muted">This website was created with content extracted from the official Revit SDK.
-    Please don't sue me.</p>#}
 
     <br />
     <br />
@@ -30,12 +28,12 @@
         <div class="col-sm-4 col-md-4 col-lg-4">
             <h5>Disqus</h5>
             <p class="small">Help improve the official documenation by adding your own solutions, comments, code samples, and relevant links through the built in commenting platform.
-            </p><p class="small">You can keep track of the activity on the <a href="https://disqus.com/home/forums/revit-api-docs/">Disqus community</a></p>
+            </p><p class="small">You can <strike>keep track of the activity</strike> see all the comments I have posted on the <a href="https://disqus.com/home/forums/revit-api-docs/">Disqus community</a></p>
             </div>
         <div class="margin-top visible-xs"></div>
         <div class="col-sm-4 col-md-4 col-lg-4">
             <h5>Github</h5>
-            <p class="small">Suggest ideas and report issues</p>
+            <p class="small">Suggest ideas and report issues.</p>
             <a class="github-button" href="https://github.com/gtalarico/revitapidocs/issues" aria-label="Issue gtalarico/revitapidocs on GitHub">Issues</a>
         </div>
         <div class="margin-top visible-xs"></div>
@@ -49,6 +47,7 @@
         </div>
     </div>
     <h4 class="margin-top">Revit API Resources</h4>
+    <p class="small">Feel free to suggest additional resources in the comment section below.</p>
     <hr />
     <div class="row">
         <div class="col-sm-4 col-md-4 col-lg-4">

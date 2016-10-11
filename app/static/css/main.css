@@ -13,6 +13,10 @@ a, a:hover {
   /*color: #009479*/
 }
 
+#index-logo {
+  margin-bottom: 20px;
+}
+
 .form-control:focus {
   border-color: #21a3a3;
 }
