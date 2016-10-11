@@ -143,11 +143,12 @@ $(document).ready(function() {
     function buildMenu() {
 
         var $searchableTree = $('#treeview').treeview({
-              expandIcon: "glyphicon glyphicon-stop",
-              collapseIcon: "glyphicon glyphicon-unchecked",
-              emptyIcon: "glyphicon glyphicon-unchecked",
+              expandIcon: "node-icon collapsed",
+              collapseIcon: "node-icon expanded",
+              emptyIcon: "node-icon empty",
             //   selectedIcon: 'glyphicon glyphicon-chevron-right',
-              selectedBackColor: "#666",
+              // selectedBackColor: "#666",
+              selectedBackColor: "#21a3a3",
               selectedColor: "#fff",
               showBorder: false,
               levels: 1,
@@ -196,9 +197,9 @@ $(document).ready(function() {
         };
 
         // console.log("Hiding Loader Gif...")
-        $('#menu-loading').animate({opacity: 0},200);
+        $('#menu-loading').animate({opacity: 0},300);
         $('#menu-loading').hide();
-        $('#treeview').animate({opacity: 1}, 200);
+        $('#treeview').animate({opacity: 1}, 300);
 
 
         // $('#treeview').on('nodeExpanded', function(event, node) {

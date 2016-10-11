@@ -64,3 +64,46 @@
 .treeview .expand-icon{
   color: #222;
 }
+
+.node-icon.expanded {
+  background: url('../img/nodes/expanded.svg') top left;
+}
+.node-icon.collapsed {
+  background: url('../img/nodes/collapsed.svg') top left;
+}
+.node-icon.empty {
+  background: url('../img/nodes/expanded.svg') top left;
+  /*opacity: 0.4;*/
+}
+.node-icon.expanded, .node-icon.collapsed, .node-icon.empty {
+  height: 9px;
+  width: : 9px;
+  display: inline-block;
+  background-repeat: no-repeat !important;
+  /*border: 1px solid rgba(0,0,0,0.3);
+  border-radius:50px;
+  color:#333333;
+  -webkit-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.15);
+  -moz-box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.15);
+  box-shadow: 0px 0px 6px -2px rgba(0,0,0,0.15);*/
+}
+
+.node-icon.collapsed:hover {
+  cursor: pointer;
+  /*background: url('../img/nodes/nodes_expanded.svg') top left;*/
+    /*border: 1px solid rgba(0,0,0,0.5);*/
+    /*-webkit-filter: drop-shadow( 0px 0px 2px rgba(33,163,163,0.5) );*/
+            /*filter: drop-shadow( 0px 0px 2px rgba(33,163,163,0.5) );*/
+  /*-webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;*/
+}
+.node-icon.expanded:hover {
+  cursor: pointer;
+  /*background: url('../img/nodes/nodes_collapsed.svg') top left;*/
+  /*-webkit-transition: all 0.15s ease-in-out;
+  -moz-transition: all 0.15s ease-in-out;
+  -o-transition: all 0.15s ease-in-out;
+  transition: all 0.15s ease-in-out;*/
+}
