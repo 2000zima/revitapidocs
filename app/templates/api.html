@@ -46,7 +46,7 @@
                   <div class="input-group input-group-sm">
                     <input type="text" class="form-control" id="input-search" placeholder="Regex">
                       <span class="input-group-btn">
-                        <button class="btn btn-default" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
+                        <button class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
                       </span>
                   </div>
             </div>
@@ -269,7 +269,7 @@ $(document).ready(function() {
             if (results.length == 500) {
                 console.log('Results Truncated')
                 $('#content').append(
-                '<div class = "alert alert-warning" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                '<div class = "alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
                 'Results Truncated to 500.</br> Try narrowing your search.</div>')
 
                 $(".alert").delay(8000).fadeOut(300, function() {

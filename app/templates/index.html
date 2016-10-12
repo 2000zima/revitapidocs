@@ -6,87 +6,190 @@
 
 {% block content %}
 <div id="main-full">
-    <img id="index-logo" alt="Revit API Docs Logo" height="70px" src="{{ url_for('static', filename="img/logos/logo-title.svg") }}"/>
+
+  <div class="row">
+  </br>
+  <div class="col-xs-11 col-sm-7 col-md-6 col-lg-5 col-centered">
+
+    <img class="center-block" id="index-logo" alt="Revit API Docs Logo" height="70px" src="{{ url_for('static', filename="img/logos/logo-title.svg") }}"/>
     <!-- <h4>Online Documentation for the Revit API</h4> -->
     <!-- <hr /> -->
-    <p>This website was created to facilitate access to the
-        Revit API documentation by providing a web-based, searchable version of the official documentation.</p>
-        <p>For more information about the API visit the
-        <a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
-        Autodesk Developer Network</a>.</p>
-
-    <h4 class="margin-top">Available APIs</h4>
+    <!-- <h4 >Available APIs</h4>
     <a class="btn btn-primary" href="/2015/">2015</a>
     <a class="btn btn-primary" href="/2016/">2016</a>
-    <a class="btn btn-primary" href="/2017/">2017</a>
+    <a class="btn btn-primary" href="/2017/">2017</a> -->
 
-    <br />
-    <br />
-    <h4 class="margin-top">Contribute</h4>
-    <hr />
-    <div class="row">
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <h5>Disqus</h5>
-            <p class="small">Help improve the official documenation by adding your own solutions, comments, code samples, and relevant links through the built in commenting platform.
-            </p><p class="small">You can <strike>keep track of the activity</strike> see all the comments I have posted on the <a href="https://disqus.com/home/forums/revit-api-docs/">Disqus community</a></p>
-            </div>
-        <div class="margin-top visible-xs"></div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <h5>Github</h5>
-            <p class="small">Suggest ideas and report issues.</p>
-            <a class="github-button" href="https://github.com/gtalarico/revitapidocs/issues" aria-label="Issue gtalarico/revitapidocs on GitHub">Issues</a>
+    <form id="direct-search">
+      <div class="form-group">
+        <label class="control-label text-danger">&nbsp;</label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="direct-search-input" placeholder="" aria-label="...">
+          <div class="input-group-btn">
+
+            <button id="direct-search-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="" aria-haspopup="true" aria-expanded="false">
+              <span id="label">2017</span>&nbsp;<span class="caret"></span>
+            </button>
+            <button id="direct-search-go" class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
+
+            <ul class="dropdown-menu dropdown-menu-right">
+              <li><a href="#">2017</a></li>
+              <li><a href="#">2016</a></li>
+              <li><a href="#">2015</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="margin-top visible-xs"></div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <h5>Twitter</h5>
-            <p class="small">Share or say hello.</p>
-            <a href="http://twitter.com/intent/tweet?text=Check out &url=http://www.RevitAPIdocs.com&hashtags=revitapi"><img src="{{ url_for('static', filename="img/tweet-bw.png") }}" alt="Tweet" /></a>
-            <a href="http://twitter.com/intent/tweet?text=%20%40gtalarico"><img src="{{ url_for('static', filename="img/tweet_at_gtalarico-bw.png") }}" alt="Tweet" /></a>
-            <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Share</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
-            <!-- <a href="https://twitter.com/intent/tweet?screen_name=gtalarico" class="twitter-mention-button" data-show-count="false">Tweet to @gtalarico</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
-        </div>
-    </div>
-    <h4 class="margin-top">Revit API Resources</h4>
-    <p class="small">Feel free to suggest additional resources in the comment section below.</p>
-    <hr />
-    <div class="row">
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <h5>Autodesk</h5>
-            <div class="list-group">
-            <a class="list-group-item" href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&amp;id=2484975">Autodesk Developer Network</a>
-            <a class="list-group-item" href="http://help.autodesk.com/view/RVT/2017/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2017: Developer's Guide</a>
-            <a class="list-group-item" href="http://help.autodesk.com/view/RVT/2016/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2016: Developer's Guide</a>
-            <a class="list-group-item" href="http://help.autodesk.com/view/RVT/2015/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2015: Developer's Guide</a>
-            <a class="list-group-item" href="http://help.autodesk.com/view/RVT/2014/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2014: Developer's Guide</a>
-            <a class="list-group-item" href="http://dynamoprimer.com/09_Custom-Nodes/9-4_Python.html">Dynamo Primer - Python</a>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <h5>Blogs</h5>
-            <div class="list-group">
-            <a class="list-group-item" href="http://thebuildingcoder.typepad.com/">Building Coder Blog</a>
-            <a class="list-group-item" href="https://boostyourbim.wordpress.com/">BoostYourBim</a>
-            <a class="list-group-item" href="http://spiderinnet.typepad.com/">SpiderInNet</a>
-            <a class="list-group-item" href="http://archi-lab.net/">Archi-lab.net</a>
-            <a class="list-group-item" href="http://dp-stuff.org/">dp-stuff.org</a>
-            <a class="list-group-item" href="http://wiki.theprovingground.org/revit-api">Nathan's Revit API Notebook</a>
-            </div>
-        </div>
-        <div class="col-sm-4 col-md-4 col-lg-4">
-            <h5>Forums</h5>
-            <div class="list-group">
-            <a class="list-group-item" href="http://forums.autodesk.com/t5/revit-api/bd-p/160">Revit API Forum</a>
-            <a class="list-group-item" href="https://forum.dynamobim.com/">Dynamo Forum</a>
-            <a class="list-group-item" href="http://stackoverflow.com/questions/tagged/revit-api/">Stack Overflow: revit-api</a>
-            </div>
-        </div>
+      </div>
+    </form>
+
+    <div class="text-center margin-top">
+      <p class="text-muted small">This website was created to facilitate access to the Revit API documentation by providing a web-based, searchable version of the official documentation.</p>
+      <p class="text-muted small">For more information about the API visit the
+        <a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">Autodesk Developer Network</a>.</p>
+      </div>
+
     </div>
 
-    {% include 'disqus.html' %}
+  </div>
+  <br/>
+  <br/>
+  <h4 class="text-center margin-top">Contribute</h4>
+  <!-- <p class="text-muted small text-center">Help improve Revit API docs</p> -->
+  <hr />
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <h5><a href="https://disqus.com/home/forums/revit-api-docs/">Disqus</a></h5>
+      <p class="small">Help improve the official documenation by adding your own solutions, comments, code samples, and relevant links through the built in commenting platform.</p>
+      <!--<p class="small">You can <strike>keep track of the activity</strike> see all the comments I have posted on the <a href="https://disqus.com/home/forums/revit-api-docs/">Disqus community</a></p>-->
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <div class="margin-top visible-xs"></div>
+      <h5><a href="https://github.com/gtalarico/revitapidocs/issues">Github</a></h5>
+      <p class="small">Suggest ideas and report issues.</p>
+      <!-- <a class="github-button" href="https://github.com/gtalarico/revitapidocs/issues" aria-label="Issue gtalarico/revitapidocs on GitHub">Issues</a> -->
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <div class="margin-top visible-xs"></div>
+      <h5><a href="http://twitter.com/intent/tweet?text=Check out&url=http://RevitAPIdocs.com&hashtags=revitapi&via=gtalarico&">Twitter</a></h5>
+      <p class="small">Share or say hello.</p>
+      <!-- <a href="http://twitter.com/intent/tweet?text=Check out &url=http://www.RevitAPIdocs.com&hashtags=revitapi"><img src="{{ url_for('static', filename="img/tweet-bw.png") }}" alt="Tweet" /></a> -->
+      <!-- <a href="http://twitter.com/intent/tweet?text=%20%40gtalarico"><img src="{{ url_for('static', filename="img/tweet_at_gtalarico-bw.png") }}" alt="Tweet" /></a> -->
+      <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Share</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+      <!-- <a href="https://twitter.com/intent/tweet?screen_name=gtalarico" class="twitter-mention-button" data-show-count="false">Tweet to @gtalarico</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
+    </div>
+  </div>
+  <h4 class="margin-top text-center">Revit API Resources</h4>
+  <!-- <p class="text-muted small text-center">Feel free to suggest additional resources in the comment section below.</p> -->
+  <hr />
+  <div class="row">
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <h5>Autodesk</h5>
+      <div class="list-group">
+        <a class="list-group-item" href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&amp;id=2484975">Autodesk Developer Network</a>
+        <a class="list-group-item" href="http://help.autodesk.com/view/RVT/2017/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2017: Developer's Guide</a>
+        <a class="list-group-item" href="http://help.autodesk.com/view/RVT/2016/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2016: Developer's Guide</a>
+        <a class="list-group-item" href="http://help.autodesk.com/view/RVT/2015/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2015: Developer's Guide</a>
+        <a class="list-group-item" href="http://help.autodesk.com/view/RVT/2014/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2014: Developer's Guide</a>
+        <a class="list-group-item" href="http://dynamoprimer.com/09_Custom-Nodes/9-4_Python.html">Dynamo Primer - Python</a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <h5>Blogs</h5>
+      <div class="list-group">
+        <a class="list-group-item" href="http://thebuildingcoder.typepad.com/">Building Coder Blog</a>
+        <a class="list-group-item" href="https://boostyourbim.wordpress.com/">BoostYourBim</a>
+        <a class="list-group-item" href="http://spiderinnet.typepad.com/">SpiderInNet</a>
+        <a class="list-group-item" href="http://archi-lab.net/">Archi-lab.net</a>
+        <a class="list-group-item" href="http://dp-stuff.org/">dp-stuff.org</a>
+        <a class="list-group-item" href="http://wiki.theprovingground.org/revit-api">Nathan's Revit API Notebook</a>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+      <h5>Forums</h5>
+      <div class="list-group">
+        <a class="list-group-item" href="http://forums.autodesk.com/t5/revit-api/bd-p/160">Revit API Forum</a>
+        <a class="list-group-item" href="https://forum.dynamobim.com/">Dynamo Forum</a>
+        <a class="list-group-item" href="http://stackoverflow.com/questions/tagged/revit-api/">Stack Overflow: revit-api</a>
+      </div>
+    </div>
+  </div>
+
+  {% include 'disqus.html' %}
 
 </div>
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+{% endblock %}
+
+{% block script %}
+<script>
+
+$(document).ready(function(e){
+
+  // Set Input
+  $('#direct-search-input').delay(1500).fadeIn(function() {
+    $(this).focus();
+  });
+
+  // Typying Animation
+  $(function(){
+    $("#direct-search-input").typed({
+      strings: ["Wall Class", "Pushbutton", "Global Parameter",
+      "Idling Event", "Ribbon Item", "CreateBound", "ViewSchedule",
+      "ViewType", "Revit.UI", "ActiveDocument", "DocumentClass",
+      "BuiltinParameter", "Transaction Mode"],
+      typeSpeed: 50,
+      startDelay: 2500,
+    });
+  });
+
+  // Clear Animation
+  $('#direct-search-input').on('click', function(){
+    $('#direct-search-input').typed('stops')
+    $('#direct-search-input').val('')
+    $('#direct-search-input').attr({'Placeholder':'Search Term'})
+  })
+
+  // Get Stored year
+  if(localStorage && localStorage.getItem('revitapidocs_year')){
+    var year = localStorage.getItem('revitapidocs_year');
+    $('#direct-search-year').attr('value', year)
+    $('#direct-search-year').find('#label').text(year)
+  };
+
+  // Click Dropdown
+  $('#direct-search li').on('click', function(){
+    var year = $(this).text()
+    $('#direct-search-year').attr('value', year)
+    $('#direct-search-year').find('#label').text(year)
+
+    if (localStorage) {
+      localStorage.setItem('revitapidocs_year', year);
+    }
+  })
+
+  function search(query, year){
+    var searchUrl = 'http://www.revitapidocs.com/' + year + '/?query=' + query + '#searchModal'
+    window.location.href = searchUrl;
+  }
+
+  // $('#direct-search-go').on('click', function(){})
+  $("#direct-search").submit(function(e) {
+    e.preventDefault() // Keeps page from submitting and reloading
+    var year = $('#direct-search-year').attr('value')
+    var query = $('#direct-search-input').val()
+    if (query.length<2) {
+      $("#direct-search").find('.form-group').addClass('has-error')
+      $("#direct-search").find('.control-label').text('Search term is too short')
+    }
+    else {
+      search(query, year)
+    }
+  });
+
+
+});
+
+</script>
 {% endblock %}

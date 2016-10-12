@@ -20,11 +20,12 @@
         <li class="{% if 'python' in request.path %}active{%endif%}"><a href="{{ url_for('python')}}">Python</a></li>
       </ul>
 
-      {#
+
       <ul class="nav navbar-nav navbar-right">
+          <li><a  href="http://twitter.com/intent/tweet?text=Check out &url=http://www.RevitAPIdocs.com&hashtags=revitapi"><img src="{{ url_for('static', filename="img/twitter-icon.svg") }}" alt="Tweet" /></a></li>
           {# <li><p class="navbar-text"><a href="#" class="navbar-link">About</a></p></li>#}
       </ul>
-      #}
+
 
     </div> <!-- /.navbar-collapse -->
   </div> <!-- /.container-fluid -->

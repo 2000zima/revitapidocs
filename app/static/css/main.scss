@@ -1,20 +1,53 @@
 /* ==========================================================================
-   Author's custom styles
+   BOOTSTRAP + YETI OVERRIDES
    ========================================================================== */
 
 
 @import "_yeti.scss";
 
+// VARIABLES
+
+$brand-primary:         #21a3a3 !default;  // Modified in _yeti.scss
+$brand-nav-gray:        #28282a !default;
+
+$nav-bar-height:        45px;
+$nav-bar-border-width:   4px;
+$nav-bar-total:         $nav-bar-height + $nav-bar-border-width;
+
+// Reference
+// $gray-darker:            lighten($gray-base, 13.5%) !default; // #222
+// $gray-dark:              lighten($gray-base, 20%) !default;   // #333
+// $gray:                   #6f6f6f !default; // #555
+// $gray-light:             lighten($gray-base, 60%) !default;   // #999
+// $gray-lighter:           lighten($gray-base, 93.5%) !default; // #eee
+
+
 #index-logo {
-  margin-bottom: 20px;
+  @include transition(all 0.75s ease-in-out);
+  margin-top: 75px;
+  margin-bottom: 75px;
+  max-height: 75px;
 }
 
-.margin-top {
-margin-top: 40px;
+.form-control:focus {
+  @include box-shadow (inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(33,163,163,0.3));
+  @include transition (all 0.75s ease-in-out);
 }
 
-p, body {
-    font-size:14px;
+.form-control {
+  @include transition (all 0.75s ease-in-out);
+}
+
+.center-block {
+  h1,h2,h3,h5,p {
+    text-align: center;
+  }
+}
+
+.strong{
+  h1,h2,h3,h4,h5 {
+  font-weight: 400px;
+  }
 }
 
 html, body {
@@ -34,9 +67,9 @@ html, body {
     border-radius: 0px;
     border: 0px;
     margin-bottom: 0px;
-    min-height: 45px;
+    min-height: $nav-bar-height;
     letter-spacing: 1px;
-    background-color: #28282a;
+    background-color: $brand-nav-gray;
     /*border-bottom: 3px solid #272727;*/
 }
 
@@ -44,8 +77,12 @@ a.navbar-brand {
   padding: 0px 20px 0px 20px;
 }
 
+.navbar-brand>img {
+
+}
+
 #sidebar {
-    background-color: #eee;
+    background-color: $gray-lighter;
 }
 
 #main-full{
@@ -60,18 +97,15 @@ a.navbar-brand {
   min-width: 80px;
   text-align: center;
   color: #ccc;
-  border-bottom: 4px solid #28282a;
+  border-bottom: $nav-bar-border-width solid $brand-nav-gray;
 }
 
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>li>a:hover {
   color: #fff;
-  border-bottom: 4px solid $brand-primary;
+  border-bottom: $nav-bar-border-width solid $brand-primary;
   background-color: #222;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
+  @include transition(all 0.2s ease-in-out);
 }
 
 /*DESKTOP*/
@@ -84,13 +118,13 @@ a.navbar-brand {
     #main-full{
     position: absolute;
     bottom: 40px;
-    top: 49px /*Plus Nav Border*/
+    top: $nav-bar-total;
 }
 
     #sidebar {
         position: absolute;
         width: 35%;
-        top: 49px;          /* Height of Nav Bar* Plus Nav Border*/
+        top: $nav-bar-total;
         bottom: 40px;       /* Height of Footer*/
         left: 0;
         overflow-y: auto;
@@ -101,7 +135,7 @@ a.navbar-brand {
     #main-sidebar {
         position: absolute;
         width: 65%;
-        top: 49px;          /* Height of Nav Bar* Plus Nav Border*/
+        top: $nav-bar-total;
         bottom: 40px;       /* Height of Footer*/
         right: 0;
         overflow-y: auto;
@@ -116,7 +150,7 @@ a.navbar-brand {
         padding-top:15px;
         padding-bottom: 0px;
         margin:0px;
-        background-color: #eee;
+        background-color: $gray-lighter;
 
     }
 
@@ -134,7 +168,7 @@ a.navbar-brand {
             margin: 0px;
     }
     #alsofor p{
-        color:999px;
+        color:$gray-light;
         margin:0px;
     }
 
@@ -143,35 +177,30 @@ a.navbar-brand {
     }
 
     .bottom-shadow {
-        -moz-transition: box-shadow 150ms ease-in-out, background-color 150ms, height 150ms ease-in-out;
-        -o-transition: box-shadow 150ms ease-in-out, background-color 150ms, height 150ms ease-in-out;
-        -webkit-transition: box-shadow 150ms ease-in-out, background-color 150ms, height 150ms ease-in-out;
-        transition: box-shadow 150ms ease-in-out, background-color 150ms, height 150ms ease-in-out;
-        box-shadow:
-         0px 3px 35px 0px rgba(0,0,0,0.25);
-
-         background-color: #e8e8e8 !important;
-         border-bottom: 1px solid #bfbfbf;
-         height: 103px !important;
+      @include box-shadow(0px 3px 35px 0px rgba(0,0,0,0.25));
+      @include transition(box-shadow 150ms ease-in-out, background-color 150ms, height 150ms ease-in-out);
+      border-bottom: 1px solid #bfbfbf;
+      height: 103px !important;
     }
 
 
     .no-bottom-shadow {
-        -moz-transition: box-shadow 150ms ease-in-out, background-color 150ms, height 150ms ease-in-out;
-        -o-transition: box-shadow 150ms ease-in-out, background-color 150ms, height 150ms ease-in-out;
-        -webkit-transition: box-shadow 150ms ease-in-out, background-color 150ms, height 150ms ease-in-out;
-        transition: box-shadow 150ms ease-in-out, background-color 150ms, height 150ms ease-in-out;
-        box-shadow:
-         0px 0px 0px 0px rgba(0,0,0,0.0);
-
-         background-color: #eee !important;
-         border-bottom: 0px solid #eee;
-         /*height: 100px;*/
+      @include box-shadow(0px 0px 0px 0px rgba(0,0,0,0.0));
+      @include transition(box-shadow 150ms ease-in-out, background-color 150ms, height 150ms ease-in-out);
+       background-color: $gray-lighter !important;
+       border-bottom: 0px solid $gray-lighter;
+       /*height: 100px;*/
     }
 }
 
 /*Small / Mobile*/
 @media (max-width: 992px){
+
+    #index-logo {
+      margin-top: 40px;
+      max-height: 60px;
+      @include transition(all 1s ease-in-out);
+    }
 
     .navbar-default .navbar-nav>.active>a,
     .navbar-default .navbar-nav>li>a:hover {
@@ -220,7 +249,7 @@ a.navbar-brand {
 @media (max-width: 767px){
   .navbar-default .navbar-nav>.active>a,
   .navbar-default .navbar-nav>li>a:hover {
-    border-bottom: 4px solid #28282a !important;
+    border-bottom: $nav-bar-border-width solid $brand-nav-gray !important;
   }
 }
 
@@ -273,19 +302,13 @@ border:0px !important;
 #content a > img{
     opacity:0.7;
     filter:alpha(opacity=70);
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
+    @include transition(all 0.1s ease-in-out);
 }
 
 #content a > img:hover {
     opacity:1.0;
     filter:alpha(opacity=100);
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
+    @include transition(all 0.1s ease-in-out);
 }
 
 .result-tag {
@@ -300,16 +323,15 @@ border:0px !important;
 }
 
 .result-tag:hover {
-    /*border: 1px solid #539292;*/
-    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    -o-box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-    -webkit-transition: all 0.1s ease-in-out;
-    -moz-transition: all 0.1s ease-in-out;
-    -o-transition: all 0.1s ease-in-out;
-    transition: all 0.1s ease-in-out;
+    @include box-shadow(0 0 4px 1px rgba(0,0,0,0.23));
+    @include transition(all 0.175s ease-in);
 }
+
+.result-tag:active {
+    /*border: 1px solid #539292;*/
+    @include box-shadow(0 0 1px rgba(0,0,0,0.2));
+    @include transition(all 0.15s ease-in);
+  }
 
 #searchModal {
     /*max-height: 800px;*/
@@ -341,20 +363,29 @@ margin-bottom: 20px;
 }
 
 #result-div .member-of{
-    color: #666;
+    color: $text-muted;
 }
 #result-div .year{
-    color: #777;
+    color: $text-muted;
     line-height: 18px;
     float: right;
 }
 
 #result-div .description {
-    color: #666;
+    color: $text-muted;
     font-size: 80%;
     margin-top: 4px;
 }
 
 #result-div .member-of a {
-    color: #666;
+    color: $text-muted;
+}
+
+.margin-top {
+margin-top: 40px;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
 }
