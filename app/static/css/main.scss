@@ -24,8 +24,8 @@ $nav-bar-total:         $nav-bar-height + $nav-bar-border-width;
 
 #index-logo {
   @include transition(all 0.75s ease-in-out);
-  margin-top: 75px;
-  margin-bottom: 75px;
+  margin-top: 65px;
+  margin-bottom: 65px;
   max-height: 75px;
 }
 
@@ -39,7 +39,7 @@ $nav-bar-total:         $nav-bar-height + $nav-bar-border-width;
 }
 
 .center-block {
-  h1,h2,h3,h5,p {
+  h1,h2,h3,h5,p, li {
     text-align: center;
   }
 }
@@ -273,7 +273,7 @@ a.navbar-brand {
 }
 
 #myfooter p {
-    font-size: 70%;
+    font-size: 75%;
     text-align: center;
     color: #777;
 }
