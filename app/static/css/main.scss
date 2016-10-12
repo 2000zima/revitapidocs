@@ -366,7 +366,7 @@ margin-bottom: 20px;
     color: $text-muted;
 }
 #result-div .year{
-    color: $text-muted;
+    // color: $text-muted; set conditionally
     line-height: 18px;
     float: right;
 }

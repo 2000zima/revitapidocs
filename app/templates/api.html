@@ -253,19 +253,22 @@ $(document).ready(function() {
         }
         else{
           $.each(results, function (index, value) {
+            var active_year = "{{year}}" // Get year in context
+            var year_class = (value.year.indexOf(active_year) == -1) ? 'text-danger': 'text-muted'
+
             var ahref =
             '<div class="result-entry" data-tag="' + value.tag + '">' +
             '<h5><a href="' + value.href + '">' + value.title + '</a>' +
             '<span class="result-tag badge pull-right">' + value.tag + '</span>' + '</h5>' +
             '<p class="member-of small">' + value.namespace + ' : ' + '<a href="' + value.member_of_href +'">' + value.member_of +'</a>' +
-            '<span class="small year">' +  value.year.join(' / ') +'</span></p>' +
+            '<span class="small year ' + year_class + '">' +  value.year.join(' / ') +'</span></p>' +
             '<p class="description small">' + value.description + '</p>' +
             '</div>'
             content += ahref
           });
 
             // This shit should really be handled somewhere else. Show alert if results is 300
-            $('#result-size').html('Results: ' +  results.length);
+            $('#result-size').html('API {{year}} | Results: ' +  results.length);
             if (results.length == 500) {
                 console.log('Results Truncated')
                 $('#content').append(
