@@ -6,23 +6,36 @@
 
 {% block content %}
 <div id="main-full">
-    <img id="index-logo" alt="Revit API Docs Logo" height="70px" src="{{ url_for('static', filename="img/logos/logo-title.svg") }}"/>
-    <!-- <h4>Online Documentation for the Revit API</h4> -->
-    <!-- <hr /> -->
-    <p>This website was created to facilitate access to the
-        Revit API documentation by providing a web-based, searchable version of the official documentation.</p>
-        <p>For more information about the API visit the
-        <a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
-        Autodesk Developer Network</a>.</p>
+  <div class="row">
+    <div class="col-sm-12 col-md-8 col-lg-8">
+      <img id="index-logo" alt="Revit API Docs Logo" height="70px" src="{{ url_for('static', filename="img/logos/logo-title.svg") }}"/>
+        <!-- <h4>Online Documentation for the Revit API</h4> -->
+        <!-- <hr /> -->
+        <p>This website was created to facilitate access to the
+            Revit API documentation by providing a web-based, searchable version of the official documentation.</p>
+            <p>For more information about the API visit the
+            <a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
+            Autodesk Developer Network</a>.</p>
 
-    <h4 class="margin-top">Available APIs</h4>
-    <a class="btn btn-primary" href="/2015/">2015</a>
-    <a class="btn btn-primary" href="/2016/">2016</a>
-    <a class="btn btn-primary" href="/2017/">2017</a>
+        <h4 class="margin-top">Available APIs</h4>
+        <a class="btn btn-primary" href="/2015/">2015</a>
+        <a class="btn btn-primary" href="/2016/">2016</a>
+        <a class="btn btn-primary" href="/2017/">2017</a>
+      </div>
+      <div class="col-sm-12 col-md-4 col-lg-4">
 
+        <div class="margin-top visible-xs visible-sm"></div>
+        <div class="hidden-sm hidden-xs" style="margin-top:60px"></div>
+        <h4>Popular Searches</h4>
+        <div id="top-queries" class="list-group">
+          <span id="menu-loading" class="small text-muted"><img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp;Loading</span>
+        </div>
+        <p class="text-muted small">Last 14 days</p>
+      </div>
+    </div>
     <br />
-    <br />
-    <h4 class="margin-top">Contribute</h4>
+    <div class="margin-top hidden-sm hidden-xs"></div>
+    <h4>Contribute</h4>
     <hr />
     <div class="row">
         <div class="col-sm-4 col-md-4 col-lg-4">
@@ -30,13 +43,13 @@
             <p class="small">Help improve the official documenation by adding your own solutions, comments, code samples, and relevant links through the built in commenting platform.
             </p><p class="small">You can <strike>keep track of the activity</strike> see all the comments I have posted on the <a href="https://disqus.com/home/forums/revit-api-docs/">Disqus community</a></p>
             </div>
-        <div class="margin-top visible-xs"></div>
+        <div class="margin-top visible-xs visible-sm"></div>
         <div class="col-sm-4 col-md-4 col-lg-4">
             <h5>Github</h5>
             <p class="small">Suggest ideas and report issues.</p>
             <a class="github-button" href="https://github.com/gtalarico/revitapidocs/issues" aria-label="Issue gtalarico/revitapidocs on GitHub">Issues</a>
         </div>
-        <div class="margin-top visible-xs"></div>
+        <div class="margin-top visible-xs visible-sm"></div>
         <div class="col-sm-4 col-md-4 col-lg-4">
             <h5>Twitter</h5>
             <p class="small">Share or say hello.</p>
@@ -88,5 +101,40 @@
 
 <!-- Place this tag in your head or just before your close body tag. -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
+{% endblock %}
 
+{% block script %}
+<script>
+$(document).ready(function() {
+
+    // qurery "https://ga-dev-tools.appspot.com/query-explorer/?start-date=60daysAgo&end-date=yesterday&metrics=ga%3AsearchResultViews&dimensions=ga%3AsearchKeyword&sort=-ga%3AsearchResultViews&filters=ga%3AsearchKeyword%3D~%5B%5E.%5D&max-results=5"
+    var ga_url = 'https://www.googleapis.com/analytics/v3/data/ga?ids=ga%3A126719152&start-date=14daysAgo&end-date=yesterday&metrics=ga%3AsearchResultViews&dimensions=ga%3AsearchKeyword&sort=-ga%3AsearchResultViews&filters=ga%3AsearchKeyword%3D~%5B%5E.%5D&max-results=5&access_token=ya29.CjB6AwUjmKzfu1YTFEYOSqbaZdOfLmAQSJ_YUIj330rr9VFb7CjVVGs3mIgZj0AEX-g'
+    var ajax = $.getJSON(ga_url, function(results) {
+        loadTopQueries(results)
+    });
+
+    ajax.done(function() {
+        console.log('Top Queries Loaded.');
+      })
+    ajax.fail(function() {
+      console.log('GA Queries Failed.')
+      $('#top-queries').html('<p class="text-danger">Error Loading Queries</p>')
+    })
+
+    function loadTopQueries(results){
+      console.log(results)
+      var rows = results.rows
+      var top_queries = ''
+      for (i=0; i<rows.length; i++) {
+        name = rows[i][0]
+        qty  = rows[i][1]
+        top_queries += '<a href ="" class="list-group-item">' + name + '<span class="badge">' + qty + '</span></a>'
+      }
+
+      $('#top-queries').html(top_queries)
+
+    }
+});
+
+</script>
 {% endblock %}
