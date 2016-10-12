@@ -100,7 +100,7 @@ def search_api(year):
 
 # This handles the static files form the .CHM content
 @cache.cached(timeout=86400)
-@app.route('/favicon.ico', methods=["GET"])
+# @app.route('/favicon.ico', methods=["GET"])
 @app.route('/icons/<string:filename>', methods=["GET"])
 @app.route('/scripts/<string:filename>', methods=["GET"])
 @app.route('/styles/<string:filename>', methods=["GET"])
