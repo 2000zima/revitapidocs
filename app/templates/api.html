@@ -258,11 +258,11 @@ $(document).ready(function() {
 
             var ahref =
             '<div class="result-entry" data-tag="' + value.tag + '">' +
-            '<h5><a href="' + value.href + '">' + value.title + '</a>' +
+            '<h5 class="truncate"><a href="' + value.href + '">' + value.title + '</a>' +
             '<span class="result-tag badge pull-right">' + value.tag + '</span>' + '</h5>' +
             '<p class="member-of small">' + value.namespace + ' : ' + '<a href="' + value.member_of_href +'">' + value.member_of +'</a>' +
             '<span class="small year ' + year_class + '">' +  value.year.join(' / ') +'</span></p>' +
-            '<p class="description small">' + value.description + '</p>' +
+            '<p class="small description">' + value.description + '</p>' +
             '</div>'
             content += ahref
           });
@@ -363,6 +363,7 @@ $(document).ready(function() {
 
     $('.modal').on('hidden.bs.modal', function (event) {
         $('#searchModal').modal('hide');
+        $('#result-size').html('')
         event.stopPropagation();
         history.pushState(null, null, '/{{year}}/');
         // history.replaceState(null, null, '/{{year}}/');

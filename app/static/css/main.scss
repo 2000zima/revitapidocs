@@ -239,10 +239,6 @@ a.navbar-brand {
     #alsofor {
     display:none;
     }
-
-    #result-div {
-      font-size: 75%;
-    }
 }
 
 /*MOBILE*/
@@ -251,6 +247,24 @@ a.navbar-brand {
   .navbar-default .navbar-nav>li>a:hover {
     border-bottom: $nav-bar-border-width solid $brand-nav-gray !important;
   }
+
+  #result-div {
+    font-size: 85%;
+  }
+  .truncate {
+      width: 75%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+  }
+  .year {
+      display: none;
+  }
+  .result-tag  {
+    position: absolute;
+    right: 20px;
+  }
+
 }
 
 #comment-bar{
