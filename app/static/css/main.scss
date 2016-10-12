@@ -38,6 +38,12 @@ $nav-bar-total:         $nav-bar-height + $nav-bar-border-width;
   @include transition (all 0.75s ease-in-out);
 }
 
+
+#direct-search {
+  // max-width: 450px
+
+}
+
 .center-block {
   h1,h2,h3,h5,p, li {
     text-align: center;

@@ -18,7 +18,6 @@
     <a class="btn btn-primary" href="/2015/">2015</a>
     <a class="btn btn-primary" href="/2016/">2016</a>
     <a class="btn btn-primary" href="/2017/">2017</a> -->
-
     <form id="direct-search">
       <div class="form-group">
         <label class="control-label text-danger">&nbsp;</label>
@@ -26,7 +25,7 @@
           <input type="text" class="form-control" id="direct-search-input" placeholder="" aria-label="...">
           <div class="input-group-btn">
 
-            <button id="direct-search-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="" aria-haspopup="true" aria-expanded="false">
+            <button id="direct-search-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="UNDEFINED" aria-haspopup="true" aria-expanded="false">
               <span id="dropdown-label">YEAR</span>&nbsp;<span class="caret"></span>
             </button>
             <button id="direct-search-go" class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
@@ -145,10 +144,15 @@
     });
 
     // Clear Animation
-    $('#direct-search-input').on('click', function(){
+    $('#direct-search-input').one('click', function(){
       $('#direct-search-input').typed('stops')
       $('#direct-search-input').val('')
       $('#direct-search-input').attr({'Placeholder':'Search Term'})
+    })
+
+    $('#direct-search-input').on('click', function(){
+      $("#direct-search").find('.form-group').removeClass('has-error')
+      $("#direct-search").find('.control-label').html("&nbsp;")
     })
 
     // Get Stored year
@@ -164,6 +168,9 @@
       var year = $(this).text()
       $('#dropdown-label').text(year)
       $('#direct-search-year').attr('value', year)
+      $("#direct-search-year").removeClass('btn-danger')
+      $("#direct-search").find('.form-group').removeClass('has-error')
+      $("#direct-search").find('.control-label').html("&nbsp;")
 
       if (localStorage) {
         localStorage.setItem('revitapidocs_year', year);
@@ -180,7 +187,13 @@
       e.preventDefault() // Keeps page from submitting and reloading
       var year = $('#direct-search-year').attr('value')
       var query = $('#direct-search-input').val()
-      if (query.length<2) {
+      console.log(year)
+      if (year === 'UNDEFINED'){
+        $("#direct-search").find('.form-group').addClass('has-error')
+        $("#direct-search").find('.control-label').text('Select a year')
+        $("#direct-search-year").addClass('btn-danger')
+      }
+      else if (query.length<2) {
         $("#direct-search").find('.form-group').addClass('has-error')
         $("#direct-search").find('.control-label').text('Search term is too short')
       }
