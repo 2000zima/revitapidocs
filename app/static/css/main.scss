@@ -117,7 +117,7 @@ a.navbar-brand {
     #direct-search {
       @include transition(all 0.75s ease-in-out);
       margin-top: 65px;
-      max-width: 500px;
+      max-width: 600px;
     }
 
     #direct-search > img {
@@ -421,6 +421,7 @@ margin-bottom: 20px;
     border: 1px solid $gray-light;
     background: rgba(255,255,255,0.8);
     overflow: auto;
+    z-index: 0;
 }
 
 .autocomplete-selected {
@@ -428,6 +429,7 @@ margin-bottom: 20px;
 }
 
 .autocomplete-suggestion {
+
     padding: 5px 12px;
     white-space: nowrap;
     overflow: hidden;

@@ -134,15 +134,6 @@
 
   $(document).ready(function(e){
 
-    $.getScript("//cnstrc.com/js/ac.js", function() {
-      $('#direct-search-input').constructorAutocomplete({
-        key: '0gZpXXFS6Jo5kAzME5N5',
-        boostRecentSearches : true,
-        maxResults : 6,
-        });
-    });
-    // AUTOCOMPLETE
-
     // Set Input
     $('#direct-search-input').delay(1500).fadeIn(function() {
       $(this).focus();
@@ -177,7 +168,6 @@
       var year = localStorage.getItem('revitapidocs_year');
       $('#direct-search-year').attr('value', year)
       $('#dropdown-label').text(year)
-      console.log('Run!')
     };
 
     // Click Dropdown
@@ -193,6 +183,17 @@
         localStorage.setItem('revitapidocs_year', year);
       }
     })
+
+    // AUTOCOMPLETE
+    $.getScript("//cnstrc.com/js/ac.js", function() {
+      $('#direct-search-input').on('click', function() {
+          $('#direct-search-input').constructorAutocomplete({
+            key: '0gZpXXFS6Jo5kAzME5N5',
+            boostRecentSearches : true,
+            maxResults : 6,
+            });
+      });
+    });
 
     function search(query, year){
       var searchUrl = 'http://www.revitapidocs.com/' + year + '/?query=' + query + '#searchModal'
