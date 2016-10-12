@@ -3,14 +3,14 @@ from flask_assets import Bundle
 
 join = os.path.join
 
-scss = Bundle('css/_yeti.scss',
+scss = Bundle('css/main.scss',
               filters='libsass', output='packed/sass.css',
               depends='**/*.scss'
               )
 
 css_assets = Bundle(#'css/yeti.css',
+                    # 'css/main.css',
                     scss,
-                    'css/main.css',
                     'css/overrides.css',
                     'css/treeview.css',
                     filters='cssmin',

@@ -1,3 +1,4 @@
+
 // Yeti 3.3.7
 // Bootswatch
 // -----------------------------------------------------
@@ -266,6 +267,10 @@ label,
 input[type="radio"],
 input[type="checkbox"] {
   margin-top: 1px;
+}
+
+input {
+  background-color: #f00;
 }
 
 // Navs =======================================================================

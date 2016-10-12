@@ -1,16 +1,9 @@
-
-
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
 
-body, h1, h2, h3, h4, h5, h6 {
-  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-}
 
-a, a:hover {
-  /*color: #21a3a3;*/
-}
+@import "_yeti.scss";
 
 #index-logo {
   margin-bottom: 20px;
@@ -34,7 +27,6 @@ html, body {
   top: 60px;
   right: 40px;
   width: 200px;
-  /*background-color: #21a3a3;*/
   border: none;
 }
 
@@ -74,7 +66,7 @@ a.navbar-brand {
 .navbar-default .navbar-nav>.active>a,
 .navbar-default .navbar-nav>li>a:hover {
   color: #fff;
-  border-bottom: 4px solid #21a3a3;
+  border-bottom: 4px solid $brand-primary;
   background-color: #222;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
@@ -85,8 +77,6 @@ a.navbar-brand {
 /*DESKTOP*/
 @media (min-width: 992px){
 
-
-
     #content {
         overflow: hidden;
     }
@@ -95,8 +85,6 @@ a.navbar-brand {
     position: absolute;
     bottom: 40px;
     top: 49px /*Plus Nav Border*/
-    /*max-width:920px;*/
-    /*margin: auto;*/
 }
 
     #sidebar {
@@ -195,7 +183,6 @@ a.navbar-brand {
     }
 
     #content {
-        /*height: 100%;*/
         overflow-y: auto;
     }
 
@@ -239,7 +226,7 @@ a.navbar-brand {
 
 #comment-bar{
     /*clear: both;*/
-    padding-top: 75px;
+    padding-top: 100px;
     padding-left: 0px;
     padding-right: 0px;
 }
@@ -302,7 +289,7 @@ border:0px !important;
 }
 
 .result-tag {
-  background-color: #21a3a3;
+  background-color: $brand-primary;
   color: #fff;
   /*border: 1px solid #239292;*/
   border-radius: 0px;
