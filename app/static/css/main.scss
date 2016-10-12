@@ -414,3 +414,39 @@ margin-bottom: 20px;
 #result-div .member-of a {
     color: $text-muted;
 }
+
+
+
+.autocomplete-suggestions {
+    border: 1px solid $gray-light;
+    background: rgba(255,255,255,0.8);
+    overflow: auto;
+}
+
+.autocomplete-selected {
+    background: $gray-lighter;
+}
+
+.autocomplete-suggestion {
+    padding: 5px 12px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    font-size: 12px;
+    font-weight: normal;
+    color: $gray-dark;
+}
+.autocomplete-suggestions strong {
+    color: $gray-light;
+    font-weight: normal;
+}
+
+#powered-by-constructor-io{
+  @extend .autocomplete-suggestions;
+  font-size: 10px;
+  color: $gray-light;
+}
+#powered-by-constructor-io a {
+  color: $gray;
+  border-bottom-color: $gray-lighter !important;
+}

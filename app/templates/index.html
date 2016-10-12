@@ -130,7 +130,18 @@
   {% block script %}
   <script>
 
+
+
   $(document).ready(function(e){
+
+    $.getScript("//cnstrc.com/js/ac.js", function() {
+      $('#direct-search-input').constructorAutocomplete({
+        key: '0gZpXXFS6Jo5kAzME5N5',
+        boostRecentSearches : true,
+        maxResults : 6,
+        });
+    });
+    // AUTOCOMPLETE
 
     // Set Input
     $('#direct-search-input').delay(1500).fadeIn(function() {
