@@ -77,7 +77,6 @@ def namespace_get(year):
 
 @app.route('/<string:year>/searchapi', methods=['GET'])
 def search_api(year):
-    t = Timer()
     MAX_RESULTS = 500
     query = request.args.get('query')
 
@@ -96,7 +95,6 @@ def search_api(year):
     if len(sorted_results) > MAX_RESULTS:
         # flash('Results Truncated to 300. Try narrowing your search.')
         sorted_results = sorted_results[:MAX_RESULTS]
-    logger.debug('*** TIME [API SEARCH]: ' + str(t.stop()))
     return jsonify(sorted_results)
 
 

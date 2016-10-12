@@ -249,7 +249,7 @@ $(document).ready(function() {
         var content = ''
 
         if (results.error) {
-            content = results.error
+            content = '<p class="text-danger">' + results.error + '</p>'
         }
         else{
           $.each(results, function (index, value) {

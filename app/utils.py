@@ -37,10 +37,16 @@ def get_schema(filename, year=None):
 
 
 def create_permutation_query(query):
+    ''' Permutation is capped at 3 search terms otherwise search takes closer
+    to 1 second, or more as words increase'''
     # query = 'Create Wall Method'
     # query = ['create', 'wall', 'method']
     # (('create', 'wall', 'method'), ('wall', 'create')
     split_query = query.lower().split(' ')
+    if len(split_query) > 3:
+        logger.debug('Too Many words for permutation search using simple query.')
+        return '.'.join(split_query)
+
     perm_query = permutations(split_query)
     final_query = ''
     for combo in perm_query:
@@ -48,17 +54,6 @@ def create_permutation_query(query):
         final_query += '({})|'.format(combo)
     query = final_query[0:-1]
     return query
-
-
-def search_db(pattern, keyname):
-    try:
-        results = [member for member in db_json.values() if
-                   re.search(pattern, member.get(keyname))]
-    except Exception as errmsg:
-        logger.error('search_db query error: {}|{}'.format(pattern, keyname))
-        return []
-    else:
-        return results
 
 
 class Timer(object):
@@ -83,3 +78,14 @@ class Timer(object):
                 return rv
             return wrap
         return wrapper
+
+@Timer.time_function('SEARCH DB')
+def search_db(pattern, keyname):
+    try:
+        results = [member for member in db_json.values() if
+                   re.search(pattern, member.get(keyname))]
+    except Exception as errmsg:
+        logger.error('search_db query error: {}|{}'.format(pattern, keyname))
+        return []
+    else:
+        return results
