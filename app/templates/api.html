@@ -124,6 +124,14 @@ function getUrlParam (name){
     }
 };
 
+$.getScript("//cnstrc.com/js/ac.js", function() {
+      $('#input-search').constructorAutocomplete({
+        key: '0gZpXXFS6Jo5kAzME5N5',
+        boostRecentSearches : true,
+        maxResults : 10,
+        });
+});
+
 
 $(document).ready(function() {
 
@@ -399,7 +407,6 @@ $(document).ready(function() {
           console.log('Scroll Restored')
       };
     });
-
 
 }); //END OF DOC READY
 
