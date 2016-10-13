@@ -57,6 +57,10 @@ def process_query(query):
     # query = final_query[0:-1]
 
 def track_search(query, num_results=None, clicked=None):
+    ''' Makes put requests to constructo io's api
+    to track usage/behavior. Data comes from a special Tracking url
+    called by the browser.
+    '''
     key = app.config['CONSTRUCTOR_IO_AUTOCOMPLETE_KEY']
     api_key = app.config['CONSTRUCTOR_IO_API_TOKEN']
     auth = (api_key, '')
