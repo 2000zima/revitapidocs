@@ -89,9 +89,9 @@ def track_search(query, num_results=None, clicked=None):
     response = requests.post(url, headers=headers, auth=auth, json=payload)
     if response.status_code == 204:
         response_json = {'message':'Success', 'payload':payload}
-        logger.debug('Result Tracked')
+        logger.debug('TRACKED: {}'.format(payload))
     else:
-        logger.debug('Error Tracking Search')
+        logger.debug('ERROR Tracking Search')
         response_json = response.json()
         logger.debug('MSG: {}'.format(response_json))
 

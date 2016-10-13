@@ -102,7 +102,6 @@ def track_search_api(year):
     ''' This url received ajax calls from the browser to query+numresults
     and query+clicked to improve Suggestions
     '''
-
     #/2015/tracksearch?query=XX&numresults=INT
     #/2015/tracksearch?query=XX&clicked=TITLE
 
