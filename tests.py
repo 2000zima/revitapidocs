@@ -8,7 +8,7 @@ import logging
 
 from app import app
 from app.logger import logger
-from app.utils import check_available_years, get_schema, create_permutation_query
+from app.utils import check_available_years, get_schema
 # from app.db import db, db_query
 
 logger.setLevel(logging.ERROR)
@@ -40,7 +40,7 @@ class UrlsTestCase(unittest.TestCase):
         self.assertEqual(r.status_code, 200)
 
     def test_static(self):
-        r = self.app.get('/static/css/bootstrap.css')
+        r = self.app.get('/static/css/_yeti.scss')
         self.assertEqual(r.status_code, 200)
 
     def test_robot(self):
@@ -73,10 +73,10 @@ class UtilsTestCase(unittest.TestCase):
         self.assertEqual(rv['description'], 'Represents the Autodesk Revit Application, providing access to documents, options and other application wide data and settings.')
         self.assertEqual(rv['namespace'], 'Autodesk.Revit.ApplicationServices')
 
-    def test_permitation_query(self):
-        query = 'Create Wall'
-        perm_query = create_permutation_query(query)
-        self.assertEqual('((create).*(wall))|((wall).*(create))', perm_query)
+    # def test_permitation_query(self):
+    #     query = 'Create Wall'
+    #     perm_query = create_permutation_query(query)
+    #     self.assertEqual('((create).*(wall))|((wall).*(create))', perm_query)
 
 # class DbTestCase(unittest.TestCase):
 #
