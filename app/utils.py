@@ -36,28 +36,25 @@ def get_schema(filename, year=None):
     return None
 
 
-def create_permutation_query(query):
-    ''' Permutation is capped at 3 search terms otherwise search takes closer
-    to 1 second, or more as words increase'''
-    # query = 'Create Wall Method'
-    # query = ['create', 'wall', 'method']
-    # (('create', 'wall', 'method'), ('wall', 'create')
-
+def process_query(query):
     # escape brackets/parentesis and other symbols
-    query = re.sub(r';|\(|\)|\[|\]', r'.', query)
-
-    split_query = query.split(' ')
-    if len(split_query) > 2:
-        logger.debug('Too Many words for permutation search using simple query.')
-        return '.'.join(split_query)
-
-    perm_query = permutations(split_query)
-    final_query = ''
-    for combo in perm_query:
-        combo = '.*'.join('({})'.format(x) for x in combo)
-        final_query += '({})|'.format(combo)
-    query = final_query[0:-1]
+    query = re.sub(r'\\|;|\(|\)|\[|\]', '.', query)
+    # Make Space Optional
+    query = re.sub(r'\s', r'.*', query)
     return query
+    # Old Permutation
+    # split_query = query.split(' ')
+    # if len(split_query) > 2:
+    #     logger.debug('Too Many words for permutation search using simple query.')
+    #     return '.'.join(split_query)
+    #
+    # perm_query = permutations(split_query)
+    # final_query = ''
+    # for combo in perm_query:
+    #     combo = '.*'.join('({})'.format(x) for x in combo)
+    #     final_query += '({})|'.format(combo)
+    # query = final_query[0:-1]
+
 
 
 class Timer(object):
@@ -73,23 +70,24 @@ class Timer(object):
     @staticmethod
     def time_function(name):
         def wrapper(func):
-            def wrap(*ags):
+            def wrap(*ags, **kwargs):
                 logger.debug('START: {}'.format(name))
                 t = Timer()
-                rv = func(*ags)
+                rv = func(*ags, **kwargs)
                 duration = t.stop()
                 logger.debug('Done: {} sec'.format(duration))
                 return rv
             return wrap
         return wrapper
 
+
 @Timer.time_function('SEARCH DB')
-def search_db(pattern, keyname):
+def search_db(pattern=None, field=None):
     try:
         results = [member for member in db_json.values() if
-                   re.search(pattern, member.get(keyname))]
+                   re.search(pattern, member.get(field))]
     except Exception as errmsg:
-        logger.error('search_db query error: {}|{}'.format(pattern, keyname))
+        logger.error('search_db query error: {}|{}'.format(pattern, field))
         return []
     else:
         return results

@@ -188,7 +188,7 @@
     $.getScript("//cnstrc.com/js/ac.js", function() {
       $('#direct-search-input').on('click', function() {
           $('#direct-search-input').constructorAutocomplete({
-            key: '{{config.CONSTRUCTOR_KEY}}',
+            key: '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}',
             boostRecentSearches : true,
             maxResults : 6,
             });
@@ -196,7 +196,7 @@
     });
 
     function search(query, year){
-      var searchUrl = 'http://www.revitapidocs.com/' + year + '/?query=' + query + '#searchModal'
+      var searchUrl = '/' + year + '/?query=' + query + '#searchModal'
       window.location.href = searchUrl;
     }
 

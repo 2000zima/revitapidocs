@@ -15,7 +15,7 @@ from app import cache
 from app.logger import logger
 from app.utils import AVAILABLE_APIS
 from app.utils import get_schema, check_available_years, Timer
-from app.utils import create_permutation_query, search_db
+from app.utils import process_query, search_db
 from app.gists import get_gists
 from app.db import db_json
 
@@ -83,11 +83,11 @@ def search_api(year):
     if not query or query == '0':
         return jsonify({'error': 'Invalid Query Param'})
 
-    query = create_permutation_query(query)
-
+    query = process_query(query)
     final_query_pat = re.compile(query, re.IGNORECASE)
+
     logger.debug('Search Query: ' + str(final_query_pat))
-    results = search_db(final_query_pat, 'title')
+    results = search_db(pattern=final_query_pat, field='title')
 
     if not results: return jsonify({'error': 'No Results'})
 
@@ -100,7 +100,7 @@ def search_api(year):
 
 # This handles the static files form the .CHM content
 @cache.cached(timeout=86400)
-# @app.route('/favicon.ico', methods=["GET"])
+@app.route('/favicon.ico', methods=["GET"])
 @app.route('/icons/<string:filename>', methods=["GET"])
 @app.route('/scripts/<string:filename>', methods=["GET"])
 @app.route('/styles/<string:filename>', methods=["GET"])

@@ -90,6 +90,7 @@
         <!-- END JS WEBASSETS -->
 
         {# Google Analytics Script#}
+        <!-- PRODUCTION:VAR {{config.PRODUCTION}} -->
         {% if config.PRODUCTION %}
         <!-- BASE: START GOOGLE ANALYTICS - HIDDEN WHEN DEBUG -->
         {% include 'analytics.html' %}
