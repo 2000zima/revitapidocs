@@ -42,8 +42,12 @@ def create_permutation_query(query):
     # query = 'Create Wall Method'
     # query = ['create', 'wall', 'method']
     # (('create', 'wall', 'method'), ('wall', 'create')
-    split_query = query.lower().split(' ')
-    if len(split_query) > 3:
+
+    # escape brackets/parentesis and other symbols
+    query = re.sub(r';|\(|\)|\[|\]', r'.', query)
+
+    split_query = query.split(' ')
+    if len(split_query) > 2:
         logger.debug('Too Many words for permutation search using simple query.')
         return '.'.join(split_query)
 
