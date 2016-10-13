@@ -15,7 +15,7 @@ from app import cache
 from app.logger import logger
 from app.utils import AVAILABLE_APIS
 from app.utils import get_schema, check_available_years, Timer
-from app.utils import process_query, search_db
+from app.utils import process_query, search_db, track_search
 from app.gists import get_gists
 from app.db import db_json
 
@@ -96,6 +96,26 @@ def search_api(year):
         # flash('Results Truncated to 300. Try narrowing your search.')
         sorted_results = sorted_results[:MAX_RESULTS]
     return jsonify(sorted_results)
+
+@app.route('/<string:year>/tracksearch', methods=['GET'])
+def track_search_api(year):
+    ''' This url received ajax calls from the browser to query+numresults
+    and query+clicked to improve Suggestions
+    '''
+
+    #/2015/tracksearch?query=XX&numresults=INT
+    #/2015/tracksearch?query=XX&clicked=TITLE
+
+    query = request.args.get('query')             # query term
+    num_results = request.args.get('numresults')  # number of results
+    clicked = request.args.get('clicked')         # name of item/entry
+    response, response_json = track_search(query, num_results=num_results, clicked=clicked)
+    try:
+        return jsonify(response_json)
+    except:
+        logger.error('Could not jsonify response: {}'.format(response_json))
+        return jsonify({'error':'Could not jsonify response'})
+
 
 
 # This handles the static files form the .CHM content

@@ -37,11 +37,20 @@ for n, i in enumerate(jdata.values()):
     items.append(item)
     unique_names[title] = True
 
-print(len(unique_names))
+
+from pprint import pprint
+pprint(items)
+
+import sys
+
+sys.exit()
+t1 = time.time()
+
 
 headers = {"Content-Type": "application/json"}
-api_key = # KEY
-autocomplete_key = # KEY
+
+api_key = KEY
+autocomplete_key = KEY
 auth = (api_key, '')
 
 # Also tried:
@@ -49,7 +58,7 @@ auth = (api_key, '')
 #          'autocomplete_section': 'Search Suggestions',
 #          'suggested_score': '1'}'
 
-t1 = time.time()
+
 
 url = "https://ac.cnstrc.com/v1/verify?autocomplete_key={key}".format(key=autocomplete_key)
 r = requests.get(url, headers=headers, auth=auth)

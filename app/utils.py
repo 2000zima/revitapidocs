@@ -4,6 +4,7 @@ import re
 from bs4 import BeautifulSoup
 from itertools import permutations
 import json
+import requests
 
 from app import app, cache
 from app.logger import logger
@@ -55,7 +56,42 @@ def process_query(query):
     #     final_query += '({})|'.format(combo)
     # query = final_query[0:-1]
 
+def track_search(query, num_results=None, clicked=None):
+    key = app.config['CONSTRUCTOR_IO_AUTOCOMPLETE_KEY']
+    api_key = app.config['CONSTRUCTOR_IO_API_TOKEN']
+    auth = (api_key, '')
 
+    headers = {"Content-Type": "application/json"}
+
+
+    url = "https://ac.cnstrc.com/v1/search?1&autocomplete_key={key}".format(key=key)
+    url_click = "https://ac.cnstrc.com/v1/click_through?1&autocomplete_key={key}".format(key=key)
+
+    payload       = {'term': query, 'num_results': num_results}
+    payload_click = {'term': query,
+                    'autocomplete_section': 'Search Suggestions',
+                    'item_id': clicked}
+
+    if clicked:
+        url = url_click
+        payload = payload_click
+    else:
+        try:
+            num_results = int(num_results)
+        except:
+            logger.debug('Could not convert num_results to in. Will Fail.')
+            logger.debug('num_results: {}'.format(num_results))
+
+    response = requests.post(url, headers=headers, auth=auth, json=payload)
+    if response.status_code == 204:
+        response_json = {'message':'Success', 'payload':payload}
+        logger.debug('Result Tracked')
+    else:
+        logger.debug('Error Tracking Search')
+        response_json = response.json()
+        logger.debug('MSG: {}'.format(response_json))
+
+    return response, response_json
 
 class Timer(object):
     "Time and TimeIt Decorator"

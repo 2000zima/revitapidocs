@@ -256,6 +256,25 @@ $(document).ready(function() {
         // var output
         var content = ''
 
+
+
+        if (results.length == undefined) {
+          var numresults = 0
+        }
+        else {
+          var numresults = results.length
+        }
+
+        // TRACK SEARCH RESULTS
+        track_url = '/2015/tracksearch?query=' + pattern + '&numresults='+ numresults
+        $.get( track_url, function( data ) {
+              console.log('TRACKING')
+              console.log(data)
+            });
+        // TRACK SEARCH RESULTS
+
+
+
         if (results.error) {
             content = '<p class="text-danger">' + results.error + '</p>'
         }
@@ -331,6 +350,17 @@ $(document).ready(function() {
             $('.result-entry[data-tag*="' + tag_name + '"]').show();
 
         };
+
+        // TRACK SEARCH RESULTS CLICK THROUGH
+        $('.result-entry').find('a').on('click', function(e){
+        var title = e.target.innerText;
+        track_url = '/2015/tracksearch?query=' + pattern + '&clicked='+ title
+        $.get( track_url, function( data ) {
+              console.log('TRACKING CLICK THROUGH')
+              console.log(data)
+            });
+        });
+        // TRACK SEARCH RESULTS
 
     };
     // End Build Results
