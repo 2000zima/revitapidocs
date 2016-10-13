@@ -13,6 +13,7 @@ class Config(object):
     CACHE_TYPE = os.getenv('CACHE_TYPE', 'simple')  # simple, redis
     CACHE_REDIS_URL = os.getenv('REDIS_URL', None)
     GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+    CONSTRUCTOR_IO_AUTOCOMPLETE_KEY = os.getenv('CONSTRUCTOR_IO_AUTOCOMPLETE_KEY')
 
 
 class Production(Config):

@@ -188,7 +188,7 @@
     $.getScript("//cnstrc.com/js/ac.js", function() {
       $('#direct-search-input').on('click', function() {
           $('#direct-search-input').constructorAutocomplete({
-            key: '0gZpXXFS6Jo5kAzME5N5',
+            key: '{{config.CONSTRUCTOR_KEY}}',
             boostRecentSearches : true,
             maxResults : 6,
             });
