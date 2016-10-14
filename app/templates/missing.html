@@ -8,10 +8,11 @@
 <div id="main-full">
     <h4>This Resource Not Available for the Active API Year<span class="text-muted small"> {{year}}</span></h4>
     <hr />
-    <p>The selected resource is only available on these APIs:</p>
-
+    <br/>
+    <h5>The selected resource is only available on these APIs</h5>
+    <br/>
     {% for year in available_in %}
-    <a class="btn btn-default" href="/{{year}}/{{active_href}}">{{year}}</a>
+    <a class="btn btn-primary" href="/{{year}}/{{active_href}}">{{year}}</a>
     {% endfor %}
 
     {% include 'disqus.html' %}

@@ -85,7 +85,7 @@
         <!-- END MAIN CONTENT -->
 
         <!-- START DISQUS -->
-        {% include 'disqus.html' %}
+        {% include 'disqus.html' with context %}
         <!-- END DISQUS -->
 
     </div>
@@ -381,16 +381,16 @@ $(document).ready(function() {
 
     // Sidebar Search
     $("#sidebar").scroll(function(){
-    if ($("#sidebar").scrollTop() > 1){
-        $("#sidebar-search").css("top", $("#sidebar").scrollTop() + 0 + "px");
-        $("#sidebar-search").addClass("bottom-shadow")
-        $("#sidebar-search").removeClass("no-bottom-shadow")
+      if ($("#sidebar").scrollTop() > 1){
+          $("#sidebar-search").css("top", $("#sidebar").scrollTop() + 0 + "px");
+          $("#sidebar-search").addClass("bottom-shadow")
+          $("#sidebar-search").removeClass("no-bottom-shadow")
 
-    } else {
-        $("#sidebar-search").css("top", "0px");
-        $("#sidebar-search").addClass("no-bottom-shadow")
-        $("#sidebar-search").removeClass("bottom-shadow")
-    }
+      } else {
+          $("#sidebar-search").css("top", "0px");
+          $("#sidebar-search").addClass("no-bottom-shadow")
+          $("#sidebar-search").removeClass("bottom-shadow")
+      }
     });
 
     // Store Scroll
@@ -428,7 +428,6 @@ $(document).ready(function() {
       check_modal_url()
     });
 
-
     // Restore Scroll
     $('.modal').on('shown.bs.modal', function () {
       if(sessionStorage && sessionStorage.getItem('result_scroll')){
@@ -436,6 +435,18 @@ $(document).ready(function() {
           $('.modal').scrollTop(result_scroll);
           console.log('Scroll Restored')
       };
+    });
+
+    // Sidebar Search
+    $(".modal-body").scroll(function(){
+      if ($(this).scrollTop() > 1){
+          $(this).addClass("bottom-shadow")
+          $(this).removeClass("no-bottom-shadow")
+
+      } else {
+          $(this).addClass("no-bottom-shadow")
+          $(this).removeClass("bottom-shadow")
+      }
     });
 
 }); //END OF DOC READY
