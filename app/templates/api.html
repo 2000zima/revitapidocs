@@ -461,7 +461,12 @@ $(document).ready(function() {
 
     var also_toggle = $('a[href="#seeAlsoToggle"]').first()
     $(also_toggle).css("display", 'none');
+
+    var example_toggle = $('a[href="#exampleToggle"]').first()
+    $(example_toggle).css("display", 'none');
     // $("div#header").css("margin-top", - delta);
+
+    $('#main-sidebar').animate({opacity: 1},300);
 
 
 }); //END OF DOC READY

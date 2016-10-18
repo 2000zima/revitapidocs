@@ -106,6 +106,10 @@ a.navbar-brand {
     width: 100%;
 }
 
+#main-sidebar{
+    opacity: 0;
+}
+
 .navbar-default .navbar-nav>li>a {
   @include transition(all 0.20s ease-in-out);
   padding-top: 13px;
