@@ -73,7 +73,7 @@
                 {% if active_href and available_in %}
                 <div id='alsofor'>
                     <p class="small"><small>
-                        API VERSIONS 
+                        API VERSIONS
                         {% for year in available_in %}
                         <a href="/{{year}}/{{active_href}}"> {{year}} </a>
                         <span class="spaced"> </span>
@@ -458,6 +458,10 @@ $(document).ready(function() {
     var delta = $("div#header").position().top - target_top
     $("div#header").css("margin-top", - delta);
     console.log('Delta:' + delta)
+
+    var also_toggle = $('a[href="#seeAlsoToggle"]').first()
+    $(also_toggle).css("display", 'none');
+    // $("div#header").css("margin-top", - delta);
 
 
 }); //END OF DOC READY

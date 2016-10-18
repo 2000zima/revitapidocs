@@ -12,6 +12,7 @@
 
 #mainSection .summary{
     /*margin-top:12px;*/
+    margin-bottom:12px;
 }
 
 #mainSection span{
@@ -109,9 +110,13 @@ pre a{
     opacity:0.75;
 }
 
-div #header{
+div#header{
     /*margin-top:-20px;*/
     margin-top: 0px;
+}
+
+div#mainBody{
+    margin-top: 12px;
 }
 
 div#header p{
