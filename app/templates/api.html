@@ -455,16 +455,18 @@ $(document).ready(function() {
 
     // This
     var target_top = 80
-    var delta = $("div#header").position().top - target_top
-    $("div#header").css("margin-top", - delta);
-    console.log('Delta:' + delta)
+    var position = $("div#header").position()
+    if (position != undefined){
+        var delta = position.top - target_top
+        $("div#header").css("margin-top", - delta);
+        // console.log('Delta:' + delta)
+    }
 
+    /// Hides Useless href toggles
     var also_toggle = $('a[href="#seeAlsoToggle"]').first()
     $(also_toggle).css("display", 'none');
-
     var example_toggle = $('a[href="#exampleToggle"]').first()
     $(example_toggle).css("display", 'none');
-    // $("div#header").css("margin-top", - delta);
 
     $('#main-sidebar').animate({opacity: 1},300);
 
