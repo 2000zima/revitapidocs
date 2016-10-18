@@ -24,22 +24,26 @@ replacements = (
                (r'<div id="allHistory.*?DarkGray"></span>', ''),
                (r'<div id="footer.*script>.*?</div>', ''),
                (r'<link.*?CommonUtilities.*?</script>', ASSETS_MACRO),
-               (r'</body.+?html>', ''), )
+               (r'</body.+?html>', ''),
+               (r'&#65279', ''),
+               )
 
 for f in sorted(os.listdir(DIR))[:]:
     with open(DIR+f, 'r') as fp:
     # with open(TEST, 'r') as fp:
         new_text = fp.read()
-    print('FILE:', f)
+    # print('FILE:', f)
     results = []
     for pat, replacement in replacements:
         new_text, subs = re.subn(pat, replacement, new_text, flags=re.DOTALL)
         results.append(subs)
 
     # print('RESULTS:', results)
-    all_ones = [r == 1 for r in results]
+    all_ones = [r == 0 for r in results]   # Added to replace zero space characters
+    # all_ones = [r == 1 for r in results]
     if not all(all_ones):
-        raise Exception('Not all ones')
+        print(results)
+        # raise Exception('Not all ones')
     # print(new_text)
     # with open(DIR+f, 'w') as fp:
         # fp.write(new_text)

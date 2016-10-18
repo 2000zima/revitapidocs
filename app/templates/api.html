@@ -68,26 +68,29 @@
 
     <!-- START MAIN -->
     <div class="col-sm-12 col-md-7 col-lg-8" id="main-sidebar">
+        <div>
+            <h5 class="truncate"> {{ schema.title if schema else 'Documentation' }} </h5>
+                {% if active_href and available_in %}
+                <div id='alsofor'>
+                    <p class="small"><small>
+                        API VERSIONS 
+                        {% for year in available_in %}
+                        <a href="/{{year}}/{{active_href}}"> {{year}} </a>
+                        <span class="spaced"> </span>
+                        {% endfor %}
+                    </small></p>
+                </div>
+                {% endif %}
+            <hr/>
 
-        {% if active_href and available_in %}
-            <div id='alsofor'>
-                <p class="small"><small>
-                    API VERSIONS :
-                    {% for year in available_in %}
-                    <a href="/{{year}}/{{active_href}}"> {{year}} </a>
-                    <span class="spaced"> </span>
-                    {% endfor %}
-                </small></p>
-            </div>
-        {%endif%}
-        <!-- START MAIN CONTENT -->
-        {% include '%s' % content %}
-        <!-- END MAIN CONTENT -->
+            <!-- START MAIN CONTENT -->
+            {% include '%s' % content %}
+            <!-- END MAIN CONTENT -->
 
-        <!-- START DISQUS -->
-        {% include 'disqus.html' with context %}
-        <!-- END DISQUS -->
-
+            <!-- START DISQUS -->
+            {% include 'disqus.html' with context %}
+            <!-- END DISQUS -->
+        </div>
     </div>
     <!-- END MAIN -->
 
@@ -241,7 +244,7 @@ $(document).ready(function() {
         .done(function(){
             // Search successful
             buildResults(results_json, pattern);
-            ga('send', 'pageview', '?query=' + pattern);
+            ga('send', 'pageview', '{{year}}/?query=' + pattern);
             // console.log('GA PV Sent:' + '?query=' + pattern)
         }).fail(function(){
             console.log('Search Ajax call FAILED.')
@@ -437,7 +440,7 @@ $(document).ready(function() {
       };
     });
 
-    // Sidebar Search
+    // Sidebar Search Search
     $(".modal-body").scroll(function(){
       if ($(this).scrollTop() > 1){
           $(this).addClass("bottom-shadow")
@@ -449,9 +452,17 @@ $(document).ready(function() {
       }
     });
 
+
+    // This
+    var target_top = 80
+    var delta = $("div#header").position().top - target_top
+    $("div#header").css("margin-top", - delta);
+    console.log('Delta:' + delta)
+
+
 }); //END OF DOC READY
 
-</script>
 <!-- END API SCRIPT  -->
+</script>
 
 {% endblock %}

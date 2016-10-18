@@ -46,7 +46,7 @@ def api_year(year, filename=None):
     elif not filename and year in AVAILABLE_APIS:
         content_path = 'home.html'
         available_in = check_available_years(filename)
-        schema = {'title': "Revit API {} Index".format(year),
+        schema = {'title': "Revit API {}".format(year),
                   'description': 'Full Online Documentation for Revit API {}'.format(year)}
 
     else:

@@ -2,16 +2,16 @@
 
 #mainSection td{
     border-bottom:0px !important;
-    border-bottom:1px solid #/eee !important;
+    border-bottom:1px solid #eee !important;
 }
 
-#mainSection, #header{
+#mainSection, #header, .subHeading{
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     color:#666 !important;
 }
 
 #mainSection .summary{
-    margin-top:12px;
+    /*margin-top:12px;*/
 }
 
 #mainSection span{
@@ -60,7 +60,7 @@ background-color:#fff !important;
 
 #mainSection span .keyword, .highlight-keyword {
     font-weight: 400;
-    color:#5b4bce !important;
+    color:#9178b9 !important;
     /*color:#008cba; blue */
 }
 
@@ -110,7 +110,8 @@ pre a{
 }
 
 div #header{
-    margin-top:-20px;
+    /*margin-top:-20px;*/
+    margin-top: 0px;
 }
 
 div#header p{
@@ -133,4 +134,15 @@ body #mainBody, body #mainBody a, body #mainBody p, body #mainBody span {
 #remarksSection {
 /*font-size: 12px !important;*/
 /*ENLARGE THIS: http://www.revitapidocs.com/2016/c53f2132-bc08-1650-b1c6-bc7b66ff7a5d.htm*/
+}
+
+#nsrTitle, .feedbackhead {
+    display: none;
+    /*color: #0ff;*/
+    /*background-color: #ff0;*/
+}
+h1.heading  {
+    display: none;
+    /*color: #0ff;*/
+    /*background-color: #ff0;*/
 }
