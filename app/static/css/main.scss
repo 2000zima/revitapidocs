@@ -345,8 +345,14 @@ display: inline-block;
 .truncate {
     width: 75%;
     white-space: nowrap;
-    overflow: hidden;
+    overflow:hidden;
     text-overflow: ellipsis;
+}
+
+h5.truncate{
+    @extend .truncate;
+    line-height: 18px;
+    margin-bottom: 0px;
 }
 
 
