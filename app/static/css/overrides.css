@@ -39,6 +39,11 @@ background-color: #fafbfb!important;
 padding:12px;
 }
 
+/*COPY CODE ICON*/
+span.highlight-copycode{
+  display:none;
+}
+
 .highlight-title{
     border-bottom:0px !important;
 }
@@ -125,16 +130,20 @@ div#header p, div#header a{
 }
 
 #bottomTable {
-  margin-bottom: 8px;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 
 /*Header Toggles */
 table#bottomTable a {
   text-decoration: none;
-  font-size: 12px;
-  padding: 4px 12px 4px 12px;
+  font-size: 10px;
+  padding: 4px 10px 4px 10px;
   margin: 0;
   font-weight: 300;
+}
+table#bottomTable a:hover {
+  text-decoration: underline;
 }
 
 table#bottomTable a:not(:last-child){

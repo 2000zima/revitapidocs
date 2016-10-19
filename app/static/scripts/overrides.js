@@ -1,9 +1,7 @@
 // Catch CHM script call
 function OpenSection(sectionToggleName) {
-  console.log(sectionToggleName)
-  console.log(typeof(sectionToggleName))
-  // var sectionName = sectionToggleName.replace('Toggle', 'Section')
-  console.log(sectionName)
-  var position = $('div'+sectionName).position().top
-  $('#main-sidebar').scrollTop(position);
+  var scrollTo = $(sectionToggleName).parent().position().top
+  console.log(scrollTo)
+  $('#main-sidebar').animate({ scrollTop: scrollTo - 20 }, 400, "swing");
+  // $('#main-sidebar').scrollTop(scrollTo);
 }
