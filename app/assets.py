@@ -30,17 +30,18 @@ js_assets = Bundle(
                    )
 
 
-css_chm = Bundle(join('styles', 'Presentation.css'),
+css_chm = Bundle('styles/Presentation.css',
                  output=join('packed/chm_packed.css')
                  )
 
-js_chm = Bundle('scripts/EventUtilities.js',
-                'scripts/SplitScreen.js',
-                'scripts/Dropdown.js',
-                'scripts/script_manifold.js',
-                'scripts/script_feedBack.js',
-                'scripts/CheckboxMenu.js',
-                'scripts/CommonUtilities.js',
+js_chm = Bundle('scripts/overrides.js',
+                # 'scripts/EventUtilities.js',
+                # 'scripts/SplitScreen.js',
+                # 'scripts/Dropdown.js',
+                # 'scripts/script_manifold.js',
+                # 'scripts/script_feedBack.js',
+                # 'scripts/CheckboxMenu.js',
+                # 'scripts/CommonUtilities.js',
                 filters='rjsmin',
                 output=join('packed/chm_packed.jss')
                 )

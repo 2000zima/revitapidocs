@@ -125,6 +125,8 @@ function getUrlParam (name){
     }
 };
 
+
+// Get Constructor.io Autocomplete Script
 $.getScript("//cnstrc.com/js/ac.js", function() {
       $('#input-search').constructorAutocomplete({
         key: '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}',
@@ -220,35 +222,34 @@ $(document).ready(function() {
     };  // End of Build Menue Call Back Function
 
     function search(pattern, filter, pushHistory){
+      var filter = getUrlParam('filter')
+      if ((filter == null)&&(filter == undefined)&&(filter == '0')){
+        filter = ''
+      };
 
-    var filter = getUrlParam('filter')
-    if ((filter == null)&&(filter == undefined)&&(filter == '0')){
-      filter = ''
-    };
+      if (pushHistory) {
+        history.pushState(null, null, '?query=' + pattern + '&filter=' + filter +'&#searchModal');
+      };
 
-    if (pushHistory) {
-      history.pushState(null, null, '?query=' + pattern + '&filter=' + filter +'&#searchModal');
-    };
+      $('.modal-title').html('Query: <strong>'+pattern+'</strong>');
+      $('#result-div').html('<span class="small text-muted"><img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp; Loading</span>');
+      $('#google-link').attr("href", "http://www.google.com/search?q=site:www.revitapidocs.com " + pattern)
 
-    $('.modal-title').html('Query: <strong>'+pattern+'</strong>');
-    $('#result-div').html('<span class="small text-muted"><img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp; Loading</span>');
-    $('#google-link').attr("href", "http://www.google.com/search?q=site:www.revitapidocs.com " + pattern)
-
-    var results_json;
-    $.getJSON("searchapi?query=" + pattern, function(json) {
-        console.log('Search Ajax call successful. ')
-        results_json = json;
-        })
-        .done(function(){
-            // Search successful
-            buildResults(results_json, pattern);
-            ga('send', 'pageview', '{{year}}/?query=' + pattern);
-            // console.log('GA PV Sent:' + '?query=' + pattern)
-        }).fail(function(){
-            console.log('Search Ajax call FAILED.')
-            var results = {'error':'Could not reach search API'};
-            buildResults(results, pattern);
-        })
+      var results_json;
+      $.getJSON("searchapi?query=" + pattern, function(json) {
+          console.log('Search Ajax call successful. ')
+          results_json = json;
+          })
+          .done(function(){
+              // Search successful
+              buildResults(results_json, pattern);
+              ga('send', 'pageview', '{{year}}/?query=' + pattern);
+              // console.log('GA PV Sent:' + '?query=' + pattern)
+          }).fail(function(){
+              console.log('Search Ajax call FAILED.')
+              var results = {'error':'Could not reach search API'};
+              buildResults(results, pattern);
+          })
     };
     // End Search
 
@@ -349,7 +350,6 @@ $(document).ready(function() {
             $('#result-filter').html(tag_name)
             $('.result-entry[data-tag!="' + tag_name + '"]').hide();
             $('.result-entry[data-tag*="' + tag_name + '"]').show();
-
         };
 
         // TRACK SEARCH RESULTS CLICK THROUGH
@@ -379,10 +379,11 @@ $(document).ready(function() {
     }
 
     /// Hides Useless href toggles
-    var also_toggle = $('a[href="#seeAlsoToggle"]').first()
-    $(also_toggle).css("display", 'none');
-    var example_toggle = $('a[href="#exampleToggle"]').first()
-    $(example_toggle).css("display", 'none');
+    // var also_toggle = $('a[href="#seeAlsoToggle"]').first()
+    // $(also_toggle).css("display", 'none');
+    // var example_toggle = $('a[href="#exampleToggle"]').first()
+    // $(example_toggle).css("display", 'none');
+
     // $('#main-sidebar').animate({opacity: 1},300);
     $('#main-sidebar').css({opacity: 1});
 
