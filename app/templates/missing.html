@@ -6,20 +6,16 @@
 
 {% block content %}
 <div id="main-full">
-    <h4>Resource Not Available for the Active API Year</h4>
+    <h4>{{ year }} | Resource Not Available for the Active API Year</h4>
     <hr />
     <br/>
     <p><span class="text-muted">Title</span></br>{{ schema.title }}</p>
     <br/>
-    <p><span class="text-muted">Active Year</span></br>{{ year }}</p>
-    <br/>
-    <p><span class="text-muted">GUID</span></br>{{ schema.title }}</p>
+    <p><span class="text-muted">GUID</span></br>{{ schema.href }}</p>
     <br/>
     <p><span class="text-muted">Description</span></br>{{ schema.description }}</p>
     <br/>
-    <br/>
-    <h5>The resource is available on these APIs</h5>
-    <br/>
+    <p><span class="text-muted">Available APIs</span></p>
     {% for year in available_in %}
     <a class="btn btn-primary" href="/{{year}}/{{active_href}}">{{year}}</a>
     {% endfor %}
