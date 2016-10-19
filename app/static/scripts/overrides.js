@@ -1,4 +1,4 @@
-// Catch CHM script call
+// Catch CHM script call to toggle section
 function OpenSection(sectionToggleName) {
   var scrollTo = $(sectionToggleName).parent().position().top
   console.log(scrollTo)

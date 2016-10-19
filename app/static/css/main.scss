@@ -378,6 +378,8 @@ h5.truncate{
 
   .modal-dialog{
     overflow-y: initial !important;
+    // Move dialog down
+    margin-top: 60px;
   }
 
   .modal-header{
@@ -399,7 +401,9 @@ h5.truncate{
   }
 
   .modal-body{
-    height: calc(100vh - 260px);
+    // height: calc(100vh - 260px);
+    // Let's be smaller less results
+    max-height: calc(100vh - 220px);
     overflow-y: auto;
     min-height: 120px;
     padding-top: 8px;

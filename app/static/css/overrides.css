@@ -59,30 +59,60 @@ background-color:#fff !important;
 
 
 #mainSection span .identifier  {
-    font-weight:normal;
-    color:#f74200;
+  color:#f74200;
+    font-weight: 600;
     /*color:#e74c3c; red-orange*/
 }
 
 #mainSection span .keyword, .highlight-keyword {
     font-weight: 400;
-    color:#9178b9 !important;
+    color:#4987b3 !important;
     /*color:#008cba; blue */
 }
 
 .highlight-number{
-    color:#4b1fcc !important;
+    color:#009966 !important;
+    /*color:#372f7e !important;*/
     /*color:#18bc9c !important;*/
     }
 
+span.parameter {
+  font-style: italic !important;
+  font-weight: normal !important;
+  color: #e8008a;
+}
+
 pre a{
+  font-weight: 600;
+  text-decoration: none;
+  }
+pre a:hover{
   font-weight: bold;
-  /*text-decoration: underline;;*/
-    }
+  text-decoration: underline;
+  }
 
 .code pre{
     color:#222 !important;
 }
+
+pre {
+  margin-bottom: 12px;  /*Bottom of Code Block*/
+  /*box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.075);*/
+  /*-moz-box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.075);*/
+  /*-webkit-box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.075);*/
+  /*-o-box-shadow: 1px 1px 4px 1px rgba(0,0,0,0.075);*/
+}
+
+h1.heading  {
+    /*display: none;*/
+}
+div#syntaxCodeBlocks th  {
+    padding-top: 12px;
+}
+h4.subHeading {
+  margin-top: 16px;
+}
+
 
 .highlight-literal{
     font-style: italic;
@@ -174,8 +204,4 @@ body #mainBody, body #mainBody a, body #mainBody p, body #mainBody span {
     display: none;
     /*color: #0ff;*/
     /*background-color: #ff0;*/
-}
-
-h1.heading  {
-    /*display: none;*/
 }
