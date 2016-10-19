@@ -120,12 +120,19 @@ a.navbar-brand {
   border-bottom: $nav-bar-border-width solid $brand-nav-gray;
 }
 
-.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>li.active>a,
+.navbar-default .navbar-nav>li.missing>a:hover,
 .navbar-default .navbar-nav>li>a:hover {
   @include transition(all 0.20s ease-in-out);
   color: #fff;
   border-bottom: $nav-bar-border-width solid $brand-primary;
   background-color: #222;
+}
+
+.navbar-default .navbar-nav>li.missing>a, {
+  @include transition(all 0.20s ease-in-out);
+  border-bottom: $nav-bar-border-width solid darken($brand-danger,20%);
+  // border-bottom: $nav-bar-border-width solid darken($brand-danger,20%);
 }
 
 #direct-search {

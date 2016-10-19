@@ -42,6 +42,7 @@ def api_year(year, filename=None):
         if available_in and year not in available_in:
             # file exists but not year requested
             template = 'missing.html'
+            schema = get_schema(filename, year=available_in[0])
 
     elif not filename and year in AVAILABLE_APIS:
         content_path = 'home.html'

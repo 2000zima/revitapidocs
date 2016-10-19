@@ -70,15 +70,17 @@
     <div class="col-sm-12 col-md-7 col-lg-8" id="main-sidebar">
         <div>
             <h4 class="truncate"> {{ schema.title if schema else 'Documentation' }} </h4>
-                {% if active_href and available_in %}
-                <div id='alsofor'>
-                    <p>YEAR
-                      {% for year in available_in %}
-                      <a href="/{{year}}/{{active_href}}"> {{year}} </a>
-                      {% endfor %}
-                    </p>
-                </div>
-                {% endif %}
+                {#
+                  {% if active_href and available_in %}
+                  <div id='alsofor'>
+                      <p>YEAR
+                        {% for year in available_in %}
+                        <a href="/{{year}}/{{active_href}}"> {{year}} </a>
+                        {% endfor %}
+                      </p>
+                  </div>
+                  {% endif %}
+                #}
             <hr/>
 
             <!-- START MAIN CONTENT -->
