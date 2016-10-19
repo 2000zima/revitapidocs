@@ -370,7 +370,7 @@ $(document).ready(function() {
     // PAGE LOADING FUNCS
 
     // Manually Hide unwanted elements
-    var target_top = 60
+    var target_top = 80
     var position = $("div#header").position()
     if (position != undefined){
         var delta = position.top - target_top
@@ -378,6 +378,15 @@ $(document).ready(function() {
         console.log('Delta:' + delta)
     }
 
+    var headerText = $('#mainBody>div.summary')
+
+    if (headerText.text().length < 2) {
+      console.log('No header text. Hiding...')
+      headerText.hide()
+      console.log(this)
+    }
+
+    // Show Content
     // $('#main-sidebar').animate({opacity: 1},300);
     $('#main-sidebar').css({opacity: 1});
 
