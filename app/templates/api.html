@@ -69,16 +69,14 @@
     <!-- START MAIN -->
     <div class="col-sm-12 col-md-7 col-lg-8" id="main-sidebar">
         <div>
-            <h5 class="truncate"> {{ schema.title if schema else 'Documentation' }} </h5>
+            <h4 class="truncate"> {{ schema.title if schema else 'Documentation' }} </h4>
                 {% if active_href and available_in %}
                 <div id='alsofor'>
-                    <p class="small"><small>
-                        API VERSIONS
-                        {% for year in available_in %}
-                        <a href="/{{year}}/{{active_href}}"> {{year}} </a>
-                        <span class="spaced"> </span>
-                        {% endfor %}
-                    </small></p>
+                    <p>YEAR
+                      {% for year in available_in %}
+                      <a href="/{{year}}/{{active_href}}"> {{year}} </a>
+                      {% endfor %}
+                    </p>
                 </div>
                 {% endif %}
             <hr/>
@@ -368,6 +366,27 @@ $(document).ready(function() {
     };
     // End Build Results
 
+
+    // PAGE LOADING FUNCS
+
+    // Manually Hide unwanted elements
+    var target_top = 80
+    var position = $("div#header").position()
+    if (position != undefined){
+        var delta = position.top - target_top
+        $("div#header").css("margin-top", - delta);
+        // console.log('Delta:' + delta)
+    }
+
+    /// Hides Useless href toggles
+    var also_toggle = $('a[href="#seeAlsoToggle"]').first()
+    $(also_toggle).css("display", 'none');
+    var example_toggle = $('a[href="#exampleToggle"]').first()
+    $(example_toggle).css("display", 'none');
+    // $('#main-sidebar').animate({opacity: 1},300);
+    $('#main-sidebar').css({opacity: 1});
+
+
     $("#form-quicksearch").submit(function(e) {
         e.preventDefault() // Keeps page from submitting and reloading
         var pattern = $('#input-search').val();
@@ -451,25 +470,6 @@ $(document).ready(function() {
           $(this).removeClass("bottom-shadow")
       }
     });
-
-
-    // This
-    var target_top = 80
-    var position = $("div#header").position()
-    if (position != undefined){
-        var delta = position.top - target_top
-        $("div#header").css("margin-top", - delta);
-        // console.log('Delta:' + delta)
-    }
-
-    /// Hides Useless href toggles
-    var also_toggle = $('a[href="#seeAlsoToggle"]').first()
-    $(also_toggle).css("display", 'none');
-    var example_toggle = $('a[href="#exampleToggle"]').first()
-    $(example_toggle).css("display", 'none');
-
-    $('#main-sidebar').animate({opacity: 1},300);
-
 
 }); //END OF DOC READY
 

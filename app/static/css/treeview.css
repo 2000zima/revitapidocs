@@ -51,6 +51,14 @@
     margin-bottom: 0px;
 }
 
+.treeview li{
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+}
+
 .treeview a:hover{
 	cursor: pointer;
     /*cursor:  url(cursor1.png) 4 12, auto;*/
