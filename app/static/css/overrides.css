@@ -59,14 +59,15 @@ background-color:#fff !important;
 
 
 #mainSection span .identifier  {
-  color:#f74200;
-    font-weight: 600;
-    /*color:#e74c3c; red-orange*/
+  color: #e8008a; /* Pink */
+  /*color:#f74200;  /*Orange*/
+  font-weight: 600;
+  /*color:#e74c3c; red-orange*/
 }
 
 #mainSection span .keyword, .highlight-keyword {
     font-weight: 400;
-    color:#4987b3 !important;
+    color:#6327da !important;
     /*color:#008cba; blue */
 }
 
@@ -79,7 +80,8 @@ background-color:#fff !important;
 span.parameter {
   font-style: italic !important;
   font-weight: normal !important;
-  color: #e8008a;
+  color:#f74200;  /*Orange*/
+  /*color: #e8008a; /* Pink */*/
 }
 
 pre a{
