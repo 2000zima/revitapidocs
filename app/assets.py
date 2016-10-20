@@ -3,7 +3,9 @@ from flask_assets import Bundle
 
 join = os.path.join
 
-scss = Bundle('css/main.scss',
+scss = Bundle(
+            #   'css/index.scss',
+              'css/main.scss',
               filters='libsass', output='packed/sass.css',
               depends='**/*.scss'
               )
