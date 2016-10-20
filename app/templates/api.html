@@ -40,7 +40,7 @@
 
         <!-- SIDEBAR SEARCH -->
         <div id="sidebar-search">
-            <form id="form-quicksearch">
+            <form>
             <div class="form-group">
                 <!-- <label class="control-label">Search</label> -->
                   <div class="input-group input-group-sm">
@@ -213,7 +213,6 @@ $(document).ready(function() {
         $('#menu-loading').hide();
         $('#treeview').animate({opacity: 1}, 300);
 
-
         // $('#treeview').on('nodeExpanded', function(event, node) {
         //     $(event.target).addClass("node-expanded")
         //     $(event.target).removeClass("node-collapsed")
@@ -379,7 +378,6 @@ $(document).ready(function() {
     }
 
     var headerText = $('#mainBody>div.summary')
-
     if (headerText.text().length < 2) {
     //   console.log('No header text. Hiding...')
       headerText.hide()
@@ -390,7 +388,7 @@ $(document).ready(function() {
     $('#main-sidebar').css({opacity: 1});
 
 
-    $("#form-quicksearch").submit(function(e) {
+    $("#sidebar-search>form").submit(function(e) {
         e.preventDefault() // Keeps page from submitting and reloading
         var pattern = $('#input-search').val();
         sessionStorage.removeItem('result_scroll');

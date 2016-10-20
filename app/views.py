@@ -1,8 +1,4 @@
-import os
-import sys
-import json
 import re
-import requests
 from collections import OrderedDict
 
 from flask import render_template, redirect, url_for, send_from_directory
@@ -19,6 +15,7 @@ from app.gists import get_gists
 from app.db import db_json, namespace_jsons
 
 available_apis = app.config['AVAILABLE_APIS']
+
 
 @cache.cached(timeout=600)
 @app.route('/')
@@ -108,10 +105,11 @@ def search_api(year):
 def track_search_api(year):
     ''' This url received ajax calls from the browser to query+numresults
     and query+clicked to improve Suggestions
-    '''
-    #/2015/tracksearch?query=XX&numresults=INT
-    #/2015/tracksearch?query=XX&clicked=TITLE
 
+    /2015/tracksearch?query=XX&numresults=INT
+    /2015/tracksearch?query=XX&clicked=TITLE
+
+    '''
     query = request.args.get('query')             # query term
     num_results = request.args.get('numresults')  # number of results
     clicked = request.args.get('clicked')         # name of item/entry

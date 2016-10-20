@@ -160,7 +160,6 @@ a.navbar-brand {
 }
 
 
-
 /*DESKTOP*/
 @media (min-width: 992px){
 
@@ -208,7 +207,7 @@ a.navbar-brand {
         padding: 20px;
     }
 
-    #sidebar-search {
+    div#sidebar-search {
         z-index: 99;
         position: relative;
         padding: $padding-large-horizontal;
@@ -262,8 +261,7 @@ a.navbar-brand {
 }
 
 /*Small / Mobile*/
-@media (max-width: 992px){
-
+@media screen and (max-width: $media-width-desktop) {
     #direct-search {
       @include transition(all 0.75s ease-in-out);
       margin-top: 30px;
@@ -316,7 +314,7 @@ a.navbar-brand {
 }
 
 /*MOBILE*/
-@media (max-width: 767px){
+@media screen and (max-width: $media-width-mobile) {
   .navbar-default .navbar-nav>.active>a,
   .navbar-default .navbar-nav>li>a:hover {
     border-bottom: $nav-bar-border-width solid $brand-nav-gray !important;
