@@ -149,17 +149,23 @@
     });
 
     // Typying Animation
-    $(function(){
-      $("#direct-search-input").typed({
-        strings: ["Wall Class", "Pushbutton", "Global Parameter",
-        "Idling Event", "Ribbon Item", "CreateBound", "ViewSchedule",
-        "ViewType", "Revit.UI", "ActiveDocument", "DocumentClass",
-        "BuiltinParameter", "Transaction Mode", "Element",
-        "ElementId"],
-        typeSpeed: 50,
-        startDelay: 2500,
-      });
-    });
+    // Conditional Statement makes it so animation only runs the first time
+    if (localStorage && !localStorage.getItem('revitapidocs_year')){
+        $(function(){
+          $("#direct-search-input").typed({
+            strings: ["Wall Class", "Pushbutton", "Global Parameter",
+            "Idling Event", "Ribbon Item", "CreateBound", "ViewSchedule",
+            "ViewType", "Revit.UI", "ActiveDocument", "DocumentClass",
+            "BuiltinParameter", "Transaction Mode", "Element",
+            "ElementId"],
+            typeSpeed: 50,
+            startDelay: 2500,
+          });
+        });
+    }
+    else {
+        $('#direct-search-input').attr({'Placeholder':'Search Term'})
+    }
 
     // Clear Animation
     $('#direct-search-input').one('click', function(){

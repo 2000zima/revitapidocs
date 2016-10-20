@@ -363,11 +363,13 @@ h5.truncate{
   }
 
   .modal-header{
-    padding: 15px 20px;
+    padding: 16px 20px;
   }
 
   .modal-footer {
-    padding: 16px 20px;
+    line-height: $font-size-small;
+    font-size: $font-size-small;
+    padding: $padding-large-vertical $padding-large-horizontal;
     text-align: center;
   }
 
