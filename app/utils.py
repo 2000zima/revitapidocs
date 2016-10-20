@@ -13,6 +13,30 @@ from app.db import db_json  # db, db_query
 AVAILABLE_APIS = ['2015', '2016', '2017']
 
 
+class Timer(object):
+    "Time and TimeIt Decorator"
+    def __init__(self):
+        self.start_time = time.time()
+
+    def stop(self):
+        end_time = time.time()
+        duration = end_time - self.start_time
+        return duration
+
+    @staticmethod
+    def time_function(name):
+        def wrapper(func):
+            def wrap(*ags, **kwargs):
+                logger.debug('START: {}'.format(name))
+                t = Timer()
+                rv = func(*ags, **kwargs)
+                duration = t.stop()
+                logger.debug('Done: {} sec'.format(duration))
+                return rv
+            return wrap
+        return wrapper
+
+
 @cache.memoize(timeout=86400)
 def check_available_years(filename):
     ''' Checks which years resource file is available in.
@@ -119,27 +143,3 @@ def track_search(query, num_results=None, clicked=None):
         logger.debug('MSG: {}'.format(response_json))
 
     return response, response_json
-
-
-class Timer(object):
-    "Time and TimeIt Decorator"
-    def __init__(self):
-        self.start_time = time.time()
-
-    def stop(self):
-        end_time = time.time()
-        duration = end_time - self.start_time
-        return duration
-
-    @staticmethod
-    def time_function(name):
-        def wrapper(func):
-            def wrap(*ags, **kwargs):
-                logger.debug('START: {}'.format(name))
-                t = Timer()
-                rv = func(*ags, **kwargs)
-                duration = t.stop()
-                logger.debug('Done: {} sec'.format(duration))
-                return rv
-            return wrap
-        return wrapper

@@ -1,3 +1,7 @@
+''' Script to batch clean up and remove some html content from css_chm files.
+
+'''
+
 import os
 import re
 

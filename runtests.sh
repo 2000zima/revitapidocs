@@ -1,1 +1,1 @@
-python -m unittest tests -b -v
+python -m unittest tests.tests -b -v

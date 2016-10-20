@@ -8,3 +8,5 @@ app/static/packed/
 .development.bat
 .production
 .staging
+env/
+env/*

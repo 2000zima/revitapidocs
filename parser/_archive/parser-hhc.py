@@ -1,3 +1,7 @@
+''' Original Parser that creates ns_year or member_year ul html from Original
+html.hhc file
+'''
+
 from bs4 import BeautifulSoup
 import re
 # FILE = 'RevitAPI.hhc'

@@ -1,3 +1,7 @@
+''' Script to batch update index to Contructor.io
+autocomplete api.
+'''
+
 import time
 import requests
 import os
