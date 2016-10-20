@@ -26,7 +26,7 @@ html, body {
 .alert {
   z-index: 1200;
   position: absolute;
-  top: 60px;
+  top: 70px;
   right: 40px;
   width: 200px;
   border: none;
@@ -411,7 +411,8 @@ h5.truncate{
   }
 
   .modal-footer {
-    padding: 8px 20px;
+    padding: 16px 20px;
+    text-align: center;
   }
 
  .result-entry:not(:last-child){
@@ -427,14 +428,14 @@ h5.truncate{
   .modal-body{
     // height: calc(100vh - 260px);
     // Let's be smaller less results
-    max-height: calc(100vh - 220px);
+    max-height: calc(100vh - 250px);
     overflow-y: auto;
     min-height: 120px;
-    padding-top: 8px;
+    padding-top: 12px;
 
       // Parent class and
       &.bottom-shadow {
-        @include box-shadow(-8px 0px 8px 4px rgba(0,0,0,0.2) inset);
+        @include box-shadow(-7px 0px 8px 4px rgba(0,0,0,0.15) inset);
         @include transition(box-shadow 0.3s ease-out);
         border-top: 1px solid darken(#e5e5e5, 10%);
         border-bottom: 1px solid darken(#e5e5e5, 10%);
