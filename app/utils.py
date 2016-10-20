@@ -15,6 +15,9 @@ AVAILABLE_APIS = ['2015', '2016', '2017']
 
 @cache.memoize(timeout=86400)
 def check_available_years(filename):
+    ''' Checks which years resource file is available in.
+    Returns: list of years a string, empty string if there not matches
+    '''
     available_in = []
     for year in AVAILABLE_APIS:
         template_dir = app.config['TEMPLATEDIR']
@@ -26,29 +29,55 @@ def check_available_years(filename):
 
 @cache.memoize(timeout=86400)
 def get_schema(filename, year=None):
-    """This should be stored/cached in database"""
+
     logger.debug('Getting Schema: {}|{}'.format(filename, year))
 
     results = search_db(filename, 'href')
     if not results:
         return
-    # Gives preference to 'entries that are namespace'
+    # If Multiple Results, gives preference to 'entries that are namespace'
     for entry in results:
         if entry['type'] == 'namespace':
             break
     if year is None or year in entry.get('year'):
-        logger.debug(entry)
         return entry
     logger.error('Failed to get schema:: %s', filename)
     return None
 
 
 def process_query(query):
+    ''' Cleans up Query string and compiles as re pattern.
+    Replaces, slashes, brackets, and others symbols that can break
+    the re-pattern. Makes space optional.
+    '''
     # escape brackets/parentesis and other symbols
     query = re.sub(r'\\|;|\(|\)|\[|\]', '.', query)
     # Make Space Optional
     query = re.sub(r'\s', r'.*', query)
     return query
+
+
+@Timer.time_function('SEARCH DB')
+def search_db(pattern=None, field=None):
+    '''
+    Searches db_index.json
+    if looking up by href, which is the key, a dictionary look up is used,
+    else it uses list comprehensian + regex search
+    '''
+
+    if field == 'href':
+        result = db_json.get(pattern)
+        if result:
+            return [result]
+    try:
+        results = [member for member in db_json.values() if
+                   re.search(pattern, member.get(field))]
+    except Exception as errmsg:
+        logger.error('search_db query error: {}|{}'.format(pattern, field))
+        return []
+    else:
+        return results
+
 
 def track_search(query, num_results=None, clicked=None):
     ''' Makes put requests to constructo io's api
@@ -91,6 +120,7 @@ def track_search(query, num_results=None, clicked=None):
 
     return response, response_json
 
+
 class Timer(object):
     "Time and TimeIt Decorator"
     def __init__(self):
@@ -113,25 +143,3 @@ class Timer(object):
                 return rv
             return wrap
         return wrapper
-
-
-@Timer.time_function('SEARCH DB')
-def search_db(pattern=None, field=None):
-    '''
-    Searches db_index.json
-    if looking up by href, which is the key, a dictionary look up is used,
-    else it uses list comprehensian + regex search
-    '''
-
-    if field == 'href':
-        result = db_json.get(pattern)
-        if result:
-            return [result]
-    try:
-        results = [member for member in db_json.values() if
-                   re.search(pattern, member.get(field))]
-    except Exception as errmsg:
-        logger.error('search_db query error: {}|{}'.format(pattern, field))
-        return []
-    else:
-        return results
