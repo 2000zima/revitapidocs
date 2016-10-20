@@ -24,11 +24,11 @@ def check_available_years(filename):
     return available_in
 
 
-# @cache.memoize(timeout=86400)
+@cache.memoize(timeout=86400)
 def get_schema(filename, year=None):
     """This should be stored/cached in database"""
     logger.debug('Getting Schema: {}|{}'.format(filename, year))
-    
+
     results = search_db(filename, 'href')
     if not results:
         return
@@ -49,18 +49,6 @@ def process_query(query):
     # Make Space Optional
     query = re.sub(r'\s', r'.*', query)
     return query
-    # Old Permutation
-    # split_query = query.split(' ')
-    # if len(split_query) > 2:
-    #     logger.debug('Too Many words for permutation search using simple query.')
-    #     return '.'.join(split_query)
-    #
-    # perm_query = permutations(split_query)
-    # final_query = ''
-    # for combo in perm_query:
-    #     combo = '.*'.join('({})'.format(x) for x in combo)
-    #     final_query += '({})|'.format(combo)
-    # query = final_query[0:-1]
 
 def track_search(query, num_results=None, clicked=None):
     ''' Makes put requests to constructo io's api
@@ -129,6 +117,16 @@ class Timer(object):
 
 @Timer.time_function('SEARCH DB')
 def search_db(pattern=None, field=None):
+    '''
+    Searches db_index.json
+    if looking up by href, which is the key, a dictionary look up is used,
+    else it uses list comprehensian + regex search
+    '''
+
+    if field == 'href':
+        result = db_json.get(pattern)
+        if result:
+            return [result]
     try:
         results = [member for member in db_json.values() if
                    re.search(pattern, member.get(field))]
