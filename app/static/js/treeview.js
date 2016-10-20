@@ -50,6 +50,8 @@
 		searchResultColor: '#D9534F',
 		searchResultBackColor: undefined, //'#FFFFFF',
 
+        selectionAllowed: true,
+
 		enableLinks: false,
 		highlightSelected: true,
 		highlightSearchResults: true,
@@ -334,13 +336,11 @@
 			this.render();
 		}
 		else {
-
-			if (node.selectable) {
-				this.toggleSelectedState(node, _default.options);
-			} else {
-				this.toggleExpandedState(node, _default.options);
-			}
-
+    			if (node.selectable && this.options.selectionAllowed) {
+    				this.toggleSelectedState(node, _default.options);
+    			} else {
+    				this.toggleExpandedState(node, _default.options);
+    			}
 			this.render();
 		}
 	};
