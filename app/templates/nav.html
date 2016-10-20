@@ -17,7 +17,8 @@
 
         {% macro nav_button(btn_year) -%}
         <!-- Missing is added only if available in is defined, and year not in it -->
-        <li class="{{ 'active' if year == btn_year }} {% if available_in %} {{ 'missing' if btn_year not in available_in }} {%endif%}"><a href="/{{btn_year}}/{{ active_href if active_href is not none }}">{{btn_year}}</a></li>
+        <!-- Non active buttons will switch to equivalent resource of that year. Active button will take to root of that year -->
+        <li class="{{ 'active' if year == btn_year }} {% if available_in %} {{ 'missing' if btn_year not in available_in }} {%endif%}"><a href="/{{btn_year}}/{% if btn_year != year %}{{ active_href if active_href is not none }}{% endif %}">{{btn_year}}</a></li>
         {%- endmacro %}
 
         {{ nav_button('2015') }}

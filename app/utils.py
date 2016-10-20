@@ -24,14 +24,20 @@ def check_available_years(filename):
     return available_in
 
 
-@cache.memoize(timeout=86400)
+# @cache.memoize(timeout=86400)
 def get_schema(filename, year=None):
     """This should be stored/cached in database"""
+    logger.debug('Getting Schema: {}|{}'.format(filename, year))
+    
     results = search_db(filename, 'href')
     if not results:
         return
-    entry = results[0]
+    # Gives preference to 'entries that are namespace'
+    for entry in results:
+        if entry['type'] == 'namespace':
+            break
     if year is None or year in entry.get('year'):
+        logger.debug(entry)
         return entry
     logger.error('Failed to get schema:: %s', filename)
     return None

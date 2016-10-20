@@ -88,7 +88,9 @@
             <!-- END MAIN CONTENT -->
 
             <!-- START DISQUS -->
+            {% if active_href %}
             {% include 'disqus.html' with context %}
+            {% endif %}
             <!-- END DISQUS -->
         </div>
     </div>

@@ -8,17 +8,25 @@
 <div id="main-full">
     <h4>{{ year }} | Resource Not Available for the Active API Year</h4>
     <hr />
-    <br/>
-    <p><span class="text-muted">Title</span></br>{{ schema.title }}</p>
-    <br/>
-    <p><span class="text-muted">GUID</span></br>{{ schema.href }}</p>
-    <br/>
-    <p><span class="text-muted">Description</span></br>{{ schema.description }}</p>
-    <br/>
-    <p><span class="text-muted">Available APIs</span></p>
-    {% for year in available_in %}
-    <a class="btn btn-primary" href="/{{year}}/{{active_href}}">{{year}}</a>
-    {% endfor %}
+    <div class="well">
+      <p><span class="text-muted">Title</span></br>{{ schema.title }}</p>
+      <br/>
+      <p><span class="text-muted">Guid</span></br>{{ schema.href }}</p>
+      <br/>
+      {% if schema.description %}
+      <p><span class="text-muted">Description</span></br>{{ schema.description }}</p>
+      <br/>
+      {% endif %}
+      <p><span class="text-muted">Resource Only Available for</span></p>
+      {% for year in available_in %}
+      <a class="btn btn-primary" href="/{{year}}/{{active_href}}">{{year}}</a>
+      {% endfor %}
+      <br/>
+    </div>
+
+      <br/>
+      <a class="btn btn-default" href="/{{year}}/">CONTINUE TO {{ year }}</a>
+      <!-- <h4><a href="/{{year}}/{{active_href}}">Continue to {{ year }} API</a></h4> -->
 
     {# include 'disqus.html' #}
 
