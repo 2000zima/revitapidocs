@@ -65,7 +65,7 @@
 }
 
 .treeview .list-group-item {
-    cursor:  url("/static/cursors/both.png") 8 8, auto !important;
+    cursor:  url("/static/img/cursors/both.png") 8 8, auto !important;
     /*cursor:  s-resize !important;*/
 }
 
@@ -74,13 +74,13 @@
 }
 
 .node-icon.expanded {
-  background: url('../img/nodes/expanded.svg') top left;
+  background: url('/static/img/nodes/expanded.svg') top left;
 }
 .node-icon.collapsed {
-  background: url('../img/nodes/collapsed.svg') top left;
+  background: url('/static/img/nodes/collapsed.svg') top left;
 }
 .node-icon.empty {
-  background: url('../img/nodes/expanded.svg') top left;
+  background: url('/static/img/nodes/expanded.svg') top left;
   /*opacity: 0.4;*/
 }
 .node-icon.expanded, .node-icon.collapsed, .node-icon.empty {
