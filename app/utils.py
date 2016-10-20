@@ -10,8 +10,6 @@ from app import app, cache
 from app.logger import logger
 from app.db import db_json  # db, db_query
 
-AVAILABLE_APIS = ['2015', '2016', '2017']
-
 
 class Timer(object):
     "Time and TimeIt Decorator"
@@ -43,7 +41,7 @@ def check_available_years(filename):
     Returns: list of years a string, empty string if there not matches
     '''
     available_in = []
-    for year in AVAILABLE_APIS:
+    for year in app.config['AVAILABLE_APIS']:
         template_dir = app.config['TEMPLATEDIR']
         fullpath = '{}/{}/{}'.format(template_dir, year, filename)
         if os.path.exists(fullpath):

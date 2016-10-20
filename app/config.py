@@ -1,7 +1,6 @@
 import os
 from app.logger import logger
 
-
 class Config(object):
     DEBUG = False
     TESTING = False
@@ -15,6 +14,9 @@ class Config(object):
     CONSTRUCTOR_IO_AUTOCOMPLETE_KEY = os.environ['CONSTRUCTOR_IO_AUTOCOMPLETE_KEY']
     CONSTRUCTOR_IO_API_TOKEN = os.environ['CONSTRUCTOR_IO_API_TOKEN']
     #CACHE_REDIS_URL = os.environ['REDIS_URL']
+
+    AVAILABLE_APIS = ['2015', '2016', '2017']
+    JSONIFY_PRETTYPRINT_REGULAR = False
 
 
 class Production(Config):

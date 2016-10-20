@@ -13,12 +13,12 @@ from jinja2.exceptions import TemplateNotFound
 from app import app
 from app import cache
 from app.logger import logger
-from app.utils import AVAILABLE_APIS
 from app.utils import get_schema, check_available_years, Timer
 from app.utils import process_query, search_db, track_search
 from app.gists import get_gists
-from app.db import db_json
+from app.db import db_json, namespace_jsons
 
+available_apis = app.config['AVAILABLE_APIS']
 
 @cache.cached(timeout=600)
 @app.route('/')
@@ -27,53 +27,59 @@ def index():
     title = 'Revit API Docs'
     return render_template('index.html', title=title)
 
-# API Pages: /2015/123sda-asds-asd.htmll
+
 @cache.cached(timeout=600)
 @app.route('/<string:year>/', methods=["GET"])
-@app.route('/<string:year>/<path:filename>', methods=["GET"])
-def api_year(year, filename=None):
-    """Add Docs"""
+def api_year_home(year):
+    """ Home of api years. Inserts home.html into api.html base"""
     template = 'api.html'
 
-    if filename:
-        content_path = '{year}/{html}'.format(year=year, html=filename)
+    if year not in available_apis:
+        abort(404)
+
+    content_path = 'home.html'
+    schema = {
+        'title': 'Revit API {}'.format(year),
+        'description':
+            'Full Online Documentation for Revit API {}'.format(year)}
+
+    return render_template(template, year=year, content=content_path,
+                           schema=schema)
+
+
+@app.route('/<string:year>/<path:filename>', methods=["GET"])
+def api_year_file(year, filename):
+    """ API Pate. Inserts xxx-xxx.html into api.html base"""
+    template = 'api.html'
+
+    if year not in available_apis:
+        abort(404)
+
+    content_path = '{year}/{html}'.format(year=year, html=filename)
+    available_in = check_available_years(filename)
+    if year in available_in:
         schema = get_schema(filename, year=year)
-        available_in = check_available_years(filename)
-        if available_in and year not in available_in:
-            # file exists but not year requested
-            template = 'missing.html'
-            schema = get_schema(filename, year=available_in[0])
-
-    elif not filename and year in AVAILABLE_APIS:
-        content_path = 'home.html'
-        available_in = check_available_years(filename)
-        schema = {'title': "Revit API {}".format(year),
-                  'description': 'Full Online Documentation for Revit API {}'.format(year)}
-
+    elif available_in:
+        # file exists but not year requested
+        template = 'missing.html'
+        schema = get_schema(filename, year=available_in[0])
     else:
+        # File was not found
         abort(404)
-    try:
-        return render_template(template, year=year, active_href=filename,
-                               content=content_path, available_in=available_in,
-                               schema=schema)
 
-    except TemplateNotFound as error:
-        """Must handle it since { include } inside template is generated
-        dynamically by request path"""
-        logger.error('Template not found. Path: %s', request.path)
-        abort(404)
+    return render_template(template, year=year, active_href=filename,
+                           content=content_path, available_in=available_in,
+                           schema=schema)
 
 
 @cache.cached(timeout=604800)  # 1 Week
 @app.route('/<string:year>/namespace.json', methods=['GET'])
 def namespace_get(year):
-    cwd = app.config['BASEDIR']
-    filename = 'ns_{year}.json'.format(year=year)
-    fullpath = '{}/{}/{}/{}'.format(cwd, app.template_folder,
-                                    'json', filename)
-    with open(fullpath) as fp:
-        j = json.load(fp)
-    return jsonify(j)
+    namespace_json_year = namespace_jsons.get(year)
+    if namespace_json_year:
+        return jsonify(namespace_json_year)
+    else:
+        abort(404)
 
 
 @app.route('/<string:year>/searchapi', methods=['GET'])
