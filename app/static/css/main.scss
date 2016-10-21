@@ -30,6 +30,31 @@ html, body {
   }
 }
 
+
+.truncate {
+    width: 75%;
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+}
+
+hr {
+  margin-bottom: 16px;
+  margin-top: 16px;
+}
+
+h4.truncate{
+    @extend .truncate;
+    line-height: 21px;
+    margin-bottom: 0px;
+}
+h5.truncate{
+    @extend .truncate;
+    line-height: 18px;
+    margin-bottom: 0px;
+}
+
+
 .alert {
   z-index: 1200;
   position: absolute;
@@ -40,6 +65,11 @@ html, body {
 }
 
 
+////////////////////////////////////////
+//  NAVIGATION
+////////////////////////////////////////
+
+//  GENERAL
 .navbar {
     border-radius: 0px;
     border: 0px;
@@ -50,11 +80,9 @@ html, body {
     /*border-bottom: 3px solid #272727;*/
 }
 
-a.navbar-brand {
-  padding: 0px $padding-large-horizontal;
-}
-
 .navbar-brand {
+  padding: 0px $padding-large-horizontal;
+
   img {
     @include transition(opacity 0.2s ease-in-out);
     opacity: 0.8;
@@ -65,34 +93,42 @@ a.navbar-brand {
   }
 }
 
-.navbar-default .navbar-nav>li>a {
-  @include transition(all 0.20s ease-in-out);
-  padding-top: 13px;
-  padding-bottom: 11px;
-  min-width: 80px;
-  text-align: center;
-  color: $gray-light-lighter;
-  border-bottom: $nav-bar-border-width solid $brand-nav-gray;
-}
+//  BUTTONS
+.navbar-default .navbar-nav > {
 
-.navbar-default .navbar-nav>li.active>a,
-.navbar-default .navbar-nav>li.missing>a:hover,
-.navbar-default .navbar-nav>li>a:hover {
-  @include transition(all 0.20s ease-in-out);
-  color: #fff;
-  border-bottom: $nav-bar-border-width solid $brand-primary;
-  background-color: #222;
-}
+    li>a {
+      @include transition(all 0.20s ease-in-out);
+      padding-top: 13px;
+      padding-bottom: 11px;
+      min-width: 80px;
+      text-align: center;
+      color: $gray-light-lighter;
+      border-bottom: $nav-bar-border-width solid $brand-nav-gray;
+    }
 
-.navbar-default .navbar-nav>li.missing>a {
-  @include transition(all 0.20s ease-in-out);
-  border-bottom: $nav-bar-border-width solid darken($brand-danger,30%);
-}
+    li > a:hover,
+    li.active > a,
+    li.missing > a:hover {
+      color: #fff;
+      border-bottom: $nav-bar-border-width solid $brand-primary;
+      background-color: #222;
+    }
 
-.navbar-default .navbar-nav>li.active.missing>a {
-  @include transition(all 0.20s ease-in-out);
-  border-bottom: $nav-bar-border-width solid $brand-danger;
-  background-color: #222;
+    li.missing > a {
+        border-bottom: $nav-bar-border-width solid darken($brand-danger,25%);
+    }
+
+    li.active.missing > a {
+        border-bottom: $nav-bar-border-width solid $brand-danger;
+        background-color: #222;
+    }
+
+    // Border Removed on Mobile Menu
+    @media screen and (max-width: $media-width-mobile) {
+        li > a {
+            border-bottom: $nav-bar-border-width solid $brand-nav-gray !important;
+        }
+    }
 }
 
 #direct-search {
@@ -119,7 +155,8 @@ a.navbar-brand {
 }
 
 /*DESKTOP*/
-@media (min-width: 992px){
+@media screen and (min-width: $media-width-desktop) {
+
 
     #direct-search {
       @include transition(all 0.75s ease-in-out);
@@ -232,15 +269,6 @@ a.navbar-brand {
       max-height: 60px;
     }
 
-    .navbar-default .navbar-nav>.active>a,
-    .navbar-default .navbar-nav>li>a:hover {
-      color: #fff;
-      background-color: #222;
-    }
-    .navbar-default .navbar-nav>li>a {
-      padding-left: $padding-large-horizontal;
-    }
-
     #content {
         overflow-y: auto;
     }
@@ -273,10 +301,6 @@ a.navbar-brand {
 
 /*MOBILE*/
 @media screen and (max-width: $media-width-mobile) {
-  .navbar-default .navbar-nav>.active>a,
-  .navbar-default .navbar-nav>li>a:hover {
-    border-bottom: $nav-bar-border-width solid $brand-nav-gray !important;
-  }
 
   #result-div {
     font-size: 85%;
@@ -324,30 +348,6 @@ margin-left:6px;
 margin-right:6px;
 display: inline-block;
 }
-
-.truncate {
-    width: 75%;
-    white-space: nowrap;
-    overflow:hidden;
-    text-overflow: ellipsis;
-}
-
-hr {
-  margin-bottom: 16px;
-  margin-top: 16px;
-}
-
-h4.truncate{
-    @extend .truncate;
-    line-height: 21px;
-    margin-bottom: 0px;
-}
-h5.truncate{
-    @extend .truncate;
-    line-height: 18px;
-    margin-bottom: 0px;
-}
-
 
 ////////////////////////////////////////
 //  SEARCH MODAL
