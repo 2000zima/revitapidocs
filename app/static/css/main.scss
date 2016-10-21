@@ -7,10 +7,6 @@
 @import "_yeti.scss";
 @import "_main-variables.scss";
 
-.margin-top {
-margin-top: 40px;
-}
-
 .col-centered{
     float: none;
     margin: 0 auto;
@@ -18,6 +14,12 @@ margin-top: 40px;
 
 html, body {
     margin: 0px;
+}
+
+
+hr {
+  margin-bottom: 16px;
+  margin-top: 16px;
 }
 
 .center-block, .text-center {
@@ -36,24 +38,17 @@ html, body {
     white-space: nowrap;
     overflow:hidden;
     text-overflow: ellipsis;
-}
 
-hr {
-  margin-bottom: 16px;
-  margin-top: 16px;
-}
+    h4 {
+        line-height: 21px;
+        margin-bottom: 0px;
+        }
 
-h4.truncate{
-    @extend .truncate;
-    line-height: 21px;
-    margin-bottom: 0px;
+    h5 {
+        line-height: 18px;
+        margin-bottom: 0px;
+        }
 }
-h5.truncate{
-    @extend .truncate;
-    line-height: 18px;
-    margin-bottom: 0px;
-}
-
 
 .alert {
   z-index: 1200;
@@ -62,6 +57,12 @@ h5.truncate{
   right: 40px;
   width: 200px;
   border: none;
+  @media screen and (max-width: $media-width-mobile) {
+    top: 35px;
+    left: 10%;
+    right: 10%;
+    width: 80%;
+  }
 }
 
 
@@ -157,12 +158,16 @@ h5.truncate{
 /*DESKTOP*/
 @media screen and (min-width: $media-width-desktop) {
 
-
     #direct-search {
       @include transition(all 0.75s ease-in-out);
       margin-top: 65px;
       max-width: 600px;
       margin-bottom: 100px;
+    }
+
+    #direct-search p {
+        margin-top:40px;
+        text-align: center;
     }
 
     #direct-search > img {
@@ -179,7 +184,7 @@ h5.truncate{
     position: absolute;
     bottom: $footer-height;
     top: $nav-bar-height;
-}
+    }
 
     #sidebar {
         position: absolute;
@@ -202,7 +207,7 @@ h5.truncate{
         padding: 20px;
     }
 
-    div#sidebar-search {
+    #sidebar-search {
         z-index: 99;
         position: relative;
         padding: $padding-large-horizontal;
@@ -213,24 +218,6 @@ h5.truncate{
 
     #sidebar #menu-loading{
         padding-left: $padding-large-horizontal;
-    }
-
-    #alsofor {
-        position: absolute;
-        top: 34px;
-        right: $padding-large-horizontal;
-        // margin: 0px;
-        // float: right;
-        // background-color: $gray-lighter;
-        // padding: $padding-small-vertical $padding-small-horizontal;
-        // border: 1px solid $gray-light-lighter;
-
-        p {
-            color:$gray-light;
-            margin:0px;
-            font-size: $font-size-small
-          }
-        a { margin-left: 5px;}
     }
 
     .modal-dialog{
@@ -293,179 +280,167 @@ h5.truncate{
         padding-right: 12px;
     }
 
-    #alsofor {
-    display:none;
-    }
-
 }
 
-/*MOBILE*/
-@media screen and (max-width: $media-width-mobile) {
-
-  #result-div {
-    font-size: 85%;
-  }
-
-  .year {
-      display: none;
-  }
-
-  .modal-dialog {
-    margin: 25px;
-  }
-
+#disqus{
+    margin-top: 75px;
+    padding: 0;
 }
 
-#comment-bar{
-    padding-top: 100px;
-    padding-left: 0px;
-    padding-right: 0px;
-}
 
-#myfooter {
-    text-align: center;
-    position: fixed;
+////////////////////////////////////////
+//  FOOTER
+////////////////////////////////////////
+
+#footer {
+    width: 100%;
     bottom: 0;
+    position: fixed;
+    height: $footer-height;
+    line-height: $footer-height;
+    text-align: center;
     background-color: darken($gray-lighter,5%);
     border-top: 1px solid darken($gray-lighter,10%);
-    padding-top: 2px;
-    line-height: 35px;
-    height: $footer-height;
-    width: 100%;
+
+    p, a {
+        font-size: $font-size-supper-small;
+        color: darken($gray-light, 5%);
+    }
+
+    span.spaced {
+        margin-left:6px;
+        margin-right:6px;
+        display: inline-block;
+    }
 }
 
-#myfooter p {
-    font-size: $font-size-supper-small;
-    color: $gray;
-}
-#myfooter a {
-    color: $gray;
-}
-
-
-#myfooter span.spaced {
-margin-left:6px;
-margin-right:6px;
-display: inline-block;
-}
 
 ////////////////////////////////////////
 //  SEARCH MODAL
 ////////////////////////////////////////
 
-
 #searchModal {
 
-  .modal-dialog{
-    overflow-y: initial !important;
-    // Move dialog down
-    margin-top: 60px;
-  }
+       @media screen and (max-width: $media-width-mobile) {
+        font-size: 85%;
+       }
 
-  .modal-header{
-    padding: 16px 20px;
-  }
+      .modal-dialog{
+        // Move dialog down
+        margin-top: 60px;
+        overflow-y: initial !important;
 
-  .modal-footer {
-    line-height: $font-size-small;
-    font-size: $font-size-small;
-    padding: $padding-large-vertical $padding-large-horizontal;
-    text-align: center;
-  }
-
- .result-entry:not(:last-child){
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 18px;
-  }
-
-  h5 {
-    font-size:13px;
-    margin-bottom: 8px;
-  }
-
-  .modal-body{
-    // height: calc(100vh - 260px);
-    // Let's be smaller less results
-    max-height: calc(100vh - 250px);
-    overflow-y: auto;
-    min-height: 120px;
-    padding-top: 12px;
-
-      // Parent class and
-      &.bottom-shadow {
-        @include box-shadow(-7px 0px 8px 4px rgba(0,0,0,0.15) inset);
-        @include transition(box-shadow 0.3s ease-out);
-        border-top: 1px solid darken(#e5e5e5, 10%);
-        border-bottom: 1px solid darken(#e5e5e5, 10%);
+        @media screen and (max-width: $media-width-mobile) {
+            margin: 25px;
+        }
       }
 
-
-      &.no-bottom-shadow {
-        @include box-shadow(0px 0px 0px 0px rgba(0,0,0,0.0) inset);
-        @include transition(all 0.5s ease-in-out);
-        /*height: 100px;*/
+      .modal-header{
+        padding: 16px 20px;
       }
-  }
 
-  #result-filter-list {
-    min-height: 25px;
-    padding-left: 5px;
-    padding-top: 8px;
-    // padding-bottom: 2px;
-    line-height: 20px;
-    vertical-align: middle;
-  }
+      .modal-footer {
+        line-height: $font-size-small;
+        font-size: $font-size-small;
+        padding: $padding-large-vertical $padding-large-horizontal;
+        text-align: center;
+      }
 
-  .member-of {
-      color: $text-muted;
-  }
+     .result-entry:not(:last-child){
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 18px;
+      }
 
-  .year {
-      line-height: 18px;
-      float: right;
-  }
+      h5 {
+        font-size:13px;
+        margin-bottom: 8px;
+      }
 
-  .description {
-      color: $text-muted;
-      font-size: 80%;
-      margin-top: 4px;
-  }
+      .modal-body{
+        min-height: 120px;
+        max-height: calc(100vh - 220px);
+        overflow-y: auto;
+        padding-top: 12px;
 
-  .member-of a {
-      color: $text-muted;
-  }
+          // Parent class and
+          &.bottom-shadow {
+            @include box-shadow(-7px 0px 8px 4px rgba(0,0,0,0.15) inset);
+            @include transition(box-shadow 0.3s ease-out);
+            border-top: 1px solid darken(#e5e5e5, 10%);
+            border-bottom: 1px solid darken(#e5e5e5, 10%);
+          }
 
-  .result-tag {
-    position: absolute;
-    right: 20px;
-    background-color: $brand-primary;
-    color: $gray-lighter;
-    border-radius: 0px;
-    font-size: $font-size-supper-small;
-    margin-left: 5px;
-    cursor:pointer;
-    padding: 4px 6px;
 
-    margin-top: -1px;
+          &.no-bottom-shadow {
+            @include box-shadow(0px 0px 0px 0px rgba(0,0,0,0.0) inset);
+            @include transition(all 0.5s ease-in-out);
+            /*height: 100px;*/
+          }
+      }
 
-    @include box-shadow(0 0 0 0 rgba(0,0,0,0));
-    @include transition(box-shadow 0.25s ease-in);
-  }
+      #result-filter-list {
+        min-height: 25px;
+        padding-left: 5px;
+        padding-top: 8px;
+        // padding-bottom: 2px;
+        line-height: 20px;
+        vertical-align: middle;
+      }
 
-  .result-tag:first-child  {
-    position: relative;
-    right: 0px;
-  }
+      .member-of {
+          color: $text-muted;
+      }
 
-  .result-tag:hover {
-      @include box-shadow(0 0 6px 1px rgba(0,0,0,0.18));
-      @include transition(all 0.20s ease-in);
-  }
+      .year {
+          line-height: 18px;
+          float: right;
 
-  .result-tag:active {
-      @include box-shadow(0 0 1px rgba(0,0,0,0.2));
-      @include transition(all 0.15s ease-in);
-  }
+          @media screen and (max-width: $media-width-mobile) {
+            display:none;
+          }
+      }
+
+      .description {
+          color: $text-muted;
+          font-size: 80%;
+          margin-top: 4px;
+      }
+
+      .member-of a {
+          color: $text-muted;
+      }
+
+      .result-tag {
+        position: absolute;
+        right: 20px;
+        background-color: $brand-primary;
+        color: $gray-lighter;
+        border-radius: 0px;
+        font-size: $font-size-supper-small;
+        margin-left: 5px;
+        cursor:pointer;
+        padding: 4px 6px;
+
+        margin-top: -1px;
+
+        @include box-shadow(0 0 0 0 rgba(0,0,0,0));
+        @include transition(box-shadow 0.25s ease-in);
+      }
+
+      .result-tag:first-child  {
+        position: relative;
+        right: 0px;
+      }
+
+      .result-tag:hover {
+          @include box-shadow(0 0 6px 1px rgba(0,0,0,0.18));
+          @include transition(all 0.20s ease-in);
+      }
+
+      .result-tag:active {
+          @include box-shadow(0 0 1px rgba(0,0,0,0.2));
+          @include transition(all 0.15s ease-in);
+      }
 
 }
 
