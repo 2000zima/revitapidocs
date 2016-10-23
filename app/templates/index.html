@@ -11,57 +11,58 @@
   </br>
   <div class="col-xs-11 col-sm-7 col-md-6 col-lg-5 col-centered">
 
-    <form id="direct-search">
-      <img class="center-block" id="index-logo" alt="Revit API Docs Logo" height="70px" src="{{ url_for('static', filename="img/logos/logo-title.svg") }}"/>
-      <div class="form-group">
-        <label class="control-label text-danger">&nbsp;</label>
-        <div class="input-group">
-          <input type="text" class="form-control" id="direct-search-input" placeholder="" aria-label="..." autocomplete="off">
-          <div class="input-group-btn">
+    <div id="direct-search">
+        <img class="center-block" id="index-logo" alt="Revit API Docs Logo" height="70px" src="{{ url_for('static', filename="img/logos/logo-title.svg") }}"/>
+        <form>
+          <div class="form-group">
+            <label class="control-label text-danger">&nbsp;</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="direct-search-input" placeholder="" aria-label="..." autocomplete="off">
+              <div class="input-group-btn">
 
-            <button id="direct-search-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="UNDEFINED" aria-haspopup="true" aria-expanded="false">
-              <span id="dropdown-label">YEAR</span>&nbsp;<span class="caret"></span>
-            </button>
-            <button id="direct-search-go" class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
-            <ul class="dropdown-menu dropdown-menu-right">
-              <li><a>2017</a></li>
-              <li><a>2016</a></li>
-              <li><a>2015</a></li>
-            </ul>
+                <button id="direct-search-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="UNDEFINED" aria-haspopup="true" aria-expanded="false">
+                  <span id="dropdown-label">YEAR</span>&nbsp;<span class="caret"></span>
+                </button>
+                <button id="direct-search-go" class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="text-center"><a>2017</a></li>
+                  <li class="text-center"><a>2016</a></li>
+                  <li class="text-center"><a>2015</a></li>
+                </ul>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
+        </form>
 
-        <p class="text-muted small">Web-based, searchbable, and extensible Revit API documentation.<br/>
-        <!-- <p class="text-muted small">This website was created to improve access to the API documentation</br> by providing a web-based, searchable interface.</p> -->
-        For more information about the API visit the<a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
-        Autodesk Developer Network</a>.</p>
-
-    </form>
+        <p class="text-muted text-center small">Web-based, searchbable, and extensible Revit API documentation.<br/>
+            <!-- <p class="text-muted small">This website was created to improve access to the API documentation</br> by providing a web-based, searchable interface.</p> -->
+            For more information about the API visit the<a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
+            Autodesk Developer Network</a>.</p>
+    </div>  <!-- SEARCH DIV -->
 
 
-  </div>
+    </div> <!-- COLUMN -->
 
-  </div>
+  </div>  <!-- ROW -->
 
   <h4 class="text-center"><a href="#contribute" id="toggle-contribute">Contribute</a></h4>
   <!-- <p class="text-muted small text-center">Help improve Revit API docs</p> -->
   <div class="row">
-    <div class="col-xs-11 col-sm-11 col-md-9 col-lg-9 col-centered contribute-block">
+    <div class="col-xs-11 col-sm-11 col-md-9 col-lg-9 col-centered text-center" id="contribute">
       <hr />
 
-    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 center-block">
-      <div class="margin-top visible-xs"></div>
-      <a href="https://disqus.com/home/forums/revit-api-docs/">
-        <img alt="Disqus Logo" src="{{ url_for('static', filename='img/social/social_disqus.svg')}}"/>
-      </a>
-      <h5>Disqus</h5>
-      <p class="small">Help extend documentation with<br/>
-        your solutions, and relevant links<br/>
-        using the built in commenting platform.</p>
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="margin-top visible-xs"></div>
+          <a href="https://disqus.com/home/forums/revit-api-docs/">
+            <img alt="Disqus Logo" src="{{ url_for('static', filename='img/social/social_disqus.svg')}}"/>
+          </a>
+          <h5>Disqus</h5>
+          <p class="small">Help extend documentation with<br/>
+            your solutions, and relevant links<br/>
+            using the built in commenting platform.</p>
         <!--<p class="small">You can <strike>keep track of the activity</strike> see all the comments I have posted on the <a href="https://disqus.com/home/forums/revit-api-docs/">Disqus community</a></p>-->
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 center-block contribute-block">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
         <div class="margin-top visible-xs"></div>
         <a href="https://github.com/gtalarico/revitapidocs/issues">
           <img alt="Github Logo" src="{{ url_for('static', filename='img/social/social_github.svg')}}"/>
@@ -70,7 +71,7 @@
         <p class="small">Suggest ideas and report issues.</p>
         <!-- <a class="github-button" href="https://github.com/gtalarico/revitapidocs/issues" aria-label="Issue gtalarico/revitapidocs on GitHub">Issues</a> -->
       </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 center-block contribute-block">
+      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
         <div class="margin-top visible-xs"></div>
         <a target="_blank" href="http://twitter.com/intent/tweet?text=Check out&url=http://RevitAPIdocs.com&hashtags=revitapi&">
           <img alt="Twitter Logo" src="{{ url_for('static', filename='img/social/social_twitter.svg')}}"/>
@@ -85,46 +86,45 @@
     </div>
   </div>
 
+  <h4 class="margin-top text-center"><a href="#other-resources" id="toggle-other-resources">Other Resources</a></h4>
     <div class="row">
-    <div class="col-xs-11 col-sm-11 col-md-9 col-lg-9 col-centered">
-      <h4 class="margin-top text-center"><a href="#other-resources" id="toggle-other-resources">Other Resources</a></h4>
-      <!-- <p class="text-muted small text-center">Feel free to suggest additional resources in the comment section below.</p> -->
-      <hr class="other-resources-block"/>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 center-block other-resources-block">
-        <h5>Autodesk</h5>
-        <ul class="list-unstyled">
-          <li><a class="small" href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&amp;id=2484975">Autodesk Developer Network</a></li>
-          <li><a class="small" href="http://help.autodesk.com/view/RVT/2017/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2017: Developer's Guide</a></li>
-          <li><a class="small" href="http://help.autodesk.com/view/RVT/2016/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2016: Developer's Guide</a></li>
-          <li><a class="small" href="http://help.autodesk.com/view/RVT/2015/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2015: Developer's Guide</a></li>
-          <li><a class="small" href="http://help.autodesk.com/view/RVT/2014/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2014: Developer's Guide</a></li>
-          <li><a class="small" href="http://dynamoprimer.com/09_Custom-Nodes/9-4_Python.html">Dynamo Primer - Python</a></li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 center-block other-resources-block">
-        <h5>Blogs</h5>
-        <ul class="list-unstyled">
-          <li><a class="small" href="http://thebuildingcoder.typepad.com/">Building Coder Blog</a></li>
-          <li><a class="small" href="https://boostyourbim.wordpress.com/">BoostYourBim</a></li>
-          <li><a class="small" href="http://spiderinnet.typepad.com/">SpiderInNet</a></li>
-          <li><a class="small" href="http://archi-lab.net/">Archi-lab.net</a></li>
-          <li><a class="small" href="http://dp-stuff.org/">dp-stuff.org</a></li>
-          <li><a class="small" href="http://wiki.theprovingground.org/revit-api">Nathan's Revit API Notebook</a></li>
-        </ul>
-      </div>
-      <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 center-block other-resources-block">
-        <h5>Forums</h5>
-        <ul class="list-unstyled">
-          <li><a class="small" href="http://forums.autodesk.com/t5/revit-api/bd-p/160">Revit API Forum</a></li>
-          <li><a class="small" href="https://forum.dynamobim.com/">Dynamo Forum</a></li>
-          <li><a class="small" href="http://stackoverflow.com/questions/tagged/revit-api/">Stack Overflow: revit-api</a></li>
-        </ul>
-      </div>
+        <div class="col-xs-11 col-sm-11 col-md-9 col-lg-9 col-centered text-center" id="other-resources">
+          <hr/>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h5>Autodesk</h5>
+            <ul class="list-unstyled">
+              <li><a class="small" href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&amp;id=2484975">Autodesk Developer Network</a></li>
+              <li><a class="small" href="http://help.autodesk.com/view/RVT/2017/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2017: Developer's Guide</a></li>
+              <li><a class="small" href="http://help.autodesk.com/view/RVT/2016/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2016: Developer's Guide</a></li>
+              <li><a class="small" href="http://help.autodesk.com/view/RVT/2015/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2015: Developer's Guide</a></li>
+              <li><a class="small" href="http://help.autodesk.com/view/RVT/2014/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">2014: Developer's Guide</a></li>
+              <li><a class="small" href="http://dynamoprimer.com/09_Custom-Nodes/9-4_Python.html">Dynamo Primer - Python</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h5>Blogs</h5>
+            <ul class="list-unstyled">
+              <li><a class="small" href="http://thebuildingcoder.typepad.com/">Building Coder Blog</a></li>
+              <li><a class="small" href="https://boostyourbim.wordpress.com/">BoostYourBim</a></li>
+              <li><a class="small" href="http://spiderinnet.typepad.com/">SpiderInNet</a></li>
+              <li><a class="small" href="http://archi-lab.net/">Archi-lab.net</a></li>
+              <li><a class="small" href="http://dp-stuff.org/">dp-stuff.org</a></li>
+              <li><a class="small" href="http://wiki.theprovingground.org/revit-api">Nathan's Revit API Notebook</a></li>
+            </ul>
+          </div>
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <h5>Forums</h5>
+            <ul class="list-unstyled">
+              <li><a class="small" href="http://forums.autodesk.com/t5/revit-api/bd-p/160">Revit API Forum</a></li>
+              <li><a class="small" href="https://forum.dynamobim.com/">Dynamo Forum</a></li>
+              <li><a class="small" href="http://stackoverflow.com/questions/tagged/revit-api/">Stack Overflow: revit-api</a></li>
+            </ul>
+          </div>
 
-    </div>
-  </div>
+      </div> <!-- END CONTRIBUTE DIV -->
+  </div>  <!-- END ROW -->
 
-</div>
+</div>  <!-- END CONTENT FULL WIDTH -->
 
     {# {% include 'disqus.html' %} #}
 
@@ -234,11 +234,11 @@
       }
     });
 
-    $('#toggle-other-resources').on('click', function(){
-      $('.other-resources-block').slideToggle()
-    })
     $('#toggle-contribute').on('click', function(){
-      $('.contribute-block').slideToggle()
+      $('#contribute').slideToggle()
+    })
+    $('#toggle-other-resources').on('click', function(){
+      $('#other-resources').slideToggle()
     })
 
   });
