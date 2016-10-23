@@ -20,6 +20,7 @@ hr {
 }
 
 .well {
+    box-shadow: none !important;
     // display: inline-block;
     // padding-right: 60px;
 }
@@ -344,7 +345,7 @@ hr {
 
           // Parent class and
           &.bottom-shadow {
-            @include box-shadow(-6px 0px 8px 4px rgba(0,0,0,0.15) inset);
+            @include box-shadow(-4px 0px 8px 4px rgba(0,0,0,0.15) inset);
             @include transition(box-shadow 0.3s ease-out);
             border-top: 1px solid darken(#e5e5e5, 10%);
             border-bottom: 1px solid darken(#e5e5e5, 10%);
@@ -496,7 +497,7 @@ border:0px !important;
 
 
     margin-top: 65px;
-    margin-bottom: 100px;
+    margin-bottom: 85px;
     max-width: 600px;
 
     @include mobile {
