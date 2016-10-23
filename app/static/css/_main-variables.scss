@@ -13,5 +13,28 @@ $footer-height:          40px;
 
 $font-size-supper-small: 10.5px !default; // ~12px
 
-$media-width-desktop: 992px;
-$media-width-mobile: 767px; 
+
+// https://davidwalsh.name/write-media-queries-sass
+
+$desktop-width: 768px;
+$desktop-large-width: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+  // @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin large-desktop {
+  @media (min-width: #{$desktop-large-width}) {
+    @content;
+  }
+}

@@ -169,7 +169,7 @@ $(document).ready(function() {
               data: string_json,
             });
 
-        var is_desktop = ($(window).width() > 990)
+        var is_desktop = ($(window).width() > 768)
         if (("{{active_href}}" != 'None') && is_desktop){
             console.log('active_href is not None. Iterating to find matching href');
             var node, activeNode
@@ -299,7 +299,7 @@ $(document).ready(function() {
             $('#result-size').html('API {{year}} | Results: ' +  results.length);
             if (results.length == 500) {
                 console.log('Results Truncated')
-                $('#content').append(
+                $('#content-wrapper').append(
                 '<div class = "alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
                 'Results Truncated to 500.</br> Try narrowing your search.</div>')
 
