@@ -17,6 +17,8 @@ class Config(object):
     FLASKS3_HEADERS = {'Cache-Control': 'max-age='.format(DEFAULT_CACHE_EXP)}
     FLASKS3_ONLY_MODIFIED = True
     FLASKS3_GZIP = True
+    FLASKS3_DEBUG = True
+    FLASK_ASSETS_USE_S3 = True
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 
