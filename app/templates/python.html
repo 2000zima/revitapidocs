@@ -38,7 +38,7 @@ or some of the links in the <a href="/">main page.</a></p>
             <hr />
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     {% set cat_loop = loop.index %}
-                    {% for gist in gists %}
+                    {% for gist in gists|sort(attribute='name') %}
                       <div class="panel panel-default">
                         <div class="panel-heading" role="button" id="heading{{cat_loop}}-{{loop.index}}"  data-toggle="collapse" data-parent="#accordion" href="#collapse{{cat_loop}}-{{loop.index}}" aria-expanded="true" aria-controls="collapse{{cat_loop}}-{{loop.index}}">
                           <h5 class="panel-title">
