@@ -69,7 +69,7 @@ def api_year_file(year, filename):
                            schema=schema)
 
 
-@cache.cached(timeout=604800)  # 1 Week
+@cache.cached(timeout=3600)  # 1 Hour
 @app.route('/<string:year>/namespace.json', methods=['GET'])
 def namespace_get(year):
     namespace_json_year = namespace_jsons.get(year)
@@ -93,12 +93,14 @@ def search_api(year):
     logger.debug('Search Query: ' + str(final_query_pat))
     results = search_db(pattern=final_query_pat, field='title')
 
-    if not results: return jsonify({'error': 'No Results'})
+    if not results:
+        return jsonify({'error': 'No Results'})
 
     sorted_results = sorted(results, key=lambda k: k['title'])
     if len(sorted_results) > MAX_RESULTS:
         sorted_results = sorted_results[:MAX_RESULTS]
     return jsonify(sorted_results)
+
 
 @app.route('/<string:year>/tracksearch', methods=['GET'])
 def track_search_api(year):
@@ -112,12 +114,14 @@ def track_search_api(year):
     query = request.args.get('query')             # query term
     num_results = request.args.get('numresults')  # number of results
     clicked = request.args.get('clicked')         # name of item/entry
-    response, response_json = track_search(query, num_results=num_results, clicked=clicked)
+    response, response_json = track_search(query,
+                                           num_results=num_results,
+                                           clicked=clicked)
     try:
         return jsonify(response_json)
     except:
         logger.error('Could not jsonify response: {}'.format(response_json))
-        return jsonify({'error':'Could not jsonify response'})
+        return jsonify({'error': 'Could not jsonify response'})
 
 
 

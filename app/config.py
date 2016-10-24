@@ -36,18 +36,19 @@ class Production(Config):
     PRODUCTION = True
     SECRET_KEY = os.environ['SECRET_KEY']
 
+
 class Staging(Config):
     DEBUG = False
     STAGING = True
     SECRET_KEY = os.environ['SECRET_KEY']
+
 
 class Development(Config):
     DEBUG = True
     SECRET_KEY = 'SuperSecretKey'
 
     DEBUG_TB_INTERCEPT_REDIRECTS = False
-    # DEBUG_TB_PROFILER_ENABLED	= True # Default False
-    # DEBUG_TB_TEMPLATE_EDITOR_ENABLED = True # Default False
+    DEBUG_TB_TEMPLATE_EDITOR_ENABLED = True
 
 
 class Testing(Config):

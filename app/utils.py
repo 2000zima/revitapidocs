@@ -35,7 +35,7 @@ class Timer(object):
         return wrapper
 
 
-@cache.memoize(timeout=86400)
+# @cache.memoize(timeout=3600) # 1 Hour
 def check_available_years(filename):
     ''' Checks which years resource file is available in.
     Returns: list of years a string, empty string if there not matches
@@ -49,7 +49,7 @@ def check_available_years(filename):
     return available_in
 
 
-@cache.memoize(timeout=86400)
+# @cache.memoize(timeout=3600)  # 1 Hour
 def get_schema(filename, year=None):
 
     logger.debug('Getting Schema: {}|{}'.format(filename, year))
