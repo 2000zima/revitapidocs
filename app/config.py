@@ -45,6 +45,10 @@ class Development(Config):
     DEBUG = True
     SECRET_KEY = 'SuperSecretKey'
 
+    DEBUG_TB_INTERCEPT_REDIRECTS = False
+    # DEBUG_TB_PROFILER_ENABLED	= True # Default False
+    # DEBUG_TB_TEMPLATE_EDITOR_ENABLED = True # Default False
+
 
 class Testing(Config):
     TESTING = True
