@@ -1,6 +1,7 @@
 import os
 from app.logger import logger
 
+
 class Config(object):
     DEBUG = False
     TESTING = False
@@ -22,9 +23,9 @@ class Config(object):
 
     FLASKS3_ONLY_MODIFIED = True
     FLASKS3_GZIP = True
-    FLASK_ASSETS_USE_S3 = True
-    FLASKS3_DEBUG = False
     FLASKS3_ACTIVE = bool(int(os.getenv('FLASKS3_ACTIVE', 1)))
+    FLASK_ASSETS_USE_S3 = FLASKS3_ACTIVE
+
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 
@@ -60,22 +61,10 @@ class Development(Config):
         'flask_debugtoolbar.panels.route_list.RouteListDebugPanel',
         'flask_debugtoolbar.panels.profiler.ProfilerDebugPanel',
         # 'flask_debugtoolbar.panels.sqlalchemy.SQLAlchemyDebugPanel',
-        )
+    )
 
 
 class Testing(Config):
     TESTING = True
     DEBUG = True
     SECRET_KEY = 'SuperSecretKey'
-
-
-#  ENV CONFIG VARS
-#   REQUIRED:
-#       SECRET_KEY
-#       GITHUB_TOKEN
-#   FLASK_CONFIG
-#       Production  :  If One, No Debug, and env Key
-#       Staging  :  1 Same as Production, disable Bots and GA
-#   DEBUG:
-#        ASSETS_DEBUG = [0/1] Debug for Webassets
-#        LOG_LEVEL = [ INFO/DEBUG.ERROR ]
