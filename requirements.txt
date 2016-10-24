@@ -10,7 +10,7 @@ Flask-Assets==0.12
 Flask-Caching==1.0.1
 Flask-Compress==1.3.2
 Flask-DebugToolbar==0.10.0
--e git+https://github.com/gtalarico/flask-s3.git@90a55af1643c44eda23b65532250023267705a09#egg=Flask_S3
+Flask-S3==0.3.1
 gevent==1.1.2
 greenlet==0.4.10
 gunicorn==19.6.0
