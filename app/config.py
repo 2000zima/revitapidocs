@@ -24,7 +24,7 @@ class Config(object):
     FLASKS3_GZIP = True
     FLASK_ASSETS_USE_S3 = True
     FLASKS3_DEBUG = False
-    FLASKS3_ACTIVE = True
+    FLASKS3_ACTIVE = bool(int(os.getenv('FLASKS3_ACTIVE', 1)))
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 
@@ -35,7 +35,6 @@ class Config(object):
 class Production(Config):
     PRODUCTION = True
     SECRET_KEY = os.environ['SECRET_KEY']
-
 
 class Staging(Config):
     DEBUG = False
