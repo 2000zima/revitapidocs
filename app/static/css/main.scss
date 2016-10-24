@@ -203,16 +203,18 @@ hr {
             border-bottom: 0px solid $gray-lighter;
             padding-bottom: 8px;
         }
-
-        #sidebar-search {
-            z-index: 99;
-            position: relative;
-            padding: $padding-large-horizontal;
-            padding-bottom: 8px;
-            margin:0px;
-            background-color: $gray-lighter;
-        }
     }
+
+    #sidebar-search {
+        z-index: 99;
+        position: relative;
+        padding: $padding-large-horizontal;
+        padding-bottom: 8px;
+        margin:0px;
+        background-color: $gray-lighter;
+    }
+
+
 }
 
 
