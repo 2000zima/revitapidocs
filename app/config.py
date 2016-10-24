@@ -20,9 +20,11 @@ class Config(object):
     FLASKS3_BUCKET_NAME = 'revitapidocs'
     FLASKS3_HEADERS = {'Cache-Control': 'max-age={}'.format(SEND_FILE_MAX_AGE_DEFAULT)}
 
-    FLASKS3_ONLY_MODIFIED = False
+    FLASKS3_ONLY_MODIFIED = True
     FLASKS3_GZIP = True
     FLASK_ASSETS_USE_S3 = True
+    FLASKS3_DEBUG = False
+    FLASKS3_ACTIVE = True
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
 
@@ -36,15 +38,13 @@ class Production(Config):
 
 
 class Staging(Config):
-    DEBUG = True
+    DEBUG = False
     STAGING = True
     SECRET_KEY = os.environ['SECRET_KEY']
 
 class Development(Config):
     DEBUG = True
     SECRET_KEY = 'SuperSecretKey'
-
-    FLASKS3_DEBUG = True
 
 
 class Testing(Config):
