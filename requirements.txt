@@ -1,20 +1,27 @@
 beautifulsoup4==4.5.1
+boto3==1.4.1
+botocore==1.4.65
 click==6.6
 cssmin==0.2.0
+docutils==0.12
 Flask==0.11.1
 Flask-Assets==0.12
 Flask-Caching==1.0.1
 Flask-Compress==1.3.2
+-e git+https://github.com/gtalarico/flask-s3.git@90a55af1643c44eda23b65532250023267705a09#egg=Flask_S3
 gevent==1.1.2
 greenlet==0.4.10
 gunicorn==19.6.0
 itsdangerous==0.24
 Jinja2==2.8
+jmespath==0.9.0
 libsass==0.11.1
 MarkupSafe==0.23
 PyGithub==1.29
+python-dateutil==2.5.3
 redis==2.10.5
 requests==2.11.1
+s3transfer==0.1.9
 six==1.10.0
 webassets==0.12.0
 Werkzeug==0.11.11

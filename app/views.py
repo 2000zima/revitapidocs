@@ -136,6 +136,7 @@ def chm_static_redirect(filename=None):
 def add_header(response):
     config_cache = app.config['SEND_FILE_MAX_AGE_DEFAULT']
     response.headers['Cache-Control'] = 'public, max-age={}'.format(config_cache)
+
     return response
 
 

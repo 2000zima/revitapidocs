@@ -4,6 +4,7 @@ from flask import Flask
 from flask_compress import Compress
 from flask_assets import Bundle, Environment
 from flask_caching import Cache
+from flask_s3 import FlaskS3
 
 from app.assets import css_assets, js_assets
 from app.assets import css_chm, js_chm
@@ -16,7 +17,9 @@ logger.info('** FLASK_CONFIG: {}'.format(flask_config))
 app.config.from_object('app.config.{}'.format(flask_config))
 
 Compress(app)
+FlaskS3(app)
 cache = Cache(app)
+
 logger.info('** CACHE_TYPE: {}'.format(os.environ['CACHE_TYPE']))
 if bool(int(os.getenv('CACHE_CLEAR', 0))):
     cache.clear()
