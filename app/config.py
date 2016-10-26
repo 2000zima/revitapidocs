@@ -47,6 +47,8 @@ class Staging(Config):
 class Development(Config):
     DEBUG = True
     SECRET_KEY = 'SuperSecretKey'
+    FLASKS3_ACTIVE = bool(int(os.getenv('FLASKS3_ACTIVE', 0)))
+    FLASK_ASSETS_USE_S3 = FLASKS3_ACTIVE
 
     DEBUG_TB_INTERCEPT_REDIRECTS = False
     DEBUG_TB_TEMPLATE_EDITOR_ENABLED = True

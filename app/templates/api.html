@@ -165,7 +165,7 @@ $(document).ready(function() {
               levels: 1,
               enableLinks: true,
               onhoverColor: '#e0e0e0',
-              backColor: '#eee',
+              backColor: 'inherit',
               data: string_json,
             });
 
@@ -266,12 +266,12 @@ $(document).ready(function() {
           var numresults = results.length
         }
 
-        // TRACK SEARCH RESULTS
-        track_url = '/2015/tracksearch?query=' + pattern + '&numresults='+ numresults
-        $.get( track_url, function( data ) {
-              console.log('TRACKING')
-              console.log(data)
-            });
+        // TRACK SEARCH RESULTS - DISABLE
+        // track_url = '/2015/tracksearch?query=' + pattern + '&numresults='+ numresults
+        // $.get( track_url, function( data ) {
+        //       console.log('TRACKING')
+        //       console.log(data)
+        //     });
         // TRACK SEARCH RESULTS
 
 
@@ -351,15 +351,15 @@ $(document).ready(function() {
             $('.result-entry[data-tag*="' + tag_name + '"]').show();
         };
 
-        // TRACK SEARCH RESULTS CLICK THROUGH
-        $('.result-entry').find('a').on('click', function(e){
-        var title = e.target.innerText;
-        track_url = '/2015/tracksearch?query=' + pattern + '&clicked='+ title
-        $.get( track_url, function( data ) {
-              console.log('TRACKING CLICK THROUGH')
-              console.log(data)
-            });
-        });
+        // TRACK SEARCH RESULTS CLICK THROUGH - DISABLE
+        // $('.result-entry').find('a').on('click', function(e){
+        // var title = e.target.innerText;
+        // track_url = '/2015/tracksearch?query=' + pattern + '&clicked='+ title
+        // $.get( track_url, function( data ) {
+        //       console.log('TRACKING CLICK THROUGH')
+        //       console.log(data)
+        //     });
+        // });
         // TRACK SEARCH RESULTS
 
     };

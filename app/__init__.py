@@ -13,14 +13,19 @@ from app.logger import logger
 
 # Config
 app = Flask(__name__)
+compress = Compress()
+flasks3 = FlaskS3()
+cache = Cache()
+toolbar = DebugToolbarExtension()
+
 flask_config = os.environ['FLASK_CONFIG']
 logger.info('** FLASK_CONFIG: {}'.format(flask_config))
 app.config.from_object('app.config.{}'.format(flask_config))
 
-Compress(app)
-FlaskS3(app)
-cache = Cache(app)
-toolbar = DebugToolbarExtension(app)
+compress.init_app(app)
+flasks3.init_app(app)
+cache.init_app(app)
+toolbar.init_app(app)
 
 logger.info('** CACHE_TYPE: {}'.format(os.environ['CACHE_TYPE']))
 if bool(int(os.getenv('CACHE_CLEAR', 0))):
@@ -35,6 +40,9 @@ assets.register('js_assets', js_assets)
 assets.register('css_chm', css_chm)
 assets.register('js_chm', js_chm)
 logger.debug('ASSETS DEBUG: {}'.format(assets.debug))
+
+logger.debug('FLASK S3 ACTIVE: {}'.format(app.config['FLASKS3_ACTIVE']))
+logger.debug('FLASK S3 ASSETS ACTIVE: {}'.format(app.config['FLASK_ASSETS_USE_S3']))
 
 from app import views, seo_response, errors
 from app import assets

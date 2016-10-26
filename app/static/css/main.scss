@@ -175,7 +175,7 @@ hr {
     bottom: $footer-height;
     left: 0;
     overflow-y: auto;
-    padding:0px;
+    padding:0;
     border-right: 1px solid #ddd;
 
     #menu-loading{
@@ -194,7 +194,7 @@ hr {
     .bottom-shadow {
       @include box-shadow(0 3px 35px 0 rgba(0,0,0,0.25));
       @include transition(box-shadow 150ms ease-in-out, padding-bottom 150ms ease-in-out);
-      border-bottom: 1px solid #bfbfbf;
+      border-bottom: 1px solid #ccc;
       padding-bottom: 10px;
     }
 
@@ -208,13 +208,22 @@ hr {
     }
   }
 
+  .form-group {
+    margin:0
+  }
+
   #sidebar-search {
     z-index: 99;
     position: relative;
-    padding: $padding-large-horizontal;
-    padding-bottom: 8px;
     margin:0px;
     background-color: $gray-lighter;
+
+    @include desktop {
+      padding: $padding-large-horizontal;
+    }
+    @include mobile {
+      padding: $padding-large-vertical $padding-small-horizontal ;
+    }
   }
 
 
@@ -224,6 +233,7 @@ hr {
 #main-sidebar {
   // Hides Sidebar while loading
   opacity: 0;
+  padding: $padding-large-vertical $padding-large-horizontal;
 
   @include desktop {
     position: absolute;
@@ -232,16 +242,13 @@ hr {
     bottom: $footer-height;
     right: 0;
     overflow-y: auto;
-    padding: 20px;
   }
 
   @include mobile {
     position: relative;
     overflow-x: auto;
-    padding-top: 20px;
     margin-bottom: 20px;
-    padding-left: 12px;
-    padding-right: 12px;
+
   }
 }
 
@@ -267,12 +274,13 @@ hr {
   height: $footer-height;
   line-height: $footer-height;
   text-align: center;
-  background-color: darken($gray-lighter,5%);
-  border-top: 1px solid darken($gray-lighter,10%);
+  background-color: darken($gray-lighter,3%);
+  border-top: 1px solid darken($gray-lighter,7%);
 
   @include mobile{
-    height: 30px;
-    line-height: 30px;
+    display: none;
+    // height: 30px;
+    // line-height: 30px;
   }
   p, a {
     overflow: hidden;
