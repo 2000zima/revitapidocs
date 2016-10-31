@@ -63,4 +63,12 @@ or some of the links in the <a href="/">main page.</a></p>
 {% endblock %}
 
 {% block script %}
+<script>
+
+$('.panel-heading').on('click', function(event){
+    var title = event.target.innerText.replace(/(\r\n|\n|\r|\s)/gm,"");
+    ga('send', 'pageview', 'python/#' + title);
+})
+
+</script>
 {% endblock %}

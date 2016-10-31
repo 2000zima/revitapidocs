@@ -69,7 +69,11 @@ def get_gists():
     for gist in github_gist.pages:
 
         if 'RevitAPI' in gist.description:
-            gist_group, gist_name = gist.description.split('::')[1:]
+            chunks = gist.description.split('::')[1:]
+            if len(chunks) != 2:
+                logger.error('Skipping Gist. Could not parse: ' + str(chunks))
+                continue
+            gist_group, gist_name = chunks
             gist_embed_url = '{url}.js'.format(url=gist.html_url)
             gists_by_categories[gist_group].append({'name': gist_name,
                                                     'url': gist_embed_url})
