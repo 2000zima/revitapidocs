@@ -76,5 +76,6 @@ def get_gists():
             gist_group, gist_name = chunks
             gist_embed_url = '{url}.js'.format(url=gist.html_url)
             gists_by_categories[gist_group].append({'name': gist_name,
+                                                    'id': gist_name.replace(' ',''),
                                                     'url': gist_embed_url})
     return gists_by_categories

@@ -101,32 +101,6 @@
 <!-- START API SCRIPT  -->
 <script>
 
-function updateQueryStringParameter(key, value) {
-  var uri_parts = window.location.href.split('/')
-  var uri_local = uri_parts[uri_parts.length - 1]
-  var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-  var separator = uri_local.indexOf('?') !== -1 ? "&" : "?";
-  if (uri_local.match(re)) {
-    return uri_local.replace(re, '$1' + key + "=" + value + '$2');
-  }
-  else {
-    return uri_local + separator + key + "=" + value;
-  }
-};
-
-// Extracts Decoded Param from url param
-function getUrlParam (name){
-    var url = decodeURIComponent(window.location.href)
-    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(url);
-    if (results==null){
-       return null;
-    }
-    else{
-       return results[1] || 0;
-    }
-};
-
-
 // Get Constructor.io Autocomplete Script
 $.getScript("//cnstrc.com/js/ac.js", function() {
       $('#input-search').constructorAutocomplete({

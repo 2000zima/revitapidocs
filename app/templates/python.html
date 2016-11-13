@@ -11,7 +11,8 @@
 <p class="small">As the official documentation lacks Python coverage, I thought it would be helpful to include some examples and snippets alongside it.</p>
 <p class="small">The code below should work with <a href="https://github.com/architecture-building-systems/revitpythonshell">RevitPythonShell</a>
 and <a href="https://github.com/eirannejad/pyRevit">pyRevit</a>, but can be also be used within Dynamo with minor tweaks.</p>
-<p class="small">For a more comprehensive set of examples of Python interacting with the Revit API, check out the <a href="https://github.com/eirannejad/pyRevit">pyRevit Repository</a>
+<p class="small">For a more comprehensive set of examples of Python interacting with the Revit API, check out the <a href="https://github.com/eirannejad/pyRevit">pyRevit Repository</a>,
+<a href="https://daren-thomas.gitbooks.io/scripting-autodesk-revit-with-revitpythonshell/content/deploying_rpsaddins/what_is_a_rpsaddin.html">Revit Python Shell Git Book</a>,
 or some of the links in the <a href="/">main page.</a></p>
 <p class="small">Code is hosted on <a href="https://gist.github.com/gtalarico/">gist.github.com</a>.</p>
 
@@ -39,7 +40,7 @@ or some of the links in the <a href="/">main page.</a></p>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                     {% set cat_loop = loop.index %}
                     {% for gist in gists|sort(attribute='name') %}
-                      <div class="panel panel-default">
+                      <div class="panel panel-default" id="{{ gist.id }}">
                         <div class="panel-heading" role="button" id="heading{{cat_loop}}-{{loop.index}}"  data-toggle="collapse" data-parent="#accordion" href="#collapse{{cat_loop}}-{{loop.index}}" aria-expanded="true" aria-controls="collapse{{cat_loop}}-{{loop.index}}">
                           <h5 class="panel-title">
                               {{ gist.name }}
@@ -66,9 +67,22 @@ or some of the links in the <a href="/">main page.</a></p>
 <script>
 
 $('.panel-heading').on('click', function(event){
-    var title = event.target.innerText.replace(/(\r\n|\n|\r|\s)/gm,"");
-    ga('send', 'pageview', 'python/#' + title);
+    var gist_id = $(this).parent().attr('id')
+    ga('send', 'pageview', '/python/#' + gist_id);
+    history.pushState(null, null, '#' + gist_id);
 })
+
+function check_panel_url(){
+  var panelId = getUrlState() // Returns anything after a # sign
+  if(panelId) {
+      console.log('Has Panel:' + panelId)
+      $('#'+panelId).children('.panel-collapse').collapse('show')
+  }
+};
+
+$(document).ready(function() {
+    check_panel_url()
+});
 
 </script>
 {% endblock %}

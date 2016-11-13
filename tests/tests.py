@@ -73,6 +73,7 @@ class UtilsTestCase(unittest.TestCase):
         self.assertEqual(rv['description'], 'Represents the Autodesk Revit Application, providing access to documents, options and other application wide data and settings.')
         self.assertEqual(rv['namespace'], 'Autodesk.Revit.ApplicationServices')
 
+    # TODO: Add tests for DB
     # def test_permitation_query(self):
     #     query = 'Create Wall'
     #     perm_query = create_permutation_query(query)
@@ -117,7 +118,7 @@ class HtmlContentCase(unittest.TestCase):
 
     def test_404(self):
         rv = self.app.get('/2015/asdasd')
-        assert 'Something went wrong' in str(rv.data)
+        assert 'Something Went Wrong' in str(rv.data)
         self.assertEqual(rv.status_code, 404)
 
 if __name__ == '__main__':

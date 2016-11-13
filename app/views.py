@@ -145,7 +145,8 @@ def add_header(response):
 
 
 @app.route('/python/', methods=['GET'])
-def python():
+@app.route('/python/<path:path>', methods=['GET'])
+def python(path=None):
     gists_by_categories = get_gists()
     d = OrderedDict(sorted(gists_by_categories.items()))
     # import pdb; pdb.set_trace()

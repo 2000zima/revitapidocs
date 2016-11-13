@@ -2,19 +2,42 @@ $(".alert").delay(8000).fadeOut(300, function() {
     $(this).alert('close');
 });
 
-// OLD MENU JS
-// $('ul.CollapsibleList li').on('click', function () {
-//     $(this).siblings('ul').toggle(); // Hides sister ULs
-//     $(this).toggleClass("open closed"); // Togles class of li
-// });
-//
-//
-// $( document ).ready(function() {
-//     $('ul.CollapsibleList ul:not(:has(> ul))').children('li').addClass('childless'); // Adds closed to all
-//
-//     $('#menu-loading').animate({opacity: 0},250);
-//     $('#menu-loading').remove();
-//
-//     $('ul.CollapsibleList').animate({opacity: 1},500);
-//
-// });
+// Updates a key-value on url parameter:
+// URL: revitpythondocs.com/python/?query=3
+// updateQueryStringParameter(query, '5')
+// URL: revitpythondocs.com/python/?query=5
+function updateQueryStringParameter(key, value) {
+  var uri_parts = window.location.href.split('/')
+  var uri_local = uri_parts[uri_parts.length - 1]
+  var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+  var separator = uri_local.indexOf('?') !== -1 ? "&" : "?";
+  if (uri_local.match(re)) {
+    return uri_local.replace(re, '$1' + key + "=" + value + '$2');
+  }
+  else {
+    return uri_local + separator + key + "=" + value;
+  }
+};
+
+// Extracts Decoded Param from url param
+function getUrlParam (name){
+    var url = decodeURIComponent(window.location.href)
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(url);
+    if (results==null){
+       return null;
+    }
+    else{
+       return results[1] || 0;
+    }
+};
+
+function getUrlState (){
+    var url = decodeURIComponent(window.location.href)
+    var results = url.split('#')[1]
+    if ((results==null)||(results==0)){
+       return null;
+    }
+    else{
+       return results;
+    }
+};
