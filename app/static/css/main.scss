@@ -241,8 +241,9 @@ hr {
     top: $nav-bar-height;
     bottom: $footer-height;
     right: 0;
-    overflow-y: auto;
-  }
+    // overflow-y: auto;
+    overflow-y: scroll; // Mod for Adsense width fix
+    }
 
   @include mobile {
     position: relative;
@@ -253,19 +254,33 @@ hr {
 }
 
 #disqus {
-  margin-top: 25px;
+  margin-top: 20px;
   padding: 0;
   @include mobile {
     margin-bottom: 25px;
   }
 }
 
-#adsense-leaderboard {
-  margin-top: 50px;
-  margin-top: 25px;
+#adsense-responsive {
+  margin-top: 40px;
+  margin-top: 20px;
   padding: 0;
+  @extend .col-centered;
   @include mobile {
     margin-bottom: 25px;
+  }
+}
+
+#adsense-index {
+  display:block;
+  margin-top: 20px;
+  max-width: 600px;
+  @extend .col-centered;
+
+  @include mobile {
+    max-width: 400px;
+    margin-top: 20px;
+    margin-bottom: 40px;
   }
 }
 
