@@ -273,9 +273,8 @@ hr {
 }
 
 #adsense-index {
-  display:block;
   margin-top: 20px;
-  max-width: 1200px;
+  max-width: 600px;
   @extend .col-centered;
 
   @include mobile {
