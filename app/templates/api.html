@@ -65,31 +65,32 @@
 
     <!-- START MAIN -->
     <div class="col-sm-12 col-md-7 col-lg-8" id="main-sidebar">
-        <div>
-            <h4 class="truncate"> {{ schema.title if schema else 'Documentation' }} </h4>
-                {#
-                  {% if active_href and available_in %}
-                  <div id='alsofor'>
-                      <p>YEAR
-                        {% for year in available_in %}
-                        <a href="/{{year}}/{{active_href}}"> {{year}} </a>
-                        {% endfor %}
-                      </p>
-                  </div>
-                  {% endif %}
-                #}
-            <hr/>
+        <h4 class="truncate"> {{ schema.title if schema else 'Documentation' }} </h4>
+        <hr/>
+        <!-- START MAIN CONTENT -->
+        {% include '%s' % content %}
+        <!-- END MAIN CONTENT -->
 
-            <!-- START MAIN CONTENT -->
-            {% include '%s' % content %}
-            <!-- END MAIN CONTENT -->
 
-            <!-- START DISQUS -->
-            {% if active_href %}
-            {% include 'disqus.html' with context %}
-            {% endif %}
-            <!-- END DISQUS -->
+        <!-- START ADSENSE -->
+        <div id="adsense-api-leaderboard" class="col-sm-12 col-md-12 col-lg-12 col-centered ">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <!-- RevitAPIDocs-API-Leaderboard -->
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-2370986191740757"
+                 data-ad-slot="2421984228"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
         </div>
+        <!-- END ADSENSE -->
+
+        <!-- START DISQUS -->
+        {% if active_href %}
+        {% include 'disqus.html' with context %}
+        {% endif %}
+        <!-- END DISQUS -->
     </div>
     <!-- END MAIN -->
 

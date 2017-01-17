@@ -58,7 +58,24 @@ or some of the links in the <a href="/">main page.</a></p>
         {% endfor %}
     </div> <!--  ROW -->
     {% endif %}
+
+    <!-- START ADSENSE -->
+    <div id="adsense-api-leaderboard" class="col-sm-12 col-md-12 col-lg-12 col-centered ">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- RevitAPIDocs-API-Leaderboard -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-2370986191740757"
+             data-ad-slot="2421984228"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+    <!-- END ADSENSE -->
+
+    <!-- DISQUS -->
     {% include 'disqus.html' %}
+    <!-- DISQUS -->
 </div>
 
 {% endblock %}
