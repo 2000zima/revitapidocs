@@ -253,15 +253,16 @@ hr {
 }
 
 #disqus {
-  margin-top: 50px;
+  margin-top: 25px;
   padding: 0;
   @include mobile {
     margin-bottom: 25px;
   }
 }
 
-#adsense-api-leaderboard {
+#adsense-leaderboard {
   margin-top: 50px;
+  margin-top: 25px;
   padding: 0;
   @include mobile {
     margin-bottom: 25px;
