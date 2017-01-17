@@ -266,6 +266,7 @@ hr {
   margin-top: 20px;
   padding: 0;
   @extend .col-centered;
+  text-align: center;
   @include mobile {
     margin-bottom: 25px;
   }
@@ -274,7 +275,7 @@ hr {
 #adsense-index {
   display:block;
   margin-top: 20px;
-  max-width: 600px;
+  max-width: 1200px;
   @extend .col-centered;
 
   @include mobile {

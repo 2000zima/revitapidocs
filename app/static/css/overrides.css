@@ -5,6 +5,11 @@
     border-bottom:1px solid #eee !important;
 }
 
+div.section {
+    /* Mod Ad Sense */
+    width: 100%;
+}
+
 #mainSection, #header, .subHeading{
     font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     color:#666 !important;
