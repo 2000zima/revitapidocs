@@ -1,22 +1,23 @@
-FirsT:
-
-☐ Add References:
-    https://daren-thomas.gitbooks.io/scripting-autodesk-revit-with-revitpythonshell/content/deploying_rpsaddins/what_is_a_rpsaddin.html
-    http://learndynamo.com/
+High Priority:
+☐ Add Revit API 2017.1
 
 Refactor:
-✔ Change Schema/GetSchema > meta @done(2016-11-12 18:03)
-✔ Consitent query / Page @done(2016-11-12 18:03)
 ☐ clean up api.html
 ☐ Organize Folders, Parsers
 ☐ Create components folder for html
 ☐ Document Views and API.html
+
+
+Refactor:
+✔ Change Schema/GetSchema > meta @done(2016-11-12 18:03)
+✔ Consitent query / Page @done(2016-11-12 18:03)
 
 Misc:
 ✔ Add Time It Decorator For Comparison @done(2016-11-12 18:03)
 ✔ Merge Master @done(2016-10-04 00:53)
 ✔ Add Context for testing @done(2016-10-04 00:53)
 ✔ Implement Search Results as template with object for filtering @done(2016-11-12 18:04)
+✔ Test Adsense @done(2017-01-16 23:51)
 
 Core Tasks:
 ✔ Python Gists: add handling @done(2016-10-03 09:37)
