@@ -262,6 +262,7 @@ hr {
 }
 
 #adsense-responsive {
+  display: none;
   margin-top: 40px;
   margin-top: 20px;
   padding: 0;
@@ -273,6 +274,7 @@ hr {
 }
 
 #adsense-index {
+  display: none;
   margin-top: 20px;
   max-width: 800px;
   @extend .col-centered;
