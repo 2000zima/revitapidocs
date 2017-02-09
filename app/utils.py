@@ -71,12 +71,17 @@ def process_query(query):
     ''' Cleans up Query string and compiles as re pattern.
     Replaces, slashes, brackets, and others symbols that can break
     the re-pattern. Makes space optional.
+    wall class > wall.*class
+    wall*class > wall.*class
+    /, \ , ( , ), [ , ] etc become .
     '''
     # escape brackets/parentesis and other symbols
-    query = re.sub(r'\\|;|\(|\)|\[|\]', '.', query)
+    final_query = re.sub(r'\\|;|\(|\)|\[|\]', '.', query)
     # Make Space Optional
-    query = re.sub(r'\s', r'.*', query)
-    return query
+    final_query = re.sub(r'\s|\*', r'.*', final_query)
+    logger.debug('process_query in: {}'.format(query))
+    logger.debug('process_query out: {}'.format(final_query))
+    return final_query
 
 
 @Timer.time_function('SEARCH DB')
