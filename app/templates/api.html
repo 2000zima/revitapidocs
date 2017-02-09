@@ -260,8 +260,13 @@ $(document).ready(function() {
             var active_year = "{{year}}" // Get year in context
             var year_class = (value.year.indexOf(active_year) == -1) ? 'text-danger': 'text-muted'
 
+            var is_exact_match = ''
+            if (pattern.toLowerCase() == value.title.toLowerCase()) {
+                is_exact_match = 'result-exact-match'
+            }
+
             var ahref =
-            '<div class="result-entry" data-tag="' + value.tag + '">' +
+            '<div class="result-entry '+ is_exact_match + '" data-tag="' + value.tag + '">' +
             '<h5 class="truncate"><a href="' + value.href + '">' + value.title + '</a>' +
             '<span class="result-tag badge pull-right">' + value.tag + '</span>' + '</h5>' +
             '<p class="member-of small">' + value.namespace + ' : ' + '<a href="' + value.member_of_href +'">' + value.member_of +'</a>' +
@@ -269,6 +274,8 @@ $(document).ready(function() {
             '<p class="small description">' + value.description + '</p>' +
             '</div>'
             content += ahref
+
+
           });
 
             // This shit should really be handled somewhere else. Show alert if results is 300

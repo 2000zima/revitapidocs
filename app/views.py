@@ -10,7 +10,7 @@ from app import app
 from app import cache
 from app.logger import logger
 from app.utils import get_schema, check_available_years, Timer
-from app.utils import process_query, search_db, track_search
+from app.utils import process_query, search_db, prioritize_match, track_search
 from app.gists import get_gists
 from app.db import db_json, namespace_jsons
 
@@ -82,24 +82,27 @@ def namespace_get(year):
 @app.route('/<string:year>/searchapi', methods=['GET'])
 def search_api(year):
     MAX_RESULTS = 500
-    query = request.args.get('query')
+    raw_query = request.args.get('query')
 
-    if not query or query == '0':
+    if not raw_query or raw_query == '0':
         return jsonify({'error': 'Invalid Query Param'})
 
-    query = process_query(query)
-    final_query_pat = re.compile(query, re.IGNORECASE)
+    final_query = process_query(raw_query)
+    final_query_pat = re.compile(final_query, re.IGNORECASE)
+    logger.debug('Raw Search Query: ' + str(raw_query))
+    logger.debug('Final Search Query: ' + str(final_query_pat))
 
-    logger.debug('Search Query: ' + str(final_query_pat))
     results = search_db(pattern=final_query_pat, field='title')
 
     if not results:
         return jsonify({'error': 'No Results'})
 
     sorted_results = sorted(results, key=lambda k: k['title'])
-    if len(sorted_results) > MAX_RESULTS:
-        sorted_results = sorted_results[:MAX_RESULTS]
-    return jsonify(sorted_results)
+    prioritized_results = prioritize_match(results=sorted_results, raw_query=raw_query,
+                                           field='title')
+    if len(prioritized_results) > MAX_RESULTS:
+        prioritized_results = prioritized_results[:MAX_RESULTS]
+    return jsonify(prioritized_results)
 
 
 @app.route('/<string:year>/tracksearch', methods=['GET'])

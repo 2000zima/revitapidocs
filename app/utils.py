@@ -79,8 +79,8 @@ def process_query(query):
     final_query = re.sub(r'\\|;|\(|\)|\[|\]', '.', query)
     # Make Space Optional
     final_query = re.sub(r'\s|\*', r'.*', final_query)
-    logger.debug('process_query in: {}'.format(query))
-    logger.debug('process_query out: {}'.format(final_query))
+    # logger.debug('process_query in: {}'.format(query))
+    # logger.debug('process_query out: {}'.format(final_query))
     return final_query
 
 
@@ -104,6 +104,26 @@ def search_db(pattern=None, field=None):
         return []
     else:
         return results
+
+@Timer.time_function('Prioritize Results')
+def prioritize_match(results=None, raw_query=None, field=None):
+    """If Search query matches title exactly (no fuzzy or space forgiveness)
+    result is pushed up to top of list
+    """
+    try:
+        pattern = re.compile(raw_query, re.IGNORECASE)
+    except Exception as errmsg:
+        logger.error('prioritize: Could not compile raw_query: {}'.format(raw_query))
+        return results
+    prioritized_results = []
+    for member in results:
+        if re.match(pattern, member.get(field)):
+            prioritized_results.insert(0, member)
+            logger.debug('Priority Match Found: {}'.format(pattern))
+        else:
+            prioritized_results.append(member)
+    return prioritized_results
+
 
 
 def track_search(query, num_results=None, clicked=None):
