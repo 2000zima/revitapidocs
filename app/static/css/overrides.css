@@ -53,10 +53,6 @@ span.highlight-copycode{
     border-bottom:0px !important;
 }
 
-#mainSection td {
-background-color:#fff !important;
-}
-
 #mainSection th {
 color:#666 !important;
 background-color:#fff !important;
@@ -211,4 +207,13 @@ body #mainBody, body #mainBody a, body #mainBody p, body #mainBody span {
     display: none;
     /*color: #0ff;*/
     /*background-color: #ff0;*/
+}
+
+tr.selected-enumeration > td {
+    background-color: #21a3a3 !important; /*brand-primari*/
+    color: #fff;
+}
+
+#mainSection tr:not(.selected-enumeration) td {
+background-color:#fff;
 }

@@ -106,7 +106,7 @@
 
 // Get Constructor.io Autocomplete Script
 $.getScript("//cnstrc.com/js/ac.js", function() {
-      var ac = $('#input-search').constructorAutocomplete({
+        $('#input-search').constructorAutocomplete({
         key: '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}',
         boostRecentSearches : true,
         maxResults : 10,
@@ -262,14 +262,13 @@ $(document).ready(function() {
             var active_year = "{{year}}" // Get year in context
             var year_class = (value.year.indexOf(active_year) == -1) ? 'text-danger': 'text-muted'
 
-            var is_exact_match = ''
-            if (pattern.toLowerCase() == value.title.toLowerCase()) {
-                is_exact_match = 'result-exact-match'
-            }
+            var is_exact_match = (pattern.toLowerCase() == value.title.toLowerCase()) ? 'result-exact-match' : ''
+
+            var is_enumeration = (value.member_of.indexOf('Enumeration') == -1) ? '' : '?enumeration=' + value.title
 
             var ahref =
             '<div class="result-entry '+ is_exact_match + '" data-tag="' + value.tag + '">' +
-            '<h5 class="truncate"><a href="' + value.href + '">' + value.title + '</a>' +
+            '<h5 class="truncate"><a href="' + value.href + is_enumeration + '">' + value.title + '</a>' +
             '<span class="result-tag badge pull-right">' + value.tag + '</span>' + '</h5>' +
             '<p class="member-of small">' + value.namespace + ' : ' + '<a href="' + value.member_of_href +'">' + value.member_of +'</a>' +
             '<span class="small year ' + year_class + '">' +  value.year.join(' / ') +'</span></p>' +
@@ -426,6 +425,8 @@ $(document).ready(function() {
     function check_modal_url(){
       var pattern = getUrlParam('query')
       var filter = getUrlParam('filter')
+      var anchor = getUrlParam('enumeration')
+
       var modalOpen = window.location.href.indexOf('#searchModal') != -1
       if(modalOpen) {
         $('#searchModal').modal('show');
@@ -433,6 +434,23 @@ $(document).ready(function() {
       }
       else {
         $('#searchModal').modal('hide');
+      }
+
+      // If url has ?enumeration=WALL_LOCATION
+      // Will try to find matching span
+      if (anchor) {
+
+          var target = $("span:contains('" + anchor +"')")
+          if (target) {
+
+              target.closest('tr').addClass('selected-enumeration')
+              var scrollto = target.offset().top - 150;
+              $('#main-sidebar').scrollTop(scrollto)
+          }
+
+        //   $('html, body').animate({
+            //   scrollTop: $("#elementtoScrollToID").offset().top
+        //   }, 2000);
       }
     };
     // Check Url on loading - When coming back from another page
