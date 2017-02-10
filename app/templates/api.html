@@ -46,7 +46,8 @@
                   <div class="input-group input-group-sm">
                     <input type="text" class="form-control" id="input-search" placeholder="Search Term" autocomplete="off">
                       <span class="input-group-btn">
-                        <button class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
+                        <button class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal"><span class="glyphicon glyphicon-search"></span></button>
+                        <!-- <button class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button> -->
                       </span>
                   </div>
             </div>
@@ -105,10 +106,11 @@
 
 // Get Constructor.io Autocomplete Script
 $.getScript("//cnstrc.com/js/ac.js", function() {
-      $('#input-search').constructorAutocomplete({
+      var ac = $('#input-search').constructorAutocomplete({
         key: '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}',
         boostRecentSearches : true,
         maxResults : 10,
+        triggerSubmitOnSelect: true
         });
 });
 
@@ -372,6 +374,11 @@ $(document).ready(function() {
 
 
     $("#sidebar-search>form").submit(function(e) {
+
+        // Button and enter would automatically trigger modal
+        // This is added here so that the Autocomplete trigger will work
+        $('#searchModal').modal('show');
+
         e.preventDefault() // Keeps page from submitting and reloading
         var pattern = $('#input-search').val();
         sessionStorage.removeItem('result_scroll');
@@ -382,6 +389,7 @@ $(document).ready(function() {
         history.pushState(null, null, clean_uri);
 
         search(pattern, null, true)
+        console.log('Done!')
     });
 
 
@@ -404,6 +412,7 @@ $(document).ready(function() {
       var result_scroll = $(".modal").scrollTop()
       sessionStorage.setItem('result_scroll', result_scroll);
     });
+
 
     $('.modal').on('hidden.bs.modal', function (event) {
         $('#searchModal').modal('hide');
