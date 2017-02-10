@@ -42,19 +42,19 @@ for n, i in enumerate(jdata.values()):
     unique_names[title] = True
 
 
-from pprint import pprint
-pprint(items)
+# from pprint import pprint
+# pprint(items)
 
 import sys
-
-sys.exit()
+import os
+# sys.exit()
 t1 = time.time()
 
 
 headers = {"Content-Type": "application/json"}
 
-api_key = KEY
-autocomplete_key = KEY
+api_key = os.getenv('CONSTRUCTOR_IO_API_TOKEN')
+autocomplete_key = os.getenv('CONSTRUCTOR_IO_AUTOCOMPLETE_KEY')
 auth = (api_key, '')
 
 # Also tried:
@@ -76,13 +76,13 @@ errors = []
 CHUNK_SIZE = 1000
 for i in range(0, len(items), CHUNK_SIZE):
     items_chunk = items[i:i+CHUNK_SIZE]
-
+#
     unique_items = set(i['item_name'] for i in items_chunk)
-
+#
     print('Uploading data set: {}'.format(len(items_chunk)))
     print('Unique Items: {}'.format(len(unique_items)))
-
-
+#
+#
     payload = {'items': items_chunk,
                'autocomplete_section': 'Search Suggestions'
                }
