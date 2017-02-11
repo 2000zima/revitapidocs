@@ -234,51 +234,36 @@ $(document).ready(function() {
 
     function buildResults(results, pattern){
         if (pattern.length < 1) { pattern = 'None'}
-        // var output
         var content = ''
-
-
-
-        if (results.length == undefined) {
-          var numresults = 0
-        }
-        else {
-          var numresults = results.length
-        }
-
-        // TRACK SEARCH RESULTS - DISABLE
-        // track_url = '/2015/tracksearch?query=' + pattern + '&numresults='+ numresults
-        // $.get( track_url, function( data ) {
-        //       console.log('TRACKING')
-        //       console.log(data)
-        //     });
-        // TRACK SEARCH RESULTS
-
-
+        var numresults = (results.length == undefined) ? 0 : results.length
 
         if (results.error) {
             content = '<p class="text-danger">' + results.error + '</p>'
         }
         else{
           $.each(results, function (index, value) {
+
             var active_year = "{{year}}" // Get year in context
-            var year_class = (value.year.indexOf(active_year) == -1) ? 'text-danger': 'text-muted'
+            value.all_years = value.year.join(' / ')
+            value.year_class = (value.year.indexOf(active_year) == -1) ? 'text-danger': 'text-muted'
+            value.is_exact_match = (pattern.toLowerCase() == value.title.toLowerCase()) ? 'result-exact-match' : ''
+            value.is_enumeration = (value.member_of.indexOf('Enumeration') == -1) ? '' : '?enumeration=' + value.title
 
-            var is_exact_match = (pattern.toLowerCase() == value.title.toLowerCase()) ? 'result-exact-match' : ''
+            {% raw %}
+            var result_entry_template =
+                '<div class="result-entry {{is_exact_match}}" data-tag="{{tag}}">' +
+                    '<h5 class="truncate"><a href=" {{href}} {{is_enumeration}}">{{title}}</a>' +
+                    '<span class="result-tag badge pull-right">{{tag}}</span></h5>' +
+                    '<p class="member-of small">{{namespace}} : <a href="{{member_of_href}}">{{member_of}}</a>' +
+                    '<span class="small year {{year_class}}">{{all_years}}</span></p>' +
+                    '<p class="small description">{{description}}</p>' +
+                '</div>'
+            {% endraw %}
 
-            var is_enumeration = (value.member_of.indexOf('Enumeration') == -1) ? '' : '?enumeration=' + value.title
-
-            var ahref =
-            '<div class="result-entry '+ is_exact_match + '" data-tag="' + value.tag + '">' +
-            '<h5 class="truncate"><a href="' + value.href + is_enumeration + '">' + value.title + '</a>' +
-            '<span class="result-tag badge pull-right">' + value.tag + '</span>' + '</h5>' +
-            '<p class="member-of small">' + value.namespace + ' : ' + '<a href="' + value.member_of_href +'">' + value.member_of +'</a>' +
-            '<span class="small year ' + year_class + '">' +  value.year.join(' / ') +'</span></p>' +
-            '<p class="small description">' + value.description + '</p>' +
-            '</div>'
-            content += ahref
-
-
+            var entry_html = Mustache.to_html(result_entry_template, value);
+            console.log(value)
+            console.log(entry_html)
+            content += entry_html
           });
 
             // This shit should really be handled somewhere else. Show alert if results is 300
@@ -336,17 +321,6 @@ $(document).ready(function() {
             $('.result-entry[data-tag!="' + tag_name + '"]').hide();
             $('.result-entry[data-tag*="' + tag_name + '"]').show();
         };
-
-        // TRACK SEARCH RESULTS CLICK THROUGH - DISABLE
-        // $('.result-entry').find('a').on('click', function(e){
-        // var title = e.target.innerText;
-        // track_url = '/2015/tracksearch?query=' + pattern + '&clicked='+ title
-        // $.get( track_url, function( data ) {
-        //       console.log('TRACKING CLICK THROUGH')
-        //       console.log(data)
-        //     });
-        // });
-        // TRACK SEARCH RESULTS
 
     };
     // End Build Results

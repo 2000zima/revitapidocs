@@ -26,7 +26,7 @@ js_assets = Bundle(
                    'js/main.js',
                    'js/treeview.js',
                    'js/typed.js',
-                #    join('js', 'jquery-3.1.0.min.js'),
+                   'js/mustache.js',
                    filters='rjsmin',
                    output='packed/packed.js'
                    )
