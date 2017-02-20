@@ -24,6 +24,7 @@ class Config(object):
     FLASKS3_GZIP = True
     FLASKS3_ACTIVE = bool(int(os.getenv('FLASKS3_ACTIVE', 0)))
     FLASK_ASSETS_USE_S3 = FLASKS3_ACTIVE
+    FLASKS3_BUCKET_NAME = 'fake-bucket'
 
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
