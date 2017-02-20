@@ -1,0 +1,203 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="3e87bc0e-e04b-f76a-2b06-82e951b5aec2.htm">
+       ExportPatternTable Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Gets a copy of the pattern info associated to the input pattern key.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="17621c1b-5f57-2a25-6ff9-73dfc67d5024.htm">ExportPatternInfo</a> <span class="identifier">GetExportPatternInfo</span>(
+	<a href="8e55a491-0886-37f5-b867-e4eea95276eb.htm">ExportPatternKey</a> <span class="parameter">exportPatternKey</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">GetExportPatternInfo</span> ( _
+	<span class="parameter">exportPatternKey</span> <span class="keyword">As</span> <a href="8e55a491-0886-37f5-b867-e4eea95276eb.htm">ExportPatternKey</a> _
+) <span class="keyword">As</span> <a href="17621c1b-5f57-2a25-6ff9-73dfc67d5024.htm">ExportPatternInfo</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="17621c1b-5f57-2a25-6ff9-73dfc67d5024.htm">ExportPatternInfo</a>^ <span class="identifier">GetExportPatternInfo</span>(
+	<a href="8e55a491-0886-37f5-b867-e4eea95276eb.htm">ExportPatternKey</a>^ <span class="parameter">exportPatternKey</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="exportPatternKey">
+       <dt>
+        <span class="parameter">
+         exportPatternKey
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="8e55a491-0886-37f5-b867-e4eea95276eb.htm">
+         Autodesk.Revit.DB
+         ExportPatternKey
+        </a>
+        <br/>
+        The export pattern Key.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     Return the patternInfo for this key.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          An entry with the given key is not present in the table.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="3e87bc0e-e04b-f76a-2b06-82e951b5aec2.htm">
+       ExportPatternTable Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

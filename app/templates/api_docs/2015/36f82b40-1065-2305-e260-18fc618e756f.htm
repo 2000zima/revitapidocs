@@ -1,0 +1,333 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="c4fb6c89-ca34-7c56-b730-98755d11fedf.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A class used to intersect and return elements based on an origin point and direction.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">ReferenceIntersector</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">ReferenceIntersector</span> _
+	<span class="keyword">Implements</span> <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">ReferenceIntersector</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">class</span> RayProjection : IExternalCommand
+{
+    <span class="highlight-keyword">public</span> Result Execute(ExternalCommandData revit, <span class="highlight-keyword">ref</span> <span class="highlight-keyword">string</span> message, ElementSet elements)
+    {
+        Document doc = revit.Application.ActiveUIDocument.Document;
+
+        ICollection&lt;ElementId&gt; selectedIds = revit.Application.ActiveUIDocument.Selection.GetElementIds();
+
+        <span class="highlight-comment">// If skylight is selected, process it.</span>
+        FamilyInstance skylight = <span class="highlight-keyword">null</span>;
+        <span class="highlight-keyword">if</span> (selectedIds.Count == <span class="highlight-number">1</span>)
+        {
+            <span class="highlight-keyword">foreach</span> (ElementId id <span class="highlight-keyword">in</span> selectedIds)
+            {
+                Element e = doc.GetElement(id);
+                <span class="highlight-keyword">if</span> (e <span class="highlight-keyword">is</span> FamilyInstance)
+                {
+                    FamilyInstance instance = e <span class="highlight-keyword">as</span> FamilyInstance;
+                    <span class="highlight-keyword">bool</span> isWindow = (instance.Category.Id.IntegerValue == (<span class="highlight-keyword">int</span>)BuiltInCategory.OST_Windows);
+                    <span class="highlight-keyword">bool</span> isHostedByRoof = (instance.Host.Category.Id.IntegerValue == (<span class="highlight-keyword">int</span>)BuiltInCategory.OST_Roofs);
+
+                    <span class="highlight-keyword">if</span> (isWindow &amp;&amp; isHostedByRoof)
+                    {
+                        skylight = instance;
+                    }
+                }
+            }
+        }
+
+        <span class="highlight-keyword">if</span> (skylight == <span class="highlight-keyword">null</span>)
+        {
+            message = <span class="highlight-literal">"Please select one skylight."</span>;
+            <span class="highlight-keyword">return</span> Result.Cancelled;
+        }
+
+        <span class="highlight-comment">// Calculate the height</span>
+        Line line = CalculateLineAboveFloor(doc, skylight);
+
+        <span class="highlight-comment">// Create a model curve to show the distance</span>
+        Plane plane = revit.Application.Application.Create.NewPlane(<span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">1</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>), line.GetEndPoint(<span class="highlight-number">0</span>));
+        SketchPlane sketchPlane = SketchPlane.Create(doc, plane);
+
+        ModelCurve curve = doc.Create.NewModelCurve(line, sketchPlane);
+
+        <span class="highlight-comment">// Show a message with the length value</span>
+        TaskDialog.Show(<span class="highlight-literal">"Distance"</span>, <span class="highlight-literal">"Distance to floor: "</span> + String.Format(<span class="highlight-literal">"{0:f2}"</span>, line.Length));
+
+        <span class="highlight-keyword">return</span> Result.Succeeded;
+    }
+
+    <span class="highlight-comment">/// &lt;summary&gt;</span>
+    <span class="highlight-comment">/// Determines the line segment that connects the skylight to the nearest floor.</span>
+    <span class="highlight-comment">/// &lt;/summary&gt;</span>
+    <span class="highlight-comment">/// &lt;returns&gt;The line segment.&lt;/returns&gt;</span>
+    <span class="highlight-keyword">private</span> Line CalculateLineAboveFloor(Document doc, FamilyInstance skylight)
+    {
+        <span class="highlight-comment">// Find a 3D view to use for the ReferenceIntersector constructor</span>
+        FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(doc);
+        Func&lt;View3D, <span class="highlight-keyword">bool</span>&gt; isNotTemplate = v3 =&gt; !(v3.IsTemplate);
+        View3D view3D = collector.OfClass(<span class="highlight-keyword">typeof</span>(View3D)).Cast&lt;View3D&gt;().First&lt;View3D&gt;(isNotTemplate);
+
+        <span class="highlight-comment">// Use the center of the skylight bounding box as the start point.</span>
+        BoundingBoxXYZ box = skylight.get_BoundingBox(view3D);
+        XYZ center = box.Min.Add(box.Max).Multiply(<span class="highlight-number">0.5</span>);
+
+        <span class="highlight-comment">// Project in the negative Z direction down to the floor.</span>
+        XYZ rayDirection = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">-1</span>);
+
+        ElementClassFilter filter = <span class="highlight-keyword">new</span> ElementClassFilter(<span class="highlight-keyword">typeof</span>(Floor));
+
+        ReferenceIntersector refIntersector = <span class="highlight-keyword">new</span> ReferenceIntersector(filter, FindReferenceTarget.Face, view3D);
+        ReferenceWithContext referenceWithContext = refIntersector.FindNearest(center, rayDirection);
+
+        Reference reference = referenceWithContext.GetReference();
+        XYZ intersection = reference.GlobalPoint;
+
+        <span class="highlight-comment">// Create line segment from the start point and intersection point.</span>
+        Line result = Line.CreateBound(center, intersection);
+        <span class="highlight-keyword">return</span> result;
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code>&lt;Autodesk.Revit.Attributes.Journaling(Autodesk.Revit.Attributes.JournalingMode.NoCommandData)&gt; _
+&lt;Autodesk.Revit.Attributes.Transaction(Autodesk.Revit.Attributes.TransactionMode.Automatic)&gt; _
+<span class="highlight-keyword">Public</span> <span class="highlight-keyword">Class</span> RayProjection
+    <span class="highlight-keyword">Implements</span> IExternalCommand
+    <span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> Execute(revit <span class="highlight-keyword">As</span> ExternalCommandData, <span class="highlight-keyword">ByRef</span> message <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span>, elements <span class="highlight-keyword">As</span> ElementSet) <span class="highlight-keyword">As</span> Autodesk.Revit.UI.Result <span class="highlight-keyword">Implements</span> IExternalCommand.Execute
+        <span class="highlight-keyword">Dim</span> doc <span class="highlight-keyword">As</span> Document = revit.Application.ActiveUIDocument.Document
+
+        <span class="highlight-keyword">Dim</span> selectedIds <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> ElementId) = revit.Application.ActiveUIDocument.Selection.GetElementIds()
+
+        <span class="highlight-comment">' If skylight is selected, process it.</span>
+        <span class="highlight-keyword">Dim</span> skylight <span class="highlight-keyword">As</span> FamilyInstance = <span class="highlight-keyword">Nothing</span>
+        <span class="highlight-keyword">If</span> selectedIds.Count = <span class="highlight-number">1</span> <span class="highlight-keyword">Then</span>
+            <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> id <span class="highlight-keyword">As</span> ElementId <span class="highlight-keyword">In</span> selectedIds
+                <span class="highlight-keyword">Dim</span> e <span class="highlight-keyword">As</span> Element = doc.GetElement(id)
+                <span class="highlight-keyword">If</span> <span class="highlight-keyword">TypeOf</span> e <span class="highlight-keyword">Is</span> FamilyInstance <span class="highlight-keyword">Then</span>
+                    <span class="highlight-keyword">Dim</span> instance <span class="highlight-keyword">As</span> FamilyInstance = <span class="highlight-keyword">TryCast</span>(e, FamilyInstance)
+                    <span class="highlight-keyword">Dim</span> isWindow <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span> = (instance.Category.Id.IntegerValue = <span class="highlight-keyword">CInt</span>(BuiltInCategory.OST_Windows))
+                    <span class="highlight-keyword">Dim</span> isHostedByRoof <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span> = (instance.Host.Category.Id.IntegerValue = <span class="highlight-keyword">CInt</span>(BuiltInCategory.OST_Roofs))
+
+                    <span class="highlight-keyword">If</span> isWindow <span class="highlight-keyword">AndAlso</span> isHostedByRoof <span class="highlight-keyword">Then</span>
+                        skylight = instance
+                    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+                <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+            <span class="highlight-keyword">Next</span>
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+        <span class="highlight-keyword">If</span> skylight <span class="highlight-keyword">Is</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+            message = <span class="highlight-literal">"Please select one skylight."</span>
+            <span class="highlight-keyword">Return</span> Result.Cancelled
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+        <span class="highlight-comment">' Calculate the height</span>
+        <span class="highlight-keyword">Dim</span> line <span class="highlight-keyword">As</span> Line = CalculateLineAboveFloor(doc, skylight)
+
+        <span class="highlight-comment">' Create a model curve to show the distance</span>
+        <span class="highlight-keyword">Dim</span> plane <span class="highlight-keyword">As</span> Plane = revit.Application.Application.Create.NewPlane(<span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">1</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>), line.GetEndPoint(<span class="highlight-number">0</span>))
+        <span class="highlight-keyword">Dim</span> sketchPlane__1 <span class="highlight-keyword">As</span> SketchPlane = SketchPlane.Create(doc, plane)
+
+        <span class="highlight-keyword">Dim</span> curve <span class="highlight-keyword">As</span> ModelCurve = doc.Create.NewModelCurve(line, sketchPlane__1)
+
+        <span class="highlight-comment">' Show a message with the length value</span>
+        TaskDialog.Show(<span class="highlight-literal">"Distance"</span>, <span class="highlight-literal">"Distance to floor: "</span> &amp; [<span class="highlight-keyword">String</span>].Format(<span class="highlight-literal">"{0:f2}"</span>, line.Length))
+
+        <span class="highlight-keyword">Return</span> Result.Succeeded
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span>
+
+    <span class="highlight-comment">' &lt;summary&gt;</span>
+    <span class="highlight-comment">' Determines the line segment that connects the skylight to the nearest floor.</span>
+    <span class="highlight-comment">' &lt;/summary&gt;</span>
+    <span class="highlight-comment">' &lt;returns&gt;The line segment.&lt;/returns&gt;</span>
+    <span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> CalculateLineAboveFloor(doc <span class="highlight-keyword">As</span> Document, skylight <span class="highlight-keyword">As</span> FamilyInstance) <span class="highlight-keyword">As</span> Line
+        <span class="highlight-comment">' Find a 3D view to use for the ReferenceIntersector constructor</span>
+        <span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(doc)
+        <span class="highlight-keyword">Dim</span> isNotTemplate <span class="highlight-keyword">As</span> Func(<span class="highlight-keyword">Of</span> View3D, <span class="highlight-keyword">Boolean</span>) = <span class="highlight-keyword">Function</span>(v3) <span class="highlight-keyword">Not</span> (v3.IsTemplate)
+        <span class="highlight-keyword">Dim</span> view3D <span class="highlight-keyword">As</span> View3D = collector.OfClass(<span class="highlight-keyword">GetType</span>(View3D)).Cast(<span class="highlight-keyword">Of</span> View3D)().First(isNotTemplate)
+
+        <span class="highlight-comment">' Use the center of the skylight bounding box as the start point.</span>
+        <span class="highlight-keyword">Dim</span> box <span class="highlight-keyword">As</span> BoundingBoxXYZ = skylight.BoundingBox(view3D)
+        <span class="highlight-keyword">Dim</span> center <span class="highlight-keyword">As</span> XYZ = box.Min.Add(box.Max).Multiply(<span class="highlight-number">0.5</span>)
+
+        <span class="highlight-comment">' Project in the negative Z direction down to the floor.</span>
+        <span class="highlight-keyword">Dim</span> rayDirection <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">-1</span>)
+
+        <span class="highlight-keyword">Dim</span> filter <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ElementClassFilter(<span class="highlight-keyword">GetType</span>(Floor))
+
+        <span class="highlight-keyword">Dim</span> refIntersector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ReferenceIntersector(filter, FindReferenceTarget.Face, view3D)
+        <span class="highlight-keyword">Dim</span> referenceWithContext <span class="highlight-keyword">As</span> ReferenceWithContext = refIntersector.FindNearest(center, rayDirection)
+
+        <span class="highlight-keyword">Dim</span> reference <span class="highlight-keyword">As</span> Reference = referenceWithContext.GetReference()
+        <span class="highlight-keyword">Dim</span> intersection <span class="highlight-keyword">As</span> XYZ = reference.GlobalPoint
+
+        <span class="highlight-comment">' Create line segment from the start point and intersection point.</span>
+        <span class="highlight-keyword">Dim</span> result <span class="highlight-keyword">As</span> Line = Line.CreateBound(center, intersection)
+        <span class="highlight-keyword">Return</span> result
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Class</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      ReferenceIntersector
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="c4fb6c89-ca34-7c56-b730-98755d11fedf.htm">
+       ReferenceIntersector Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

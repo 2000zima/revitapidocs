@@ -1,0 +1,298 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ec25e291-6582-7e8c-f273-efc0c391bcc4.htm">
+       WorksharingDisplaySettings Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Sets the graphic overrides assigned to elements with a particular ownership status.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetGraphicOverrides</span>(
+	<a href="f6f6e300-5a37-7e44-7ee1-8dc0c016778a.htm">CheckoutStatus</a> <span class="parameter">status</span>,
+	<a href="994d2fb5-11cc-6756-155b-d496eedbe800.htm">WorksharingDisplayGraphicSettings</a> <span class="parameter">overrides</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetGraphicOverrides</span> ( _
+	<span class="parameter">status</span> <span class="keyword">As</span> <a href="f6f6e300-5a37-7e44-7ee1-8dc0c016778a.htm">CheckoutStatus</a>, _
+	<span class="parameter">overrides</span> <span class="keyword">As</span> <a href="994d2fb5-11cc-6756-155b-d496eedbe800.htm">WorksharingDisplayGraphicSettings</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetGraphicOverrides</span>(
+	<a href="f6f6e300-5a37-7e44-7ee1-8dc0c016778a.htm">CheckoutStatus</a> <span class="parameter">status</span>, 
+	<a href="994d2fb5-11cc-6756-155b-d496eedbe800.htm">WorksharingDisplayGraphicSettings</a>^ <span class="parameter">overrides</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="status">
+       <dt>
+        <span class="parameter">
+         status
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="f6f6e300-5a37-7e44-7ee1-8dc0c016778a.htm">
+         Autodesk.Revit.DB
+         CheckoutStatus
+        </a>
+        <br/>
+        The ownership status of interest.
+       </dd>
+      </dl>
+      <dl paramname="overrides">
+       <dt>
+        <span class="parameter">
+         overrides
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="994d2fb5-11cc-6756-155b-d496eedbe800.htm">
+         Autodesk.Revit.DB
+         WorksharingDisplayGraphicSettings
+        </a>
+        <br/>
+        The desired graphic overrides for this ownership status.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> SetWorksharingDisplaySettings(Document doc, WorksetId worksetId, String userName)
+{
+    String message = String.Empty;
+
+    <span class="highlight-comment">// get or create a WorksharingDisplaySettings current active document</span>
+    WorksharingDisplaySettings displaySettings = WorksharingDisplaySettings.GetOrCreateWorksharingDisplaySettings(doc);
+
+    <span class="highlight-comment">// set a new graphicSettings for CheckoutStatus - NotOwned</span>
+    WorksharingDisplayGraphicSettings graphicSettings = <span class="highlight-keyword">new</span> WorksharingDisplayGraphicSettings(<span class="highlight-keyword">true</span>, <span class="highlight-keyword">new</span> Color(<span class="highlight-number">255</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>));
+    displaySettings.SetGraphicOverrides(CheckoutStatus.NotOwned, graphicSettings);
+
+    <span class="highlight-comment">// set a new graphicSettings for ModelUpdatesStatus - CurrentWithCentral</span>
+    graphicSettings = <span class="highlight-keyword">new</span> WorksharingDisplayGraphicSettings(<span class="highlight-keyword">true</span>, <span class="highlight-keyword">new</span> Color(<span class="highlight-number">128</span>, <span class="highlight-number">128</span>, <span class="highlight-number">0</span>));
+    displaySettings.SetGraphicOverrides(ModelUpdatesStatus.CurrentWithCentral, graphicSettings);
+
+    <span class="highlight-comment">// set a new graphicSettings by a given userName</span>
+    graphicSettings = <span class="highlight-keyword">new</span> WorksharingDisplayGraphicSettings(<span class="highlight-keyword">true</span>, <span class="highlight-keyword">new</span> Color(<span class="highlight-number">0</span>, <span class="highlight-number">255</span>, <span class="highlight-number">0</span>));
+    displaySettings.SetGraphicOverrides(userName, graphicSettings);
+
+    <span class="highlight-comment">// set a new graphicSettings by a given workset Id</span>
+    graphicSettings = <span class="highlight-keyword">new</span> WorksharingDisplayGraphicSettings(<span class="highlight-keyword">true</span>, <span class="highlight-keyword">new</span> Color(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">255</span>));
+    displaySettings.SetGraphicOverrides(worksetId, graphicSettings);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> SetWorksharingDisplaySettings(doc <span class="highlight-keyword">As</span> Document, worksetId <span class="highlight-keyword">As</span> WorksetId, userName <span class="highlight-keyword">As</span> [<span class="highlight-keyword">String</span>])
+    <span class="highlight-keyword">Dim</span> message <span class="highlight-keyword">As</span> [<span class="highlight-keyword">String</span>] = [<span class="highlight-keyword">String</span>].Empty
+
+    <span class="highlight-comment">' get or create a WorksharingDisplaySettings current active document</span>
+    <span class="highlight-keyword">Dim</span> displaySettings <span class="highlight-keyword">As</span> WorksharingDisplaySettings = WorksharingDisplaySettings.GetOrCreateWorksharingDisplaySettings(doc)
+
+    <span class="highlight-comment">' set a new graphicSettings for CheckoutStatus - NotOwned</span>
+    <span class="highlight-keyword">Dim</span> graphicSettings <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> WorksharingDisplayGraphicSettings(<span class="highlight-keyword">True</span>, <span class="highlight-keyword">New</span> Color(<span class="highlight-number">255</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>))
+    displaySettings.SetGraphicOverrides(CheckoutStatus.NotOwned, graphicSettings)
+
+    <span class="highlight-comment">' set a new graphicSettings for ModelUpdatesStatus - CurrentWithCentral</span>
+    graphicSettings = <span class="highlight-keyword">New</span> WorksharingDisplayGraphicSettings(<span class="highlight-keyword">True</span>, <span class="highlight-keyword">New</span> Color(<span class="highlight-number">128</span>, <span class="highlight-number">128</span>, <span class="highlight-number">0</span>))
+    displaySettings.SetGraphicOverrides(ModelUpdatesStatus.CurrentWithCentral, graphicSettings)
+
+    <span class="highlight-comment">' set a new graphicSettings by a given userName</span>
+    graphicSettings = <span class="highlight-keyword">New</span> WorksharingDisplayGraphicSettings(<span class="highlight-keyword">True</span>, <span class="highlight-keyword">New</span> Color(<span class="highlight-number">0</span>, <span class="highlight-number">255</span>, <span class="highlight-number">0</span>))
+    displaySettings.SetGraphicOverrides(userName, graphicSettings)
+
+    <span class="highlight-comment">' set a new graphicSettings by a given workset Id</span>
+    graphicSettings = <span class="highlight-keyword">New</span> WorksharingDisplayGraphicSettings(<span class="highlight-keyword">True</span>, <span class="highlight-keyword">New</span> Color(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">255</span>))
+    displaySettings.SetGraphicOverrides(worksetId, graphicSettings)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ec25e291-6582-7e8c-f273-efc0c391bcc4.htm">
+       WorksharingDisplaySettings Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d05a245b-367b-7c19-c1d1-857a736e299f.htm">
+       SetGraphicOverrides Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

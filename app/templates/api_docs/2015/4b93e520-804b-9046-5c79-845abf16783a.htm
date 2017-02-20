@@ -1,0 +1,192 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="05089477-4612-35b2-81a2-89c4f44370ea.htm">
+       ExternalEvent Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates an instance of external event which will have the ability to record its executions in the journal.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="05089477-4612-35b2-81a2-89c4f44370ea.htm">ExternalEvent</a> <span class="identifier">CreateJournalable</span>(
+	<a href="f265a2c9-8540-9c97-9b37-4f7442becac2.htm">IExternalEventHandler</a> <span class="parameter">handler</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">CreateJournalable</span> ( _
+	<span class="parameter">handler</span> <span class="keyword">As</span> <a href="f265a2c9-8540-9c97-9b37-4f7442becac2.htm">IExternalEventHandler</a> _
+) <span class="keyword">As</span> <a href="05089477-4612-35b2-81a2-89c4f44370ea.htm">ExternalEvent</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="05089477-4612-35b2-81a2-89c4f44370ea.htm">ExternalEvent</a>^ <span class="identifier">CreateJournalable</span>(
+	<a href="f265a2c9-8540-9c97-9b37-4f7442becac2.htm">IExternalEventHandler</a>^ <span class="parameter">handler</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="handler">
+       <dt>
+        <span class="parameter">
+         handler
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="f265a2c9-8540-9c97-9b37-4f7442becac2.htm">
+         Autodesk.Revit.UI
+         IExternalEventHandler
+        </a>
+        <br/>
+        An instance of IExternalEventHandler which will execute the event.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     An instance of ExternalEvent class, which will be used to invoke the event
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="05089477-4612-35b2-81a2-89c4f44370ea.htm">
+       ExternalEvent Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

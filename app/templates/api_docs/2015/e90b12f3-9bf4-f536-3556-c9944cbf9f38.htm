@@ -1,0 +1,274 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="7224b061-e12a-9a99-24f9-51b89292482c.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     An object that represents a Project Information within the Autodesk Revit project.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">ProjectInfo</span> : <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">ProjectInfo</span> _
+	<span class="keyword">Inherits</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">ProjectInfo</span> : <span class="keyword">public</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This object derived from the Element base object and such supports all the
+methods of that object such as the ability to retrieve the parameters of that object.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code>ProjectInfo projectInfo = document.ProjectInformation;
+
+<span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != projectInfo)
+{
+    <span class="highlight-keyword">string</span> message = <span class="highlight-literal">"Project information:"</span>;
+    <span class="highlight-comment">//get the project name</span>
+    message += <span class="highlight-literal">"\nName: "</span> + projectInfo.Name;
+    <span class="highlight-keyword">string</span> newName = <span class="highlight-literal">"My project"</span>;
+    <span class="highlight-comment">//set the project name</span>
+    projectInfo.Name = newName;
+    message += <span class="highlight-literal">"\nProject Name after set: "</span> + projectInfo.Name;
+
+    <span class="highlight-comment">//get the project number</span>
+    message += <span class="highlight-literal">"\nNumber: "</span> + projectInfo.Number;
+    <span class="highlight-keyword">string</span> newNumber = <span class="highlight-literal">"TestNumber"</span>;
+    <span class="highlight-comment">//set the project number</span>
+    projectInfo.Number = newNumber;
+    message += <span class="highlight-literal">"\nProject Number after set: "</span> + projectInfo.Number;
+
+    <span class="highlight-comment">//get the status of the project</span>
+    message += <span class="highlight-literal">"\nStatus: "</span> + projectInfo.Status;
+    <span class="highlight-keyword">string</span> newStatus = <span class="highlight-literal">"TestStatus"</span>;
+    <span class="highlight-comment">//set the project status</span>
+    projectInfo.Status = newStatus;
+    message += <span class="highlight-literal">"\nProject status after set: "</span> + projectInfo.Status;
+
+    <span class="highlight-comment">//get the address of the project</span>
+    message += <span class="highlight-literal">"\nAddress: "</span> + projectInfo.Address;
+    <span class="highlight-keyword">string</span> newAddress = <span class="highlight-literal">"TestAddress"</span>;
+    <span class="highlight-comment">//set the project address </span>
+    projectInfo.Address = newAddress;
+    message += <span class="highlight-literal">"\nProject address after set: "</span> + projectInfo.Address;
+
+    <span class="highlight-comment">//get the client name of the project</span>
+    message += <span class="highlight-literal">"\nClient Name: "</span> + projectInfo.ClientName;
+    <span class="highlight-keyword">string</span> newClient = <span class="highlight-literal">"TestClientName"</span>;
+    <span class="highlight-comment">//set the client name</span>
+    projectInfo.ClientName = newClient;
+    message += <span class="highlight-literal">"\nProject client name after set: "</span> + projectInfo.ClientName;
+
+    <span class="highlight-comment">//get the gbXmlSetting of the project</span>
+    EnergyDataSettings energyDataSetting = EnergyDataSettings.GetFromDocument(document);
+    message += <span class="highlight-literal">"\nBuilding type: "</span> + energyDataSetting.BuildingType.ToString();
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,message);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Dim</span> projectInfo <span class="highlight-keyword">As</span> ProjectInfo = document.ProjectInformation
+
+<span class="highlight-keyword">If</span> projectInfo <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+    <span class="highlight-keyword">Dim</span> message <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"Project information:"</span>
+    <span class="highlight-comment">'get the project name</span>
+    message += vbLf &amp; <span class="highlight-literal">"Name: "</span> + projectInfo.Name
+    <span class="highlight-keyword">Dim</span> newName <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"My project"</span>
+    <span class="highlight-comment">'set the project name</span>
+    projectInfo.Name = newName
+    message += vbLf &amp; <span class="highlight-literal">"Project Name after set: "</span> + projectInfo.Name
+
+    <span class="highlight-comment">'get the project number</span>
+    message += vbLf &amp; <span class="highlight-literal">"Number: "</span> + projectInfo.Number
+    <span class="highlight-keyword">Dim</span> newNumber <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"TestNumber"</span>
+    <span class="highlight-comment">'set the project number</span>
+    projectInfo.Number = newNumber
+    message += vbLf &amp; <span class="highlight-literal">"Project Number after set: "</span> + projectInfo.Number
+
+    <span class="highlight-comment">'get the status of the project</span>
+    message += vbLf &amp; <span class="highlight-literal">"Status: "</span> + projectInfo.Status
+    <span class="highlight-keyword">Dim</span> newStatus <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"TestStatus"</span>
+    <span class="highlight-comment">'set the project status</span>
+    projectInfo.Status = newStatus
+    message += vbLf &amp; <span class="highlight-literal">"Project status after set: "</span> + projectInfo.Status
+
+    <span class="highlight-comment">'get the address of the project</span>
+    message += vbLf &amp; <span class="highlight-literal">"Address: "</span> + projectInfo.Address
+    <span class="highlight-keyword">Dim</span> newAddress <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"TestAddress"</span>
+    <span class="highlight-comment">'set the project address </span>
+    projectInfo.Address = newAddress
+    message += vbLf &amp; <span class="highlight-literal">"Project address after set: "</span> + projectInfo.Address
+
+    <span class="highlight-comment">'get the client name of the project</span>
+    message += vbLf &amp; <span class="highlight-literal">"Client Name: "</span> + projectInfo.ClientName
+    <span class="highlight-keyword">Dim</span> newClient <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"TestClientName"</span>
+    <span class="highlight-comment">'set the client name</span>
+    projectInfo.ClientName = newClient
+    message += vbLf &amp; <span class="highlight-literal">"Project client name after set: "</span> + projectInfo.ClientName
+
+    <span class="highlight-comment">'get the gbXmlSetting of the project</span>
+    <span class="highlight-keyword">Dim</span> energyDataSetting <span class="highlight-keyword">As</span> EnergyDataSettings = EnergyDataSettings.GetFromDocument(document)
+    message += vbLf &amp; <span class="highlight-literal">"Building type: "</span> &amp; energyDataSetting.BuildingType.ToString()
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, message)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+      Autodesk.Revit.DB
+      Element
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      ProjectInfo
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="7224b061-e12a-9a99-24f9-51b89292482c.htm">
+       ProjectInfo Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

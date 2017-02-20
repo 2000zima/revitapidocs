@@ -1,0 +1,246 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="9393f5e4-34eb-793f-bf88-f114c0f24eb9.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A filter used to match elements by one or more parameter filter rules.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">ElementParameterFilter</span> : <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">ElementSlowFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">ElementParameterFilter</span> _
+	<span class="keyword">Inherits</span> <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">ElementSlowFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">ElementParameterFilter</span> : <span class="keyword">public</span> <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">ElementSlowFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This filter is a slow filter.
+   Slow filters require that the Element be obtained and expanded in memory first.
+   Thus it is preferable to couple this filter with at least one ElementQuickFilter,
+   which should minimize the number of Elements that are expanded.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// Creates an ElementParameter filter to find rooms whose area is </span>
+<span class="highlight-comment">// greater than specified value</span>
+<span class="highlight-comment">// Create filter by provider and evaluator </span>
+<span class="highlight-comment">// provider</span>
+ParameterValueProvider pvp = <span class="highlight-keyword">new</span> ParameterValueProvider(<span class="highlight-keyword">new</span> ElementId(BuiltInParameter.ROOM_AREA));
+<span class="highlight-comment">// evaluator</span>
+FilterNumericRuleEvaluator fnrv = <span class="highlight-keyword">new</span> FilterNumericGreater();
+<span class="highlight-comment">// rule value    </span>
+<span class="highlight-keyword">double</span> ruleValue = <span class="highlight-number">100.0</span>f; <span class="highlight-comment">// filter room whose area is greater than 100 SF</span>
+<span class="highlight-comment">// rule</span>
+FilterRule fRule = <span class="highlight-keyword">new</span> FilterDoubleRule(pvp, fnrv, ruleValue, <span class="highlight-number">1</span>E<span class="highlight-number">-6</span>);
+
+<span class="highlight-comment">// Create an ElementParameter filter</span>
+ElementParameterFilter filter = <span class="highlight-keyword">new</span> ElementParameterFilter(fRule);
+
+<span class="highlight-comment">// Apply the filter to the elements in the active document</span>
+FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(document);
+IList&lt;Element&gt; rooms = collector.WherePasses(filter).ToElements();
+
+
+<span class="highlight-comment">// Find rooms whose area is less than or equal to 100: </span>
+<span class="highlight-comment">// Use inverted filter to match elements</span>
+ElementParameterFilter lessOrEqualFilter = <span class="highlight-keyword">new</span> ElementParameterFilter(fRule, <span class="highlight-keyword">true</span>); 
+collector = <span class="highlight-keyword">new</span> FilteredElementCollector(document);
+IList&lt;Element&gt; lessOrEqualFounds = collector.WherePasses(lessOrEqualFilter).ToElements();</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' Creates an ElementParameter filter to find rooms whose area is </span>
+<span class="highlight-comment">' greater than specified value</span>
+<span class="highlight-comment">' Create filter by provider and evaluator </span>
+<span class="highlight-comment">' provider</span>
+<span class="highlight-keyword">Dim</span> pvp <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ParameterValueProvider(<span class="highlight-keyword">New</span> ElementId(BuiltInParameter.ROOM_AREA))
+<span class="highlight-comment">' evaluator</span>
+<span class="highlight-keyword">Dim</span> fnrv <span class="highlight-keyword">As</span> FilterNumericRuleEvaluator = <span class="highlight-keyword">New</span> FilterNumericGreater()
+<span class="highlight-comment">' rule value    </span>
+<span class="highlight-keyword">Dim</span> ruleValue <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = <span class="highlight-number">100</span>F
+<span class="highlight-comment">' filter room whose area is greater than 100 SF</span>
+<span class="highlight-comment">' rule</span>
+<span class="highlight-keyword">Dim</span> fRule <span class="highlight-keyword">As</span> FilterRule = <span class="highlight-keyword">New</span> FilterDoubleRule(pvp, fnrv, ruleValue, <span class="highlight-number">1</span>E<span class="highlight-number">-06</span>)
+
+<span class="highlight-comment">' Create an ElementParameter filter</span>
+<span class="highlight-keyword">Dim</span> filter <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ElementParameterFilter(fRule)
+
+<span class="highlight-comment">' Apply the filter to the elements in the active document</span>
+<span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(document)
+<span class="highlight-keyword">Dim</span> rooms <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> Element) = collector.WherePasses(filter).ToElements()
+
+
+<span class="highlight-comment">' Find rooms whose area is less than or equal to 100: </span>
+<span class="highlight-comment">' Use inverted filter to match elements</span>
+<span class="highlight-keyword">Dim</span> lessOrEqualFilter <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ElementParameterFilter(fRule, <span class="highlight-keyword">True</span>)
+collector = <span class="highlight-keyword">New</span> FilteredElementCollector(document)
+<span class="highlight-keyword">Dim</span> lessOrEqualFounds <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> Element) = collector.WherePasses(lessOrEqualFilter).ToElements()</code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="b8b46cbf-9ecc-0745-ec53-c3c3b6510113.htm">
+      Autodesk.Revit.DB
+      ElementFilter
+     </a>
+     <br/>
+     <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">
+      Autodesk.Revit.DB
+      ElementSlowFilter
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      ElementParameterFilter
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="9393f5e4-34eb-793f-bf88-f114c0f24eb9.htm">
+       ElementParameterFilter Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

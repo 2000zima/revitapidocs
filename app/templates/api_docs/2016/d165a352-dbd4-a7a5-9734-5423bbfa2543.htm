@@ -1,0 +1,306 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new Extrusion Roof.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="c724b0cd-6135-e50c-0a14-932e7e55b860.htm">ExtrusionRoof</a> <span class="identifier">NewExtrusionRoof</span>(
+	<a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a> <span class="parameter">profile</span>,
+	<a href="e7003ec7-1dbe-50a2-fb3d-a83a5a3b5b9f.htm">ReferencePlane</a> <span class="parameter">refPlane</span>,
+	<a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a> <span class="parameter">level</span>,
+	<a href="00b5948e-1cb6-4f3b-acc1-9f000e8cc40d.htm">RoofType</a> <span class="parameter">roofType</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">extrusionStart</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">extrusionEnd</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewExtrusionRoof</span> ( _
+	<span class="parameter">profile</span> <span class="keyword">As</span> <a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a>, _
+	<span class="parameter">refPlane</span> <span class="keyword">As</span> <a href="e7003ec7-1dbe-50a2-fb3d-a83a5a3b5b9f.htm">ReferencePlane</a>, _
+	<span class="parameter">level</span> <span class="keyword">As</span> <a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a>, _
+	<span class="parameter">roofType</span> <span class="keyword">As</span> <a href="00b5948e-1cb6-4f3b-acc1-9f000e8cc40d.htm">RoofType</a>, _
+	<span class="parameter">extrusionStart</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a>, _
+	<span class="parameter">extrusionEnd</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a> _
+) <span class="keyword">As</span> <a href="c724b0cd-6135-e50c-0a14-932e7e55b860.htm">ExtrusionRoof</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="c724b0cd-6135-e50c-0a14-932e7e55b860.htm">ExtrusionRoof</a>^ <span class="identifier">NewExtrusionRoof</span>(
+	<a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a>^ <span class="parameter">profile</span>, 
+	<a href="e7003ec7-1dbe-50a2-fb3d-a83a5a3b5b9f.htm">ReferencePlane</a>^ <span class="parameter">refPlane</span>, 
+	<a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a>^ <span class="parameter">level</span>, 
+	<a href="00b5948e-1cb6-4f3b-acc1-9f000e8cc40d.htm">RoofType</a>^ <span class="parameter">roofType</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">extrusionStart</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">extrusionEnd</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="profile">
+       <dt>
+        <span class="parameter">
+         profile
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">
+         Autodesk.Revit.DB
+         CurveArray
+        </a>
+        <br/>
+        The profile of the extrusion roof.
+       </dd>
+      </dl>
+      <dl paramname="refPlane">
+       <dt>
+        <span class="parameter">
+         refPlane
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="e7003ec7-1dbe-50a2-fb3d-a83a5a3b5b9f.htm">
+         Autodesk.Revit.DB
+         ReferencePlane
+        </a>
+        <br/>
+        The work plane for the extrusion roof.
+       </dd>
+      </dl>
+      <dl paramname="level">
+       <dt>
+        <span class="parameter">
+         level
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">
+         Autodesk.Revit.DB
+         Level
+        </a>
+        <br/>
+        The level of the extrusion roof.
+       </dd>
+      </dl>
+      <dl paramname="roofType">
+       <dt>
+        <span class="parameter">
+         roofType
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="00b5948e-1cb6-4f3b-acc1-9f000e8cc40d.htm">
+         Autodesk.Revit.DB
+         RoofType
+        </a>
+        <br/>
+        Type of the extrusion roof.
+       </dd>
+      </dl>
+      <dl paramname="extrusionStart">
+       <dt>
+        <span class="parameter">
+         extrusionStart
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         System
+         Double
+        </a>
+        <br/>
+        Start the extrusion.
+       </dd>
+      </dl>
+      <dl paramname="extrusionEnd">
+       <dt>
+        <span class="parameter">
+         extrusionEnd
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         System
+         Double
+        </a>
+        <br/>
+        End the extrusion.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This method will regenerate the document even in manual regeneration mode.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the work plane does not exist in the given document.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the level does not exist in the given document.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the roof type does not exist in the given document.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,263 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="1249d5fa-74f3-cf64-0a63-7ab370b67a5c.htm">
+       ProjectLocation Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Gets or sets the coordinates of a point in the project location coordinate system.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="249111cc-c1f3-d3e1-e7bf-dc791327fd4c.htm">ProjectPosition</a> <span class="keyword">this</span>[
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">point</span>
+] { <span class="keyword">get</span>; <span class="keyword">set</span>; }</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Property</span> <span class="identifier">ProjectPosition</span> ( _
+	<span class="parameter">point</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> _
+) <span class="keyword">As</span> <a href="249111cc-c1f3-d3e1-e7bf-dc791327fd4c.htm">ProjectPosition</a>
+	<span class="keyword">Get</span>
+	<span class="keyword">Set</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">property</span> <a href="249111cc-c1f3-d3e1-e7bf-dc791327fd4c.htm">ProjectPosition</a>^ <span class="identifier">ProjectPosition</span>[<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">point</span>] {
+	<a href="249111cc-c1f3-d3e1-e7bf-dc791327fd4c.htm">ProjectPosition</a>^ <span class="keyword">get</span> (<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">point</span>);
+	<span class="keyword">void</span> <span class="keyword">set</span> (<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">point</span>, <a href="249111cc-c1f3-d3e1-e7bf-dc791327fd4c.htm">ProjectPosition</a>^ <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="point">
+       <dt>
+        <span class="parameter">
+         point
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        The point in model coordinates.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      When getting this property,  the North/South, East/West, and Elevation values report the coordinates of the point
+similar to the Revit command "Report Shared Coordinates".  To get the values of the transformations applied by this project location, 
+pass XYZ.Zero.
+     </p>
+     <p>
+      If the project has acquired shared coordinates from a linked model, the 
+shared coordinate transformation will be reflected in the coordinates of the transformed point returned by this property.
+     </p>
+     <p>
+      When setting this property, the transformations applied to the location are modified such that the passed point becomes the 
+specified North/South, East/West and Elevation, and the coordinate transform will have the designated angular rotation.  
+This is similar to the Revit command "Specify Coordinates at Point".
+     </p>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">//get and set the value of the projectlocation</span>
+<span class="highlight-keyword">public</span> ProjectLocation GetProjectLocation(Autodesk.Revit.DB.Document document)
+{
+    ProjectLocation currentLocation = document.ActiveProjectLocation;
+
+    <span class="highlight-comment">//get the project position</span>
+    XYZ origin = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>);
+
+    <span class="highlight-keyword">const</span> <span class="highlight-keyword">double</span> angleRatio = Math.PI / <span class="highlight-number">180</span>;   <span class="highlight-comment">// angle conversion factor</span>
+
+    ProjectPosition projectPosition = currentLocation.get_ProjectPosition(origin);
+    <span class="highlight-comment">//Angle from True North</span>
+    <span class="highlight-keyword">double</span> angle = <span class="highlight-number">30.0</span> * angleRatio;   <span class="highlight-comment">// convert degrees to radian</span>
+    <span class="highlight-keyword">double</span> eastWest = <span class="highlight-number">30.0</span>;     <span class="highlight-comment">//East to West offset</span>
+    <span class="highlight-keyword">double</span> northSouth = <span class="highlight-number">23.32</span>;   <span class="highlight-comment">//North to South offset</span>
+    <span class="highlight-keyword">double</span> elevation = <span class="highlight-number">22.14</span>;    <span class="highlight-comment">//Elevation above ground level</span>
+
+    <span class="highlight-comment">//create a new project position</span>
+    ProjectPosition newPosition =
+      document.Application.Create.NewProjectPosition(eastWest, northSouth, elevation, angle);
+
+    <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != newPosition)
+    {
+        <span class="highlight-comment">//set the value of the project position</span>
+        currentLocation.set_ProjectPosition(origin, newPosition);
+    }
+
+    <span class="highlight-keyword">return</span> currentLocation;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">'get and set the value of the projectlocation</span>
+<span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> GetProjectLocation(document <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Document) <span class="highlight-keyword">As</span> ProjectLocation
+    <span class="highlight-keyword">Dim</span> currentLocation <span class="highlight-keyword">As</span> ProjectLocation = document.ActiveProjectLocation
+
+    <span class="highlight-comment">'get the project position</span>
+    <span class="highlight-keyword">Dim</span> origin <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>)
+
+    <span class="highlight-keyword">Const</span> angleRatio <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = Math.PI / <span class="highlight-number">180</span>
+    <span class="highlight-comment">' angle conversion factor</span>
+    <span class="highlight-keyword">Dim</span> projectPosition <span class="highlight-keyword">As</span> ProjectPosition = currentLocation.ProjectPosition(origin)
+    <span class="highlight-comment">'Angle from True North</span>
+    <span class="highlight-keyword">Dim</span> angle <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = <span class="highlight-number">30.0</span> * angleRatio
+    <span class="highlight-comment">' convert degrees to radian</span>
+    <span class="highlight-keyword">Dim</span> eastWest <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = <span class="highlight-number">30.0</span>
+    <span class="highlight-comment">'East to West offset</span>
+    <span class="highlight-keyword">Dim</span> northSouth <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = <span class="highlight-number">23.32</span>
+    <span class="highlight-comment">'North to South offset</span>
+    <span class="highlight-keyword">Dim</span> elevation <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = <span class="highlight-number">22.14</span>
+    <span class="highlight-comment">'Elevation above ground level</span>
+    <span class="highlight-comment">'create a new project position</span>
+    <span class="highlight-keyword">Dim</span> newPosition <span class="highlight-keyword">As</span> ProjectPosition = document.Application.Create.NewProjectPosition(eastWest, northSouth, elevation, angle)
+
+    <span class="highlight-keyword">If</span> newPosition <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-comment">'set the value of the project position</span>
+        currentLocation.ProjectPosition(origin) = newPosition
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-keyword">Return</span> currentLocation
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="1249d5fa-74f3-cf64-0a63-7ab370b67a5c.htm">
+       ProjectLocation Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

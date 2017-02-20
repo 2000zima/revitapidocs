@@ -1,0 +1,259 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="42c83d85-60cd-52c3-7b97-b89e81d7d9fe.htm">
+       LightType Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Replace the current initial color object with the given object
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="a6a04f07-7fd2-0a4e-12e7-01842ee6daaf.htm">
+      Autodesk.Revit.DB.Lighting
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetInitialColor</span>(
+	<a href="082ce770-10a9-7e3b-85f2-bde3c42a92c4.htm">InitialColor</a> <span class="parameter">initialColor</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetInitialColor</span> ( _
+	<span class="parameter">initialColor</span> <span class="keyword">As</span> <a href="082ce770-10a9-7e3b-85f2-bde3c42a92c4.htm">InitialColor</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetInitialColor</span>(
+	<a href="082ce770-10a9-7e3b-85f2-bde3c42a92c4.htm">InitialColor</a>^ <span class="parameter">initialColor</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="initialColor">
+       <dt>
+        <span class="parameter">
+         initialColor
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="082ce770-10a9-7e3b-85f2-bde3c42a92c4.htm">
+         Autodesk.Revit.DB.Lighting
+         InitialColor
+        </a>
+        <br/>
+        An object derived from an InitialColor object
+   The object pointed to is cloned internally
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The argument object is cloned
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> SetInitialColorProperty(LightType lightType)
+{
+    InitialColor initialColor = lightType.GetInitialColor();
+    <span class="highlight-keyword">if</span> (initialColor <span class="highlight-keyword">is</span> CustomInitialColor)
+    {
+        CustomInitialColor custom = initialColor <span class="highlight-keyword">as</span> CustomInitialColor;
+        <span class="highlight-keyword">double</span> colorTemperature = custom.Temperature;
+
+        <span class="highlight-comment">// Set new value for color temperature and set modified initial color to LightType.</span>
+        custom.Temperature = <span class="highlight-number">3450.0</span>;
+        lightType.SetInitialColor(custom);
+
+        <span class="highlight-comment">// Create a PresetInitialColor and set it to LightType.</span>
+        PresetInitialColor preset = <span class="highlight-keyword">new</span> PresetInitialColor(ColorPreset.Halogen);
+        lightType.SetInitialColor(preset);
+
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> SetInitialColorProperty(lightType <span class="highlight-keyword">As</span> LightType)
+   <span class="highlight-keyword">Dim</span> initialColor <span class="highlight-keyword">As</span> InitialColor = lightType.GetInitialColor()
+   <span class="highlight-keyword">If</span> <span class="highlight-keyword">TypeOf</span> initialColor <span class="highlight-keyword">Is</span> CustomInitialColor <span class="highlight-keyword">Then</span>
+      <span class="highlight-keyword">Dim</span> [custom] <span class="highlight-keyword">As</span> CustomInitialColor = <span class="highlight-keyword">TryCast</span>(initialColor, CustomInitialColor)
+      <span class="highlight-keyword">Dim</span> colorTemperature <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = [custom].Temperature
+
+      <span class="highlight-comment">' Set new value for color temperature and set modified initial color to LightType.</span>
+      [custom].Temperature = <span class="highlight-number">3450.0</span>
+      lightType.SetInitialColor([custom])
+
+      <span class="highlight-comment">' Create a PresetInitialColor and set it to LightType.</span>
+      <span class="highlight-keyword">Dim</span> preset <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> PresetInitialColor(ColorPreset.Halogen)
+
+      lightType.SetInitialColor(preset)
+   <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="42c83d85-60cd-52c3-7b97-b89e81d7d9fe.htm">
+       LightType Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="a6a04f07-7fd2-0a4e-12e7-01842ee6daaf.htm">
+       Autodesk.Revit.DB.Lighting Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

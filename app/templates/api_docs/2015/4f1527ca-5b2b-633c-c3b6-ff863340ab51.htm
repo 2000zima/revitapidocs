@@ -1,0 +1,345 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="a7622967-1381-c17f-ed04-1ebe40da0440.htm">
+       FamilyItemFactory Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Adds a new sweep form into the family document, using an array of selected references as a 3D path.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="ed383459-badd-2323-4f73-0d94fd76ce0f.htm">Sweep</a> <span class="identifier">NewSweep</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">isSolid</span>,
+	<a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">ReferenceArray</a> <span class="parameter">path</span>,
+	<a href="1b77356c-e92b-e151-f8c9-727b3e2b8934.htm">SweepProfile</a> <span class="parameter">profile</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">profileLocationCurveIndex</span>,
+	<a href="7ee6064e-ae88-1efe-a030-dabfae9bacaf.htm">ProfilePlaneLocation</a> <span class="parameter">profilePlaneLocation</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewSweep</span> ( _
+	<span class="parameter">isSolid</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a>, _
+	<span class="parameter">path</span> <span class="keyword">As</span> <a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">ReferenceArray</a>, _
+	<span class="parameter">profile</span> <span class="keyword">As</span> <a href="1b77356c-e92b-e151-f8c9-727b3e2b8934.htm">SweepProfile</a>, _
+	<span class="parameter">profileLocationCurveIndex</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">Integer</a>, _
+	<span class="parameter">profilePlaneLocation</span> <span class="keyword">As</span> <a href="7ee6064e-ae88-1efe-a030-dabfae9bacaf.htm">ProfilePlaneLocation</a> _
+) <span class="keyword">As</span> <a href="ed383459-badd-2323-4f73-0d94fd76ce0f.htm">Sweep</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="ed383459-badd-2323-4f73-0d94fd76ce0f.htm">Sweep</a>^ <span class="identifier">NewSweep</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">isSolid</span>, 
+	<a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">ReferenceArray</a>^ <span class="parameter">path</span>, 
+	<a href="1b77356c-e92b-e151-f8c9-727b3e2b8934.htm">SweepProfile</a>^ <span class="parameter">profile</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">profileLocationCurveIndex</span>, 
+	<a href="7ee6064e-ae88-1efe-a030-dabfae9bacaf.htm">ProfilePlaneLocation</a> <span class="parameter">profilePlaneLocation</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="isSolid">
+       <dt>
+        <span class="parameter">
+         isSolid
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">
+         System
+         Boolean
+        </a>
+        <br/>
+        Indicates if the Sweep is Solid or Void.
+       </dd>
+      </dl>
+      <dl paramname="path">
+       <dt>
+        <span class="parameter">
+         path
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">
+         Autodesk.Revit.DB
+         ReferenceArray
+        </a>
+        <br/>
+        The path of the sweep. The path should be reference of curve or edge obtained from existing geometry.
+       </dd>
+      </dl>
+      <dl paramname="profile">
+       <dt>
+        <span class="parameter">
+         profile
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="1b77356c-e92b-e151-f8c9-727b3e2b8934.htm">
+         Autodesk.Revit.DB
+         SweepProfile
+        </a>
+        <br/>
+        The profile to create the new Sweep. The profile must lie in the XY plane, and it will be 
+transformed to the profile plane automatically. This may contain more than one curve loop or a profile family. 
+Each loop must be a fully closed curve loop and the loops must not intersect.
+The loop can be a unbound circle or ellipse,  but its geometry will be split in two in 
+order to satisfy requirements for sketches used in extrusions.
+       </dd>
+      </dl>
+      <dl paramname="profileLocationCurveIndex">
+       <dt>
+        <span class="parameter">
+         profileLocationCurveIndex
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">
+         System
+         Int32
+        </a>
+        <br/>
+        The index of the path curves. The curve upon which the profile
+plane will be determined.
+       </dd>
+      </dl>
+      <dl paramname="profilePlaneLocation">
+       <dt>
+        <span class="parameter">
+         profilePlaneLocation
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="7ee6064e-ae88-1efe-a030-dabfae9bacaf.htm">
+         Autodesk.Revit.DB
+         ProfilePlaneLocation
+        </a>
+        <br/>
+        The location on the profileLocationCurve where the profile
+plane will be determined.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If creation was successful the new Sweep is returned, 
+otherwise an exception with failure information will be thrown.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This method creates a sweep in a family document. The sweep will trace the profile along the path.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown when the input argument-path-is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          or empty or an unsupported curve type.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown when the input argument-profile-is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          Thrown when the input argument-profileLocationCurveIndex-is out of index bounds.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          Thrown when the input argument-profilePlaneLocation-does not exist in the ProfilePlaneLocation enumeration.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when the creation failed.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="a7622967-1381-c17f-ed04-1ebe40da0440.htm">
+       FamilyItemFactory Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e22c07dd-0615-5b5d-e40f-eed749b7206f.htm">
+       NewSweep Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

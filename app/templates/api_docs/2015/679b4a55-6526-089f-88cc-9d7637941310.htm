@@ -1,0 +1,240 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="4fd9ba08-b5a3-39c8-9666-fc0a105615c6.htm">
+       RebarShapeSegment Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Assign a new list of constraints to this segment.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetConstraints</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="21c642f3-7aae-759b-4aac-ff4e2dd77d57.htm">RebarShapeConstraint</a>&gt; <span class="parameter">constraints</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetConstraints</span> ( _
+	<span class="parameter">constraints</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="21c642f3-7aae-759b-4aac-ff4e2dd77d57.htm">RebarShapeConstraint</a>) _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetConstraints</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="21c642f3-7aae-759b-4aac-ff4e2dd77d57.htm">RebarShapeConstraint</a>^&gt;^ <span class="parameter">constraints</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="constraints">
+       <dt>
+        <span class="parameter">
+         constraints
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="21c642f3-7aae-759b-4aac-ff4e2dd77d57.htm">
+         RebarShapeConstraint
+        </a>
+        <br/>
+        A new list of constraints.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Any existing constraints are discarded. The new constraints replace them.
+   Any parameters driving the constraints must already be added
+   with RebarShapeDefinition.AddParameter().
+     <p>
+      The allowable constraint types are:
+     </p>
+     <ul>
+      <li>
+       RebarShapeConstraintAngleFromFixedDir
+      </li>
+      <li>
+       RebarShapeConstraintSegmentLength
+      </li>
+      <li>
+       RebarShapeConstraintFixedSegmentDir
+      </li>
+      <li>
+       RebarShapeConstraintProjectedSegmentLength
+      </li>
+      <li>
+       RebarShapeConstraint180DegreeBendArcLength
+      </li>
+      <li>
+       RebarShapeConstraint180DegreeBendRadius
+      </li>
+      <li>
+       RebarShapeConstraint180DegreeDefaultBend
+      </li>
+     </ul>
+     At least two independent constraints must be specified. Overconstraining
+   is supported.
+     <p>
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          One or more of the constraints is of a type not supported for RebarShapeSegment.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="4fd9ba08-b5a3-39c8-9666-fc0a105615c6.htm">
+       RebarShapeSegment Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

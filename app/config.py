@@ -1,5 +1,5 @@
 import os
-from app.logger import logger
+from app.utils.logger import logger
 
 
 class Config(object):
@@ -9,33 +9,36 @@ class Config(object):
     PRODUCTION = False
     BASEDIR = os.path.abspath(os.path.dirname(__file__))
     TEMPLATEDIR = os.path.join(BASEDIR, 'templates')
+
     SEND_FILE_MAX_AGE_DEFAULT = 604800  # 60*60*24*7 = 1 Week
     CACHE_TYPE = os.getenv('CACHE_TYPE', 'simple')  # simple, redis
-    #CACHE_REDIS_URL = os.environ['REDIS_URL']
 
     GITHUB_TOKEN = os.environ['GITHUB_TOKEN']
     CONSTRUCTOR_IO_AUTOCOMPLETE_KEY = os.environ['CONSTRUCTOR_IO_AUTOCOMPLETE_KEY']
     CONSTRUCTOR_IO_API_TOKEN = os.environ['CONSTRUCTOR_IO_API_TOKEN']
 
     FLASKS3_USE_CACHE_CONTROL = True
-    FLASKS3_BUCKET_NAME = 'revitapidocs'
     FLASKS3_HEADERS = {'Cache-Control': 'max-age={}'.format(SEND_FILE_MAX_AGE_DEFAULT)}
 
     FLASKS3_ONLY_MODIFIED = True
     FLASKS3_GZIP = True
-    FLASKS3_ACTIVE = bool(int(os.getenv('FLASKS3_ACTIVE', 1)))
+    FLASKS3_ACTIVE = bool(int(os.getenv('FLASKS3_ACTIVE', 0)))
     FLASK_ASSETS_USE_S3 = FLASKS3_ACTIVE
 
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
-
-    AVAILABLE_APIS = ['2015', '2016', '2017']
     JSONIFY_PRETTYPRINT_REGULAR = False
+
+    AVAILABLE_APIS = ['2015', '2016', '2017', '2017.1']
+    API_DOCS_NAME = 'api_docs'
+    API_DOCS_PATH = os.path.join(TEMPLATEDIR, API_DOCS_NAME)
 
 
 class Production(Config):
     PRODUCTION = True
+    FLASKS3_ACTIVE = FLASKS3_ACTIVE = True
     SECRET_KEY = os.environ['SECRET_KEY']
+    FLASKS3_BUCKET_NAME = 'revitapidocs'
 
 
 class Staging(Config):
@@ -43,12 +46,13 @@ class Staging(Config):
     STAGING = True
     SECRET_KEY = os.environ['SECRET_KEY']
 
+    FLASKS3_BUCKET_NAME = 'revitapidocs-staging'
+    FLASKS3_ACTIVE = FLASK_ASSETS_USE_S3 = True
+
 
 class Development(Config):
     DEBUG = True
     SECRET_KEY = 'SuperSecretKey'
-    FLASKS3_ACTIVE = bool(int(os.getenv('FLASKS3_ACTIVE', 0)))
-    FLASK_ASSETS_USE_S3 = FLASKS3_ACTIVE
 
     DEBUG_TB_INTERCEPT_REDIRECTS = False
     DEBUG_TB_TEMPLATE_EDITOR_ENABLED = True

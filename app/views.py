@@ -1,3 +1,4 @@
+import os
 import re
 from collections import OrderedDict
 
@@ -8,13 +9,19 @@ from jinja2.exceptions import TemplateNotFound
 
 from app import app
 from app import cache
-from app.logger import logger
-from app.utils import get_schema, check_available_years, Timer
-from app.utils import process_query, search_db, prioritize_match, track_search
-from app.gists import get_gists
-from app.db import db_json, namespace_jsons
+from app.utils.db import db_json, namespace_jsons
 
-available_apis = app.config['AVAILABLE_APIS']
+from app.utils.db_utils import search_db
+from app.utils.db_utils import get_entry, get_best_entry_match
+from app.utils.db_utils import process_query, prioritize_match
+
+from app.utils.gists import get_gists
+from app.utils.misc import Timer
+from app.utils.logger import logger
+
+AVAILABLE_YEARS = app.config['AVAILABLE_APIS']
+API_DOCS_PATH = app.config['API_DOCS_PATH']
+API_DOCS_NAME = app.config['API_DOCS_NAME']
 
 
 @cache.cached(timeout=600)
@@ -29,45 +36,46 @@ def index():
 @app.route('/<string:year>/', methods=["GET"])
 def api_year_home(year):
     """ Home of api years. Inserts home.html into api.html base"""
-    template = 'api.html'
-
-    if year not in available_apis:
+    template = '_api.html'
+    if year not in AVAILABLE_YEARS:
         abort(404)
 
-    content_path = 'home.html'
-    schema = {
-        'title': 'Revit API {}'.format(year),
-        'description':
-            'Full Online Documentation for Revit API {}'.format(year)}
+    filename = 'home.html'
+    entry = {'title': 'Revit API {}'.format(year),
+             'description': 'Full Online Documentation for Revit API {}'.format(year)}
 
-    return render_template(template, year=year, content=content_path,
-                           schema=schema)
+    return render_template(template, active_year=year, content_path=filename, entry=entry)
 
 
 @app.route('/<string:year>/<path:filename>', methods=["GET"])
 def api_year_file(year, filename):
-    """ API Pate. Inserts xxx-xxx.html into api.html base"""
-    template = 'api.html'
+    """ API Doc Router. Inserts xxx-xxx.html into api.html base"""
+    template = '_api.html'
+    entry = get_entry(filename)
 
-    if year not in available_apis:
-        abort(404)
+    if year not in AVAILABLE_YEARS or not entry:
+        abort(404)  # File was not found
 
-    content_path = '{year}/{html}'.format(year=year, html=filename)
-    available_in = check_available_years(filename)
-    if year in available_in:
-        schema = get_schema(filename, year=year)
-    elif available_in:
+    year_best_match = get_best_entry_match(entry, year)
+    content_path = '{}/{}/{}'.format(API_DOCS_NAME, year_best_match, filename)
+    if not year_best_match:
         # file exists but not year requested
         template = 'missing.html'
-        schema = get_schema(filename, year=available_in[0])
-    else:
-        # File was not found
-        abort(404)
 
-    return render_template(template, year=year, active_href=filename,
-                           content=content_path, available_in=available_in,
-                           schema=schema)
+    return render_template(template, active_year=year, active_href=filename,
+                           content_path=content_path, available_in=entry['years'].keys(),
+                           entry=entry)
 
+@app.route('/<string:year>/news', methods=["GET"])
+def api_whats_new(year):
+    template = '_api.html'
+    entry = {'title': "Revit API {} - What's New".format(year),
+             'description': 'API Changes for the {} API'.format(year)}
+    content_path = '{}/{}/{}.htm'.format(API_DOCS_NAME, 'news', year)
+
+    return render_template(template, active_year=year, entry=entry,
+                           content_path=content_path,
+                           active_href=None)
 
 @cache.cached(timeout=3600)  # 1 Hour
 @app.route('/<string:year>/namespace.json', methods=['GET'])
@@ -98,53 +106,10 @@ def search_api(year):
         return jsonify({'error': 'No Results'})
 
     sorted_results = sorted(results, key=lambda k: k['title'])
-    prioritized_results = prioritize_match(results=sorted_results, raw_query=raw_query,
-                                           field='title')
+    prioritized_results = prioritize_match(results=sorted_results, raw_query=raw_query, field='title')
     if len(prioritized_results) > MAX_RESULTS:
         prioritized_results = prioritized_results[:MAX_RESULTS]
     return jsonify(prioritized_results)
-
-
-@app.route('/<string:year>/tracksearch', methods=['GET'])
-def track_search_api(year):
-    ''' This url received ajax calls from the browser to query+numresults
-    and query+clicked to improve Suggestions
-
-    /2015/tracksearch?query=XX&numresults=INT
-    /2015/tracksearch?query=XX&clicked=TITLE
-
-    '''
-    query = request.args.get('query')             # query term
-    num_results = request.args.get('numresults')  # number of results
-    clicked = request.args.get('clicked')         # name of item/entry
-    response, response_json = track_search(query,
-                                           num_results=num_results,
-                                           clicked=clicked)
-    try:
-        return jsonify(response_json)
-    except:
-        logger.error('Could not jsonify response: {}'.format(response_json))
-        return jsonify({'error': 'Could not jsonify response'})
-
-
-
-# This handles the static files form the .CHM content
-@cache.cached(timeout=86400)
-@app.route('/favicon.ico', methods=["GET"])
-@app.route('/icons/<string:filename>', methods=["GET"])
-@app.route('/scripts/<string:filename>', methods=["GET"])
-@app.route('/styles/<string:filename>', methods=["GET"])
-def chm_static_redirect(filename=None):
-    path = '/static' + request.path
-    return redirect(path, 301)
-
-
-@app.after_request
-def add_header(response):
-    config_cache = app.config['SEND_FILE_MAX_AGE_DEFAULT']
-    response.headers['Cache-Control'] = 'public, max-age={}'.format(config_cache)
-
-    return response
 
 
 @app.route('/python/', methods=['GET'])
@@ -153,6 +118,21 @@ def python(path=None):
     gists_by_categories = get_gists()
     d = OrderedDict(sorted(gists_by_categories.items()))
     # import pdb; pdb.set_trace()
-    schema = {'title': 'Revit API - Python',
-              'description': 'Python Examples for the Revit API'}
-    return render_template('python.html', gists_categories=d, schema=schema)
+    entry = {'title': 'Revit API - Python',
+             'description': 'Python Examples for the Revit API'}
+    return render_template('python.html', gists_categories=d, entry=entry)
+
+
+@app.after_request
+def add_header(response):
+    config_cache = app.config['SEND_FILE_MAX_AGE_DEFAULT']
+    response.headers['Cache-Control'] = 'public, max-age={}'.format(config_cache)
+    return response
+
+
+# This handles the static files form the .CHM content
+# @cache.cached(timeout=86400)
+# @app.route('/favicon.ico', methods=["GET"])
+# def chm_static_redirect(filename=None):
+    # path = '/static' + request.path
+#     return redirect(path, 301)

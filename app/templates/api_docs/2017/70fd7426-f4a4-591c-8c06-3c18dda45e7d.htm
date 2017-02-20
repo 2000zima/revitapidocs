@@ -1,0 +1,231 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="8d51f38e-c03c-3ca7-da4c-7f4cb0ed77f4.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Represents a rebar element in Autodesk Revit.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2009
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">Rebar</span> : <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">Rebar</span> _
+	<span class="keyword">Inherits</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">Rebar</span> : <span class="keyword">public</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> Getinfo_Rebar(Rebar rebar)
+{
+    <span class="highlight-keyword">string</span> message = <span class="highlight-literal">"Rebar: "</span>;
+    <span class="highlight-comment">//get the bar type of the rebar</span>
+    message += <span class="highlight-literal">"\nBar Type: "</span> + (rebar.Document.GetElement(rebar.GetTypeId()) <span class="highlight-keyword">as</span> RebarBarType).Name;
+
+    <span class="highlight-comment">//get the curve information</span>
+    IList&lt;Curve&gt; curves = rebar.GetCenterlineCurves(<span class="highlight-keyword">false</span>, <span class="highlight-keyword">false</span>, <span class="highlight-keyword">false</span>, MultiplanarOption.IncludeOnlyPlanarCurves, <span class="highlight-number">0</span>);
+    message += <span class="highlight-literal">"\n\nThe Curves property has "</span> + curves.Count + <span class="highlight-literal">" curves:"</span>;
+    <span class="highlight-keyword">foreach</span> (Curve curve <span class="highlight-keyword">in</span> curves)
+    {
+        <span class="highlight-comment">// Get curve start point</span>
+        message += <span class="highlight-literal">"\nCurve start point:("</span> + curve.GetEndPoint(<span class="highlight-number">0</span>).X + <span class="highlight-literal">", "</span>
+            + curve.GetEndPoint(<span class="highlight-number">0</span>).Y + <span class="highlight-literal">", "</span> + curve.GetEndPoint(<span class="highlight-number">0</span>).Z + <span class="highlight-literal">")"</span>;
+        <span class="highlight-comment">// Get curve end point</span>
+        message += <span class="highlight-literal">"; Curve end point:("</span> + curve.GetEndPoint(<span class="highlight-number">1</span>).X + <span class="highlight-literal">", "</span>
+            + curve.GetEndPoint(<span class="highlight-number">1</span>).Y + <span class="highlight-literal">", "</span> + curve.GetEndPoint(<span class="highlight-number">1</span>).Z + <span class="highlight-literal">")"</span>;
+    }
+
+    <span class="highlight-comment">//get the host element of the rebar</span>
+    <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != rebar.Document.GetElement(rebar.GetHostId())) <span class="highlight-comment">//maybe some rebars don't have host</span>
+    {
+        message += <span class="highlight-literal">"\n\nThe host element ID : "</span> + rebar.GetHostId().IntegerValue;
+    }
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, message);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> Getinfo_Rebar(rebar <span class="highlight-keyword">As</span> Rebar)
+    <span class="highlight-keyword">Dim</span> message <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"Rebar: "</span>
+    <span class="highlight-comment">'get the bar type of the rebar</span>
+    message += vbLf &amp; <span class="highlight-literal">"Bar Type: "</span> + <span class="highlight-keyword">TryCast</span>(rebar.Document.GetElement(rebar.GetTypeId()), RebarBarType).Name
+
+ <span class="highlight-comment">'get the curve information</span>
+ <span class="highlight-keyword">Dim</span> curves <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> Curve) = rebar.GetCenterlineCurves(<span class="highlight-keyword">False</span>, <span class="highlight-keyword">False</span>, <span class="highlight-keyword">False</span>, MultiplanarOption.IncludeOnlyPlanarCurves, <span class="highlight-number">0</span>)
+ message += vbLf &amp; vbLf &amp; <span class="highlight-literal">"The Curves property has "</span> &amp; curves.Count &amp; <span class="highlight-literal">" curves:"</span>
+    <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> curve <span class="highlight-keyword">As</span> Curve <span class="highlight-keyword">In</span> curves
+        <span class="highlight-comment">' Get curve start point</span>
+        message += ((vbLf &amp; <span class="highlight-literal">"Curve start point:("</span> + curve.GetEndPoint(<span class="highlight-number">0</span>).X &amp; <span class="highlight-literal">", "</span>) + curve.GetEndPoint(<span class="highlight-number">0</span>).Y &amp; <span class="highlight-literal">", "</span>) + curve.GetEndPoint(<span class="highlight-number">0</span>).Z &amp; <span class="highlight-literal">")"</span>
+        <span class="highlight-comment">' Get curve end point</span>
+        message += ((<span class="highlight-literal">"; Curve end point:("</span> + curve.GetEndPoint(<span class="highlight-number">1</span>).X &amp; <span class="highlight-literal">", "</span>) + curve.GetEndPoint(<span class="highlight-number">1</span>).Y &amp; <span class="highlight-literal">", "</span>) + curve.GetEndPoint(<span class="highlight-number">1</span>).Z &amp; <span class="highlight-literal">")"</span>
+    <span class="highlight-keyword">Next</span>
+
+    <span class="highlight-comment">'get the host element of the rebar</span>
+    <span class="highlight-keyword">If</span> rebar.Document.GetElement(rebar.GetHostId()) <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-comment">'maybe some rebars don't have host</span>
+        message += vbLf &amp; vbLf &amp; <span class="highlight-literal">"The host element ID : "</span> + rebar.GetHostId().IntegerValue
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, message)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+      Autodesk.Revit.DB
+      Element
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.Structure
+      Rebar
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="8d51f38e-c03c-3ca7-da4c-7f4cb0ed77f4.htm">
+       Rebar Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

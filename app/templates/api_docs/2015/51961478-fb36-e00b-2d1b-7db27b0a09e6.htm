@@ -1,0 +1,271 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">
+       Curve Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Calculates the intersection of this curve with the specified curve and returns the intersection results.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="3310a68d-b67a-79cb-ea54-deb00d9f60d9.htm">SetComparisonResult</a> <span class="identifier">Intersect</span>(
+	<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a> <span class="parameter">curve</span>,
+	<span class="keyword">out</span> <a href="4742c1e8-0566-73c6-de42-04d98a503dfc.htm">IntersectionResultArray</a> <span class="parameter">resultArray</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">Intersect</span> ( _
+	<span class="parameter">curve</span> <span class="keyword">As</span> <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>, _
+	&lt;<a href="http://msdn2.microsoft.com/en-us/library/k8189tfc" target="_blank">OutAttribute</a>&gt; <span class="keyword">ByRef</span> <span class="parameter">resultArray</span> <span class="keyword">As</span> <a href="4742c1e8-0566-73c6-de42-04d98a503dfc.htm">IntersectionResultArray</a> _
+) <span class="keyword">As</span> <a href="3310a68d-b67a-79cb-ea54-deb00d9f60d9.htm">SetComparisonResult</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="3310a68d-b67a-79cb-ea54-deb00d9f60d9.htm">SetComparisonResult</a> <span class="identifier">Intersect</span>(
+	<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>^ <span class="parameter">curve</span>, 
+	[<a href="http://msdn2.microsoft.com/en-us/library/k8189tfc" target="_blank">OutAttribute</a>] <a href="4742c1e8-0566-73c6-de42-04d98a503dfc.htm">IntersectionResultArray</a>^% <span class="parameter">resultArray</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="curve">
+       <dt>
+        <span class="parameter">
+         curve
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">
+         Autodesk.Revit.DB
+         Curve
+        </a>
+        <br/>
+        The specified curve to intersect with this curve.
+       </dd>
+      </dl>
+      <dl paramname="resultArray">
+       <dt>
+        <span class="parameter">
+         resultArray
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="4742c1e8-0566-73c6-de42-04d98a503dfc.htm">
+         Autodesk.Revit.DB
+         IntersectionResultArray
+        </a>
+        <span class="cpp">
+         %
+        </span>
+        <br/>
+        Provides more information about the intersection.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     <ul>
+      <li>
+       SetComparisonResult.Overlap - One or more intersections were encountered.  The output argument has the details.
+      </li>
+      <li>
+       SetComparisonResult.Subset - The inputs are parallel lines with only one common intersection point, or 
+the curve used to invoke the intersection check is a line entirely within the unbound line passed as argument curve.
+If the former, the output argument has the details of the intersection point.
+      </li>
+      <li>
+       SetComparisonResult.Superset - The input curve is entirely within the unbound line used to invoke the intersection check.
+      </li>
+      <li>
+       SetComparisonResult.Disjoint - There is no intersection found between the two curves.
+      </li>
+      <li>
+       SetComparisonResult.Equal - The two curves are identical.
+      </li>
+     </ul>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The array of the intersection results contains one entry for each point where curves intersect.
+The following is the meaning of IntersectionResult members:
+     <ul>
+      <li>
+       XYZPoint is the evaluated intersection point
+      </li>
+      <li>
+       UVPoint.U is the unnormalized parameter on this curve (use ComputeNormalizedParameter to compute the normalized value).
+      </li>
+      <li>
+       UVPoint.V is the unnormalized parameter on the specified curve (use ComputeNormalizedParameter to compute the normalized value).
+      </li>
+     </ul>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown when the specified curve is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when failed to calculate the intersection.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">
+       Curve Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="570fb842-cac3-83f5-1ab9-621e55186ead.htm">
+       Intersect Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

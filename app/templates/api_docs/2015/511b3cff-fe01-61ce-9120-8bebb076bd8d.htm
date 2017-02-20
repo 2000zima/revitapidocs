@@ -1,0 +1,213 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="c4d57a70-3192-458c-faa7-619d11c69f60.htm">
+       DefaultDivideSettings Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Sets the default Divided Surface distance for a fixed, minimum, or maximum distance layout for U or V gridlines.
+   This method is obsolete in Revit 2015. Use setSurfaceDistance instead.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>]
+<span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetDistance</span>(
+	<a href="df2bed21-2c63-f165-27be-8004ea2f7ad0.htm">UVGridlineType</a> <span class="parameter">gridlines</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">distance</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>&lt;<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>&gt; _
+<span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetDistance</span> ( _
+	<span class="parameter">gridlines</span> <span class="keyword">As</span> <a href="df2bed21-2c63-f165-27be-8004ea2f7ad0.htm">UVGridlineType</a>, _
+	<span class="parameter">distance</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>]
+<span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetDistance</span>(
+	<a href="df2bed21-2c63-f165-27be-8004ea2f7ad0.htm">UVGridlineType</a> <span class="parameter">gridlines</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">distance</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="gridlines">
+       <dt>
+        <span class="parameter">
+         gridlines
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="df2bed21-2c63-f165-27be-8004ea2f7ad0.htm">
+         Autodesk.Revit.DB
+         UVGridlineType
+        </a>
+        <br/>
+        U-gridlines or V-gridlines.
+       </dd>
+      </dl>
+      <dl paramname="distance">
+       <dt>
+        <span class="parameter">
+         distance
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         System
+         Double
+        </a>
+        <br/>
+        A default distance for a layout.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          The given value for distance must be positive.
+   -or-
+   A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="c4d57a70-3192-458c-faa7-619d11c69f60.htm">
+       DefaultDivideSettings Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

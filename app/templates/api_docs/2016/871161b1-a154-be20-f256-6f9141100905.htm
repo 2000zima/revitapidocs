@@ -1,0 +1,247 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new shaft opening between a set of levels.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="720de864-9f4e-c606-c7f4-2e7a0b2da46f.htm">Opening</a> <span class="identifier">NewOpening</span>(
+	<a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a> <span class="parameter">bottomLevel</span>,
+	<a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a> <span class="parameter">topLevel</span>,
+	<a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a> <span class="parameter">profile</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewOpening</span> ( _
+	<span class="parameter">bottomLevel</span> <span class="keyword">As</span> <a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a>, _
+	<span class="parameter">topLevel</span> <span class="keyword">As</span> <a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a>, _
+	<span class="parameter">profile</span> <span class="keyword">As</span> <a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a> _
+) <span class="keyword">As</span> <a href="720de864-9f4e-c606-c7f4-2e7a0b2da46f.htm">Opening</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="720de864-9f4e-c606-c7f4-2e7a0b2da46f.htm">Opening</a>^ <span class="identifier">NewOpening</span>(
+	<a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a>^ <span class="parameter">bottomLevel</span>, 
+	<a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a>^ <span class="parameter">topLevel</span>, 
+	<a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a>^ <span class="parameter">profile</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="bottomLevel">
+       <dt>
+        <span class="parameter">
+         bottomLevel
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">
+         Autodesk.Revit.DB
+         Level
+        </a>
+        <br/>
+        bottom level
+       </dd>
+      </dl>
+      <dl paramname="topLevel">
+       <dt>
+        <span class="parameter">
+         topLevel
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">
+         Autodesk.Revit.DB
+         Level
+        </a>
+        <br/>
+        top level
+       </dd>
+      </dl>
+      <dl paramname="profile">
+       <dt>
+        <span class="parameter">
+         profile
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">
+         Autodesk.Revit.DB
+         CurveArray
+        </a>
+        <br/>
+        profile of the opening.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If successful, an Opening object is returned.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This method forms an opening on floor, ceiling and roof. Make sure topLevel is higher than bottomLevel, otherwise an exception will be returned.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the bottom level does not exist in the given document.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the top level does not exist in the given document.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="60e2eb94-618e-9f1a-4fbd-ca5dfc394e16.htm">
+       NewOpening Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

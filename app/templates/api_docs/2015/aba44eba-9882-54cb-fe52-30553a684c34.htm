@@ -1,0 +1,294 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="6708af38-6a62-ead0-88ff-c68bedd88ffe.htm">
+       Categories Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Add a new subcategory into the Autodesk Revit document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a> <span class="identifier">NewSubcategory</span>(
+	<a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a> <span class="parameter">parentCategory</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a> <span class="parameter">name</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewSubcategory</span> ( _
+	<span class="parameter">parentCategory</span> <span class="keyword">As</span> <a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a>, _
+	<span class="parameter">name</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a> _
+) <span class="keyword">As</span> <a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a>^ <span class="identifier">NewSubcategory</span>(
+	<a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a>^ <span class="parameter">parentCategory</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^ <span class="parameter">name</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="parentCategory">
+       <dt>
+        <span class="parameter">
+         parentCategory
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">
+         Autodesk.Revit.DB
+         Category
+        </a>
+        <br/>
+        The parent category.
+       </dd>
+      </dl>
+      <dl paramname="name">
+       <dt>
+        <span class="parameter">
+         name
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         System
+         String
+        </a>
+        <br/>
+        The new category name.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If successful, the newly created subcategory.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> AssignSubCategory(Document document, GenericForm extrusion)
+{
+    <span class="highlight-comment">// create a new subcategory </span>
+    Category cat = document.OwnerFamily.FamilyCategory;
+    Category subCat = document.Settings.Categories.NewSubcategory(cat, <span class="highlight-literal">"NewSubCat"</span>);
+
+    <span class="highlight-comment">// create a new material and assign it to the subcategory</span>
+    ElementId materialId = Material.Create(document, <span class="highlight-literal">"Wood Material"</span>);
+    subCat.Material = document.GetElement(materialId) <span class="highlight-keyword">as</span> Material;
+
+    <span class="highlight-comment">// assign the subcategory to the element</span>
+    extrusion.Subcategory = subCat;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> AssignSubCategory(document <span class="highlight-keyword">As</span> Document, extrusion <span class="highlight-keyword">As</span> GenericForm)
+    <span class="highlight-comment">' create a new subcategory </span>
+    <span class="highlight-keyword">Dim</span> cat <span class="highlight-keyword">As</span> Category = document.OwnerFamily.FamilyCategory
+    <span class="highlight-keyword">Dim</span> subCat <span class="highlight-keyword">As</span> Category = document.Settings.Categories.NewSubcategory(cat, <span class="highlight-literal">"NewSubCat"</span>)
+
+    <span class="highlight-comment">' create a new material and assign it to the subcategory</span>
+    <span class="highlight-keyword">Dim</span> materialId <span class="highlight-keyword">As</span> ElementId = Material.Create(document, <span class="highlight-literal">"Wood Material"</span>)
+    subCat.Material = <span class="highlight-keyword">TryCast</span>(document.GetElement(materialId), Material)
+
+    <span class="highlight-comment">' assign the subcategory to the element</span>
+    extrusion.Subcategory = subCat
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown when the input argument-"parentCategory" or "name"-is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown when the input argument-"parentCategory"-cannot add subcategory.
+Thrown when the input argument-"name"-is an illegal name.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when subcategory creation failed.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="6708af38-6a62-ead0-88ff-c68bedd88ffe.htm">
+       Categories Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

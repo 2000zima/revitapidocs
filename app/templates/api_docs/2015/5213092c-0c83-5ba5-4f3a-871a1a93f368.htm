@@ -1,0 +1,192 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a gutter along a reference.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="ca383537-7a16-718f-e527-a05dbdd2353e.htm">Gutter</a> <span class="identifier">NewGutter</span>(
+	<a href="572b736f-1533-b759-7a9e-55ed1ff2709b.htm">GutterType</a> <span class="parameter">GutterType</span>,
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a> <span class="parameter">reference</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewGutter</span> ( _
+	<span class="parameter">GutterType</span> <span class="keyword">As</span> <a href="572b736f-1533-b759-7a9e-55ed1ff2709b.htm">GutterType</a>, _
+	<span class="parameter">reference</span> <span class="keyword">As</span> <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a> _
+) <span class="keyword">As</span> <a href="ca383537-7a16-718f-e527-a05dbdd2353e.htm">Gutter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="ca383537-7a16-718f-e527-a05dbdd2353e.htm">Gutter</a>^ <span class="identifier">NewGutter</span>(
+	<a href="572b736f-1533-b759-7a9e-55ed1ff2709b.htm">GutterType</a>^ <span class="parameter">GutterType</span>, 
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a>^ <span class="parameter">reference</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="GutterType">
+       <dt>
+        <span class="parameter">
+         GutterType
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="572b736f-1533-b759-7a9e-55ed1ff2709b.htm">
+         Autodesk.Revit.DB.Architecture
+         GutterType
+        </a>
+        <br/>
+        The type of the gutter to create
+       </dd>
+      </dl>
+      <dl paramname="reference">
+       <dt>
+        <span class="parameter">
+         reference
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">
+         Autodesk.Revit.DB
+         Reference
+        </a>
+        <br/>
+        A planar line or arc that represents the place where you
+want to place the gutter.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If successful a new gutter object within the project, otherwise
+     <span class="keyword">
+     </span>
+     <span class="nu">
+      a null reference (
+      <span class="keyword">
+       Nothing
+      </span>
+      in Visual Basic)
+     </span>
+     .
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="97920ad4-6479-7004-86f7-651667392d84.htm">
+       NewGutter Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

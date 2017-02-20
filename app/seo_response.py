@@ -2,7 +2,7 @@ import os
 
 from flask import render_template, make_response, redirect, request
 from app import app
-from app.logger import logger
+from app.utils.logger import logger
 
 
 @app.route('/robots.txt', methods=["GET"])

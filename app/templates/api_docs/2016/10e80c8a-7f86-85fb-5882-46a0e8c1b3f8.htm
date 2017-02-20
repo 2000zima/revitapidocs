@@ -1,0 +1,132 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="7afa9e0c-a245-f215-77fa-9201f25dc6ad.htm">
+       IDataConversionMonitor Interface
+      </a>
+      <a href="#methodTableToggle" onclick="OpenSection(methodTableToggle)">
+       Methods
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <p>
+    </p>
+    <p>
+     The
+     <a href="7afa9e0c-a245-f215-77fa-9201f25dc6ad.htm">
+      IDataConversionMonitor
+     </a>
+     type exposes the following members.
+    </p>
+    <h1 class="heading">
+     Methods
+    </h1>
+    <div class="section" id="methodTableSection" name="collapseableSection" style="">
+     <table cellpadding="2" class="members" frame="lhs" id="memberList">
+      <colgroup>
+       <col width="10%">
+       </col>
+      </colgroup>
+      <tbody>
+       <tr>
+        <th class="iconColumn">
+        </th>
+        <th class="nameColumn">
+         Name
+        </th>
+        <th class="descriptionColumn">
+         Description
+        </th>
+       </tr>
+       <tr data="public;declared;notNetfw;">
+        <td>
+         <img alt="Public method" src='{{ url_for("static", filename="img/chm/icons/pubmethod.gif") }}' title="Public method"/>
+        </td>
+        <td>
+         <a href="06a621c3-f8df-5d38-b164-2b15428ce566.htm">
+          GetVerbosity
+         </a>
+        </td>
+        <td>
+         <div class="summary">
+          Reports requested verbosity level
+         </div>
+        </td>
+       </tr>
+       <tr data="public;declared;notNetfw;">
+        <td>
+         <img alt="Public method" src='{{ url_for("static", filename="img/chm/icons/pubmethod.gif") }}' title="Public method"/>
+        </td>
+        <td>
+         <a href="015145ca-6980-cfad-86bc-dd7858261d58.htm">
+          ProcessMessage
+         </a>
+        </td>
+        <td>
+         <div class="summary">
+          The default implementation ignores input and always returns true. The using app should override the behavior as necessary.
+   Some examples of overridden behavior are
+   1.	Someone is developing a classic Revit add-on that imports STEP AP 203 solids. She will implement a log object such that
+   a) At each imported face (logMessage() called with LogMessage::FaceCreated as first argument) the log object will update
+   count of imported faces and call an application-specific progress indicator where appropriate
+   b) If the app gets a cancel request between the calls to logMessage(), the next call will return  false.
+   The Import API will then cancel the conversion and clean up the intermediate data.
+   2.	Someone is implementing a web service to convert IFC files to RVT. As a part of that service UI, the user would like
+   to cancel the conversion on the first error in order to avoid being charged for storage/processor time.
+   The implementation of logMessage() in that case would be different: the cancellation request would be based on severity of the error.
+   The app would probably want to keep a detailed count of entities converted.
+   3.	Someone is implementing an IFC importer. Each API call is fast enough that cancelation/progress requests are handled by the application.
+   Problems with data should be reported to the user, but the conversion should go on regardless. The app collects its own conversion statistics.
+   The app developer implements logMessage() to accumulate reported errors and appends the formatted results to her conversion report.
+   The overloaded logMessage() always returns true, since all cancellations are handled by the app.
+         </div>
+        </td>
+       </tr>
+      </tbody>
+     </table>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="7afa9e0c-a245-f215-77fa-9201f25dc6ad.htm">
+       IDataConversionMonitor Interface
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

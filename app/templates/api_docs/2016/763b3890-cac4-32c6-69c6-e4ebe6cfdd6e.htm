@@ -1,0 +1,415 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new Line BoundaryConditions element on a host element.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="58a98f0e-e2e5-4c8b-bea1-8228b30f1685.htm">BoundaryConditions</a> <span class="identifier">NewLineBoundaryConditions</span>(
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> <span class="parameter">hostElement</span>,
+	<a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a> <span class="parameter">X_Translation</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">X_TranslationSpringModulus</span>,
+	<a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a> <span class="parameter">Y_Translation</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">Y_TranslationSpringModulus</span>,
+	<a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a> <span class="parameter">Z_Translation</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">Z_TranslationSpringModulus</span>,
+	<a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a> <span class="parameter">X_Rotation</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">X_RotationSpringModulus</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewLineBoundaryConditions</span> ( _
+	<span class="parameter">hostElement</span> <span class="keyword">As</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>, _
+	<span class="parameter">X_Translation</span> <span class="keyword">As</span> <a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a>, _
+	<span class="parameter">X_TranslationSpringModulus</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a>, _
+	<span class="parameter">Y_Translation</span> <span class="keyword">As</span> <a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a>, _
+	<span class="parameter">Y_TranslationSpringModulus</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a>, _
+	<span class="parameter">Z_Translation</span> <span class="keyword">As</span> <a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a>, _
+	<span class="parameter">Z_TranslationSpringModulus</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a>, _
+	<span class="parameter">X_Rotation</span> <span class="keyword">As</span> <a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a>, _
+	<span class="parameter">X_RotationSpringModulus</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a> _
+) <span class="keyword">As</span> <a href="58a98f0e-e2e5-4c8b-bea1-8228b30f1685.htm">BoundaryConditions</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="58a98f0e-e2e5-4c8b-bea1-8228b30f1685.htm">BoundaryConditions</a>^ <span class="identifier">NewLineBoundaryConditions</span>(
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>^ <span class="parameter">hostElement</span>, 
+	<a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a> <span class="parameter">X_Translation</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">X_TranslationSpringModulus</span>, 
+	<a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a> <span class="parameter">Y_Translation</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">Y_TranslationSpringModulus</span>, 
+	<a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a> <span class="parameter">Z_Translation</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">Z_TranslationSpringModulus</span>, 
+	<a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">TranslationRotationValue</a> <span class="parameter">X_Rotation</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">X_RotationSpringModulus</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="hostElement">
+       <dt>
+        <span class="parameter">
+         hostElement
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+         Autodesk.Revit.DB
+         Element
+        </a>
+        <br/>
+        A Beam.
+       </dd>
+      </dl>
+      <dl paramname="X_Translation">
+       <dt>
+        <span class="parameter">
+         X_Translation
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">
+         Autodesk.Revit.DB.Structure
+         TranslationRotationValue
+        </a>
+        <br/>
+        A value indicating the X axis translation option.
+       </dd>
+      </dl>
+      <dl paramname="X_TranslationSpringModulus">
+       <dt>
+        <span class="parameter">
+         X_TranslationSpringModulus
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         System
+         Double
+        </a>
+        <br/>
+        Translation Spring Modulus for X axis. Ignored if X_Translation is not "Spring".
+       </dd>
+      </dl>
+      <dl paramname="Y_Translation">
+       <dt>
+        <span class="parameter">
+         Y_Translation
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">
+         Autodesk.Revit.DB.Structure
+         TranslationRotationValue
+        </a>
+        <br/>
+        A value indicating the Y axis translation option.
+       </dd>
+      </dl>
+      <dl paramname="Y_TranslationSpringModulus">
+       <dt>
+        <span class="parameter">
+         Y_TranslationSpringModulus
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         System
+         Double
+        </a>
+        <br/>
+        Translation Spring Modulus for Y axis. Ignored if Y_Translation is not "Spring".
+       </dd>
+      </dl>
+      <dl paramname="Z_Translation">
+       <dt>
+        <span class="parameter">
+         Z_Translation
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">
+         Autodesk.Revit.DB.Structure
+         TranslationRotationValue
+        </a>
+        <br/>
+        A value indicating the Z axis translation option.
+       </dd>
+      </dl>
+      <dl paramname="Z_TranslationSpringModulus">
+       <dt>
+        <span class="parameter">
+         Z_TranslationSpringModulus
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         System
+         Double
+        </a>
+        <br/>
+        Translation Spring Modulus for Z axis. Ignored if Z_Translation is not "Spring".
+       </dd>
+      </dl>
+      <dl paramname="X_Rotation">
+       <dt>
+        <span class="parameter">
+         X_Rotation
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="0b6cf7fa-b211-2f21-98a0-4f4e0fe2ca0e.htm">
+         Autodesk.Revit.DB.Structure
+         TranslationRotationValue
+        </a>
+        <br/>
+        A value indicating the option for rotation about the X axis.
+       </dd>
+      </dl>
+      <dl paramname="X_RotationSpringModulus">
+       <dt>
+        <span class="parameter">
+         X_RotationSpringModulus
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         System
+         Double
+        </a>
+        <br/>
+        Rotation Spring Modulus for X axis. Ignored if X_Rotation is not "Spring"
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If successful, NewLineBoundaryConditions returns an object for the newly created BoundaryConditions
+with the BoundaryType = 1 - "Line".
+     <span class="keyword">
+     </span>
+     <span class="nu">
+      a null reference (
+      <span class="keyword">
+       Nothing
+      </span>
+      in Visual Basic)
+     </span>
+     is returned if the operation fails.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This method will only function with the Autodesk Revit Structure application.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">bool</span> CreateLineConditionsWithElement(FamilyInstance column, Autodesk.Revit.Creation.Document docCreation)
+{
+    <span class="highlight-keyword">if</span> (StructuralType.Column != column.StructuralType)
+    {
+        <span class="highlight-keyword">throw</span> <span class="highlight-keyword">new</span> Exception(<span class="highlight-literal">"This sample only works for columns."</span>);
+    }
+
+    <span class="highlight-comment">// Create the new line boundary conditions</span>
+    BoundaryConditions condition = docCreation.NewLineBoundaryConditions(column, TranslationRotationValue.Fixed, <span class="highlight-number">0</span>,
+                                                                                 TranslationRotationValue.Fixed, <span class="highlight-number">0</span>,
+                                                                                 TranslationRotationValue.Fixed, <span class="highlight-number">0</span>,
+                                                                                 TranslationRotationValue.Fixed, <span class="highlight-number">0</span>);
+    <span class="highlight-keyword">return</span> (<span class="highlight-keyword">null</span> != condition);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> CreateLineConditionsWithElement(column <span class="highlight-keyword">As</span> FamilyInstance, docCreation <span class="highlight-keyword">As</span> Autodesk.Revit.Creation.Document) <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span>
+    <span class="highlight-keyword">If</span> StructuralType.Column &lt;&gt; column.StructuralType <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Throw</span> <span class="highlight-keyword">New</span> Exception(<span class="highlight-literal">"This sample only works for columns."</span>)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-comment">' Create the new line boundary conditions</span>
+    <span class="highlight-keyword">Dim</span> condition <span class="highlight-keyword">As</span> BoundaryConditions = docCreation.NewLineBoundaryConditions(column, TranslationRotationValue.Fixed, <span class="highlight-number">0</span>, TranslationRotationValue.Fixed, <span class="highlight-number">0</span>, TranslationRotationValue.Fixed, _
+        <span class="highlight-number">0</span>, TranslationRotationValue.Fixed, <span class="highlight-number">0</span>)
+    <span class="highlight-keyword">Return</span> (condition <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span>)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the host element does not exist in the given document.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="1720b9ee-223d-8686-4eca-a46f1478c2af.htm">
+       NewLineBoundaryConditions Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

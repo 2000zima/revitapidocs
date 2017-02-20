@@ -1,0 +1,182 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="3ed1c54c-382c-3d3b-cbda-47568c13ac76.htm">
+       Members
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Part of a RebarShapeDefinitionBySegments, representing one segment
+   of a shape definition.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">RebarShapeSegment</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">RebarShapeSegment</span> _
+	<span class="keyword">Implements</span> <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">RebarShapeSegment</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      Each segment must have enough constraints
+   to determine its position. Overconstraining is allowed.
+   The most common combinations are:
+     </p>
+     <ul>
+      <li>
+       A fixed direction together with a parallel length constraint;
+      </li>
+      <li>
+       A parallel length constraint plus another length constraint parallel to the x-axis or y-axis;
+      </li>
+      <li>
+       A parallel length constraint plus length constraints parallel to both the x-axis and y-axis.
+      </li>
+     </ul>
+     Multiple constraints may be driven by the same parameter, even on the same segment.
+     <p>
+     </p>
+     <p>
+      Length constraints may be measured in two ways.
+   For "measured to the outside of the bend," the reference is a tangent to the
+   exterior face of the bar; the thickness of the bar is included.
+   For "measured to the inside," the reference is the center of the arc of the bend;
+   this is the point where the bend begins, if the constraint is parallel to the segment.
+     </p>
+     <p>
+      A 180-degree bend is described by introducing a short segment in between the
+   two straight segments, tangent to the midpoint of the bend.
+     </p>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.Structure
+      RebarShapeSegment
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="3ed1c54c-382c-3d3b-cbda-47568c13ac76.htm">
+       RebarShapeSegment Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

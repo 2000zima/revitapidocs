@@ -1,0 +1,321 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="aa1b8294-c12d-ece0-00af-b17c1f1c9e03.htm">
+       Pipe Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new pipe that connects to the connector.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="cc553597-37c2-fcd9-6025-d904c129c80a.htm">
+      Autodesk.Revit.DB.Plumbing
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="aa1b8294-c12d-ece0-00af-b17c1f1c9e03.htm">Pipe</a> <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">document</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">pipeTypeId</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">levelId</span>,
+	<a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a> <span class="parameter">startConnector</span>,
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">endPoint</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">Create</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">pipeTypeId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">levelId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">startConnector</span> <span class="keyword">As</span> <a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a>, _
+	<span class="parameter">endPoint</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> _
+) <span class="keyword">As</span> <a href="aa1b8294-c12d-ece0-00af-b17c1f1c9e03.htm">Pipe</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="aa1b8294-c12d-ece0-00af-b17c1f1c9e03.htm">Pipe</a>^ <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">document</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">pipeTypeId</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">levelId</span>, 
+	<a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a>^ <span class="parameter">startConnector</span>, 
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">endPoint</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        The document.
+       </dd>
+      </dl>
+      <dl paramname="pipeTypeId">
+       <dt>
+        <span class="parameter">
+         pipeTypeId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        The ElementId of the new pipe type.
+       </dd>
+      </dl>
+      <dl paramname="levelId">
+       <dt>
+        <span class="parameter">
+         levelId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        The level id for the new pipe.
+       </dd>
+      </dl>
+      <dl paramname="startConnector">
+       <dt>
+        <span class="parameter">
+         startConnector
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">
+         Autodesk.Revit.DB
+         Connector
+        </a>
+        <br/>
+        The first connector where the new pipe starts.
+       </dd>
+      </dl>
+      <dl paramname="endPoint">
+       <dt>
+        <span class="parameter">
+         endPoint
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        The second point of the new pipe.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The pipe.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The new pipe will have the same diameter and system type as the specified connector. The creation will also connect the new pipe
+   to the component who owns the specified connector. If necessary, additional fitting(s) are included to make a valid connection.
+   If the new pipe can not be connected to the next component (e.g., mismatched direction, no valid fitting, and etc), the new pipe
+   will still be created at the specified connector position, and an InvalidOperationException is thrown.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The pipe type pipeTypeId is not valid pipe type.
+   -or-
+   The level id levelId is not valid.
+   -or-
+   The connector domain is not Domain.Piping.
+   -or-
+   The points of startConnector and endPoint are equal.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="3693dcdf-67fb-0128-3be8-cad150e9498e.htm">
+           Autodesk.Revit.Exceptions
+           DisabledDisciplineException
+          </a>
+         </td>
+         <td>
+          None of the following disciplines is enabled: Mechanical Electrical Piping.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when the new pipe fails to connect with the connector.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="aa1b8294-c12d-ece0-00af-b17c1f1c9e03.htm">
+       Pipe Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="04817280-4044-112c-d229-59e8a50b1c95.htm">
+       Create Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="cc553597-37c2-fcd9-6025-d904c129c80a.htm">
+       Autodesk.Revit.DB.Plumbing Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

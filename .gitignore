@@ -10,3 +10,4 @@ app/static/packed/
 .staging
 env/
 env/*
+chm_parser/data/*

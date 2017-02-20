@@ -1,0 +1,389 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="1042810e-72a4-1ab1-22f3-925f2f05e20a.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A class to support assigning numbers to elements of a particular kind for the purpose of tagging and scheduling them.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">NumberingSchema</span> : <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">NumberingSchema</span> _
+	<span class="keyword">Inherits</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">NumberingSchema</span> : <span class="keyword">public</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      Each NumberingSchema controls numbering of elements of one particular kind, typically of the same category such
+   as Rebar or Fabric Reinforcement. Instances of NumberingSchema are also elements and there is always only one of
+   each type in every Revit document. Available types of all built-in numbering schemas are enumerated in
+      <a href="f35deaf0-5c35-a492-5d8e-6e1b00f08ff9.htm">
+       NumberingSchemaTypes
+      </a>
+      class. At present, schema elements cannot be manually
+   added, deleted, or copied. Attempts to do so will result in a failure warning and/or exceptions thrown.
+     </p>
+     <p>
+      Elements (e.g. Rebar) belonging to a particular schema (e.g. NumberingSchemaTypes.StructuralNumberingSchemas.Rebar)
+   are organized and numbered in sequences. A sequence is a collection of elements that share the same numbering partition
+   as defined by their respective values of the Partition parameter (NUMBER_PARTITION_PARAM). For a numbering sequence
+   to exist it must contain at least one element. In other words, a sequence is established once there is at least
+   one element of which the partition parameter has a value that differs from other elements (in the same numbering schema).
+   If the last element is removed (deleted or moved to a different sequence) the then empty sequence ceases to exist.
+     </p>
+     <p>
+      Elements get assigned to sequences either upon their creation (based on the then current numbering partition value),
+   or by explicitly modifying the Partition parameter of an element, or by using the
+      <b>
+       AssignElementsToSequence
+      </b>
+      method.
+   It is highly recommended using that method over explicitly changing the Partition parameter, because the methods applies changes
+   to sequences and element numbers immediately, while changed parameters get into effect only after the current transaction is closed.
+     </p>
+     <p>
+      In addition to directly or indirectly changing the Partition parameter of elements, numbering sequences can be
+   reorganized by using methods of the NumberingSchema class. The
+      <a href="9ae38f60-e76f-5bd7-1d71-bd57cf06f641.htm">
+       MoveSequence
+      </a>
+      method moves
+   all elements of an existing sequence to a new sequence that does not exist yet in the schema, thus effectively renaming
+   the Partition parameter on all the affected elements. The
+      <a href="0a89ca78-ca34-93fa-4fa7-71883a535497.htm">
+       AppendSequence
+      </a>
+      method removes
+   all elements from one sequence and appends them to elements of another existing sequence while applying the matching policy.
+   The method
+      <b>
+       MergeSequences
+      </b>
+      takes elements of all specified sequences and moves them all into a newly created sequence.
+   All the merged elements will be renumbered and matched as needed based on the matching algorithm.
+     </p>
+     <p>
+      Elements in different sequences are numbered independently, meaning that there may be elements with the same
+   number in two sequences even though the elements are different. Likewise, there may be perfectly identical
+   elements in two or more sequences bearing different numbers. However, within each one numbering sequence any
+   two identical elements will always have the same number, while different elements will never have the same
+   number within a numbering sequence. Revit refers to this rule as the matching policy.
+     </p>
+     <p>
+      Enumerable elements are always numbered automatically upon their creation. Each new element will get an
+   incrementally higher number. However, thanks to the matching policy, new elements that match existing elements
+   within the same sequence will get the same number assigned. Elements will keep their assigned numbers as long
+   as it is possible. This means, for example, that if some previously created elements (e.g. Rebar) get deleted,
+   all remaining elements (within the same numbering sequence) will keep their numbers, which may result in gaps in
+   the respective numbering sequence. Gaps can be removed by invoking
+      <a href="a97a1aff-4afe-7aa7-098a-f71229efdccd.htm">
+       RemoveGaps
+      </a>
+      for sequences
+   in which gaps are not desired.
+     </p>
+     <p>
+      Numbers are stored as values of a numbering parameter on each numbered element. The Id of the parameter is obtained
+   by querying the
+      <a href="94659f29-c7f2-9643-f443-9451a3177cc2.htm">
+       NumberingParameterId
+      </a>
+      property. The value of the number can be obtained by querying the
+   parameter for the respective numbered element. The value is read-only and thus cannot be set; it is always computed based
+   on relations of elements across numbering partitions and the matching policy within the numbering sequence of each element.
+     </p>
+     <p>
+      Even though numbers are always assigned automatically to all elements of a schema, the method
+      <a href="dc93cd7f-dc11-45da-3ed6-c459d1c55c97.htm">
+       ChangeNumber
+      </a>
+      gives the programmer a way to explicitly overwrite a specific number as long
+   as the new number is unique in the numbering sequence. The caller specifies a number to be changed and a new value that is
+   to be applied, providing the value does not exist yet in the same numbering sequence. Although this operation may seem rather
+   limited, it provides the programmer with freedom to change practically any number even if it may be achieved in multiple steps.
+     </p>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// This function consolidates the numbers on Rebar elements by removing</span>
+<span class="highlight-comment">/// any remaining gaps in numbering sequences and setting the start number</span>
+<span class="highlight-comment">/// of each sequence so numbers in sequences do not overlap.</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-comment">/// &lt;param name="document"&gt;The document in which Rebar numbers are to be consolidated&lt;/param&gt;</span>
+<span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> ConsolidateRebarNumbers(Document document)
+{
+    <span class="highlight-comment">// Obtain a schema object for a particular kind of elements </span>
+    NumberingSchema schema = NumberingSchema.GetNumberingSchema(document,NumberingSchemaTypes.StructuralNumberingSchemas.Rebar);
+
+    <span class="highlight-comment">// Collect the names of partitions of all the numbering sequences currently contained in the schema</span>
+    IList&lt;<span class="highlight-keyword">string</span>&gt; sequences = schema.GetNumberingSequences();
+
+    <span class="highlight-keyword">using</span> (Transaction transaction = <span class="highlight-keyword">new</span> Transaction(document))
+    {
+        <span class="highlight-comment">// Changes to numbers must be made inside a transaction</span>
+        transaction.Start(<span class="highlight-literal">"Consolidate Rebar Numbers"</span>);
+
+        <span class="highlight-comment">// First we make sure numbers in all sequences are consecutive</span>
+        <span class="highlight-comment">// by removing possible gaps in numbers. Note: RemoveGaps does</span>
+        <span class="highlight-comment">// nothing for a sequence where there are no gaps present.</span>
+
+        <span class="highlight-comment">// We also want to find what the maximum range of numbers is</span>
+        <span class="highlight-comment">// of all the sequences (the one the widest span of used numbers)</span>
+        <span class="highlight-keyword">int</span> maxRange = <span class="highlight-number">0</span>;
+
+        <span class="highlight-keyword">foreach</span> (<span class="highlight-keyword">string</span> name <span class="highlight-keyword">in</span> sequences)
+        {
+            schema.RemoveGaps(name);
+
+            <span class="highlight-comment">// Here we use First() from the Linq extension.</span>
+            <span class="highlight-comment">// There is always at least one range in every sequence,</span>
+            <span class="highlight-comment">// and after gaps are closed there is exactly one range.</span>
+            IntegerRange range = schema.GetNumbers(name).First();  
+            <span class="highlight-keyword">int</span> rangeSpan = <span class="highlight-number">1</span> + (range.High - range.Low);
+            <span class="highlight-keyword">if</span> (rangeSpan &gt; maxRange)
+            {
+                maxRange = rangeSpan;
+            }
+        }
+
+        <span class="highlight-comment">// Next we give sequences different start numbers</span>
+        <span class="highlight-comment">// starting with 100 and then stepping by at least</span>
+        <span class="highlight-comment">// the maximum range we found in the previous step</span>
+        <span class="highlight-keyword">int</span> startNumber = <span class="highlight-number">100</span>;
+
+        <span class="highlight-comment">// We round the range up to the closest 100</span>
+        <span class="highlight-keyword">int</span> step = <span class="highlight-number">100</span> * (<span class="highlight-keyword">int</span>)((maxRange + <span class="highlight-number">99</span>) / <span class="highlight-number">100.0</span>);
+
+        <span class="highlight-keyword">foreach</span> (<span class="highlight-keyword">string</span> name <span class="highlight-keyword">in</span> sequences)
+        {
+            schema.ShiftNumbers(name, startNumber);
+            startNumber += step;
+        }
+
+        transaction.Commit();
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">''' &lt;summary&gt;</span>
+<span class="highlight-comment">''' This function consolidates the numbers on Rebar elements by removing</span>
+<span class="highlight-comment">''' any remaining gaps in numbering sequences and setting the start number</span>
+<span class="highlight-comment">''' of each sequence so numbers in sequences do not overlap.</span>
+<span class="highlight-comment">''' &lt;/summary&gt;</span>
+<span class="highlight-comment">''' &lt;param name="document"&gt;The document in which Rebar numbers are to be consolidated&lt;/param&gt;</span>
+<span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> ConsolidateRebarNumbers(document <span class="highlight-keyword">As</span> Document)
+    <span class="highlight-comment">' Obtain a schema object for a particular kind of elements </span>
+    <span class="highlight-keyword">Dim</span> schema <span class="highlight-keyword">As</span> NumberingSchema = NumberingSchema.GetNumberingSchema(document, NumberingSchemaTypes.StructuralNumberingSchemas.Rebar)
+
+    <span class="highlight-comment">' Collect the names of partitions of all the numbering sequences currently contained in the schema</span>
+    <span class="highlight-keyword">Dim</span> sequences <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> <span class="highlight-keyword">String</span>) = schema.GetNumberingSequences()
+
+    <span class="highlight-keyword">Using</span> transaction <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> Transaction(document)
+        <span class="highlight-comment">' Changes to numbers must be made inside a transaction</span>
+        transaction.Start(<span class="highlight-literal">"Consolidate Rebar Numbers"</span>)
+
+        <span class="highlight-comment">' First we make sure numbers in all sequences are consecutive</span>
+        <span class="highlight-comment">' by removing possible gaps in numbers. Note: RemoveGaps does</span>
+        <span class="highlight-comment">' nothing for a sequence where there are no gaps present.</span>
+
+
+        <span class="highlight-comment">' We also want to find what the maximum range of numbers is</span>
+        <span class="highlight-comment">' of all the sequences (the one the widest span of used numbers)</span>
+        <span class="highlight-keyword">Dim</span> maxRange <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> = <span class="highlight-number">0</span>
+
+        <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> name <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> <span class="highlight-keyword">In</span> sequences
+            schema.RemoveGaps(name)
+
+            <span class="highlight-comment">' Here we use First() from the Linq extension.</span>
+            <span class="highlight-comment">' There is always at least one range in every sequence,</span>
+            <span class="highlight-comment">' and after gaps are closed there is exactly one range.</span>
+            <span class="highlight-keyword">Dim</span> range <span class="highlight-keyword">As</span> IntegerRange = schema.GetNumbers(name).First()
+            <span class="highlight-keyword">Dim</span> rangeSpan <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> = <span class="highlight-number">1</span> + (range.High - range.Low)
+            <span class="highlight-keyword">If</span> rangeSpan &gt; maxRange <span class="highlight-keyword">Then</span>
+                maxRange = rangeSpan
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+        <span class="highlight-keyword">Next</span>
+
+        <span class="highlight-comment">' Next we give sequences different start numbers</span>
+        <span class="highlight-comment">' starting with 100 and then stepping by at least</span>
+        <span class="highlight-comment">' the maximum range we found in the previous step</span>
+        <span class="highlight-keyword">Dim</span> startNumber <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> = <span class="highlight-number">100</span>
+
+        <span class="highlight-comment">' We round the range up to the closest 100</span>
+        <span class="highlight-keyword">Dim</span> [<span class="highlight-keyword">step</span>] <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> = <span class="highlight-number">100</span> * <span class="highlight-keyword">CInt</span>(Math.Truncate((maxRange + <span class="highlight-number">99</span>) / <span class="highlight-number">100.0</span>))
+
+        <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> name <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> <span class="highlight-keyword">In</span> sequences
+            schema.ShiftNumbers(name, startNumber)
+            startNumber += [<span class="highlight-keyword">step</span>]
+        <span class="highlight-keyword">Next</span>
+
+        transaction.Commit()
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Using</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+      Autodesk.Revit.DB
+      Element
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      NumberingSchema
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="1042810e-72a4-1ab1-22f3-925f2f05e20a.htm">
+       NumberingSchema Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,237 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A type used to identify the particular part of a Stirrup style rebar to which
+   a Standard style rebar's handle is constrained.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="identifier">TargetRebarConstraintType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Enumeration</span> <span class="identifier">TargetRebarConstraintType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum class</span> <span class="identifier">TargetRebarConstraintType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <div id="enumerationSection">
+     <h1 class="heading">
+      Members
+     </h1>
+     <div class="section" id="membersSection" name="collapseableSection" style="">
+      <table cellpadding="2" class="members" frame="lhs" id="memberList">
+       <colgroup>
+        <col width="10%">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr>
+         <th class="nameColumn">
+          Member name
+         </th>
+         <th class="descriptionColumn">
+          Description
+         </th>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.TargetRebarConstraintType.RebarPlane">
+          <span class="selflink">
+           RebarPlane
+          </span>
+         </td>
+         <td>
+          Handle is constrained to the location of the other Rebar's primary plane.
+   Drives location of the entire Rebar along the direction of its normal.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.TargetRebarConstraintType.StartOfBar">
+          <span class="selflink">
+           StartOfBar
+          </span>
+         </td>
+         <td>
+          Handle is constrained to start point of the other Rebar.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.TargetRebarConstraintType.EndOfBar">
+          <span class="selflink">
+           EndOfBar
+          </span>
+         </td>
+         <td>
+          Handle is constrained to end point of the other Rebar.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.TargetRebarConstraintType.Edge">
+          <span class="selflink">
+           Edge
+          </span>
+         </td>
+         <td>
+          Handle is constrained to location of a single edge segment of the other Rebar.
+   Drives the edge in the direction perpendicular to the edge and
+   in the Rebar's primary plane.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.TargetRebarConstraintType.OutOfPlaneExtent">
+          <span class="selflink">
+           OutOfPlaneExtent
+          </span>
+         </td>
+         <td>
+          Handle is constrained to the extent of a three-dimensional Rebar out of
+   its primary plane.  This includes the length of a Rebar Set, the
+   out-of-plane length of a multi-planar Rebar, and the length of a
+   spiral Rebar.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.TargetRebarConstraintType.BarBend">
+          <span class="selflink">
+           BarBend
+          </span>
+         </td>
+         <td>
+          Handle is constrained to fillet of the edge of the other Rebar.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.TargetRebarConstraintType.HookBend">
+          <span class="selflink">
+           HookBend
+          </span>
+         </td>
+         <td>
+          Handle is constrained to fillet of the hook of the other Rebar.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Most of the range of values for this type are the same as those of RebarHandleType,
+   since it is usually the handles on the Stirrup which constrain the Standard bar.
+   However, two additional values - BarBend and HookBend - are used to identify the
+   special case of a Standard style, straight bar, running perpendicular to the plane
+   of the Stirrup, and constrained to a bend (or hook) arc on the Stirrup.
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

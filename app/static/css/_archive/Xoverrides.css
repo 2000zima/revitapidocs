@@ -1,0 +1,89 @@
+/*@import url(https://fonts.googleapis.com/css?family=Roboto+Mono:300);*/
+
+#mainSection .summary{
+    /*margin-top:12px;*/
+    margin-bottom:12px;
+}
+
+#mainSection .heading {
+    font-weight:100;
+    color:#999;
+}
+#mainSection .heading img{
+    display:none;
+}
+
+#gradientTable{
+    display:none;
+}
+
+div.code pre {
+font-family: 'Roboto Mono','Consolas','monospace' !important;
+border:1px #dadada solid;
+background-color: #fafbfb!important;
+/*background-color: #fafaff!important;*/
+padding:12px;
+}
+
+/*COPY CODE ICON*/
+span.highlight-copycode{
+  display:none;
+}
+
+.highlight-title{
+    border-bottom:0px !important;
+}
+
+#mainSection th {
+color:#666 !important;
+background-color:#fff !important;
+}
+
+
+h1.heading  {
+    /*display: none;*/
+}
+div#syntaxCodeBlocks th  {
+    padding-top: 12px;
+}
+h4.subHeading {
+  margin-top: 16px;
+}
+
+#mainSection img{
+    opacity:0.75;
+}
+
+/*Header Toggles */
+div#header p, div#header a{
+    font-size: 12px !important;
+}
+
+/*FIX INVALID*/
+body #mainBody, body #mainBody a, body #mainBody p, body #mainBody span {
+    font-size: 12px !important;
+}
+
+#runningHeaderText{
+    display:none !important;
+}
+
+#remarksSection {
+/*font-size: 12px !important;*/
+/*ENLARGE THIS: http://www.revitapidocs.com/2016/c53f2132-bc08-1650-b1c6-bc7b66ff7a5d.htm*/
+}
+
+#nsrTitle, .feedbackhead {
+    display: none;
+    /*color: #0ff;*/
+    /*background-color: #ff0;*/
+}
+
+tr.selected-enumeration > td {
+    background-color: #21a3a3 !important; /*brand-primari*/
+    color: #fff;
+}
+
+#mainSection tr:not(.selected-enumeration) td {
+background-color:#fff;
+}

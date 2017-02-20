@@ -1,0 +1,230 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A type to help identify the individual face on a host element to which a Rebar handle
+   is constrained.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="identifier">RebarConstraintTargetHostFaceType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Enumeration</span> <span class="identifier">RebarConstraintTargetHostFaceType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum class</span> <span class="identifier">RebarConstraintTargetHostFaceType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <div id="enumerationSection">
+     <h1 class="heading">
+      Members
+     </h1>
+     <div class="section" id="membersSection" name="collapseableSection" style="">
+      <table cellpadding="2" class="members" frame="lhs" id="memberList">
+       <colgroup>
+        <col width="10%">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr>
+         <th class="nameColumn">
+          Member name
+         </th>
+         <th class="descriptionColumn">
+          Description
+         </th>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.RebarConstraintTargetHostFaceType.FaceWithTagId">
+          <span class="selflink">
+           FaceWithTagId
+          </span>
+         </td>
+         <td>
+          Face identified by integer tag.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.RebarConstraintTargetHostFaceType.Top">
+          <span class="selflink">
+           Top
+          </span>
+         </td>
+         <td>
+          Face forms the top surface of the host geometry.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.RebarConstraintTargetHostFaceType.Bottom">
+          <span class="selflink">
+           Bottom
+          </span>
+         </td>
+         <td>
+          Face forms the bottom surface of the host geometry.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.RebarConstraintTargetHostFaceType.End0">
+          <span class="selflink">
+           End0
+          </span>
+         </td>
+         <td>
+          Face forms the starting end surface of the host geometry.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.RebarConstraintTargetHostFaceType.End1">
+          <span class="selflink">
+           End1
+          </span>
+         </td>
+         <td>
+          Face forms the end surface of the host geometry.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.RebarConstraintTargetHostFaceType.Side0">
+          <span class="selflink">
+           Side0
+          </span>
+         </td>
+         <td>
+          Face forms the exterior surface of the host geometry.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.RebarConstraintTargetHostFaceType.Side1">
+          <span class="selflink">
+           Side1
+          </span>
+         </td>
+         <td>
+          Face forms the interior surface of the host geometry.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     For some types of host, it is possible to describe the face in terms of recognizable
+   topology (i.e. Top, Bottom, etc.).  However, for most elements, the face can only be
+   identified by integer tag.  In all cases, a Pick to the host face can be obtained
+   by calling RebarConstraint.GetTargetHostFaceReference().
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

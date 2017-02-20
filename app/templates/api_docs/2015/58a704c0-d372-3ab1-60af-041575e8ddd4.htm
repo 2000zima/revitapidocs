@@ -1,0 +1,213 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="8491691e-2a26-684e-f43c-e8e0095fd129.htm">
+       SingleServerService Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Unset the active server for the particular document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="a88f2d1d-c02f-a901-9543-44e4b5dd5fc9.htm">
+      Autodesk.Revit.DB.ExternalService
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">UnsetActiveServer</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">document</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">UnsetActiveServer</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">UnsetActiveServer</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">document</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      After unsetting the active server, the document will be using the
+   application-wide active server, if one was already set.
+     </p>
+     <p>
+      Note it is not possible to unset a server that acts as an application-wide
+   active server for a service. On the other hand, there should be no reason
+   to ever do so, for each and every registered service should have (ideally)
+   an active server set applicatiton-wide.
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          The operation is not allowed because the service is being executed.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="8491691e-2a26-684e-f43c-e8e0095fd129.htm">
+       SingleServerService Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="a88f2d1d-c02f-a901-9543-44e4b5dd5fc9.htm">
+       Autodesk.Revit.DB.ExternalService Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

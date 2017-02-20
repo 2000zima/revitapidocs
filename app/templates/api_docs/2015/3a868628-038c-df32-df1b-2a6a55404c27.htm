@@ -1,0 +1,182 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="35859972-2407-3910-cb07-bbb337e307e6.htm">
+       ControlledApplication Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Returns a set of all the known city locations within Revit.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="91957e18-2935-006c-83ab-3b5b9dbb5928.htm">
+      Autodesk.Revit.ApplicationServices
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="9184332e-1167-a3c1-b2c1-58e9409817f3.htm">CitySet</a> <span class="identifier">Cities</span> { <span class="keyword">get</span>; }</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">ReadOnly</span> <span class="keyword">Property</span> <span class="identifier">Cities</span> <span class="keyword">As</span> <a href="9184332e-1167-a3c1-b2c1-58e9409817f3.htm">CitySet</a>
+	<span class="keyword">Get</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">property</span> <a href="9184332e-1167-a3c1-b2c1-58e9409817f3.htm">CitySet</a>^ <span class="identifier">Cities</span> {
+	<a href="9184332e-1167-a3c1-b2c1-58e9409817f3.htm">CitySet</a>^ <span class="keyword">get</span> ();
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Each city has information about longitude, latitude etc.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// Get all Revit support cities</span>
+Autodesk.Revit.DB.CitySet cities = application.Cities;
+
+<span class="highlight-comment">// Set all Revit support cities into an ArrayList</span>
+System.Collections.ArrayList cityList = <span class="highlight-keyword">new</span> System.Collections.ArrayList();
+<span class="highlight-keyword">foreach</span> (Autodesk.Revit.DB.City city <span class="highlight-keyword">in</span> cities)
+{
+    cityList.Add(city);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' Get all Revit support cities</span>
+<span class="highlight-keyword">Dim</span> cities <span class="highlight-keyword">As</span> Autodesk.Revit.DB.CitySet = application.Cities
+
+<span class="highlight-comment">' Set all Revit support cities into an ArrayList</span>
+<span class="highlight-keyword">Dim</span> cityList <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> System.Collections.ArrayList()
+<span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> city <span class="highlight-keyword">As</span> Autodesk.Revit.DB.City <span class="highlight-keyword">In</span> cities
+    cityList.Add(city)
+<span class="highlight-keyword">Next</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="35859972-2407-3910-cb07-bbb337e307e6.htm">
+       ControlledApplication Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="91957e18-2935-006c-83ab-3b5b9dbb5928.htm">
+       Autodesk.Revit.ApplicationServices Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

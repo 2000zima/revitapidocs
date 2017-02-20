@@ -1,0 +1,297 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="308ebf8d-d96d-4643-cd1d-34fffcea53fd.htm">
+       Transaction Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Starts the transaction.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="29b9a7a8-6754-8310-e063-622b569bb6d5.htm">TransactionStatus</a> <span class="identifier">Start</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">Start</span> <span class="keyword">As</span> <a href="29b9a7a8-6754-8310-e063-622b569bb6d5.htm">TransactionStatus</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="29b9a7a8-6754-8310-e063-622b569bb6d5.htm">TransactionStatus</a> <span class="identifier">Start</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If finished successfully, this method returns TransactionStatus.Started.
+   Note that unless starting is successful, changes cannot be made to the document.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      A transaction may be started only after it was instantiated or after it
+   was previously committed or rolled back. In order to start a transaction,
+   it must have a name assigned. If the name was not specified when the
+   transaction object was instantiated, it has to be set by calling
+   the
+      <a href="c0283e7f-d261-6016-724c-31ae5cde96a7.htm">
+       SetName(String)
+      </a>
+      method.
+     </p>
+     <p>
+      Be aware that every time a transaction starts,
+      <a href="c03bb2e5-f679-bf24-4e87-08b3c3a08385.htm">
+       Failure Handling Options
+      </a>
+      will be reset to their default values. If a specific failure handling
+   is required, programmers need to use
+      <a href="1e913cca-f75b-8dfb-b172-5a04f3732b85.htm">
+       SetFailureHandlingOptions(FailureHandlingOptions)
+      </a>
+      before the transaction is committed or rolled back.
+     </p>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> TransactionDuringElementCreation(UIApplication uiApplication, Level level)
+{
+    Autodesk.Revit.DB.Document document = uiApplication.ActiveUIDocument.Document;
+
+    <span class="highlight-comment">// Build a location line for the wall creation</span>
+    XYZ start = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>);
+    XYZ end = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">10</span>, <span class="highlight-number">0</span>);
+    Autodesk.Revit.DB.Line geomLine = Line.CreateBound(start, end);
+
+    <span class="highlight-comment">// All and any transaction should be enclosed in a 'using'</span>
+    <span class="highlight-comment">// block or guarded within a try-catch-finally blocks</span>
+    <span class="highlight-comment">// to guarantee that a transaction does not out-live its scope.</span>
+    <span class="highlight-keyword">using</span> (Transaction wallTransaction = <span class="highlight-keyword">new</span> Transaction(document, <span class="highlight-literal">"Creating wall"</span>))
+    {
+       <span class="highlight-comment">// To create a wall, a transaction must be first started</span>
+       <span class="highlight-keyword">if</span> (wallTransaction.Start() == TransactionStatus.Started)
+       {
+           <span class="highlight-comment">// Create a wall using the location line</span>
+           Wall wall = Wall.Create(document, geomLine, level.Id, <span class="highlight-keyword">true</span>);
+
+           <span class="highlight-comment">// the transaction must be committed before you can</span>
+           <span class="highlight-comment">// get the value of Geometry and AnalyticalModel.</span>
+
+           <span class="highlight-keyword">if</span> (wallTransaction.Commit() == TransactionStatus.Committed)
+           {
+               Autodesk.Revit.DB.Options options = uiApplication.Application.Create.NewGeometryOptions();
+               Autodesk.Revit.DB.GeometryElement geoelem = wall.get_Geometry(options);
+               Autodesk.Revit.DB.Structure.AnalyticalModel analyticalmodel = wall.GetAnalyticalModel();
+           }
+       }
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> TransactionDuringElementCreation(uiApplication <span class="highlight-keyword">As</span> UIApplication, level <span class="highlight-keyword">As</span> Level)
+    <span class="highlight-keyword">Dim</span> document <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Document = uiApplication.ActiveUIDocument.Document
+
+    <span class="highlight-comment">' Build a location line for the wall creation</span>
+    <span class="highlight-keyword">Dim</span> start <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>)
+    <span class="highlight-keyword">Dim</span> [<span class="highlight-keyword">end</span>] <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">10</span>, <span class="highlight-number">0</span>)
+    <span class="highlight-keyword">Dim</span> geomLine <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Line = Line.CreateBound(start, [<span class="highlight-keyword">end</span>])
+
+    <span class="highlight-comment">' All and any transaction should be enclosed in a 'using'</span>
+    <span class="highlight-comment">' block or guarded within a try-catch-finally blocks</span>
+    <span class="highlight-comment">' to guarantee that a transaction does not out-live its scope.</span>
+    <span class="highlight-keyword">Using</span> wallTransaction <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> Transaction(document, <span class="highlight-literal">"Creating wall"</span>)
+        <span class="highlight-comment">' To create a wall, a transaction must be first started</span>
+        <span class="highlight-keyword">If</span> wallTransaction.Start() = TransactionStatus.Started <span class="highlight-keyword">Then</span>
+            <span class="highlight-comment">' Create a wall using the location line</span>
+            <span class="highlight-keyword">Dim</span> wall__1 <span class="highlight-keyword">As</span> Wall = Wall.Create(document, geomLine, level.Id, <span class="highlight-keyword">True</span>)
+
+            <span class="highlight-comment">' the transaction must be committed before you can</span>
+            <span class="highlight-comment">' get the value of Geometry and AnalyticalModel.</span>
+
+
+            <span class="highlight-keyword">If</span> wallTransaction.Commit() = TransactionStatus.Committed <span class="highlight-keyword">Then</span>
+                <span class="highlight-keyword">Dim</span> options <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Options = uiApplication.Application.Create.NewGeometryOptions()
+                <span class="highlight-keyword">Dim</span> geoelem <span class="highlight-keyword">As</span> Autodesk.Revit.DB.GeometryElement = wall__1.Geometry(options)
+                <span class="highlight-keyword">Dim</span> analyticalmodel <span class="highlight-keyword">As</span> Autodesk.Revit.DB.<span class="highlight-keyword">Structure</span>.AnalyticalModel = wall__1.GetAnalyticalModel()
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Using</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Cannot modify the document for either a read-only external command is being executed, or changes to the document are temporarily disabled.
+   -or-
+   The transaction's document is currently in failure mode.
+   No transaction operations are permitted until failure handling is finished.
+   -or-
+   The transaction started already and has not been completed yet.
+   -or-
+   Starting a new transaction is not permitted. It could be because
+   another transaction already started and has not been completed yet,
+   or the document is in a state in which it cannot start a new transaction
+   (e.g. during failure handling or a read-only mode, which could be either permanent or temporary).
+   -or-
+   The transaction does not have a valid name assigned yet.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="308ebf8d-d96d-4643-cd1d-34fffcea53fd.htm">
+       Transaction Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="1c9a7d0c-d4c6-772e-ae19-98d60996d1fb.htm">
+       Start Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

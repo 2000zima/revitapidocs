@@ -1,0 +1,218 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ad660934-6ceb-491d-3c00-a66f9b7e0561.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     The PushButton object represents an button on a RibbonPanel.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">PushButton</span> : <a href="0f523e1e-6949-451f-97fc-48c3cd9d7c82.htm">RibbonButton</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">PushButton</span> _
+	<span class="keyword">Inherits</span> <a href="0f523e1e-6949-451f-97fc-48c3cd9d7c82.htm">RibbonButton</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">PushButton</span> : <span class="keyword">public</span> <a href="0f523e1e-6949-451f-97fc-48c3cd9d7c82.htm">RibbonButton</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Use of this class is not supported in Revit Macros.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> AddPushButton(RibbonPanel panel)
+{
+    PushButton pushButton = panel.AddItem(<span class="highlight-keyword">new</span> PushButtonData(<span class="highlight-literal">"HelloWorld"</span>,
+        <span class="highlight-literal">"HelloWorld"</span>, <span class="highlight-literal">@"D:\Sample\HelloWorld\bin\Debug\HelloWorld.dll"</span>, <span class="highlight-literal">"HelloWorld.CsHelloWorld"</span>)) <span class="highlight-keyword">as</span> PushButton;
+
+    <span class="highlight-comment">// Set ToolTip and contextual help</span>
+    pushButton.ToolTip = <span class="highlight-literal">"Say Hello World"</span>;
+    ContextualHelp contextHelp = <span class="highlight-keyword">new</span> ContextualHelp(ContextualHelpType.Url,
+        <span class="highlight-literal">"http://www.autodesk.com"</span>);
+   pushButton.SetContextualHelp(contextHelp);
+
+    <span class="highlight-comment">// Set the large image shown on button</span>
+    pushButton.LargeImage = 
+        <span class="highlight-keyword">new</span> BitmapImage(<span class="highlight-keyword">new</span> Uri(<span class="highlight-literal">@"D:\Sample\HelloWorld\bin\Debug\39-Globe_32x32.png"</span>));
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> AddPushButton(panel <span class="highlight-keyword">As</span> RibbonPanel)
+    <span class="highlight-keyword">Dim</span> pushButton <span class="highlight-keyword">As</span> PushButton = <span class="highlight-keyword">TryCast</span>(panel.AddItem(<span class="highlight-keyword">New</span> PushButtonData(<span class="highlight-literal">"HelloWorld"</span>, <span class="highlight-literal">"HelloWorld"</span>, <span class="highlight-literal">"D:\Sample\HelloWorld\bin\Debug\HelloWorld.dll"</span>, <span class="highlight-literal">"HelloWorld.CsHelloWorld"</span>)), PushButton)
+
+    <span class="highlight-comment">' Set ToolTip and contextual help</span>
+    pushButton.ToolTip = <span class="highlight-literal">"Say Hello World"</span>
+    <span class="highlight-keyword">Dim</span> contextHelp <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ContextualHelp(ContextualHelpType.Url, <span class="highlight-literal">"http://www.autodesk.com"</span>)
+    pushButton.SetContextualHelp(contextHelp)
+
+    <span class="highlight-comment">' Set the large image shown on button</span>
+    pushButton.LargeImage = <span class="highlight-keyword">New</span> BitmapImage(<span class="highlight-keyword">New</span> Uri(<span class="highlight-literal">"D:\Sample\HelloWorld\bin\Debug\39-Globe_32x32.png"</span>))
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="79225f03-1633-3722-15b0-752c91a3740d.htm">
+      Autodesk.Revit.UI
+      RibbonItem
+     </a>
+     <br/>
+     <a href="0f523e1e-6949-451f-97fc-48c3cd9d7c82.htm">
+      Autodesk.Revit.UI
+      RibbonButton
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.UI
+      PushButton
+     </span>
+     <br/>
+     <a href="aaef4d8d-18bd-4245-51be-bfc1740f8053.htm">
+      Autodesk.Revit.UI
+      ToggleButton
+     </a>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ad660934-6ceb-491d-3c00-a66f9b7e0561.htm">
+       PushButton Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

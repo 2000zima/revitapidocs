@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img alt="Revit API Docs Logo" src="{{ url_for('static', filename="img/logos/nav-logo-simple.svg") }}"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav">
+
+        {% macro nav_button(btn_year) -%}
+        <!-- Missing is added only if available in is defined, and year not in it -->
+        <!-- Non active buttons will switch to equivalent resource of that year. Active button will take to root of that year -->
+        <li class="{{ 'active' if active_year == btn_year }} {% if available_in %} {{ 'missing' if btn_year not in available_in }} {%endif%}"><a href="/{{btn_year}}/{% if btn_year != active_year %}{{ active_href if active_href is not none }}{% endif %}">{{btn_year}}</a></li>
+        {%- endmacro %}
+
+        {{ nav_button('2015') }}
+        {{ nav_button('2016') }}
+        {{ nav_button('2017') }}
+        {{ nav_button('2017.1') }}
+        <!-- <li class="{{ 'active' if year == '2015' }} {{ 'missing' if '2015' not in available_in }}"><a href="/2015/{{ active_href if active_href is not none }}">2015</a></li> -->
+        <li class="{{ 'active' if 'python' in request.path }}"><a href="{{ url_for('python')}}">Python</a></li>
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+          <li><a target="_blank" href="http://twitter.com/intent/tweet?text=Check out&url=http://RevitAPIdocs.com&hashtags=revitapi&via=gtalarico&"><img src="{{ url_for('static', filename="img/social/social-twitter-navbar.svg") }}" alt="Tweet" /></a></li>
+          {# <li><p class="navbar-text"><a href="#" class="navbar-link">About</a></p></li>#}
+      </ul>
+
+
+    </div> <!-- /.navbar-collapse -->
+  </div> <!-- /.container-fluid -->
+</nav>

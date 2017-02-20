@@ -1,0 +1,443 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+       Document Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Performs reload latest until the model in the current session is up to date and then saves changes back to central.
+   A save to central is performed even if no changes were made.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SynchronizeWithCentral</span>(
+	<a href="f5da22fa-55ee-9196-cafd-5323d8e9ca0a.htm">TransactWithCentralOptions</a> <span class="parameter">transactOptions</span>,
+	<a href="96eaf3af-971d-da6d-a857-88d6e602ffd4.htm">SynchronizeWithCentralOptions</a> <span class="parameter">syncOptions</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SynchronizeWithCentral</span> ( _
+	<span class="parameter">transactOptions</span> <span class="keyword">As</span> <a href="f5da22fa-55ee-9196-cafd-5323d8e9ca0a.htm">TransactWithCentralOptions</a>, _
+	<span class="parameter">syncOptions</span> <span class="keyword">As</span> <a href="96eaf3af-971d-da6d-a857-88d6e602ffd4.htm">SynchronizeWithCentralOptions</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SynchronizeWithCentral</span>(
+	<a href="f5da22fa-55ee-9196-cafd-5323d8e9ca0a.htm">TransactWithCentralOptions</a>^ <span class="parameter">transactOptions</span>, 
+	<a href="96eaf3af-971d-da6d-a857-88d6e602ffd4.htm">SynchronizeWithCentralOptions</a>^ <span class="parameter">syncOptions</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="transactOptions">
+       <dt>
+        <span class="parameter">
+         transactOptions
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="f5da22fa-55ee-9196-cafd-5323d8e9ca0a.htm">
+         Autodesk.Revit.DB
+         TransactWithCentralOptions
+        </a>
+        <br/>
+        Options to customize behavior accessing the central model.
+       </dd>
+      </dl>
+      <dl paramname="syncOptions">
+       <dt>
+        <span class="parameter">
+         syncOptions
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="96eaf3af-971d-da6d-a857-88d6e602ffd4.htm">
+         Autodesk.Revit.DB
+         SynchronizeWithCentralOptions
+        </a>
+        <br/>
+        Options to customize behavior of SynchronizeWithCentral.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> SyncWithoutRelinquishing(Document doc)
+{
+    <span class="highlight-comment">// Set options for accessing central model</span>
+    TransactWithCentralOptions transOpts = <span class="highlight-keyword">new</span> TransactWithCentralOptions();
+    SynchLockCallback transCallBack = <span class="highlight-keyword">new</span> SynchLockCallback();
+    <span class="highlight-comment">// Override default behavior of waiting to try again if the central model is locked</span>
+    transOpts.SetLockCallback(transCallBack);
+
+    <span class="highlight-comment">// Set options for synchronizing with central</span>
+    SynchronizeWithCentralOptions syncOpts = <span class="highlight-keyword">new</span> SynchronizeWithCentralOptions();
+    <span class="highlight-comment">// Sync without relinquishing any checked out elements or worksets</span>
+    RelinquishOptions relinquishOpts = <span class="highlight-keyword">new</span> RelinquishOptions(<span class="highlight-keyword">false</span>);
+    syncOpts.SetRelinquishOptions(relinquishOpts);
+    <span class="highlight-comment">// Do not automatically save local model after sync</span>
+    syncOpts.SaveLocalAfter = <span class="highlight-keyword">false</span>;
+    syncOpts.Comment = <span class="highlight-literal">"Changes to Workset1"</span>;
+
+    <span class="highlight-keyword">try</span>
+    {
+        doc.SynchronizeWithCentral(transOpts, syncOpts);
+    }
+    <span class="highlight-keyword">catch</span> (Exception e)
+    {
+        TaskDialog.Show(<span class="highlight-literal">"Synchronize Failed"</span>, e.Message);
+    }
+}
+
+<span class="highlight-comment">// This class implements the ICentralLockedCallback to override Revit's default</span>
+<span class="highlight-comment">// behavior for how to handle when the central model is locked by another user</span>
+<span class="highlight-keyword">class</span> SynchLockCallback : ICentralLockedCallback
+{
+    <span class="highlight-comment">// If unable to lock central, give up rather than waiting</span>
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">bool</span> ShouldWaitForLockAvailability()
+    {
+        <span class="highlight-keyword">return</span> <span class="highlight-keyword">false</span>;
+    }
+
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> SyncWithoutRelinquishing(doc <span class="highlight-keyword">As</span> Document)
+    <span class="highlight-comment">' Set options for accessing central model</span>
+    <span class="highlight-keyword">Dim</span> transOpts <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> TransactWithCentralOptions()
+    <span class="highlight-keyword">Dim</span> transCallBack <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> SynchLockCallback()
+    <span class="highlight-comment">' Override default behavior of waiting to try again if the central model is locked</span>
+    transOpts.SetLockCallback(transCallBack)
+
+    <span class="highlight-comment">' Set options for synchronizing with central</span>
+    <span class="highlight-keyword">Dim</span> syncOpts <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> SynchronizeWithCentralOptions()
+    <span class="highlight-comment">' Sync without relinquishing any checked out elements or worksets</span>
+    <span class="highlight-keyword">Dim</span> relinquishOpts <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> RelinquishOptions(<span class="highlight-keyword">False</span>)
+    syncOpts.SetRelinquishOptions(relinquishOpts)
+    <span class="highlight-comment">' Do not automatically save local model after sync</span>
+    syncOpts.SaveLocalAfter = <span class="highlight-keyword">False</span>
+    syncOpts.Comment = <span class="highlight-literal">"Changes to Workset1"</span>
+
+    <span class="highlight-keyword">Try</span>
+        doc.SynchronizeWithCentral(transOpts, syncOpts)
+    <span class="highlight-keyword">Catch</span> e <span class="highlight-keyword">As</span> Exception
+        TaskDialog.Show(<span class="highlight-literal">"Synchronize Failed"</span>, e.Message)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Try</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span>
+
+<span class="highlight-comment">' This class implements the ICentralLockedCallback to override Revit's default</span>
+<span class="highlight-comment">' behavior for how to handle when the central model is locked by another user</span>
+<span class="highlight-keyword">Private</span> <span class="highlight-keyword">Class</span> SynchLockCallback
+    <span class="highlight-keyword">Implements</span> ICentralLockedCallback
+    <span class="highlight-comment">' If unable to lock central, give up rather than waiting</span>
+    <span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> ShouldWaitForLockAvailability() <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span> <span class="highlight-keyword">Implements</span> ICentralLockedCallback.ShouldWaitForLockAvailability
+        <span class="highlight-keyword">Return</span> <span class="highlight-keyword">False</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span>
+
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Class</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="20094e4f-8326-8378-e5bc-452341d131c2.htm">
+           Autodesk.Revit.Exceptions
+           CentralFileCommunicationException
+          </a>
+         </td>
+         <td>
+          The file-based central model could not be reached, because e.g. the network is down or the file server is down.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="3e38b7b1-1ee8-c7f0-6cdd-bacf67bf61f4.htm">
+           Autodesk.Revit.Exceptions
+           CentralModelAccessDeniedException
+          </a>
+         </td>
+         <td>
+          Access to the central model was denied due to lack of access privileges.
+   -or-
+   Access to the central model was denied. A possible reason is because the model was under maintenance.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="ad511076-c435-23c1-5720-1205c4ed28b9.htm">
+           Autodesk.Revit.Exceptions
+           CentralModelContentionException
+          </a>
+         </td>
+         <td>
+          The central model is locked by another client.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="0e2ac15f-ca64-42c3-b3ef-e6f7ca1cb59a.htm">
+           Autodesk.Revit.Exceptions
+           CentralModelException
+          </a>
+         </td>
+         <td>
+          Username does not match the one used to create the local file.
+   -or-
+   Revit could not save all of the worksets that have been changed.  Try again.
+   -or-
+   Some of the elements you changed in this model are now editable by someone else, or you checked out worksets that were at risk
+   or relinquished in the central model but not this file.  You cannot synchronize with the central model until the other user
+   relinquishes these elements without making changes.
+   -or-
+   The central model has been replaced by a local model.
+   -or-
+   Local incompatible because it was closed without saving after synchronizing with central.
+   -or-
+   The central model is missing.
+   -or-
+   The central model is incompatible.
+   -or-
+   The central model is corrupt or not an RVT file.
+   -or-
+   The central model was rolled back.
+   -or-
+   Your data or permissions saving is aborted by another user.
+   -or-
+   The central model is overritten by other user.
+   -or-
+   An internal error happened on the central model, please contact the server administrator.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="73250198-dbc6-e760-4297-ec062f00f574.htm">
+           Autodesk.Revit.Exceptions
+           FileNotFoundException
+          </a>
+         </td>
+         <td>
+          Cannot access the local file.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          This Document is not a primary document, it is a linked document.
+   -or-
+   This Document is read-only: It cannot be modified.
+   -or-
+   This Document has an open editing transaction and is accepting changes.
+   -or-
+   This Document has is in an edit mode or is in family mode.
+   -or-
+   Saving is not allowed in the current application mode.
+   -or-
+   This Document does not have a central location: Worksharing needs to be enabled and central model saved.
+   -or-
+   This Document is a local file that is not owned by the current user, who therefore is not allowed to modify it.
+   -or-
+   The local file is read-only.
+   It can not be saved before or after synchronizing with central.
+   -or-
+   Operation is not permitted when there is any open sub-transaction, transaction, or transaction group.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="a0003d89-0113-6623-65da-0db5c568bfb6.htm">
+           Autodesk.Revit.Exceptions
+           RevitServerCommunicationException
+          </a>
+         </td>
+         <td>
+          The server-based central model could not be reached
+   because of a network communication error.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="6dcd093c-d643-07cd-535f-36ffa9d2db52.htm">
+           Autodesk.Revit.Exceptions
+           RevitServerInternalException
+          </a>
+         </td>
+         <td>
+          The disk space is running low on server, please contact the server administrator.
+   -or-
+   An internal error happened on the server, please contact the server administrator.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

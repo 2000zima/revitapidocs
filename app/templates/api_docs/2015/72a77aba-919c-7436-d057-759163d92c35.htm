@@ -1,0 +1,246 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="420696e3-f3ec-1a1d-1205-36a8119d81e5.htm">
+       ScheduleDefinition Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Adds a new filter at the specified position in the list.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">InsertFilter</span>(
+	<a href="a5dfec9f-1efd-b507-d079-eabcbf5032f8.htm">ScheduleFilter</a> <span class="parameter">filter</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">index</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">InsertFilter</span> ( _
+	<span class="parameter">filter</span> <span class="keyword">As</span> <a href="a5dfec9f-1efd-b507-d079-eabcbf5032f8.htm">ScheduleFilter</a>, _
+	<span class="parameter">index</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">Integer</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">InsertFilter</span>(
+	<a href="a5dfec9f-1efd-b507-d079-eabcbf5032f8.htm">ScheduleFilter</a>^ <span class="parameter">filter</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">index</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="filter">
+       <dt>
+        <span class="parameter">
+         filter
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="a5dfec9f-1efd-b507-d079-eabcbf5032f8.htm">
+         Autodesk.Revit.DB
+         ScheduleFilter
+        </a>
+        <br/>
+        The filter to add.
+       </dd>
+      </dl>
+      <dl paramname="index">
+       <dt>
+        <span class="parameter">
+         index
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">
+         System
+         Int32
+        </a>
+        <br/>
+        The index in the list of filters.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The field ID is not the ID of a field in this ScheduleDefinition.
+   -or-
+   The field and filter type cannot be used to filter this ScheduleDefinition.
+   -or-
+   The filter value is not valid for the field and filter type.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          index is not a valid insert position.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          This ScheduleDefinition does not support filters.
+   -or-
+   The resulting filter count would be greater than 8.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="420696e3-f3ec-1a1d-1205-36a8119d81e5.htm">
+       ScheduleDefinition Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

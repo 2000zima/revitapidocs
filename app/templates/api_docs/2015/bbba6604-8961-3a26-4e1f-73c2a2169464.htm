@@ -1,0 +1,241 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="70f78207-1109-3906-8e67-cd27df1f0ae8.htm">
+       FormatOptions Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     The accuracy to which values will be rounded.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="identifier">Accuracy</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Property</span> <span class="identifier">Accuracy</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a>
+	<span class="keyword">Get</span>
+	<span class="keyword">Set</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">property</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="identifier">Accuracy</span> {
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="keyword">get</span> ();
+	<span class="keyword">void</span> <span class="keyword">set</span> (<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <h4 class="subHeading">
+      Field Value
+     </h4>
+     The accuracy.  The default depends on the display unit.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      Formatted values will be rounded to the nearest multiple of
+   the accuracy value.
+     </p>
+     <p>
+      Accuracy is specified in display units, not in Revit's
+   internal units.
+     </p>
+     <p>
+      For DUT_GENERAL, the accuracy value is always 0.000001 and
+   cannot be set to another value.  DUT_GENERAL is a special display
+   unit that always rounds to six decimal places and suppresses
+   trailing zeros, roughly equivalent to DUT_FIXED with the accuracy
+   set to 0.000001 and SuppressTrailingZeros set to true.
+     </p>
+     <p>
+      For other display units, a wide range of accuracy values may
+   be specified.  All values from 1.0e-12 to 1.0e12 will be accepted,
+   but the specified value will be automatically adjusted to the
+   nearest supported value if necessary.  For best results, the
+   accuracy value should be chosen to be compatible with the display
+   unit:
+     </p>
+     <ul>
+      <li>
+       For most display units, the value is displayed as a decimal
+   number, and the accuracy should typically be a power of 10, for
+   example 1.0 to round to 0 decimal places or 0.001 to round to 3
+   decimal places.  Other values can be used, for example 0.25 to
+   round to the nearest 0.25 (displayed with 2 decimal places) or
+   2.0 to round to the nearest even integer (displayed with 0 decimal
+   places).  The specified accuracy will automatically be rounded to
+   the nearest positive multiple of 1.0e-12.
+      </li>
+      <li>
+       For DUT_FRACTIONAL_INCHES, DUT_RISE_OVER_INCHES, and
+   DUT_RISE_OVER_120_INCHES, the accuracy should typically be a power
+   of 2, for example 0.25 to round to the nearest 1/4".  Other values
+   can be used, for example 6.0 to round to the nearest 6" or 1.5 to
+   round to the nearest 1 1/2".  For DUT_FEET_FRACTIONAL_INCHES,
+   DUT_RISE_OVER_FOOT, and DUT_RISE_OVER_10_FEET, similar accuracy
+   values can be used but they must be divided by 12 because the
+   accuracy is specified in feet.  The specified accuracy will
+   automatically be rounded to the nearest positive multiple of
+   1/2^20 inches.
+      </li>
+      <li>
+       For DUT_DEGREES_AND_MINUTES, the accuracy should typically
+   be a power of 10 divided by 3600 to round seconds to a specific
+   number of decimal places, for example 1.0 / 3600.0 to round seconds
+   to 0 decimal places or 0.01 / 3600.0 to round seconds to 2 decimal
+   places.  The specified accuracy will automatically be rounded to
+   the nearest positive multiple of 1.0e-8 seconds.
+      </li>
+     </ul>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          When setting this property: accuracy is not a valid accuracy for the display unit in this FormatOptions.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          UseDefault is true in this FormatOptions.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="70f78207-1109-3906-8e67-cd27df1f0ae8.htm">
+       FormatOptions Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

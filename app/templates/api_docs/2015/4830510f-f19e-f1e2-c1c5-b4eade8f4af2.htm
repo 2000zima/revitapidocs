@@ -1,0 +1,345 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="a7622967-1381-c17f-ed04-1ebe40da0440.htm">
+       FamilyItemFactory Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Create new Form element by Extrude operation, and add it into the Autodesk Revit family document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="49f6ae4c-1629-98ef-d9a9-799bb1fd43ec.htm">Form</a> <span class="identifier">NewExtrusionForm</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">isSolid</span>,
+	<a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">ReferenceArray</a> <span class="parameter">profile</span>,
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">direction</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewExtrusionForm</span> ( _
+	<span class="parameter">isSolid</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a>, _
+	<span class="parameter">profile</span> <span class="keyword">As</span> <a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">ReferenceArray</a>, _
+	<span class="parameter">direction</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> _
+) <span class="keyword">As</span> <a href="49f6ae4c-1629-98ef-d9a9-799bb1fd43ec.htm">Form</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="49f6ae4c-1629-98ef-d9a9-799bb1fd43ec.htm">Form</a>^ <span class="identifier">NewExtrusionForm</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">isSolid</span>, 
+	<a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">ReferenceArray</a>^ <span class="parameter">profile</span>, 
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">direction</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="isSolid">
+       <dt>
+        <span class="parameter">
+         isSolid
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">
+         System
+         Boolean
+        </a>
+        <br/>
+        Indicates if the Form is Solid or Void.
+       </dd>
+      </dl>
+      <dl paramname="profile">
+       <dt>
+        <span class="parameter">
+         profile
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">
+         Autodesk.Revit.DB
+         ReferenceArray
+        </a>
+        <br/>
+        The profile of extrusion. It should consist of only one curve loop.
+       </dd>
+      </dl>
+      <dl paramname="direction">
+       <dt>
+        <span class="parameter">
+         direction
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        The direction of extrusion, with its length the length of the extrusion. The direction must be perpendicular to the plane determined by profile. The length of vector must be non-zero.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If creation was successful new form is returned.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">private</span> Form CreateExtrusionForm(Autodesk.Revit.DB.Document document)
+{
+    Form extrusionForm = <span class="highlight-keyword">null</span>;
+
+    <span class="highlight-comment">// Create one profile</span>
+    ReferenceArray ref_ar = <span class="highlight-keyword">new</span> ReferenceArray();
+
+    XYZ ptA = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">10</span>, <span class="highlight-number">0</span>);
+    XYZ ptB = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">90</span>, <span class="highlight-number">10</span>, <span class="highlight-number">0</span>);
+    ModelCurve modelcurve = MakeLine(document, ptA, ptB);
+    ref_ar.Append(modelcurve.GeometryCurve.Reference);
+
+    ptA = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">90</span>, <span class="highlight-number">10</span>, <span class="highlight-number">0</span>);
+    ptB = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">90</span>, <span class="highlight-number">0</span>);
+    modelcurve = MakeLine(document, ptA, ptB);
+    ref_ar.Append(modelcurve.GeometryCurve.Reference);
+
+    ptA = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">90</span>, <span class="highlight-number">0</span>);
+    ptB = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">10</span>, <span class="highlight-number">0</span>);
+    modelcurve = MakeLine(document, ptA, ptB);
+    ref_ar.Append(modelcurve.GeometryCurve.Reference);
+
+    <span class="highlight-comment">// The extrusion form direction</span>
+    XYZ direction = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">50</span>);
+
+    extrusionForm = document.FamilyCreate.NewExtrusionForm(<span class="highlight-keyword">true</span>, ref_ar, direction);
+
+    <span class="highlight-keyword">int</span> profileCount = extrusionForm.ProfileCount;
+
+    <span class="highlight-keyword">return</span> extrusionForm;
+}
+
+<span class="highlight-keyword">public</span> ModelCurve MakeLine(Document doc, XYZ ptA, XYZ ptB)
+{
+    Autodesk.Revit.ApplicationServices.Application app = doc.Application;
+    <span class="highlight-comment">// Create plane by the points</span>
+    Line line = Line.CreateBound(ptA, ptB);
+    XYZ norm = ptA.CrossProduct(ptB);
+    <span class="highlight-keyword">if</span> (norm.IsZeroLength()) norm = XYZ.BasisZ;
+    Plane plane = app.Create.NewPlane(norm, ptB);
+    SketchPlane skplane = SketchPlane.Create(doc, plane);
+    <span class="highlight-comment">// Create line here</span>
+    ModelCurve modelcurve = doc.FamilyCreate.NewModelCurve(line, skplane);
+    <span class="highlight-keyword">return</span> modelcurve;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> CreateExtrusionForm(document <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Document) <span class="highlight-keyword">As</span> Form
+    <span class="highlight-keyword">Dim</span> extrusionForm <span class="highlight-keyword">As</span> Form = <span class="highlight-keyword">Nothing</span>
+
+    <span class="highlight-comment">' Create one profile</span>
+    <span class="highlight-keyword">Dim</span> ref_ar <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ReferenceArray()
+
+    <span class="highlight-keyword">Dim</span> ptA <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">10</span>, <span class="highlight-number">0</span>)
+    <span class="highlight-keyword">Dim</span> ptB <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">90</span>, <span class="highlight-number">10</span>, <span class="highlight-number">0</span>)
+    <span class="highlight-keyword">Dim</span> modelcurve <span class="highlight-keyword">As</span> ModelCurve = MakeLine(document, ptA, ptB)
+    ref_ar.Append(modelcurve.GeometryCurve.Reference)
+
+    ptA = <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">90</span>, <span class="highlight-number">10</span>, <span class="highlight-number">0</span>)
+    ptB = <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">90</span>, <span class="highlight-number">0</span>)
+    modelcurve = MakeLine(document, ptA, ptB)
+    ref_ar.Append(modelcurve.GeometryCurve.Reference)
+
+    ptA = <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">90</span>, <span class="highlight-number">0</span>)
+    ptB = <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">10</span>, <span class="highlight-number">0</span>)
+    modelcurve = MakeLine(document, ptA, ptB)
+    ref_ar.Append(modelcurve.GeometryCurve.Reference)
+
+    <span class="highlight-comment">' The extrusion form direction</span>
+    <span class="highlight-keyword">Dim</span> direction <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">50</span>)
+
+    extrusionForm = document.FamilyCreate.NewExtrusionForm(<span class="highlight-keyword">True</span>, ref_ar, direction)
+
+    <span class="highlight-keyword">Dim</span> profileCount <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> = extrusionForm.ProfileCount
+
+    <span class="highlight-keyword">Return</span> extrusionForm
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span>
+
+<span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> MakeLine(doc <span class="highlight-keyword">As</span> Document, ptA <span class="highlight-keyword">As</span> XYZ, ptB <span class="highlight-keyword">As</span> XYZ) <span class="highlight-keyword">As</span> ModelCurve
+    <span class="highlight-keyword">Dim</span> app <span class="highlight-keyword">As</span> Autodesk.Revit.ApplicationServices.Application = doc.Application
+    <span class="highlight-comment">' Create plane by the points</span>
+    <span class="highlight-keyword">Dim</span> line__1 <span class="highlight-keyword">As</span> Line = Line.CreateBound(ptA, ptB)
+    <span class="highlight-keyword">Dim</span> norm <span class="highlight-keyword">As</span> XYZ = ptA.CrossProduct(ptB)
+    <span class="highlight-keyword">If</span> norm.IsZeroLength() <span class="highlight-keyword">Then</span>
+        norm = XYZ.BasisZ
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">Dim</span> plane <span class="highlight-keyword">As</span> Plane = app.Create.NewPlane(norm, ptB)
+    <span class="highlight-keyword">Dim</span> skplane <span class="highlight-keyword">As</span> SketchPlane = SketchPlane.Create(doc, plane)
+    <span class="highlight-comment">' Create line here</span>
+    <span class="highlight-keyword">Dim</span> modelcurve <span class="highlight-keyword">As</span> ModelCurve = doc.FamilyCreate.NewModelCurve(line__1, skplane)
+    <span class="highlight-keyword">Return</span> modelcurve
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when creation is attempted in Conceptual Mass, 2D, or other family where extrusions cannot be created.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="a7622967-1381-c17f-ed04-1ebe40da0440.htm">
+       FamilyItemFactory Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,214 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="dc0b7036-00c3-865f-1ae1-e2730d997672.htm">
+       PulldownButton Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Adds a new pushbutton to the pulldown button and associates it with an ExternalCommand.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="c4294178-9b46-3590-98b1-970af89e3c10.htm">PushButton</a> <span class="identifier">AddPushButton</span>(
+	<a href="a192ae26-cdca-3d36-72cb-51074ccd9fec.htm">PushButtonData</a> <span class="parameter">buttonData</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">AddPushButton</span> ( _
+	<span class="parameter">buttonData</span> <span class="keyword">As</span> <a href="a192ae26-cdca-3d36-72cb-51074ccd9fec.htm">PushButtonData</a> _
+) <span class="keyword">As</span> <a href="c4294178-9b46-3590-98b1-970af89e3c10.htm">PushButton</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="c4294178-9b46-3590-98b1-970af89e3c10.htm">PushButton</a>^ <span class="identifier">AddPushButton</span>(
+	<a href="a192ae26-cdca-3d36-72cb-51074ccd9fec.htm">PushButtonData</a>^ <span class="parameter">buttonData</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="buttonData">
+       <dt>
+        <span class="parameter">
+         buttonData
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="a192ae26-cdca-3d36-72cb-51074ccd9fec.htm">
+         Autodesk.Revit.UI
+         PushButtonData
+        </a>
+        <br/>
+        An object containing the data needed to construct the pushbutton.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The newly added pushbutton.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The new button will display its large image if PushButton.LargeImage is set.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown when buttonData is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown when button with buttonData.Name already exists in the button.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="dc0b7036-00c3-865f-1ae1-e2730d997672.htm">
+       PulldownButton Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,425 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new MEP mechanical system element.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="ef83dd58-07d6-4f9a-8dc6-f4b1fd8246d2.htm">MechanicalSystem</a> <span class="identifier">NewMechanicalSystem</span>(
+	<a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a> <span class="parameter">baseEquipmentConnector</span>,
+	<a href="a9821fc1-54cf-5f69-13a9-25d506ecb048.htm">ConnectorSet</a> <span class="parameter">connectors</span>,
+	<a href="108631a7-6d3a-a5f6-cc0c-0579ca8cf999.htm">DuctSystemType</a> <span class="parameter">ductSystemType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewMechanicalSystem</span> ( _
+	<span class="parameter">baseEquipmentConnector</span> <span class="keyword">As</span> <a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a>, _
+	<span class="parameter">connectors</span> <span class="keyword">As</span> <a href="a9821fc1-54cf-5f69-13a9-25d506ecb048.htm">ConnectorSet</a>, _
+	<span class="parameter">ductSystemType</span> <span class="keyword">As</span> <a href="108631a7-6d3a-a5f6-cc0c-0579ca8cf999.htm">DuctSystemType</a> _
+) <span class="keyword">As</span> <a href="ef83dd58-07d6-4f9a-8dc6-f4b1fd8246d2.htm">MechanicalSystem</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="ef83dd58-07d6-4f9a-8dc6-f4b1fd8246d2.htm">MechanicalSystem</a>^ <span class="identifier">NewMechanicalSystem</span>(
+	<a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a>^ <span class="parameter">baseEquipmentConnector</span>, 
+	<a href="a9821fc1-54cf-5f69-13a9-25d506ecb048.htm">ConnectorSet</a>^ <span class="parameter">connectors</span>, 
+	<a href="108631a7-6d3a-a5f6-cc0c-0579ca8cf999.htm">DuctSystemType</a> <span class="parameter">ductSystemType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="baseEquipmentConnector">
+       <dt>
+        <span class="parameter">
+         baseEquipmentConnector
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">
+         Autodesk.Revit.DB
+         Connector
+        </a>
+        <br/>
+        One connector within base equipment which is used to connect with the system. 
+The base equipment is optional for the system, so this argument may be
+        <span class="keyword">
+        </span>
+        <span class="nu">
+         a null reference (
+         <span class="keyword">
+          Nothing
+         </span>
+         in Visual Basic)
+        </span>
+        .
+The baseEquipmentConnector should not be included in the connectors.
+       </dd>
+      </dl>
+      <dl paramname="connectors">
+       <dt>
+        <span class="parameter">
+         connectors
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="a9821fc1-54cf-5f69-13a9-25d506ecb048.htm">
+         Autodesk.Revit.DB
+         ConnectorSet
+        </a>
+        <br/>
+        Connectors that will connect to the system.
+The owner elements of these connectors will be added into system as its elements.
+       </dd>
+      </dl>
+      <dl paramname="ductSystemType">
+       <dt>
+        <span class="parameter">
+         ductSystemType
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="108631a7-6d3a-a5f6-cc0c-0579ca8cf999.htm">
+         Autodesk.Revit.DB.Mechanical
+         DuctSystemType
+        </a>
+        <br/>
+        The system type.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If creation was successful then an instance of mechanical system is returned, 
+otherwise an exception with information will be thrown.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This method will regenerate the document even in manual regeneration mode.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// create a connector set for new mechanical system</span>
+ConnectorSet connectorSet = <span class="highlight-keyword">new</span> ConnectorSet();
+<span class="highlight-comment">// Base equipment connector</span>
+Connector baseConnector = <span class="highlight-keyword">null</span>;
+
+<span class="highlight-comment">// Select a Parallel Fan Powered VAV and some Supply Diffusers</span>
+<span class="highlight-comment">// prior to running this example</span>
+ConnectorSetIterator csi = <span class="highlight-keyword">null</span>;
+ICollection&lt;ElementId&gt; selectedIds = uiDocument.Selection.GetElementIds();
+Document document = uiDocument.Document;
+<span class="highlight-keyword">foreach</span> (ElementId id <span class="highlight-keyword">in</span> selectedIds)
+{
+    Element e = document.GetElement(id);
+    <span class="highlight-keyword">if</span> (e <span class="highlight-keyword">is</span> FamilyInstance)
+    {
+        FamilyInstance fi = e <span class="highlight-keyword">as</span> FamilyInstance;
+        Family family = fi.Symbol.Family;
+        <span class="highlight-comment">// Assume the selected Mechanical Equipment is the base equipment for new system</span>
+        <span class="highlight-keyword">if</span> (family.FamilyCategory.Name == <span class="highlight-literal">"Mechanical Equipment"</span>)
+        {
+            <span class="highlight-comment">//Find the "Out" and "SupplyAir" connector on the base equipment</span>
+            <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != fi.MEPModel)
+            {
+                csi = fi.MEPModel.ConnectorManager.Connectors.ForwardIterator();
+                <span class="highlight-keyword">while</span> (csi.MoveNext())
+                {
+                    Connector conn = csi.Current <span class="highlight-keyword">as</span> Connector;
+                    <span class="highlight-keyword">if</span> (conn.Direction == FlowDirectionType.Out &amp;&amp; conn.DuctSystemType == DuctSystemType.SupplyAir)
+                    {
+                        baseConnector = conn;
+                        <span class="highlight-keyword">break</span>;
+                    }
+                }
+            }
+        }
+        <span class="highlight-keyword">else</span> <span class="highlight-keyword">if</span> (family.FamilyCategory.Name == <span class="highlight-literal">"Air Terminals"</span>)
+        {
+            <span class="highlight-comment">// add selected Air Terminals to connector set for new mechanical system</span>
+            csi = fi.MEPModel.ConnectorManager.Connectors.ForwardIterator();
+            csi.MoveNext();
+            connectorSet.Insert(csi.Current <span class="highlight-keyword">as</span> Connector);
+        }
+    }
+}
+
+MechanicalSystem mechanicalSys = <span class="highlight-keyword">null</span>;
+<span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != baseConnector &amp;&amp; connectorSet.Size &gt; <span class="highlight-number">0</span>)
+{
+    <span class="highlight-comment">// create a new SupplyAir mechanical system</span>
+    mechanicalSys = uiDocument.Document.Create.NewMechanicalSystem(baseConnector, connectorSet, DuctSystemType.SupplyAir);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' create a connector set for new mechanical system</span>
+<span class="highlight-keyword">Dim</span> connectorSet <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ConnectorSet()
+<span class="highlight-comment">' Base equipment connector</span>
+<span class="highlight-keyword">Dim</span> baseConnector <span class="highlight-keyword">As</span> Connector = <span class="highlight-keyword">Nothing</span>
+
+<span class="highlight-comment">' Select a Parallel Fan Powered VAV and some Supply Diffusers</span>
+<span class="highlight-comment">' prior to running this example</span>
+<span class="highlight-keyword">Dim</span> csi <span class="highlight-keyword">As</span> ConnectorSetIterator = <span class="highlight-keyword">Nothing</span>
+<span class="highlight-keyword">Dim</span> selectedIds <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> ElementId) = uiDocument.Selection.GetElementIds()
+<span class="highlight-keyword">Dim</span> document <span class="highlight-keyword">As</span> Document = uiDocument.Document
+<span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> id <span class="highlight-keyword">As</span> ElementId <span class="highlight-keyword">In</span> selectedIds
+    <span class="highlight-keyword">Dim</span> e <span class="highlight-keyword">As</span> Element = document.GetElement(id)
+    <span class="highlight-keyword">If</span> <span class="highlight-keyword">TypeOf</span> e <span class="highlight-keyword">Is</span> FamilyInstance <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Dim</span> fi <span class="highlight-keyword">As</span> FamilyInstance = <span class="highlight-keyword">TryCast</span>(e, FamilyInstance)
+        <span class="highlight-keyword">Dim</span> family <span class="highlight-keyword">As</span> Family = fi.Symbol.Family
+        <span class="highlight-comment">' Assume the selected Mechanical Equipment is the base equipment for new system</span>
+        <span class="highlight-keyword">If</span> family.FamilyCategory.Name = <span class="highlight-literal">"Mechanical Equipment"</span> <span class="highlight-keyword">Then</span>
+            <span class="highlight-comment">'Find the "Out" and "SupplyAir" connector on the base equipment</span>
+            <span class="highlight-keyword">If</span> fi.MEPModel <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+                csi = fi.MEPModel.ConnectorManager.Connectors.ForwardIterator()
+                <span class="highlight-keyword">While</span> csi.MoveNext()
+                    <span class="highlight-keyword">Dim</span> conn <span class="highlight-keyword">As</span> Connector = <span class="highlight-keyword">TryCast</span>(csi.Current, Connector)
+                    <span class="highlight-keyword">If</span> conn.Direction = FlowDirectionType.Out <span class="highlight-keyword">AndAlso</span> conn.DuctSystemType = DuctSystemType.SupplyAir <span class="highlight-keyword">Then</span>
+                        baseConnector = conn
+                        <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">While</span>
+                    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+                <span class="highlight-keyword">End</span> <span class="highlight-keyword">While</span>
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+        <span class="highlight-keyword">ElseIf</span> family.FamilyCategory.Name = <span class="highlight-literal">"Air Terminals"</span> <span class="highlight-keyword">Then</span>
+            <span class="highlight-comment">' add selected Air Terminals to connector set for new mechanical system</span>
+            csi = fi.MEPModel.ConnectorManager.Connectors.ForwardIterator()
+            csi.MoveNext()
+            connectorSet.Insert(<span class="highlight-keyword">TryCast</span>(csi.Current, Connector))
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">Next</span>
+
+<span class="highlight-keyword">Dim</span> mechanicalSys <span class="highlight-keyword">As</span> MechanicalSystem = <span class="highlight-keyword">Nothing</span>
+<span class="highlight-keyword">If</span> baseConnector <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">AndAlso</span> connectorSet.Size &gt; <span class="highlight-number">0</span> <span class="highlight-keyword">Then</span>
+    <span class="highlight-comment">' create a new SupplyAir mechanical system</span>
+    mechanicalSys = uiDocument.Document.Create.NewMechanicalSystem(baseConnector, connectorSet, DuctSystemType.SupplyAir)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when calling this function outside of the Autodesk Revit MEP product.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown when the input connectors parameter value is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          Thrown when the ductSystemType parameter is out of permitted scope.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown when some connectors can't be used to create the mechanical system.
+All the input connectors and base equipment connector should match system type and domain with the system,
+and they should not have been used in another system.
+The owner of BaseConnector should be a mechanical equipment, and the owner of other connectors should be a mechanical equipment or air terminal.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when the mechanical system creation failed.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

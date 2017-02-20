@@ -1,0 +1,180 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="5e11e5bf-82da-ae9b-1c52-95d0e9f28c96.htm">
+       Application Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates an object which wraps the arguments of NewFamilyInstance() for batch creation.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="bcd1f300-616b-5a36-9909-5273f99d78c8.htm">FamilyInstanceCreationData</a> <span class="identifier">NewFamilyInstanceCreationData</span>(
+	<a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a> <span class="parameter">symbol</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>&gt; <span class="parameter">adaptivePoints</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewFamilyInstanceCreationData</span> ( _
+	<span class="parameter">symbol</span> <span class="keyword">As</span> <a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a>, _
+	<span class="parameter">adaptivePoints</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>) _
+) <span class="keyword">As</span> <a href="bcd1f300-616b-5a36-9909-5273f99d78c8.htm">FamilyInstanceCreationData</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="bcd1f300-616b-5a36-9909-5273f99d78c8.htm">FamilyInstanceCreationData</a>^ <span class="identifier">NewFamilyInstanceCreationData</span>(
+	<a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a>^ <span class="parameter">symbol</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^&gt;^ <span class="parameter">adaptivePoints</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="symbol">
+       <dt>
+        <span class="parameter">
+         symbol
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">
+         Autodesk.Revit.DB
+         FamilySymbol
+        </a>
+        <br/>
+        A FamilySymbol object that represents the type of the instance that is to be inserted.
+       </dd>
+      </dl>
+      <dl paramname="adaptivePoints">
+       <dt>
+        <span class="parameter">
+         adaptivePoints
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         XYZ
+        </a>
+        <br/>
+        The adaptive point location where the adaptive instance is to be placed.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="5e11e5bf-82da-ae9b-1c52-95d0e9f28c96.htm">
+       Application Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="8f899df7-9949-9839-35f7-4092a6e70e20.htm">
+       NewFamilyInstanceCreationData Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

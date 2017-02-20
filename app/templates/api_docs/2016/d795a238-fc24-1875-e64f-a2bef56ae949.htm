@@ -1,0 +1,240 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="0208ce8d-f4fa-a9a3-1c25-9fd5b25ae785.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Class for 3D views
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">View3D</span> : <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">View3D</span> _
+	<span class="keyword">Inherits</span> <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">View3D</span> : <span class="keyword">public</span> <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> Getinfo_View3D(View3D view3D)
+{
+    <span class="highlight-keyword">string</span> message = <span class="highlight-literal">"View3D: "</span>;
+
+    <span class="highlight-comment">// The position of the camera.</span>
+    XYZ eyePosition = view3D.GetOrientation().EyePosition;
+    message += <span class="highlight-literal">"\nCamera position: "</span> + eyePosition;
+
+    <span class="highlight-comment">// Identifies whether the view is a perspective view. </span>
+    <span class="highlight-keyword">if</span> (view3D.IsPerspective)
+    {
+        message += <span class="highlight-literal">"\nThe view is a perspective view."</span>;
+    }
+
+    <span class="highlight-comment">// The section box of the 3D view can cut the model.</span>
+    <span class="highlight-keyword">if</span> (view3D.IsSectionBoxActive)
+    {
+        BoundingBoxXYZ sectionBox = view3D.GetSectionBox();
+
+        <span class="highlight-comment">// Note that the section box can be rotated and transformed.  </span>
+        <span class="highlight-comment">// So the min/max corners coordinates relative to the model must be computed via the transform.</span>
+        Transform trf = sectionBox.Transform;
+
+        XYZ max = sectionBox.Max; <span class="highlight-comment">//Maximum coordinates (upper-right-front corner of the box before transform is applied).</span>
+        XYZ min = sectionBox.Min; <span class="highlight-comment">//Minimum coordinates (lower-left-rear corner of the box before transform is applied).</span>
+
+        <span class="highlight-comment">// Transform the min and max to model coordinates</span>
+        XYZ maxInModelCoords = trf.OfPoint(max);
+        XYZ minInModelCoords = trf.OfPoint(min);
+
+        message += <span class="highlight-literal">"\nView has an active section box: "</span>;
+        message += <span class="highlight-literal">"\n'Maximum' coordinates: "</span> + maxInModelCoords;
+        message += <span class="highlight-literal">"\n'Minimum' coordinates: "</span> + minInModelCoords;
+    }
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, message);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> Getinfo_View3D(view3D <span class="highlight-keyword">As</span> View3D)
+    <span class="highlight-keyword">Dim</span> message <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"View3D: "</span>
+    <span class="highlight-comment">' The position of the camera.</span>
+    <span class="highlight-keyword">Dim</span> eyePosition <span class="highlight-keyword">As</span> XYZ = view3D.GetOrientation().EyePosition
+    message += ((vbLf &amp; <span class="highlight-literal">"Camera position: ("</span> + eyePosition.X &amp; <span class="highlight-literal">", "</span>) + eyePosition.Y &amp; <span class="highlight-literal">", "</span>) + eyePosition.Z &amp; <span class="highlight-literal">")"</span>
+
+    <span class="highlight-comment">' Identifies whether this is a perspective view. </span>
+    <span class="highlight-keyword">If</span> view3D.IsPerspective <span class="highlight-keyword">Then</span>
+        message += vbLf &amp; <span class="highlight-literal">"The view is a perspective."</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-comment">' The section box of the 3D view cuts the model by its bounds.</span>
+    <span class="highlight-keyword">Dim</span> sectionBox <span class="highlight-keyword">As</span> BoundingBoxXYZ = view3D.GetSectionBox()
+    <span class="highlight-keyword">Dim</span> max <span class="highlight-keyword">As</span> XYZ = sectionBox.Max
+    <span class="highlight-comment">'Maximum coordinates (upper-right-front corner of the box).</span>
+    <span class="highlight-keyword">Dim</span> min <span class="highlight-keyword">As</span> XYZ = sectionBox.Min
+    <span class="highlight-comment">'Minimum coordinates (lower-left-rear corner of the box).</span>
+    message += vbLf &amp; <span class="highlight-literal">"Section Box: "</span>
+    message += ((vbLf &amp; <span class="highlight-literal">"Maximum coordinates: ("</span> + max.X &amp; <span class="highlight-literal">", "</span>) + max.Y &amp; <span class="highlight-literal">", "</span>) + max.Z &amp; <span class="highlight-literal">")"</span>
+    message += ((vbLf &amp; <span class="highlight-literal">"Minimum coordinates: ("</span> + min.X &amp; <span class="highlight-literal">", "</span>) + min.Y &amp; <span class="highlight-literal">", "</span>) + min.Z &amp; <span class="highlight-literal">")"</span>
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, message)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+      Autodesk.Revit.DB
+      Element
+     </a>
+     <br/>
+     <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">
+      Autodesk.Revit.DB
+      View
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      View3D
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="0208ce8d-f4fa-a9a3-1c25-9fd5b25ae785.htm">
+       View3D Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

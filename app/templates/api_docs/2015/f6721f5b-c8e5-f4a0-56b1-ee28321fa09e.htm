@@ -1,0 +1,299 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="fa14442f-3d47-2c21-467c-6d19e4cc0d9e.htm">
+       ExternalServiceRegistry Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A method to register a mandatory, single-server service.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="a88f2d1d-c02f-a901-9543-44e4b5dd5fc9.htm">
+      Autodesk.Revit.DB.ExternalService
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a> <span class="identifier">RegisterService</span>(
+	<a href="ae967a42-6490-07ed-7976-71d324d250c4.htm">ISingleServerService</a> <span class="parameter">service</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a> <span class="parameter">defaultServerId</span>,
+	<a href="80467d42-3f13-de3e-cd06-bf3b43afefe0.htm">ExternalServiceOptions</a> <span class="parameter">options</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">RegisterService</span> ( _
+	<span class="parameter">service</span> <span class="keyword">As</span> <a href="ae967a42-6490-07ed-7976-71d324d250c4.htm">ISingleServerService</a>, _
+	<span class="parameter">defaultServerId</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a>, _
+	<span class="parameter">options</span> <span class="keyword">As</span> <a href="80467d42-3f13-de3e-cd06-bf3b43afefe0.htm">ExternalServiceOptions</a> _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a> <span class="identifier">RegisterService</span>(
+	<a href="ae967a42-6490-07ed-7976-71d324d250c4.htm">ISingleServerService</a>^ <span class="parameter">service</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a> <span class="parameter">defaultServerId</span>, 
+	<a href="80467d42-3f13-de3e-cd06-bf3b43afefe0.htm">ExternalServiceOptions</a>^ <span class="parameter">options</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="service">
+       <dt>
+        <span class="parameter">
+         service
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="ae967a42-6490-07ed-7976-71d324d250c4.htm">
+         Autodesk.Revit.DB.ExternalService
+         ISingleServerService
+        </a>
+        <br/>
+        An instance of the external service class that implements ISingleServerService interface.
+       </dd>
+      </dl>
+      <dl paramname="defaultServerId">
+       <dt>
+        <span class="parameter">
+         defaultServerId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">
+         System
+         Guid
+        </a>
+        <br/>
+        Id of the server that will become the service's default server (once the server is registered).
+       </dd>
+      </dl>
+      <dl paramname="options">
+       <dt>
+        <span class="parameter">
+         options
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="80467d42-3f13-de3e-cd06-bf3b43afefe0.htm">
+         Autodesk.Revit.DB.ExternalService
+         ExternalServiceOptions
+        </a>
+        <br/>
+        Optional settings to control the service's behavior.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     An access key to the service. The key is needed to execute the service.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      Each service can only be registered once. Revit checks the Id of every service
+   getting registered and throws an exception upon an attempt to register a service
+   with an Id that already exists.
+     </p>
+     <p>
+      Services need to be registered before Revit ends its initialization.
+   For external applications that means they have to register their services
+   during OnStartup. This will give servers which need to register to services
+   a chance to do so during the ApplicationInitialized event, which is raised
+   after a successfully processing OnStartup routines.
+     </p>
+     <p>
+      A service can be registered as either recordable or non-recordable.
+   It is expected that a service that is once registered as recordable
+   will always be registered as recordable. Failure to comply with this
+   policy may lead to data loss in some documents when they are opened
+   in a Revit session with the service currently registered as non-recordable.
+     </p>
+     <p>
+      A service is supposed to be executed only by the application that registered
+   it. To enforce this requirement, the registering method return an execution
+   key (a Guid) that is required as an argument to ExecuteService methods.
+   If the owner of a service allows executing it by anyone, it needs to register
+   it as a public service (via the option argument). Once registered as public,
+   The access key of the service can be obtained by any application, thus
+   it can also be executed by any application. By default, a service is registered
+   as private.
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The given service is not a valid implementation of ISingleServerService.
+   -or-
+   The given service does not return valid values from the interface methods.
+   At least one of the Name, VendorId, Description, and ServiceId is either empty or invalid.
+   -or-
+   A service with this Id is either invalid or not unique.
+   -or-
+   The given Id is not a valid GUID value.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Service cannot be registered because the registry of services has been already closed.
+   All external services must be registered before the ApplicationInitialized event is raised.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="fa14442f-3d47-2c21-467c-6d19e4cc0d9e.htm">
+       ExternalServiceRegistry Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="6d690a5d-62c5-958c-842e-620a49421c1c.htm">
+       RegisterService Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="a88f2d1d-c02f-a901-9543-44e4b5dd5fc9.htm">
+       Autodesk.Revit.DB.ExternalService Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

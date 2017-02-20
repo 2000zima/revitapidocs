@@ -1,0 +1,213 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="2de0109b-0d0d-a0fe-2adf-6edec8bc1a06.htm">
+       PipeSettings Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Set pipe slope values.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="cc553597-37c2-fcd9-6025-d904c129c80a.htm">
+      Autodesk.Revit.DB.Plumbing
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetPipeSlopes</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a>&gt; <span class="parameter">slopes</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetPipeSlopes</span> ( _
+	<span class="parameter">slopes</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a>) _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetPipeSlopes</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a>&gt;^ <span class="parameter">slopes</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="slopes">
+       <dt>
+        <span class="parameter">
+         slopes
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         Double
+        </a>
+        <br/>
+        Pipe slope values. Revit stores the slope value as a percentage (0-100).
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          Each value of the slopes must be between 0 and 100. Slope value is stored in percentage. e.g. 100 means 100%, and it is 45 degree.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          This operation failed.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="2de0109b-0d0d-a0fe-2adf-6edec8bc1a06.htm">
+       PipeSettings Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="cc553597-37c2-fcd9-6025-d904c129c80a.htm">
+       Autodesk.Revit.DB.Plumbing Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

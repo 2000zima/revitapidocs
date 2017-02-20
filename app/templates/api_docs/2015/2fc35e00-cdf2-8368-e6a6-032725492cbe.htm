@@ -1,0 +1,215 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Indicates whether an element in the current model has additional user changes in the central model.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="identifier">ModelUpdatesStatus</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Enumeration</span> <span class="identifier">ModelUpdatesStatus</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum class</span> <span class="identifier">ModelUpdatesStatus</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <div id="enumerationSection">
+     <h1 class="heading">
+      Members
+     </h1>
+     <div class="section" id="membersSection" name="collapseableSection" style="">
+      <table cellpadding="2" class="members" frame="lhs" id="memberList">
+       <colgroup>
+        <col width="10%">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr>
+         <th class="nameColumn">
+          Member name
+         </th>
+         <th class="descriptionColumn">
+          Description
+         </th>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.ModelUpdatesStatus.CurrentWithCentral">
+          <span class="selflink">
+           CurrentWithCentral
+          </span>
+         </td>
+         <td>
+          The element has no additional changes in the central model.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.ModelUpdatesStatus.NotYetInCentral">
+          <span class="selflink">
+           NotYetInCentral
+          </span>
+         </td>
+         <td>
+          The element is new in the current model and has not been saved to the central model.  Note that this
+   status will apply to newly created elements even if they are created in the central model.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.ModelUpdatesStatus.DeletedInCentral">
+          <span class="selflink">
+           DeletedInCentral
+          </span>
+         </td>
+         <td>
+          The element has been deleted in the central model.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.ModelUpdatesStatus.UpdatedInCentral">
+          <span class="selflink">
+           UpdatedInCentral
+          </span>
+         </td>
+         <td>
+          The element has additional user changes in the central model.  A reload latest will be
+   required before it can be modified in the current model.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      Note that this status only indicates that the element has user changes in the central model.
+   A user change is typically an action specifically taken by a user.  Making a user change
+   to an element requires that the user making the change reload all other user changes made to
+   the element in the central model.  Making a user change also causes the element to be
+   checked out to the current user so other users will not be able to make user changes to
+   the same element.
+     </p>
+     <p>
+      Elements can also be modified by system changes.  A system change is one which is done
+   automatically by Revit to fully update the model after a user change occurs.  Users may
+   make changes to an element in their local model even if the element contains additional
+   system changes in the central model.
+     </p>
+     <p>
+      Example:  Suppose Alice and Bob are working on the same model.  Alice moves a wall which
+   contains windows.  Then Alice synchronizes with the central file.  The wall was explicitly
+   changed by Alice and so it will report as "UpdatedInCentral" in Bob's model.  Bob
+   would have to reload latest before he could make user changes to that wall.  In contrast, Revit
+   automatically moved the windows with the wall, so the windows do not contain any user changes.
+   The windows would therefore report "CurrentWithCentral" and Bob would be allowed to
+   modify them in his local model without reloading latest.
+     </p>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

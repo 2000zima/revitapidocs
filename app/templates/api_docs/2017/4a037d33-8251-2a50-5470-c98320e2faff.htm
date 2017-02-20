@@ -1,0 +1,263 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="cba2c84a-22c0-e6e7-a99c-67656901853a.htm">
+       ItemFactoryBase Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Inserts a new instance of a family into the document, using a location and a
+type/symbol.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="0d2231f8-91e6-794f-92ae-16aad8014b27.htm">FamilyInstance</a> <span class="identifier">NewFamilyInstance</span>(
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">location</span>,
+	<a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a> <span class="parameter">symbol</span>,
+	<a href="0a0a3793-5fce-283d-4953-a137f5593db9.htm">StructuralType</a> <span class="parameter">structuralType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewFamilyInstance</span> ( _
+	<span class="parameter">location</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>, _
+	<span class="parameter">symbol</span> <span class="keyword">As</span> <a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a>, _
+	<span class="parameter">structuralType</span> <span class="keyword">As</span> <a href="0a0a3793-5fce-283d-4953-a137f5593db9.htm">StructuralType</a> _
+) <span class="keyword">As</span> <a href="0d2231f8-91e6-794f-92ae-16aad8014b27.htm">FamilyInstance</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="0d2231f8-91e6-794f-92ae-16aad8014b27.htm">FamilyInstance</a>^ <span class="identifier">NewFamilyInstance</span>(
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">location</span>, 
+	<a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a>^ <span class="parameter">symbol</span>, 
+	<a href="0a0a3793-5fce-283d-4953-a137f5593db9.htm">StructuralType</a> <span class="parameter">structuralType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="location">
+       <dt>
+        <span class="parameter">
+         location
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        The physical location where the instance is to be placed.
+       </dd>
+      </dl>
+      <dl paramname="symbol">
+       <dt>
+        <span class="parameter">
+         symbol
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">
+         Autodesk.Revit.DB
+         FamilySymbol
+        </a>
+        <br/>
+        A FamilySymbol object that represents the type of the instance that is to be inserted.
+       </dd>
+      </dl>
+      <dl paramname="structuralType">
+       <dt>
+        <span class="parameter">
+         structuralType
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="0a0a3793-5fce-283d-4953-a137f5593db9.htm">
+         Autodesk.Revit.DB.Structure
+         StructuralType
+        </a>
+        <br/>
+        If structural then specify the type of the component.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     A valid instance of the given family if the creation is successful. An exception will be thrown otherwise.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Use this method to insert a family instance that does not require a host element or level.
+For creating instances of level-based families use one of the NewFamilyInstance methods of the Revit.Creation.Document class.
+     <p>
+      The type/symbol that is used must be loaded into the document before this method is called.
+Families and their symbols can be loaded using the Document.LoadFamily or
+Document.LoadFamilySymbol methods.
+     </p>
+     <p>
+      Some Families, such as Beams, have more than one endpoint
+and are inserted in the same manner as single point instances. Once inserted these linear family
+instances can have their endpoints changed by using the instance's Element.Location property.
+     </p>
+     <p>
+      Note: if the created family instance includes nested instances, the API framework will automatically regenerate 
+the document during this method call.
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the symbol is not active.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown if the family is level-based, for new instances of such families require a valid level to be supplied at the time of creation.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="cba2c84a-22c0-e6e7-a99c-67656901853a.htm">
+       ItemFactoryBase Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="451ee414-cea0-e9bd-227b-c73bc93507dd.htm">
+       NewFamilyInstance Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

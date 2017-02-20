@@ -1,0 +1,222 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="dbdb80a5-f293-d5ff-9f19-918613d233c0.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     This class represents a set of light groups that are used for easier management of various lighting scenarios
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="a6a04f07-7fd2-0a4e-12e7-01842ee6daaf.htm">
+      Autodesk.Revit.DB.Lighting
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">LightGroupManager</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">LightGroupManager</span> _
+	<span class="keyword">Implements</span> <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">LightGroupManager</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> AddRemoveLightGroupInManager(Document document, FamilyInstance lightOne, FamilyInstance lightTwo)
+{
+    <span class="highlight-keyword">if</span> (document.IsFamilyDocument)   <span class="highlight-comment">// it supports project document only.</span>
+        <span class="highlight-keyword">return</span>;
+    LightGroupManager groupMgr = LightGroupManager.GetLightGroupManager(document);
+
+    <span class="highlight-comment">// Add a light group with a light</span>
+    LightGroup lightGroup = groupMgr.CreateGroup(<span class="highlight-literal">"Group_One"</span>);
+    lightGroup.AddLight(lightOne.Id);
+    <span class="highlight-comment">// Add another light group with another light.</span>
+    lightGroup = groupMgr.CreateGroup(<span class="highlight-literal">"Group_Two"</span>);
+    lightGroup.AddLight(lightTwo.Id);
+
+    <span class="highlight-comment">// Retrieve the added light group in the manager.</span>
+    IList&lt;LightGroup&gt; existingGroups = groupMgr.GetGroups();
+    <span class="highlight-keyword">foreach</span> (LightGroup group <span class="highlight-keyword">in</span> existingGroups)
+    {
+        <span class="highlight-keyword">string</span> groupName = group.Name;
+    }
+
+    <span class="highlight-comment">// Remove one light group from the manager.</span>
+    groupMgr.DeleteGroup(existingGroups[<span class="highlight-number">0</span>].Id);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> AddRemoveLightGroupInManager(document <span class="highlight-keyword">As</span> Document, lightOne <span class="highlight-keyword">As</span> FamilyInstance, lightTwo <span class="highlight-keyword">As</span> FamilyInstance)
+   <span class="highlight-keyword">If</span> document.IsFamilyDocument <span class="highlight-keyword">Then</span>
+      <span class="highlight-comment">' it supports project document only.</span>
+      <span class="highlight-keyword">Return</span>
+   <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+   <span class="highlight-keyword">Dim</span> groupMgr <span class="highlight-keyword">As</span> LightGroupManager = LightGroupManager.GetLightGroupManager(document)
+
+   <span class="highlight-comment">' Add a light group with a light</span>
+   <span class="highlight-keyword">Dim</span> lightGroup <span class="highlight-keyword">As</span> LightGroup = groupMgr.CreateGroup(<span class="highlight-literal">"Group_One"</span>)
+   lightGroup.AddLight(lightOne.Id)
+   <span class="highlight-comment">' Add another light group with another light.</span>
+   lightGroup = groupMgr.CreateGroup(<span class="highlight-literal">"Group_Two"</span>)
+   lightGroup.AddLight(lightTwo.Id)
+
+   <span class="highlight-comment">' Retrieve the added light group in the manager.</span>
+   <span class="highlight-keyword">Dim</span> existingGroups <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> LightGroup) = groupMgr.GetGroups()
+   <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> group <span class="highlight-keyword">As</span> LightGroup <span class="highlight-keyword">In</span> existingGroups
+      <span class="highlight-keyword">Dim</span> groupName <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = group.Name
+   <span class="highlight-keyword">Next</span>
+
+   <span class="highlight-comment">' Remove one light group from the manager.</span>
+   groupMgr.DeleteGroup(existingGroups(<span class="highlight-number">0</span>).Id)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.Lighting
+      LightGroupManager
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="dbdb80a5-f293-d5ff-9f19-918613d233c0.htm">
+       LightGroupManager Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="a6a04f07-7fd2-0a4e-12e7-01842ee6daaf.htm">
+       Autodesk.Revit.DB.Lighting Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

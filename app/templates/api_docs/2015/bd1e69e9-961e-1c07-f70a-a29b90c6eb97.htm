@@ -1,0 +1,284 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="308ebf8d-d96d-4643-cd1d-34fffcea53fd.htm">
+       Transaction Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Rolls back all changes made to the model during the transaction.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="29b9a7a8-6754-8310-e063-622b569bb6d5.htm">TransactionStatus</a> <span class="identifier">RollBack</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">RollBack</span> <span class="keyword">As</span> <a href="29b9a7a8-6754-8310-e063-622b569bb6d5.htm">TransactionStatus</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="29b9a7a8-6754-8310-e063-622b569bb6d5.htm">TransactionStatus</a> <span class="identifier">RollBack</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If finished successfully, this method returns TransactionStatus.RolledBack.
+     <p>
+      Be aware that the returned status does not have to be necessarily the same like
+   the status returned by
+      <a href="fdf98941-eee4-d8af-e3f7-5b6c7ccc3c74.htm">
+       GetStatus
+      </a>
+      even when the method is called
+   immediately after rolling back the transaction. Such difference may happen due to actions
+   made by a transaction finalizer, if there was one set.
+   (See
+      <a href="c03bb2e5-f679-bf24-4e87-08b3c3a08385.htm">
+       FailureHandlingOptions
+      </a>
+      for more details.)
+     </p>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     By rolling back a transaction, all changes made to the model are discarded.
+   RollBack may only be called for a transaction that has been started.
+   (Use the
+     <a href="fdf98941-eee4-d8af-e3f7-5b6c7ccc3c74.htm">
+      GetStatus
+     </a>
+     method to check the current state.)
+   Be aware that rolling back may be delayed (as a result of failure handling.)
+   Callers should always check the returned status to test whether a transaction
+   was rolled back successfully. Only after rolling back is fully completed,
+   the transaction may be started again.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">bool</span> CreateGrid(Autodesk.Revit.DB.Document document, XYZ p1, XYZ p2)
+{
+   <span class="highlight-comment">// All and any transaction should be enclosed in a 'using'</span>
+   <span class="highlight-comment">// block or guarded within a try-catch-finally blocks</span>
+   <span class="highlight-comment">// to guarantee that a transaction does not out-live its scope.</span>
+   <span class="highlight-keyword">using</span> (Transaction transaction = <span class="highlight-keyword">new</span> Transaction(document, <span class="highlight-literal">"Creating Grid"</span>))
+   {
+      <span class="highlight-comment">// Must start a transaction to be able to modify a document</span>
+      <span class="highlight-keyword">if</span> (TransactionStatus.Started == transaction.Start())
+      {
+         <span class="highlight-comment">// We create a line and use it as an argument to create a grid</span>
+         Line gridLine = Line.CreateBound(p1, p2);
+
+         <span class="highlight-keyword">if</span> ((<span class="highlight-keyword">null</span> != gridLine) &amp;&amp; (<span class="highlight-keyword">null</span> != document.Create.NewGrid(gridLine)))
+         {
+             <span class="highlight-keyword">if</span> (TransactionStatus.Committed == transaction.Commit())
+             {
+                <span class="highlight-keyword">return</span> <span class="highlight-keyword">true</span>;
+             }
+         }
+
+         <span class="highlight-comment">// For we were unable to create the grid, we will roll the transaction back</span>
+         <span class="highlight-comment">// (although on this simplified case we know there weren't any other changes)</span>
+
+         transaction.RollBack();
+      }
+   }
+   <span class="highlight-keyword">return</span> <span class="highlight-keyword">false</span>;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> CreateGrid(document <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Document, p1 <span class="highlight-keyword">As</span> XYZ, p2 <span class="highlight-keyword">As</span> XYZ) <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span>
+    <span class="highlight-comment">' All and any transaction should be enclosed in a 'using'</span>
+    <span class="highlight-comment">' block or guarded within a try-catch-finally blocks</span>
+    <span class="highlight-comment">' to guarantee that a transaction does not out-live its scope.</span>
+    <span class="highlight-keyword">Using</span> transaction <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> Transaction(document, <span class="highlight-literal">"Creating Grid"</span>)
+        <span class="highlight-comment">' Must start a transaction to be able to modify a document</span>
+        <span class="highlight-keyword">If</span> TransactionStatus.Started = transaction.Start() <span class="highlight-keyword">Then</span>
+            <span class="highlight-comment">' We create a line and use it as an argument to create a grid</span>
+            <span class="highlight-keyword">Dim</span> gridLine <span class="highlight-keyword">As</span> Line = Line.CreateBound(p1, p2)
+
+            <span class="highlight-keyword">If</span> (gridLine <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span>) <span class="highlight-keyword">AndAlso</span> (document.Create.NewGrid(gridLine) <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span>) <span class="highlight-keyword">Then</span>
+                <span class="highlight-keyword">If</span> TransactionStatus.Committed = transaction.Commit() <span class="highlight-keyword">Then</span>
+                    <span class="highlight-keyword">Return</span> <span class="highlight-keyword">True</span>
+                <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+            <span class="highlight-comment">' For we were unable to create the grid, we will roll the transaction back</span>
+            <span class="highlight-comment">' (although on this simplified case we know there weren't any other changes)</span>
+
+
+            transaction.RollBack()
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Using</span>
+    <span class="highlight-keyword">Return</span> <span class="highlight-keyword">False</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          The current status of the transaction is not 'Started'.
+   Transaction must be started before calling Commit or Rollback.
+   -or-
+   The transaction's document is currently in failure mode.
+   No transaction operations are permitted until failure handling is finished.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="308ebf8d-d96d-4643-cd1d-34fffcea53fd.htm">
+       Transaction Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="2b534cc2-e464-d424-d504-d2ae260bd937.htm">
+       RollBack Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

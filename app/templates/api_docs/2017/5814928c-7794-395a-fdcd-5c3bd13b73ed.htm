@@ -1,0 +1,192 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="35859972-2407-3910-cb07-bbb337e307e6.htm">
+       ControlledApplication Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Subscribe to the DocumentCreating event to be notified when Revit is just about to create a new document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="91957e18-2935-006c-83ab-3b5b9dbb5928.htm">
+      Autodesk.Revit.ApplicationServices
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2010
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> event <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="43d97649-5199-2706-3855-bdb52cc44b86.htm">DocumentCreatingEventArgs</a>&gt; <span class="identifier">DocumentCreating</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> Event <span class="identifier">DocumentCreating</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>(<span class="keyword">Of</span> <a href="43d97649-5199-2706-3855-bdb52cc44b86.htm">DocumentCreatingEventArgs</a>)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+ <span class="keyword">event</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="43d97649-5199-2706-3855-bdb52cc44b86.htm">DocumentCreatingEventArgs</a>^&gt;^ <span class="identifier">DocumentCreating</span> {
+	<span class="keyword">void</span> <span class="keyword">add</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="43d97649-5199-2706-3855-bdb52cc44b86.htm">DocumentCreatingEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+	<span class="keyword">void</span> <span class="keyword">remove</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="43d97649-5199-2706-3855-bdb52cc44b86.htm">DocumentCreatingEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This event is raised when Revit is just about to create a new document.
+     </p>
+     <p>
+      Event is cancellable. To cancel it, call the 'Cancel()' method of event's argument to True.
+   Your application is responsible for providing feedback to the user about the reason for the cancellation.
+     </p>
+     <p>
+      The document cannot be modified, for it is not created yet at the time of the event.
+     </p>
+     <p>
+      The following API functions are not available for the current document during this event:
+     </p>
+     <ul>
+      <li>
+       <span class="nolink">
+        [!:Autodesk::Revit::ApplicationServices::Application::NewProjectDocument()]
+       </span>
+      </li>
+      <li>
+       <a href="bc292c96-bc2b-04ab-726b-575d92be61fd.htm">
+        NewFamilyDocument(String)
+       </a>
+      </li>
+      <li>
+       <a href="15d7ed8e-6281-e2b7-b875-657f205a6c1f.htm">
+        NewProjectTemplateDocument(String)
+       </a>
+      </li>
+      <li>
+       <a href="14826965-b83e-110c-1466-cc7667def9c8.htm">
+        OpenDocumentFile(String)
+       </a>
+       and similar overloads.
+      </li>
+     </ul>
+     <p>
+     </p>
+     <p>
+      Exception
+      <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+       InvalidOperationException
+      </a>
+      will be thrown if any of the above methods is called during this event.
+     </p>
+     <p>
+      Another
+      <a href="a8958534-bcbf-a627-eacf-aeeb46934197.htm">
+       DocumentCreated
+      </a>
+      event will be raised immediately after document
+   creation is finished.
+     </p>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="35859972-2407-3910-cb07-bbb337e307e6.htm">
+       ControlledApplication Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="91957e18-2935-006c-83ab-3b5b9dbb5928.htm">
+       Autodesk.Revit.ApplicationServices Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

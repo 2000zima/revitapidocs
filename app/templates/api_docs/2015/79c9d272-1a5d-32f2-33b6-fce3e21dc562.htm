@@ -1,0 +1,223 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ca6f916b-2eba-f8e5-8939-1c063330c886.htm">
+       PointCloudFilter Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Checks whether a given cell, i.e. a box aligned with the XYZ axes, is inside, outside
+   or on the border of the volume of interest.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="5974062a-47d4-c7bb-16f2-d5dd193bd170.htm">
+      Autodesk.Revit.DB.PointClouds
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="identifier">TestCell</span>(
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">min</span>,
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">max</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">TestCell</span> ( _
+	<span class="parameter">min</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>, _
+	<span class="parameter">max</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">Integer</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="identifier">TestCell</span>(
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">min</span>, 
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">max</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="min">
+       <dt>
+        <span class="parameter">
+         min
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        The lower corner of the cell.
+       </dd>
+      </dl>
+      <dl paramname="max">
+       <dt>
+        <span class="parameter">
+         max
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        The upper corner of the cell.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     <ul>
+      <li>
+       -1 -- The cell is entirely rejected.
+      </li>
+      <li>
+       0 -- The cell partially belongs to the volume of interest.  Use PrepareForCell() and TestPoint() to
+   evaluate individual points.
+      </li>
+      <li>
+       1 -- The cell is fully accepted.
+      </li>
+     </ul>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ca6f916b-2eba-f8e5-8939-1c063330c886.htm">
+       PointCloudFilter Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="5974062a-47d4-c7bb-16f2-d5dd193bd170.htm">
+       Autodesk.Revit.DB.PointClouds Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

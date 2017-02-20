@@ -1,0 +1,276 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="a295ca1d-66f2-f788-5079-4d91554a4223.htm">
+       PipeSegment Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new instance of a PipeSegment and adds it to the document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="cc553597-37c2-fcd9-6025-d904c129c80a.htm">
+      Autodesk.Revit.DB.Plumbing
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="a295ca1d-66f2-f788-5079-4d91554a4223.htm">PipeSegment</a> <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">ADocument</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">MaterialId</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">ScheduleId</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="475cd9a4-e87a-6f9f-7e75-c079ac004166.htm">MEPSize</a>&gt; <span class="parameter">sizeSet</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">Create</span> ( _
+	<span class="parameter">ADocument</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">MaterialId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">ScheduleId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">sizeSet</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>(<span class="keyword">Of</span> <a href="475cd9a4-e87a-6f9f-7e75-c079ac004166.htm">MEPSize</a>) _
+) <span class="keyword">As</span> <a href="a295ca1d-66f2-f788-5079-4d91554a4223.htm">PipeSegment</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="a295ca1d-66f2-f788-5079-4d91554a4223.htm">PipeSegment</a>^ <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">ADocument</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">MaterialId</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">ScheduleId</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="475cd9a4-e87a-6f9f-7e75-c079ac004166.htm">MEPSize</a>^&gt;^ <span class="parameter">sizeSet</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="ADocument">
+       <dt>
+        <span class="parameter">
+         ADocument
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        The document where the PipeSegment will be created and added.
+       </dd>
+      </dl>
+      <dl paramname="MaterialId">
+       <dt>
+        <span class="parameter">
+         MaterialId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        The ElementId of the MaterialElem of the pipe segment.
+       </dd>
+      </dl>
+      <dl paramname="ScheduleId">
+       <dt>
+        <span class="parameter">
+         ScheduleId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        The ElementId of the PipeScheduleType of the pipe segment.
+       </dd>
+      </dl>
+      <dl paramname="sizeSet">
+       <dt>
+        <span class="parameter">
+         sizeSet
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">
+         System.Collections.Generic
+         ICollection
+        </a>
+        <a href="475cd9a4-e87a-6f9f-7e75-c079ac004166.htm">
+         MEPSize
+        </a>
+        <br/>
+        A set of one or more sizes.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The newly created pipe segment element.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The size list is empty.
+   -or-
+   The MaterialId and ScheduleId was already used by another pipe segment. Please use a new Material, a new Schedule/Type, or both.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="3693dcdf-67fb-0128-3be8-cad150e9498e.htm">
+           Autodesk.Revit.Exceptions
+           DisabledDisciplineException
+          </a>
+         </td>
+         <td>
+          None of the following disciplines is enabled: Mechanical Electrical Piping.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="a295ca1d-66f2-f788-5079-4d91554a4223.htm">
+       PipeSegment Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="cc553597-37c2-fcd9-6025-d904c129c80a.htm">
+       Autodesk.Revit.DB.Plumbing Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

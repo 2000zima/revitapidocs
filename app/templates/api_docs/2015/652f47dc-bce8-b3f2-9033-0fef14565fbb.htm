@@ -1,0 +1,215 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="7767020a-2564-2c46-689d-59c2abe6e777.htm">
+       ElementPhaseStatusFilter Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Constructs a new instance of a file to match elements that have a given phase statuses on the input phase.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="identifier">ElementPhaseStatusFilter</span>(
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">phaseId</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="bfc481cc-11c8-de0b-1d71-7b2ffa711780.htm">ElementOnPhaseStatus</a>&gt; <span class="parameter">phaseStatuses</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">New</span> ( _
+	<span class="parameter">phaseId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">phaseStatuses</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>(<span class="keyword">Of</span> <a href="bfc481cc-11c8-de0b-1d71-7b2ffa711780.htm">ElementOnPhaseStatus</a>) _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="identifier">ElementPhaseStatusFilter</span>(
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">phaseId</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="bfc481cc-11c8-de0b-1d71-7b2ffa711780.htm">ElementOnPhaseStatus</a>&gt;^ <span class="parameter">phaseStatuses</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="phaseId">
+       <dt>
+        <span class="parameter">
+         phaseId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        Id of the phase.
+       </dd>
+      </dl>
+      <dl paramname="phaseStatuses">
+       <dt>
+        <span class="parameter">
+         phaseStatuses
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">
+         System.Collections.Generic
+         ICollection
+        </a>
+        <a href="bfc481cc-11c8-de0b-1d71-7b2ffa711780.htm">
+         ElementOnPhaseStatus
+        </a>
+        <br/>
+        Target statuses.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="7767020a-2564-2c46-689d-59c2abe6e777.htm">
+       ElementPhaseStatusFilter Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="8e99068c-9562-334b-fc5f-65c0e620a131.htm">
+       ElementPhaseStatusFilter Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,234 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new radial grid line.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>("This method is deprecated in Revit 2016. Use Grid.Create() instead.")]
+<span class="keyword">public</span> <a href="47888507-2d69-664a-ead4-e481c7c5f42d.htm">Grid</a> <span class="identifier">NewGrid</span>(
+	<a href="1f5f541e-9335-aef3-0e75-59eed9ae2221.htm">Arc</a> <span class="parameter">arc</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>&lt;<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>("This method is deprecated in Revit 2016. Use Grid.Create() instead.")&gt; _
+<span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewGrid</span> ( _
+	<span class="parameter">arc</span> <span class="keyword">As</span> <a href="1f5f541e-9335-aef3-0e75-59eed9ae2221.htm">Arc</a> _
+) <span class="keyword">As</span> <a href="47888507-2d69-664a-ead4-e481c7c5f42d.htm">Grid</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>(L"This method is deprecated in Revit 2016. Use Grid.Create() instead.")]
+<span class="keyword">public</span>:
+<a href="47888507-2d69-664a-ead4-e481c7c5f42d.htm">Grid</a>^ <span class="identifier">NewGrid</span>(
+	<a href="1f5f541e-9335-aef3-0e75-59eed9ae2221.htm">Arc</a>^ <span class="parameter">arc</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="arc">
+       <dt>
+        <span class="parameter">
+         arc
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="1f5f541e-9335-aef3-0e75-59eed9ae2221.htm">
+         Autodesk.Revit.DB
+         Arc
+        </a>
+        <br/>
+        An arc object that represents the location of the new grid line.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The newly created grid line.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The arc should be on a horizontal plane.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// Create the geometry arc which the grid locates</span>
+XYZ end0 = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>);
+XYZ end1 = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">40</span>, <span class="highlight-number">0</span>);
+XYZ pointOnCurve = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">5</span>, <span class="highlight-number">7</span>, <span class="highlight-number">0</span>);
+Arc geomArc = Arc.Create(end0, end1, pointOnCurve);
+
+
+<span class="highlight-comment">// Create a grid using the geometry arc</span>
+Grid arcGrid = Grid.Create(document, geomArc);
+
+<span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> == arcGrid)
+{
+    <span class="highlight-keyword">throw</span> <span class="highlight-keyword">new</span> Exception(<span class="highlight-literal">"Create a new curved grid failed."</span>);
+}
+
+<span class="highlight-comment">// Modify the name of the created grid</span>
+arcGrid.Name = <span class="highlight-literal">"New Name2"</span>;</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code>   <span class="highlight-comment">' Create the geometry arc which the grid locates</span>
+   <span class="highlight-keyword">Dim</span> end0 <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>)
+   <span class="highlight-keyword">Dim</span> end1 <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">40</span>, <span class="highlight-number">0</span>)
+   <span class="highlight-keyword">Dim</span> pointOnCurve <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">5</span>, <span class="highlight-number">7</span>, <span class="highlight-number">0</span>)
+   <span class="highlight-keyword">Dim</span> geomArc <span class="highlight-keyword">As</span> Arc = Arc.Create(end0, end1, pointOnCurve)
+
+
+   <span class="highlight-comment">' Create a grid using the geometry arc</span>
+<span class="highlight-keyword">Dim</span> arcGrid <span class="highlight-keyword">As</span> Grid = Grid.Create(document, geomArc)
+
+   <span class="highlight-keyword">If</span> arcGrid <span class="highlight-keyword">Is</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+       <span class="highlight-keyword">Throw</span> <span class="highlight-keyword">New</span> Exception(<span class="highlight-literal">"Create a new curved grid failed."</span>)
+   <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+   <span class="highlight-comment">' Modify the name of the created grid</span>
+   arcGrid.Name = <span class="highlight-literal">"New Name2"</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="7664cf07-c4d1-572c-a271-4baec09574a5.htm">
+       NewGrid Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

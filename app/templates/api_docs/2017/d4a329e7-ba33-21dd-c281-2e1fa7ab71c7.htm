@@ -1,0 +1,511 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="72548466-370d-b010-eb4d-cde0c3f72482.htm">
+       Duct Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new duct that connects to two connectors.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="0eafd899-5912-56fd-94b1-d286156e26fc.htm">
+      Autodesk.Revit.DB.Mechanical
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="72548466-370d-b010-eb4d-cde0c3f72482.htm">Duct</a> <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">document</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">ductTypeId</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">levelId</span>,
+	<a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a> <span class="parameter">startConnector</span>,
+	<a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a> <span class="parameter">endConnector</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">Create</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">ductTypeId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">levelId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">startConnector</span> <span class="keyword">As</span> <a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a>, _
+	<span class="parameter">endConnector</span> <span class="keyword">As</span> <a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a> _
+) <span class="keyword">As</span> <a href="72548466-370d-b010-eb4d-cde0c3f72482.htm">Duct</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="72548466-370d-b010-eb4d-cde0c3f72482.htm">Duct</a>^ <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">document</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">ductTypeId</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">levelId</span>, 
+	<a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a>^ <span class="parameter">startConnector</span>, 
+	<a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">Connector</a>^ <span class="parameter">endConnector</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        The document.
+       </dd>
+      </dl>
+      <dl paramname="ductTypeId">
+       <dt>
+        <span class="parameter">
+         ductTypeId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        The ElementId of the new duct type.
+       </dd>
+      </dl>
+      <dl paramname="levelId">
+       <dt>
+        <span class="parameter">
+         levelId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        The level ElementId for the new duct.
+       </dd>
+      </dl>
+      <dl paramname="startConnector">
+       <dt>
+        <span class="parameter">
+         startConnector
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">
+         Autodesk.Revit.DB
+         Connector
+        </a>
+        <br/>
+        The first connector where the new duct starts.
+       </dd>
+      </dl>
+      <dl paramname="endConnector">
+       <dt>
+        <span class="parameter">
+         endConnector
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="11e07082-b3f2-26a1-de79-16535f44716c.htm">
+         Autodesk.Revit.DB
+         Connector
+        </a>
+        <br/>
+        The second point of the new duct.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The created duct.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The new duct will have the same diameter and system type as the start connector. The creation will also connect the new duct
+   to two component who owns the specified connectors. If necessary, additional fitting(s) are included to make a valid connection.
+   If the new duct can not be connected to the next component (e.g., mismatched direction, no valid fitting, and etc), the new duct
+   will still be created at the specified connector position, and an InvalidOperationException is thrown.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> Duct CreateDuctBetweenConnectors(UIDocument uiDocument)
+{
+    <span class="highlight-comment">// prior to running this example</span>
+    <span class="highlight-comment">// select some mechanical equipment with a supply air connector</span>
+    <span class="highlight-comment">// and an elbow duct fitting with a connector in line with that connector</span>
+    ElementId levelId = ElementId.InvalidElementId;
+    Connector connector1 = <span class="highlight-keyword">null</span>, connector2 = <span class="highlight-keyword">null</span>;
+    ConnectorSetIterator csi = <span class="highlight-keyword">null</span>;
+    ICollection&lt;ElementId&gt; selectedIds = uiDocument.Selection.GetElementIds();
+    Document document = uiDocument.Document;
+    <span class="highlight-comment">// First find the selected equipment and get the correct connector</span>
+    <span class="highlight-keyword">foreach</span> (ElementId id <span class="highlight-keyword">in</span> selectedIds)
+    {
+        Element e = document.GetElement(id);
+        <span class="highlight-keyword">if</span> (e <span class="highlight-keyword">is</span> FamilyInstance)
+        {
+            FamilyInstance fi = e <span class="highlight-keyword">as</span> FamilyInstance;
+            Family family = fi.Symbol.Family;
+            <span class="highlight-keyword">if</span> (family.FamilyCategory.Name == <span class="highlight-literal">"Mechanical Equipment"</span>)
+            {
+                csi = fi.MEPModel.ConnectorManager.Connectors.ForwardIterator();
+                <span class="highlight-keyword">while</span> (csi.MoveNext())
+                {
+                    Connector conn = csi.Current <span class="highlight-keyword">as</span> Connector;
+                    <span class="highlight-keyword">if</span> (conn.Direction == FlowDirectionType.Out &amp;&amp; 
+                        conn.DuctSystemType == DuctSystemType.SupplyAir)
+                    {
+                        connector1 = conn;
+                        levelId = family.LevelId;
+                        <span class="highlight-keyword">break</span>;
+                    }
+                }
+            }
+        }
+    }
+    <span class="highlight-comment">// next find the second selected item to connect to</span>
+    <span class="highlight-keyword">foreach</span> (ElementId id <span class="highlight-keyword">in</span> selectedIds)
+    {
+        Element e = document.GetElement(id);
+        <span class="highlight-keyword">if</span> (e <span class="highlight-keyword">is</span> FamilyInstance)
+        {
+            FamilyInstance fi = e <span class="highlight-keyword">as</span> FamilyInstance;
+            Family family = fi.Symbol.Family;
+            <span class="highlight-keyword">if</span> (family.FamilyCategory.Name != <span class="highlight-literal">"Mechanical Equipment"</span>)
+            {
+                csi = fi.MEPModel.ConnectorManager.Connectors.ForwardIterator();
+                <span class="highlight-keyword">while</span> (csi.MoveNext())
+                {
+                    <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> == connector2)
+                    {
+                        Connector conn = csi.Current <span class="highlight-keyword">as</span> Connector;
+
+                        <span class="highlight-comment">// make sure to choose the connector in line with the first connector</span>
+                        <span class="highlight-keyword">if</span> (Math.Abs(conn.Origin.Y - connector1.Origin.Y) &lt; <span class="highlight-number">0.001</span>)
+                        {
+                            connector2 = conn;
+                            <span class="highlight-keyword">break</span>;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    Duct duct = <span class="highlight-keyword">null</span>;
+    <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != connector1 &amp;&amp; <span class="highlight-keyword">null</span> != connector2 &amp;&amp; levelId != ElementId.InvalidElementId)
+    {
+        <span class="highlight-comment">// find a duct type</span>
+        FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(uiDocument.Document);
+        collector.OfClass(<span class="highlight-keyword">typeof</span>(DuctType));
+
+        <span class="highlight-comment">// Use Linq query to make sure it is one of the rectangular duct types</span>
+        var query = from element <span class="highlight-keyword">in</span> collector
+                    where element.Name.Contains(<span class="highlight-literal">"Mitered Elbows"</span>) == <span class="highlight-keyword">true</span>
+                    select element;
+
+        <span class="highlight-comment">// use extension methods to get first duct type</span>
+        DuctType ductType = collector.Cast&lt;DuctType&gt;().First&lt;DuctType&gt;();
+
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != ductType)
+        {
+            duct = Duct.Create(document, ductType.Id, levelId, connector1, connector2);
+        }
+    }
+
+    <span class="highlight-keyword">return</span> duct;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> CreateDuctBetweenConnectors(uiDocument <span class="highlight-keyword">As</span> UIDocument) <span class="highlight-keyword">As</span> Duct
+   <span class="highlight-comment">' prior to running this example</span>
+   <span class="highlight-comment">' select some mechanical equipment with a supply air connector</span>
+   <span class="highlight-comment">' and an elbow duct fitting with a connector in line with that connector</span>
+   <span class="highlight-keyword">Dim</span> levelId <span class="highlight-keyword">As</span> ElementId = ElementId.InvalidElementId
+   <span class="highlight-keyword">Dim</span> connector1 <span class="highlight-keyword">As</span> Connector = <span class="highlight-keyword">Nothing</span>, connector2 <span class="highlight-keyword">As</span> Connector = <span class="highlight-keyword">Nothing</span>
+   <span class="highlight-keyword">Dim</span> csi <span class="highlight-keyword">As</span> ConnectorSetIterator = <span class="highlight-keyword">Nothing</span>
+   <span class="highlight-keyword">Dim</span> selectedIds <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> ElementId) = uiDocument.Selection.GetElementIds()
+   <span class="highlight-keyword">Dim</span> document <span class="highlight-keyword">As</span> Document = uiDocument.Document
+   <span class="highlight-comment">' First find the selected equipment and get the correct connector</span>
+   <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> id <span class="highlight-keyword">As</span> ElementId <span class="highlight-keyword">In</span> selectedIds
+      <span class="highlight-keyword">Dim</span> e <span class="highlight-keyword">As</span> Element = document.GetElement(id)
+      <span class="highlight-keyword">If</span> <span class="highlight-keyword">TypeOf</span> e <span class="highlight-keyword">Is</span> FamilyInstance <span class="highlight-keyword">Then</span>
+         <span class="highlight-keyword">Dim</span> fi <span class="highlight-keyword">As</span> FamilyInstance = <span class="highlight-keyword">TryCast</span>(e, FamilyInstance)
+         <span class="highlight-keyword">Dim</span> family <span class="highlight-keyword">As</span> Family = fi.Symbol.Family
+         <span class="highlight-keyword">If</span> family.FamilyCategory.Name = <span class="highlight-literal">"Mechanical Equipment"</span> <span class="highlight-keyword">Then</span>
+            csi = fi.MEPModel.ConnectorManager.Connectors.ForwardIterator()
+            <span class="highlight-keyword">While</span> csi.MoveNext()
+               <span class="highlight-keyword">Dim</span> conn <span class="highlight-keyword">As</span> Connector = <span class="highlight-keyword">TryCast</span>(csi.Current, Connector)
+               <span class="highlight-keyword">If</span> conn.Direction = FlowDirectionType.Out <span class="highlight-keyword">AndAlso</span> conn.DuctSystemType = DuctSystemType.SupplyAir <span class="highlight-keyword">Then</span>
+                  levelId = fi.LevelId
+                  connector1 = conn
+                  <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">While</span>
+               <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">While</span>
+         <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+      <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+   <span class="highlight-keyword">Next</span>
+   <span class="highlight-comment">' next find the second selected item to connect to</span>
+   <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> id <span class="highlight-keyword">As</span> ElementId <span class="highlight-keyword">In</span> selectedIds
+      <span class="highlight-keyword">Dim</span> e <span class="highlight-keyword">As</span> Element = document.GetElement(id)
+      <span class="highlight-keyword">If</span> <span class="highlight-keyword">TypeOf</span> e <span class="highlight-keyword">Is</span> FamilyInstance <span class="highlight-keyword">Then</span>
+         <span class="highlight-keyword">Dim</span> fi <span class="highlight-keyword">As</span> FamilyInstance = <span class="highlight-keyword">TryCast</span>(e, FamilyInstance)
+         <span class="highlight-keyword">Dim</span> family <span class="highlight-keyword">As</span> Family = fi.Symbol.Family
+         <span class="highlight-keyword">If</span> family.FamilyCategory.Name &lt;&gt; <span class="highlight-literal">"Mechanical Equipment"</span> <span class="highlight-keyword">Then</span>
+            csi = fi.MEPModel.ConnectorManager.Connectors.ForwardIterator()
+            <span class="highlight-keyword">While</span> csi.MoveNext()
+               <span class="highlight-keyword">If</span> connector2 <span class="highlight-keyword">Is</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+                  <span class="highlight-keyword">Dim</span> conn <span class="highlight-keyword">As</span> Connector = <span class="highlight-keyword">TryCast</span>(csi.Current, Connector)
+
+                  <span class="highlight-comment">' make sure to choose the connector in line with the first connector</span>
+                  <span class="highlight-keyword">If</span> Math.Abs(conn.Origin.Y - connector1.Origin.Y) &lt; <span class="highlight-number">0.001</span> <span class="highlight-keyword">Then</span>
+                     connector2 = conn
+                     <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">While</span>
+                  <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+               <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">While</span>
+         <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+      <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+   <span class="highlight-keyword">Next</span>
+
+   <span class="highlight-keyword">Dim</span> duct <span class="highlight-keyword">As</span> Duct = <span class="highlight-keyword">Nothing</span>
+   <span class="highlight-keyword">If</span> connector1 <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">AndAlso</span> connector2 <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">AndAlso</span> levelId <span class="highlight-keyword">IsNot</span> ElementId.InvalidElementId <span class="highlight-keyword">Then</span>
+      <span class="highlight-comment">' find a duct type</span>
+      <span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(uiDocument.Document)
+      collector.OfClass(<span class="highlight-keyword">GetType</span>(DuctType))
+
+      <span class="highlight-comment">' Use Linq query to make sure it is one of the rectangular duct types</span>
+      <span class="highlight-keyword">Dim</span> query <span class="highlight-keyword">As</span> System.Collections.Generic.IEnumerable(<span class="highlight-keyword">Of</span> Autodesk.Revit.DB.Element)
+      query = From element <span class="highlight-keyword">In</span> collector _
+              Where element.Name.Contains(<span class="highlight-literal">"Mitered Elbows"</span>) = <span class="highlight-keyword">True</span> _
+              <span class="highlight-keyword">Select</span> element
+
+      <span class="highlight-comment">' use extension methods to get first duct type</span>
+      <span class="highlight-keyword">Dim</span> ductType <span class="highlight-keyword">As</span> DuctType = collector.Cast(<span class="highlight-keyword">Of</span> DuctType)().First()
+
+      <span class="highlight-keyword">If</span> ductType <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+         duct = duct.Create(document, ductType.Id, levelId, connector1, connector2)
+      <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+   <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+   <span class="highlight-keyword">Return</span> duct
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The duct type ductTypeId is not valid duct type.
+   -or-
+   The level id levelId is not valid.
+   -or-
+   The connector's domain is not Domain.â€‹DomainHvac.
+   -or-
+   The points of startConnector and endConnector are equal.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="3693dcdf-67fb-0128-3be8-cad150e9498e.htm">
+           Autodesk.Revit.Exceptions
+           DisabledDisciplineException
+          </a>
+         </td>
+         <td>
+          None of the following disciplines is enabled: Mechanical Electrical Piping.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when the new duct fails to connect with the connector.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="72548466-370d-b010-eb4d-cde0c3f72482.htm">
+       Duct Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="bd4f213f-0ff0-0b43-1c3c-4ae23c9061e7.htm">
+       Create Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="0eafd899-5912-56fd-94b1-d286156e26fc.htm">
+       Autodesk.Revit.DB.Mechanical Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

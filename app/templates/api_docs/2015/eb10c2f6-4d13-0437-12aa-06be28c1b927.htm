@@ -1,0 +1,261 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="f1a2d176-2ab6-fa4c-293e-970c5866e87c.htm">
+       SolidSolidCutUtils Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Adds a solid-solid cut for the two elements.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="identifier">AddCutBetweenSolids</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">document</span>,
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> <span class="parameter">solidToBeCut</span>,
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> <span class="parameter">cuttingSolid</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Sub</span> <span class="identifier">AddCutBetweenSolids</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">solidToBeCut</span> <span class="keyword">As</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>, _
+	<span class="parameter">cuttingSolid</span> <span class="keyword">As</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <span class="keyword">void</span> <span class="identifier">AddCutBetweenSolids</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">document</span>, 
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>^ <span class="parameter">solidToBeCut</span>, 
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>^ <span class="parameter">cuttingSolid</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        The document containing the two elements.
+       </dd>
+      </dl>
+      <dl paramname="solidToBeCut">
+       <dt>
+        <span class="parameter">
+         solidToBeCut
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+         Autodesk.Revit.DB
+         Element
+        </a>
+        <br/>
+        The solid to be cut.
+       </dd>
+      </dl>
+      <dl paramname="cuttingSolid">
+       <dt>
+        <span class="parameter">
+         cuttingSolid
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+         Autodesk.Revit.DB
+         Element
+        </a>
+        <br/>
+        The cutting solid.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This utility will split faces of cutting solid by default.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The element must be in a project document or in a conceptual model, pattern based curtain panel, or adaptive component family.
+   -or-
+   The element does not meet the condition that it must be solid and must be a GenericForm, GeomCombination, or a FamilyInstance.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Failed to add solid-solid cut for the two elements.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="f1a2d176-2ab6-fa4c-293e-970c5866e87c.htm">
+       SolidSolidCutUtils Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="91f9389e-9a5d-beca-b735-1863ceddeac7.htm">
+       AddCutBetweenSolids Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

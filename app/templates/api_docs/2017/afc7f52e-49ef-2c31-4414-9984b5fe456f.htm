@@ -1,0 +1,175 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="1b64fcfc-02f0-d317-f182-360e3737c85a.htm">
+       Members
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     This class allows an add-in to prompt the user with the Revit dialog used to navigate to and select an existing
+   or new file path.  This dialog is typically used to enter a file name for saving or exporting.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">FileSaveDialog</span> : <a href="99bb6529-12de-a126-50f7-39346dd5b48d.htm">FileDialog</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">FileSaveDialog</span> _
+	<span class="keyword">Inherits</span> <a href="99bb6529-12de-a126-50f7-39346dd5b48d.htm">FileDialog</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">FileSaveDialog</span> : <span class="keyword">public</span> <a href="99bb6529-12de-a126-50f7-39346dd5b48d.htm">FileDialog</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      The behavior and appearance of this dialog matches the Revit "Save as" dialog.  This is a general-purpose dialog
+   for saving any given file type, and the Options shown in the dialog for Revit projects and families will not be
+   shown.  To prompt the user to save the active Revit document specifically, use UIDocument.SaveAs(UISaveAsOptions) instead.
+     </p>
+     <p>
+      The user will be requested to select or enter a file name matching the corresponding filter.
+   If an existing file is selected, there will be
+   a default prompt about overwriting the file shown, where the user can confirm or cancel this file selection.
+     </p>
+     <p>
+      The folder location shown when the dialog is displayed defaults to the most recently used file location
+   for saving or exporting.
+     </p>
+     <p>
+      Use of this dialog does not actually save an existing file, but it will provide the selected file path
+   back to the caller to take any action necessary.
+     </p>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="99bb6529-12de-a126-50f7-39346dd5b48d.htm">
+      Autodesk.Revit.UI
+      FileDialog
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.UI
+      FileSaveDialog
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="1b64fcfc-02f0-d317-f182-360e3737c85a.htm">
+       FileSaveDialog Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

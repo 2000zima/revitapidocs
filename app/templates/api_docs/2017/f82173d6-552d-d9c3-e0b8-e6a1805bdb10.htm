@@ -1,0 +1,312 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="79a92343-2342-8325-1b51-f12c4fb05481.htm">
+       FormattedText Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Sets the list start number on the paragraphs in a given text range.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetListStartNumber</span>(
+	<a href="8a00baaf-8cb8-d9f0-e0a0-eaa5aa16e55e.htm">TextRange</a> <span class="parameter">textRange</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">value</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetListStartNumber</span> ( _
+	<span class="parameter">textRange</span> <span class="keyword">As</span> <a href="8a00baaf-8cb8-d9f0-e0a0-eaa5aa16e55e.htm">TextRange</a>, _
+	<span class="parameter">value</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">Integer</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetListStartNumber</span>(
+	<a href="8a00baaf-8cb8-d9f0-e0a0-eaa5aa16e55e.htm">TextRange</a>^ <span class="parameter">textRange</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">value</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="textRange">
+       <dt>
+        <span class="parameter">
+         textRange
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="8a00baaf-8cb8-d9f0-e0a0-eaa5aa16e55e.htm">
+         Autodesk.Revit.DB
+         TextRange
+        </a>
+        <br/>
+        The given text range.
+       </dd>
+      </dl>
+      <dl paramname="value">
+       <dt>
+        <span class="parameter">
+         value
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">
+         System
+         Int32
+        </a>
+        <br/>
+        The list start number to be set on the text range.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      List start number is the number of the first paragraph in a numbered list.
+     </p>
+     <p>
+      List start number can be set on paragraphs of type
+      <a href="7163554f-3446-22eb-afa4-5490d5df29c8.htm">
+       ArabicNumbers
+      </a>
+      ,
+      <a href="7163554f-3446-22eb-afa4-5490d5df29c8.htm">
+       LowerCaseLetters
+      </a>
+      and
+      <a href="7163554f-3446-22eb-afa4-5490d5df29c8.htm">
+       UpperCaseLetters
+      </a>
+      .
+   List start number can only be set for top-level paragraphs in a list;
+   that is, they cannot be set to paragraphs which are part of a sub-list.
+     </p>
+     <p>
+      For paragraphs of type
+      <a href="7163554f-3446-22eb-afa4-5490d5df29c8.htm">
+       LowerCaseLetters
+      </a>
+      and
+      <a href="7163554f-3446-22eb-afa4-5490d5df29c8.htm">
+       UpperCaseLetters
+      </a>
+      the list start number represents the letter in the order it appears in the alphabet.
+   For example, for paragraphs of type
+      <a href="7163554f-3446-22eb-afa4-5490d5df29c8.htm">
+       LowerCaseLetters
+      </a>
+      ,
+   list start number of 2 will result in a list start "b.";
+   list start number of 27 will result in a list start "aa.".
+     </p>
+     <p>
+      Adjoining paragraphs which have a list type other than
+      <a href="7163554f-3446-22eb-afa4-5490d5df29c8.htm">
+       None
+      </a>
+      are considered part of a numbered list.
+   Changing the list start number of numbered paragraphs
+   will cause changes to the numbers of the rest of the paragraphs in the same list.
+     </p>
+     <p>
+      This function applies the list start number to the given range.
+   The list start number must be in the range given by the methods
+      <a href="35eab58f-9a75-db03-4182-e8a17ab2a55c.htm">
+       GetMinimumListStartNumber
+      </a>
+      and
+      <a href="8bb4b3f7-9053-c9cb-751a-98803e7828eb.htm">
+       GetMaximumListStartNumber
+      </a>
+      .
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          This start index of this text range is not within the text range identifying the entire text.
+   -or-
+   The end of this text range is not within the text range identifying the entire text.
+   -or-
+   This list start number is not valid.
+   A valid value must be in the range given by the methods
+          <a href="35eab58f-9a75-db03-4182-e8a17ab2a55c.htm">
+           GetMinimumListStartNumber
+          </a>
+          and
+          <a href="8bb4b3f7-9053-c9cb-751a-98803e7828eb.htm">
+           GetMaximumListStartNumber
+          </a>
+          .
+   -or-
+   Cannot set list start number on this text range. The range contains paragraphs on which list start number cannot be set.
+   List start number can be set on pararaphs of type
+          <a href="7163554f-3446-22eb-afa4-5490d5df29c8.htm">
+           ArabicNumbers
+          </a>
+          ,
+          <a href="7163554f-3446-22eb-afa4-5490d5df29c8.htm">
+           LowerCaseLetters
+          </a>
+          and
+          <a href="7163554f-3446-22eb-afa4-5490d5df29c8.htm">
+           UpperCaseLetters
+          </a>
+          .
+   List start number can only be set for top-level paragraphs in a list;
+   that is, they cannot be set to paragraphs which are part of a sub-list.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="79a92343-2342-8325-1b51-f12c4fb05481.htm">
+       FormattedText Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

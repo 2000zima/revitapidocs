@@ -1,0 +1,205 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="5301a4c6-ba0f-1f66-61c3-8d0909ab0fe6.htm">
+       SplitButton Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Gets or sets the current PushButton of the SplitButton.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="c4294178-9b46-3590-98b1-970af89e3c10.htm">PushButton</a> <span class="identifier">CurrentButton</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Property</span> <span class="identifier">CurrentButton</span> <span class="keyword">As</span> <a href="c4294178-9b46-3590-98b1-970af89e3c10.htm">PushButton</a>
+	<span class="keyword">Get</span>
+	<span class="keyword">Set</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">property</span> <a href="c4294178-9b46-3590-98b1-970af89e3c10.htm">PushButton</a>^ <span class="identifier">CurrentButton</span> {
+	<a href="c4294178-9b46-3590-98b1-970af89e3c10.htm">PushButton</a>^ <span class="keyword">get</span> ();
+	<span class="keyword">void</span> <span class="keyword">set</span> (<a href="c4294178-9b46-3590-98b1-970af89e3c10.htm">PushButton</a>^ <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This property is applicable only if IsSynchronizedWithCurrentItem is true.
+The default value of this property will be the first enabled PushButton in the drop down list after the SplitButton is shown.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown when trying to set the CurrentButton to
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown when trying to set the CurrentButton to a button which is not in current drop-down list.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when trying to set the CurrentButton if IsSynchronizedWithCurrentItem is false.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="5301a4c6-ba0f-1f66-61c3-8d0909ab0fe6.htm">
+       SplitButton Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

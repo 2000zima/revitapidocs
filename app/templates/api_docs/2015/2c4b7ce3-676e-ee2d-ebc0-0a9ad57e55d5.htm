@@ -1,0 +1,309 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="e829700d-48ff-0914-b288-5ceb93d8ee86.htm">
+       GeometryCreationUtilities Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a solid by simultaneously sweeping and blending two or more closed planar curve loops along a single curve.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="7a3b5ac1-c66d-9f81-a11d-9bcd4e026295.htm">Solid</a> <span class="identifier">CreateSweptBlendGeometry</span>(
+	<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a> <span class="parameter">pathCurve</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a>&gt; <span class="parameter">pathParams</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a>&gt; <span class="parameter">profileLoops</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="3f0456e9-59a6-2c68-0f0c-d2355edb9693.htm">VertexPair</a>&gt;&gt; <span class="parameter">vertexPairs</span>,
+	<a href="75d6caeb-62d1-d31f-47fe-618ac7cedf19.htm">SolidOptions</a> <span class="parameter">solidOptions</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">CreateSweptBlendGeometry</span> ( _
+	<span class="parameter">pathCurve</span> <span class="keyword">As</span> <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>, _
+	<span class="parameter">pathParams</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a>), _
+	<span class="parameter">profileLoops</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a>), _
+	<span class="parameter">vertexPairs</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>(<span class="keyword">Of</span> <a href="3f0456e9-59a6-2c68-0f0c-d2355edb9693.htm">VertexPair</a>)), _
+	<span class="parameter">solidOptions</span> <span class="keyword">As</span> <a href="75d6caeb-62d1-d31f-47fe-618ac7cedf19.htm">SolidOptions</a> _
+) <span class="keyword">As</span> <a href="7a3b5ac1-c66d-9f81-a11d-9bcd4e026295.htm">Solid</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="7a3b5ac1-c66d-9f81-a11d-9bcd4e026295.htm">Solid</a>^ <span class="identifier">CreateSweptBlendGeometry</span>(
+	<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>^ <span class="parameter">pathCurve</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a>&gt;^ <span class="parameter">pathParams</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a>^&gt;^ <span class="parameter">profileLoops</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="3f0456e9-59a6-2c68-0f0c-d2355edb9693.htm">VertexPair</a>^&gt;^&gt;^ <span class="parameter">vertexPairs</span>, 
+	<a href="75d6caeb-62d1-d31f-47fe-618ac7cedf19.htm">SolidOptions</a>^ <span class="parameter">solidOptions</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="pathCurve">
+       <dt>
+        <span class="parameter">
+         pathCurve
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">
+         Autodesk.Revit.DB
+         Curve
+        </a>
+        <br/>
+        The sweep path, consisting of a single bounded, open curve.
+       </dd>
+      </dl>
+      <dl paramname="pathParams">
+       <dt>
+        <span class="parameter">
+         pathParams
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         Double
+        </a>
+        <br/>
+        An increasing sequence of parameters along the path curve (lying within the curve's bounds).
+   These parameters specify the locations of the planes orthogonal to the path that contain the profile loops.
+   This array must have the same size as the input array "profileLoops".
+       </dd>
+      </dl>
+      <dl paramname="profileLoops">
+       <dt>
+        <span class="parameter">
+         profileLoops
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">
+         CurveLoop
+        </a>
+        <br/>
+        Closed, planar curve loops arrayed along the path.
+   The solid will have these profiles as cross-sections at the points specified by the input pathParams. The solid will blend smoothly between the profiles.
+   This array must have the same size as the input array "pathParams", and each profile loop must lie in the plane orthogonal to the path at the point specified by the corresponding entry in the input array "pathParams".
+   Each profile loop must define a single planar domain and must be free of intersections and degeneracies. No orientation conditions on the loops are imposed.
+       </dd>
+      </dl>
+      <dl paramname="vertexPairs">
+       <dt>
+        <span class="parameter">
+         vertexPairs
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">
+         ICollection
+        </a>
+        <a href="3f0456e9-59a6-2c68-0f0c-d2355edb9693.htm">
+         VertexPair
+        </a>
+        <br/>
+        This input specifies how adjacent profile loops should be connected.
+   It must contain one less element than the "profileLoops" input, and entry vertexPairs[idx] specifies how profileLoops[idx] and profileLoops[idx+1] should be connected (indexing starts at 0).
+       </dd>
+      </dl>
+      <dl paramname="solidOptions">
+       <dt>
+        <span class="parameter">
+         solidOptions
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="75d6caeb-62d1-d31f-47fe-618ac7cedf19.htm">
+         Autodesk.Revit.DB
+         SolidOptions
+        </a>
+        <br/>
+        The optional information to control the properties of the Solid.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The requested solid.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The input pathCurve is a helical curve and is not supported for this operation.
+   -or-
+   The input argument pathCurve should be bounded.
+   The input argument pathCurve should be non-degenerate.
+   -or-
+   The input argument pathParams should be an increasing array.
+   -or-
+   The profile CurveLoops do not satisfy the input requirements.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="e829700d-48ff-0914-b288-5ceb93d8ee86.htm">
+       GeometryCreationUtilities Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="6374de2d-88b7-1add-2845-7186183972a3.htm">
+       CreateSweptBlendGeometry Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

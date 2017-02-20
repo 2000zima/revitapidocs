@@ -1,0 +1,243 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="51ca80e2-3e5f-7dd2-9d95-f210950c72ae.htm">
+       UIApplication Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Initiates a drag and drop operation of a collection of file names on the Revit user interface.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="identifier">DoDragDrop</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a>&gt; <span class="parameter">dropData</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Sub</span> <span class="identifier">DoDragDrop</span> ( _
+	<span class="parameter">dropData</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>(<span class="keyword">Of</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>) _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <span class="keyword">void</span> <span class="identifier">DoDragDrop</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^&gt;^ <span class="parameter">dropData</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="dropData">
+       <dt>
+        <span class="parameter">
+         dropData
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">
+         System.Collections.Generic
+         ICollection
+        </a>
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         String
+        </a>
+        <br/>
+        The list of file paths and names.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The behavior after the 'dragData' dragged onto Revit is listed bellow:
+     <ul>
+      <li>
+       Only one AutoCAD format or image file dragged onto Revit: a new import placement editor will be started for import the file;
+      </li>
+      <li>
+       More than one AutoCAD format or image files dragged onto Revit: a new import placement editor will be started only for the first AutoCAD format or image file;
+      </li>
+      <li>
+       Only one family file dragged onto Revit: the family will be loaded, and an editor will be started to place the family;
+      </li>
+      <li>
+       More than one family files dragged onto Revit: all the families will be loaded;
+      </li>
+      <li>
+       More than one family files including other format files dragged onto Revit: Revit will try to open all the files;
+      </li>
+      <li>
+       If a valid file or list of files is passed, Revit will do its best to use them appropriately. If any files are not usable, failure will be signalled to the interactive Revit user (and will not be signalled to the application with an exception).
+      </li>
+     </ul>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown when dropData is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="ca9ccaa9-ed08-d40d-31a7-1af3ad2dcb84.htm">
+           Autodesk.Revit.Exceptions
+           FileArgumentNotFoundException
+          </a>
+         </td>
+         <td>
+          Thrown when dropData contains a file that doens't exist.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="51ca80e2-3e5f-7dd2-9d95-f210950c72ae.htm">
+       UIApplication Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="f4561775-33b7-8643-b792-5cc234f7240f.htm">
+       DoDragDrop Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

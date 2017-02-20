@@ -1,0 +1,174 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="d616614b-a2ed-b0d0-4f11-f0a0b54a22e5.htm">
+       SunAndShadowSettings Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Identifies the sunset time for the SunAndShadowSettings element at its current location
+   and indicated date.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="http://msdn2.microsoft.com/en-us/library/03ybds8y" target="_blank">DateTime</a> <span class="identifier">GetSunset</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/03ybds8y" target="_blank">DateTime</a> <span class="parameter">date</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">GetSunset</span> ( _
+	<span class="parameter">date</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/03ybds8y" target="_blank">DateTime</a> _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/03ybds8y" target="_blank">DateTime</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="http://msdn2.microsoft.com/en-us/library/03ybds8y" target="_blank">DateTime</a> <span class="identifier">GetSunset</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/03ybds8y" target="_blank">DateTime</a> <span class="parameter">date</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="date">
+       <dt>
+        <span class="parameter">
+         date
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/03ybds8y" target="_blank">
+         System
+         DateTime
+        </a>
+        <br/>
+        The date for which to determine sunset time.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The date and time.  The value will be in Coordinated Universal Time (UTC).
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The value returned is affected by the value of the
+     <a href="34284848-ddf6-1fda-d1d2-43f8c2e2ad78.htm">
+      UsesDST
+     </a>
+     flag set for the current location.  If this value is true, the sunset value will be adjusted for
+   Daylight Savings Time, regardless of the value of the input date.
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="d616614b-a2ed-b0d0-4f11-f0a0b54a22e5.htm">
+       SunAndShadowSettings Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

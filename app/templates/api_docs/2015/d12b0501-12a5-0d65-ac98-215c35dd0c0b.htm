@@ -1,0 +1,199 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="fa14442f-3d47-2c21-467c-6d19e4cc0d9e.htm">
+       ExternalServiceRegistry Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Returns an instance of an object that represents the external service with the given Id.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="a88f2d1d-c02f-a901-9543-44e4b5dd5fc9.htm">
+      Autodesk.Revit.DB.ExternalService
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="0408e6d9-12d3-20e4-911e-6d299fe31b81.htm">ExternalService</a> <span class="identifier">GetService</span>(
+	<a href="2bab66fa-f55d-4419-46d1-f33b9540e727.htm">ExternalServiceId</a> <span class="parameter">serviceId</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">GetService</span> ( _
+	<span class="parameter">serviceId</span> <span class="keyword">As</span> <a href="2bab66fa-f55d-4419-46d1-f33b9540e727.htm">ExternalServiceId</a> _
+) <span class="keyword">As</span> <a href="0408e6d9-12d3-20e4-911e-6d299fe31b81.htm">ExternalService</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="0408e6d9-12d3-20e4-911e-6d299fe31b81.htm">ExternalService</a>^ <span class="identifier">GetService</span>(
+	<a href="2bab66fa-f55d-4419-46d1-f33b9540e727.htm">ExternalServiceId</a>^ <span class="parameter">serviceId</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="serviceId">
+       <dt>
+        <span class="parameter">
+         serviceId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="2bab66fa-f55d-4419-46d1-f33b9540e727.htm">
+         Autodesk.Revit.DB.ExternalService
+         ExternalServiceId
+        </a>
+        <br/>
+        Id of the service.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The instance of the service or NULL if it cannot be found.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The returned instance is either of type SingleServerService or MultiServerService.
+   Users should cast the returned object to one of the classes if they need access to active servers.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="fa14442f-3d47-2c21-467c-6d19e4cc0d9e.htm">
+       ExternalServiceRegistry Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="a88f2d1d-c02f-a901-9543-44e4b5dd5fc9.htm">
+       Autodesk.Revit.DB.ExternalService Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

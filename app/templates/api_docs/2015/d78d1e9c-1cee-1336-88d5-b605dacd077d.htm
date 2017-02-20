@@ -1,0 +1,292 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="31999f17-cdb5-a95f-483a-de53658970a7.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A class representing information on all external file references
+   in a document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">TransmissionData</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">TransmissionData</span> _
+	<span class="keyword">Implements</span> <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">TransmissionData</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      TransmissionData stores information on both the previous state
+   and requested state of an external file reference.
+   This means that it stores the load state and path of the reference
+   from the most recent time this TransmissionData's document was opened.
+   It also stores load state and path information for what Revit should
+   do the next time the document is opened.
+     </p>
+     <p>
+      As such, TransmissionData can be used to perform operations on external
+   file references without having to open the entire associated Revit
+   document. The methods ReadTransmissionData and WriteTransmissionData
+   can be used to obtain information about external references, or to
+   change that information. For example, calling WriteTransmissionData
+   with a TransmissionData object which has had all references set to
+   LinkedFileStatus.Unloaded would cause no references to be loaded
+   upon next opening the document.
+     </p>
+     <p>
+      TransmissionData cannot add or remove references to
+   external files. If, on file open, Revit discovers information
+   in the TransmissionData which does not correspond to an
+   existing external file reference,
+   the information will be ignored on file load.
+     </p>
+     <p>
+      The TransmissionData for a document does not contain information
+   about references which come from external servers. TransmissionData only
+   contains references to local files or Revit links on Revit Server.
+   TransmissionData cannot
+   be used to change a reference from a local file reference to an external
+   server reference.
+     </p>
+     <p>
+      Note that TransmissionData objects must be set to "transmitted" for
+   the requested reference data to be meaningful. Revit ignores the
+   TransmissionData for non-transmitted files. Marking a file as
+   transmitted has other effects - workshared files are opened as
+   detached from the central model, and creation of new local files
+   is prohibited, until the file is in its final location and the
+   file has been marked as no longer transmitted.
+     </p>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">void</span> UnloadRevitLinks(ModelPath location)
+<span class="highlight-comment">///  This method will set all Revit links to be unloaded the next time the document at the given location is opened. </span>
+<span class="highlight-comment">///  The TransmissionData for a given document only contains top-level Revit links, not nested links.</span>
+<span class="highlight-comment">///  However, nested links will be unloaded if their parent links are unloaded, so this function only needs to look at the document's immediate links. </span>
+{
+   <span class="highlight-comment">// access transmission data in the given Revit file</span>
+   TransmissionData transData = TransmissionData.ReadTransmissionData(location);
+
+   <span class="highlight-keyword">if</span> (transData != <span class="highlight-keyword">null</span>)
+   {
+      <span class="highlight-comment">// collect all (immediate) external references in the model</span>
+      ICollection&lt;ElementId&gt; externalReferences = transData.GetAllExternalFileReferenceIds();
+
+      <span class="highlight-comment">// find every reference that is a link</span>
+      <span class="highlight-keyword">foreach</span> (ElementId refId <span class="highlight-keyword">in</span> externalReferences)
+      {
+         ExternalFileReference extRef = transData.GetLastSavedReferenceData(refId);
+
+         <span class="highlight-keyword">if</span> (extRef.ExternalFileReferenceType == ExternalFileReferenceType.RevitLink)
+         {
+            <span class="highlight-comment">// we do not want to change neither the path nor the path-type</span>
+            <span class="highlight-comment">// we only want the links to be unloaded (shouldLoad = false)</span>
+            transData.SetDesiredReferenceData(refId, extRef.GetPath(), extRef.PathType, <span class="highlight-keyword">false</span>);
+         }
+      }
+
+      <span class="highlight-comment">// make sure the IsTransmitted property is set </span>
+      transData.IsTransmitted = <span class="highlight-keyword">true</span>;
+
+      <span class="highlight-comment">// modified transmission data must be saved back to the model</span>
+      TransmissionData.WriteTransmissionData(location, transData);
+   }
+   <span class="highlight-keyword">else</span>
+   {
+      Autodesk.Revit.UI.TaskDialog.Show(<span class="highlight-literal">"Unload Links"</span>, <span class="highlight-literal">"The document does not have any transmission data"</span>);
+   }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> UnloadRevitLinks(location <span class="highlight-keyword">As</span> ModelPath)
+    <span class="highlight-comment">'  This method will set all Revit links to be unloaded the next time the document at the given location is opened. </span>
+    <span class="highlight-comment">'  The TransmissionData for a given document only contains top-level Revit links, not nested links.</span>
+    <span class="highlight-comment">'  However, nested links will be unloaded if their parent links are unloaded, so this function only needs to look at the document's immediate links. </span>
+    <span class="highlight-comment">' access transmission data in the given Revit file</span>
+    <span class="highlight-keyword">Dim</span> transData <span class="highlight-keyword">As</span> TransmissionData = TransmissionData.ReadTransmissionData(location)
+
+    <span class="highlight-keyword">If</span> transData <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-comment">' collect all (immediate) external references in the model</span>
+        <span class="highlight-keyword">Dim</span> externalReferences <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> ElementId) = transData.GetAllExternalFileReferenceIds()
+
+        <span class="highlight-comment">' find every reference that is a link</span>
+        <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> refId <span class="highlight-keyword">As</span> ElementId <span class="highlight-keyword">In</span> externalReferences
+            <span class="highlight-keyword">Dim</span> extRef <span class="highlight-keyword">As</span> ExternalFileReference = transData.GetLastSavedReferenceData(refId)
+
+            <span class="highlight-keyword">If</span> extRef.ExternalFileReferenceType = ExternalFileReferenceType.RevitLink <span class="highlight-keyword">Then</span>
+                <span class="highlight-comment">' we do not want to change neither the path nor the path-type</span>
+                <span class="highlight-comment">' we only want the links to be unloaded (shouldLoad = false)</span>
+                transData.SetDesiredReferenceData(refId, extRef.GetPath(), extRef.PathType, <span class="highlight-keyword">False</span>)
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+        <span class="highlight-keyword">Next</span>
+
+        <span class="highlight-comment">' make sure the IsTransmitted property is set </span>
+        transData.IsTransmitted = <span class="highlight-keyword">True</span>
+
+        <span class="highlight-comment">' modified transmission data must be saved back to the model</span>
+        TransmissionData.WriteTransmissionData(location, transData)
+    <span class="highlight-keyword">Else</span>
+        Autodesk.Revit.UI.TaskDialog.Show(<span class="highlight-literal">"Unload Links"</span>, <span class="highlight-literal">"The document does not have any transmission data"</span>)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      TransmissionData
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="31999f17-cdb5-a95f-483a-de53658970a7.htm">
+       TransmissionData Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,206 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="37fe86a0-0668-5908-9966-dfac0e0c1fe3.htm">
+       IExternalService Interface
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Implements this method to get notified that the servers  in a just
+   opened document differ from those currently set as active for the service.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="a88f2d1d-c02f-a901-9543-44e4b5dd5fc9.htm">
+      Autodesk.Revit.DB.ExternalService
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="29ab805b-5976-912d-3166-ef04d78d612f.htm">DisparityResponse</a> <span class="identifier">OnServersDisparity</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">document</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a>&gt; <span class="parameter">oldServers</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Function</span> <span class="identifier">OnServersDisparity</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">oldServers</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a>) _
+) <span class="keyword">As</span> <a href="29ab805b-5976-912d-3166-ef04d78d612f.htm">DisparityResponse</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="29ab805b-5976-912d-3166-ef04d78d612f.htm">DisparityResponse</a> <span class="identifier">OnServersDisparity</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">document</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a>&gt;^ <span class="parameter">oldServers</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        The coresponding document
+       </dd>
+      </dl>
+      <dl paramname="oldServers">
+       <dt>
+        <span class="parameter">
+         oldServers
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">
+         Guid
+        </a>
+        <br/>
+        Ids of servers previously used in the document. Please note that the Ids may
+   belong to servers that are currently not registered with the service.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     Return DoNothing if the situation has been completely handled by your service;
+   If not, reply with either ApplyDefaults (typical case) or LetUserDecide.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This method may only be invoked in a recordable service.
+   Services registered as non-recordable never receive this call.
+     </p>
+     <p>
+      This notification is sent when Revit opens a document which has a record of
+   the service used (executed at least once) and the record shows that the server
+   (or servers) used differ from those currently set as active for the service.
+     </p>
+     <p>
+      Unless the situation is explicitly handled in this call (by returning DoNothing),
+   the framework will follow up by assigning the formerly used servers as the
+   currently active servers of that document. After it will notify the service
+   about the change by invoking the OnServersChanged method on the services interface.
+     </p>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="37fe86a0-0668-5908-9966-dfac0e0c1fe3.htm">
+       IExternalService Interface
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="a88f2d1d-c02f-a901-9543-44e4b5dd5fc9.htm">
+       Autodesk.Revit.DB.ExternalService Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

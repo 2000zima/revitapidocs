@@ -1,0 +1,235 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="e1071a1b-b98e-5875-2e13-b673e2b9fef6.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Provides location functionality for all elements that have a single insertion point.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">LocationPoint</span> : <a href="3dbe57e5-fdea-5bf9-c715-52653f56073f.htm">Location</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">LocationPoint</span> _
+	<span class="keyword">Inherits</span> <a href="3dbe57e5-fdea-5bf9-c715-52653f56073f.htm">Location</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">LocationPoint</span> : <span class="keyword">public</span> <a href="3dbe57e5-fdea-5bf9-c715-52653f56073f.htm">Location</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The location point objects adds additional functionality to its base location object
+class. This includes setting the elements location to a specific point and retrieving its
+rotation around its insertion point. Inplace families do not have a single insertion point and therefore do not have meaningful LocationPoint data.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">void</span> LocationInformation(LocationPoint position)
+{
+    String prompt = <span class="highlight-literal">"The selected column location information:"</span>;
+    prompt += <span class="highlight-literal">"\nPoint:  ("</span> + position.Point.X + <span class="highlight-literal">", "</span>
+            + position.Point.Y + <span class="highlight-literal">", "</span> + position.Point.Z + <span class="highlight-literal">")"</span>;
+    prompt += <span class="highlight-literal">"\nRotation: "</span> + position.Rotation;
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,prompt);
+}
+
+<span class="highlight-keyword">bool</span> LocationRotate(Autodesk.Revit.ApplicationServices.Application application, Autodesk.Revit.DB.Element element)
+{
+    <span class="highlight-keyword">bool</span> rotated = <span class="highlight-keyword">false</span>;
+    LocationPoint location = element.Location <span class="highlight-keyword">as</span> LocationPoint;
+
+    <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != location)
+    {
+        XYZ aa = location.Point;
+        XYZ cc = <span class="highlight-keyword">new</span> XYZ(aa.X, aa.Y, aa.Z + <span class="highlight-number">10</span>);
+        Line axis = Line.CreateBound(aa,cc);
+        rotated = location.Rotate(axis, Math.PI / <span class="highlight-number">2.0</span>);
+    }
+
+    <span class="highlight-keyword">return</span> rotated;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> LocationInformation(position <span class="highlight-keyword">As</span> LocationPoint)
+    <span class="highlight-keyword">Dim</span> prompt <span class="highlight-keyword">As</span> [<span class="highlight-keyword">String</span>] = <span class="highlight-literal">"The selected column location information:"</span>
+    prompt += vbLf &amp; <span class="highlight-literal">"Point:  ("</span> &amp; Convert.ToString(position.Point.X) &amp; <span class="highlight-literal">", "</span> &amp; Convert.ToString(position.Point.Y) &amp; <span class="highlight-literal">", "</span> &amp; Convert.ToString(position.Point.Z) &amp; <span class="highlight-literal">")"</span>
+    prompt += vbLf &amp; <span class="highlight-literal">"Rotation: "</span> &amp; Convert.ToString(position.Rotation)
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, prompt)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span>
+
+<span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> LocationRotate(application <span class="highlight-keyword">As</span> Autodesk.Revit.ApplicationServices.Application, element <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Element) <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span>
+    <span class="highlight-keyword">Dim</span> rotated <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span> = <span class="highlight-keyword">False</span>
+    <span class="highlight-keyword">Dim</span> location <span class="highlight-keyword">As</span> LocationPoint = <span class="highlight-keyword">TryCast</span>(element.Location, LocationPoint)
+
+    <span class="highlight-keyword">If</span> location <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Dim</span> aa <span class="highlight-keyword">As</span> XYZ = location.Point
+        <span class="highlight-keyword">Dim</span> cc <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(aa.X, aa.Y, aa.Z + <span class="highlight-number">10</span>)
+        <span class="highlight-keyword">Dim</span> axis <span class="highlight-keyword">As</span> Line = Line.CreateBound(aa, cc)
+        rotated = location.Rotate(axis, Math.PI / <span class="highlight-number">2.0</span>)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-keyword">Return</span> rotated
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">
+      Autodesk.Revit.DB
+      APIObject
+     </a>
+     <br/>
+     <a href="3dbe57e5-fdea-5bf9-c715-52653f56073f.htm">
+      Autodesk.Revit.DB
+      Location
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      LocationPoint
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="e1071a1b-b98e-5875-2e13-b673e2b9fef6.htm">
+       LocationPoint Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

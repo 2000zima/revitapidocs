@@ -1,0 +1,256 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="53ebee14-8d6f-28ac-f44e-1e7bd906c7d8.htm">
+       LightFamily Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Set the light distribution style to the given shape distribution
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="a6a04f07-7fd2-0a4e-12e7-01842ee6daaf.htm">
+      Autodesk.Revit.DB.Lighting
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetLightDistributionStyle</span>(
+	<a href="54a4212a-9694-5032-bdc4-a7cc0603f0e1.htm">LightDistributionStyle</a> <span class="parameter">lightDistributionStyle</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetLightDistributionStyle</span> ( _
+	<span class="parameter">lightDistributionStyle</span> <span class="keyword">As</span> <a href="54a4212a-9694-5032-bdc4-a7cc0603f0e1.htm">LightDistributionStyle</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetLightDistributionStyle</span>(
+	<a href="54a4212a-9694-5032-bdc4-a7cc0603f0e1.htm">LightDistributionStyle</a> <span class="parameter">lightDistributionStyle</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="lightDistributionStyle">
+       <dt>
+        <span class="parameter">
+         lightDistributionStyle
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="54a4212a-9694-5032-bdc4-a7cc0603f0e1.htm">
+         Autodesk.Revit.DB.Lighting
+         LightDistributionStyle
+        </a>
+        <br/>
+        The light distribution style to set the light distribution type to
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> ModifyLightDistributionStyle(Document familyDoc)
+{
+    <span class="highlight-comment">// Get the light family from the static method.</span>
+    LightFamily lightFamily = LightFamily.GetLightFamily(familyDoc);
+
+    <span class="highlight-comment">// Set the light distribution style to PhotometricWeb</span>
+    lightFamily.SetLightDistributionStyle(LightDistributionStyle.PhotometricWeb);
+
+    <span class="highlight-comment">// After light shape style set to PhotometricWeb, each tyoe returns a CircleLightShape instance,</span>
+    <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> index = <span class="highlight-number">0</span>; index &lt; lightFamily.GetNumberOfLightTypes(); index++)
+    {
+        LightType lightData = lightFamily.GetLightType(index);
+        PhotometricWebLightDistribution lightDistribution = 
+            lightData.GetLightDistribution() <span class="highlight-keyword">as</span> PhotometricWebLightDistribution;
+        lightDistribution.PhotometricWebFile = <span class="highlight-literal">@"C:\IES\1x4 2Lamp.ies"</span>; <span class="highlight-comment">// input a full file path here.</span>
+        lightDistribution.TiltAngle = Math.PI / <span class="highlight-number">6</span>;    <span class="highlight-comment">// use radian value to set</span>
+        lightData.SetLightDistribution(lightDistribution);  <span class="highlight-comment">// set back</span>
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> ModifyLightDistributionStyle(familyDoc <span class="highlight-keyword">As</span> Document)
+   <span class="highlight-comment">' Get the light family from the static method.</span>
+   <span class="highlight-keyword">Dim</span> lightFamily__1 <span class="highlight-keyword">As</span> LightFamily = LightFamily.GetLightFamily(familyDoc)
+
+   <span class="highlight-comment">' Set the light distribution style to PhotometricWeb</span>
+   lightFamily__1.SetLightDistributionStyle(LightDistributionStyle.PhotometricWeb)
+
+   <span class="highlight-comment">' After light shape style set to PhotometricWeb, each tyoe returns a CircleLightShape instance,</span>
+   <span class="highlight-keyword">For</span> index <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> = <span class="highlight-number">0</span> <span class="highlight-keyword">To</span> lightFamily__1.GetNumberOfLightTypes() - <span class="highlight-number">1</span>
+      <span class="highlight-keyword">Dim</span> lightData <span class="highlight-keyword">As</span> LightType = lightFamily__1.GetLightType(index)
+      <span class="highlight-keyword">Dim</span> lightDistribution <span class="highlight-keyword">As</span> PhotometricWebLightDistribution = <span class="highlight-keyword">TryCast</span>(lightData.GetLightDistribution(), PhotometricWebLightDistribution)
+      lightDistribution.PhotometricWebFile = <span class="highlight-literal">"C:\IES\1x4 2Lamp.ies"</span>
+      <span class="highlight-comment">' input a full file path here.</span>
+      lightDistribution.TiltAngle = Math.PI / <span class="highlight-number">6</span>
+      <span class="highlight-comment">' use radian value to set</span>
+      <span class="highlight-comment">' set back</span>
+      lightData.SetLightDistribution(lightDistribution)
+   <span class="highlight-keyword">Next</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="53ebee14-8d6f-28ac-f44e-1e7bd906c7d8.htm">
+       LightFamily Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="a6a04f07-7fd2-0a4e-12e7-01842ee6daaf.htm">
+       Autodesk.Revit.DB.Lighting Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

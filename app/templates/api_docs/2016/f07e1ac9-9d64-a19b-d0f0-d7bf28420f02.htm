@@ -1,0 +1,252 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new instance of a LoadCase element within the project.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>("This method is obsolete in Revit 2016. Use LoadCase.Create() instead.")]
+<span class="keyword">public</span> <a href="2a215599-9c4c-d817-e170-605fd705699d.htm">LoadCase</a> <span class="identifier">NewLoadCase</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a> <span class="parameter">name</span>,
+	<a href="0c83b295-7a01-105b-2ae7-29e6c37be32d.htm">LoadNature</a> <span class="parameter">nature</span>,
+	<a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a> <span class="parameter">category</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>&lt;<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>("This method is obsolete in Revit 2016. Use LoadCase.Create() instead.")&gt; _
+<span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewLoadCase</span> ( _
+	<span class="parameter">name</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>, _
+	<span class="parameter">nature</span> <span class="keyword">As</span> <a href="0c83b295-7a01-105b-2ae7-29e6c37be32d.htm">LoadNature</a>, _
+	<span class="parameter">category</span> <span class="keyword">As</span> <a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a> _
+) <span class="keyword">As</span> <a href="2a215599-9c4c-d817-e170-605fd705699d.htm">LoadCase</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>(L"This method is obsolete in Revit 2016. Use LoadCase.Create() instead.")]
+<span class="keyword">public</span>:
+<a href="2a215599-9c4c-d817-e170-605fd705699d.htm">LoadCase</a>^ <span class="identifier">NewLoadCase</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^ <span class="parameter">name</span>, 
+	<a href="0c83b295-7a01-105b-2ae7-29e6c37be32d.htm">LoadNature</a>^ <span class="parameter">nature</span>, 
+	<a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a>^ <span class="parameter">category</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="name">
+       <dt>
+        <span class="parameter">
+         name
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         System
+         String
+        </a>
+        <br/>
+        The not empty name for the Load Case Element to create.
+       </dd>
+      </dl>
+      <dl paramname="nature">
+       <dt>
+        <span class="parameter">
+         nature
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="0c83b295-7a01-105b-2ae7-29e6c37be32d.htm">
+         Autodesk.Revit.DB.Structure
+         LoadNature
+        </a>
+        <br/>
+        The Load Case nature.
+       </dd>
+      </dl>
+      <dl paramname="category">
+       <dt>
+        <span class="parameter">
+         category
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">
+         Autodesk.Revit.DB
+         Category
+        </a>
+        <br/>
+        The Load Case category.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If successful, NewLoadCase and there isn't the Load Case Element 
+    with the same name returns an object for the newly created LoadCase. 
+    If such element exist and match desired one (has the same nature and number), 
+    returns existing element. Otherwise
+     <span class="keyword">
+     </span>
+     <span class="nu">
+      a null reference (
+      <span class="keyword">
+       Nothing
+      </span>
+      in Visual Basic)
+     </span>
+     is returned.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          If the product is not Revit Structure.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the load case nature does not exist in the given document.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

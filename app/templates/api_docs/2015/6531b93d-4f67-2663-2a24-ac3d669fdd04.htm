@@ -1,0 +1,263 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="0a6d155e-6ef1-7215-f8f1-c1d8203797ee.htm">
+       SpatialFieldManager Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Registers result and assigns it a unique result index
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="958e2e12-587d-f188-5d7b-f13d7dbfdf48.htm">
+      Autodesk.Revit.DB.Analysis
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="identifier">RegisterResult</span>(
+	<a href="90969170-ac45-68e6-2527-f6fba5b3f7ae.htm">AnalysisResultSchema</a> <span class="parameter">resultSchema</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">RegisterResult</span> ( _
+	<span class="parameter">resultSchema</span> <span class="keyword">As</span> <a href="90969170-ac45-68e6-2527-f6fba5b3f7ae.htm">AnalysisResultSchema</a> _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">Integer</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="identifier">RegisterResult</span>(
+	<a href="90969170-ac45-68e6-2527-f6fba5b3f7ae.htm">AnalysisResultSchema</a>^ <span class="parameter">resultSchema</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="resultSchema">
+       <dt>
+        <span class="parameter">
+         resultSchema
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="90969170-ac45-68e6-2527-f6fba5b3f7ae.htm">
+         Autodesk.Revit.DB.Analysis
+         AnalysisResultSchema
+        </a>
+        <br/>
+        Result schema to be registered
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     Unique index assigned to the result
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// register a new result schema only if one with the same name does not already exist</span>
+IList&lt;<span class="highlight-keyword">int</span>&gt; registeredResults = <span class="highlight-keyword">new</span> List&lt;<span class="highlight-keyword">int</span>&gt;();
+AnalysisResultSchema resultSchema = <span class="highlight-keyword">new</span> AnalysisResultSchema(<span class="highlight-literal">"Reactions"</span>, <span class="highlight-literal">"Reaction Forces at Column Base"</span>);
+registeredResults = spatialFieldManager.GetRegisteredResults();
+<span class="highlight-keyword">int</span> resultIndex = <span class="highlight-number">999</span>;
+<span class="highlight-keyword">foreach</span> (<span class="highlight-keyword">int</span> myInt <span class="highlight-keyword">in</span> registeredResults)
+{
+    <span class="highlight-keyword">if</span> (spatialFieldManager.GetResultSchema(myInt).Name == <span class="highlight-literal">"Reactions"</span>)
+    {
+        resultIndex = myInt;
+        <span class="highlight-keyword">break</span>;
+    }
+}
+<span class="highlight-keyword">if</span> (resultIndex == <span class="highlight-number">999</span>) <span class="highlight-comment">// there are existing registered results, but none are named "Reactions"</span>
+    resultIndex = spatialFieldManager.RegisterResult(resultSchema);</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' register a new result schema only if one with the same name does not already exist</span>
+<span class="highlight-keyword">Dim</span> registeredResults <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> <span class="highlight-keyword">Integer</span>) = <span class="highlight-keyword">New</span> List(<span class="highlight-keyword">Of</span> <span class="highlight-keyword">Integer</span>)()
+<span class="highlight-keyword">Dim</span> resultSchema <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> AnalysisResultSchema(<span class="highlight-literal">"Reactions"</span>, <span class="highlight-literal">"Reaction Forces at Column Base"</span>)
+registeredResults = spatialFieldManager.GetRegisteredResults()
+<span class="highlight-keyword">Dim</span> resultIndex <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> = <span class="highlight-number">999</span>
+<span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> myInt <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> <span class="highlight-keyword">In</span> registeredResults
+    <span class="highlight-keyword">If</span> spatialFieldManager.GetResultSchema(myInt).Name = <span class="highlight-literal">"Reactions"</span> <span class="highlight-keyword">Then</span>
+        resultIndex = myInt
+        <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">For</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">Next</span>
+<span class="highlight-keyword">If</span> resultIndex = <span class="highlight-number">999</span> <span class="highlight-keyword">Then</span>
+    <span class="highlight-comment">' there are existing registered results, but none are named "Reactions"</span>
+    resultIndex = spatialFieldManager.RegisterResult(resultSchema)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          name of resultSchema is not unique in view
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="0a6d155e-6ef1-7215-f8f1-c1d8203797ee.htm">
+       SpatialFieldManager Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="958e2e12-587d-f188-5d7b-f13d7dbfdf48.htm">
+       Autodesk.Revit.DB.Analysis Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,178 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="0a774137-1e3f-263e-433d-e6c68ab9e684.htm">
+       Members
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     The exception that is thrown when TransientElementCreationScope is used incorrectly.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e3bbc463-dccb-6964-e8ef-697c9ed07a27.htm">
+      Autodesk.Revit.Exceptions
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2016
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/bcfsa90a" target="_blank">SerializableAttribute</a>]
+<span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">TransientElementCreationException</span> : <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">InvalidOperationException</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>&lt;<a href="http://msdn2.microsoft.com/en-us/library/bcfsa90a" target="_blank">SerializableAttribute</a>&gt; _
+<span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">TransientElementCreationException</span> _
+	<span class="keyword">Inherits</span> <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">InvalidOperationException</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/bcfsa90a" target="_blank">SerializableAttribute</a>]
+<span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">TransientElementCreationException</span> : <span class="keyword">public</span> <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">InvalidOperationException</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The exception would be thrown in the following cases:
+     <ul>
+      <li>
+       An element that does not support TransientElementCreationScope is being created in the Scope.
+      </li>
+      <li>
+       A TransientElementCreationScope is being created while another such scope is already active.
+      </li>
+     </ul>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="http://msdn2.microsoft.com/en-us/library/c18k6c59" target="_blank">
+      System
+      Exception
+     </a>
+     <br/>
+     <a href="05012a96-16ea-ace7-6115-b45406dacead.htm">
+      Autodesk.Revit.Exceptions
+      ApplicationException
+     </a>
+     <br/>
+     <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+      Autodesk.Revit.Exceptions
+      InvalidOperationException
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.Exceptions
+      TransientElementCreationException
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="0a774137-1e3f-263e-433d-e6c68ab9e684.htm">
+       TransientElementCreationException Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e3bbc463-dccb-6964-e8ef-697c9ed07a27.htm">
+       Autodesk.Revit.Exceptions Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

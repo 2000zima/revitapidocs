@@ -1,0 +1,252 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ba9e3283-6868-8834-e8bf-2ea9e7358930.htm">
+       ExtrusionAnalyzer Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates an ExtrusionAnalyzer and computes and stores the solid's shadow.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="ba9e3283-6868-8834-e8bf-2ea9e7358930.htm">ExtrusionAnalyzer</a> <span class="identifier">Create</span>(
+	<a href="7a3b5ac1-c66d-9f81-a11d-9bcd4e026295.htm">Solid</a> <span class="parameter">solidGeometry</span>,
+	<a href="6a6ee978-f114-558d-3c69-00d289aa855f.htm">Plane</a> <span class="parameter">plane</span>,
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">direction</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">Create</span> ( _
+	<span class="parameter">solidGeometry</span> <span class="keyword">As</span> <a href="7a3b5ac1-c66d-9f81-a11d-9bcd4e026295.htm">Solid</a>, _
+	<span class="parameter">plane</span> <span class="keyword">As</span> <a href="6a6ee978-f114-558d-3c69-00d289aa855f.htm">Plane</a>, _
+	<span class="parameter">direction</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> _
+) <span class="keyword">As</span> <a href="ba9e3283-6868-8834-e8bf-2ea9e7358930.htm">ExtrusionAnalyzer</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="ba9e3283-6868-8834-e8bf-2ea9e7358930.htm">ExtrusionAnalyzer</a>^ <span class="identifier">Create</span>(
+	<a href="7a3b5ac1-c66d-9f81-a11d-9bcd4e026295.htm">Solid</a>^ <span class="parameter">solidGeometry</span>, 
+	<a href="6a6ee978-f114-558d-3c69-00d289aa855f.htm">Plane</a>^ <span class="parameter">plane</span>, 
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">direction</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="solidGeometry">
+       <dt>
+        <span class="parameter">
+         solidGeometry
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="7a3b5ac1-c66d-9f81-a11d-9bcd4e026295.htm">
+         Autodesk.Revit.DB
+         Solid
+        </a>
+        <br/>
+        The geometry to analyze.
+       </dd>
+      </dl>
+      <dl paramname="plane">
+       <dt>
+        <span class="parameter">
+         plane
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="6a6ee978-f114-558d-3c69-00d289aa855f.htm">
+         Autodesk.Revit.DB
+         Plane
+        </a>
+        <br/>
+        The plane to use for the base plane for the extrusion.
+       </dd>
+      </dl>
+      <dl paramname="direction">
+       <dt>
+        <span class="parameter">
+         direction
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        The direction to use for the calculation for the extrusion.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The newly created ExtrusionAnalyzer object.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The input direction must be transverse to the input plane.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          A failure occurred in creating the ExtrusionAnalyzer or computing the solid's shadow.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ba9e3283-6868-8834-e8bf-2ea9e7358930.htm">
+       ExtrusionAnalyzer Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

@@ -1,12 +1,19 @@
-High Priority:
-☐ Add Revit API 2017.1
-
 Refactor:
 ☐ clean up api.html
-☐ Organize Folders, Parsers
-☐ Create components folder for html
-☐ Document Views and API.html
 
+Check:
+☐ Check Diff Data Logic
+
+Features:
+
+✔ Parse Revit API 2017.1 @done(2017-02-20 04:13)
+☐ Edit On Github
+☐ Inisights
+☐ Breadcrumbs
+
+Organization:
+✔ Organize Folders, Parsers @done(2017-02-20 04:13)
+✔ Create components folder for html @done(2017-02-20 04:13)
 
 Refactor:
 ✔ Change Schema/GetSchema > meta @done(2016-11-12 18:03)
@@ -20,6 +27,8 @@ Misc:
 ✔ Test Adsense @done(2017-01-16 23:51)
 
 Core Tasks:
+✔ Re-create parsers, make it reproducible @done(2017-02-20 04:14)
+✔ Clean up HTML/CHM mess @done(2017-02-20 04:14)
 ✔ Python Gists: add handling @done(2016-10-03 09:37)
 ✔ Improve Namespace menu (long html) @done(2016-08-14 12:55)
 ✔ Solution for Chm static @done(2016-08-14 12:55)

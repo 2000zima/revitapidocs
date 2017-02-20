@@ -1,0 +1,226 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="2c590f87-babc-517b-409e-58dd78f25c41.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Represents a sketch plane or work plane.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">SketchPlane</span> : <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">SketchPlane</span> _
+	<span class="keyword">Inherits</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">SketchPlane</span> : <span class="keyword">public</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     A SketchPlane object is used as an input to creation of sketch-referencing elements such as Model Curves or sketch-owning elements such as Generic Forms.  The SketchPlane can be obtained from an existing element or created from a geometric plane or planar face.  Note that the sketch plane element passed as input to create an element may not be the actual sketch plane assigned to that element; Revit may look for a geometrically equivalent plane to use, or may create a new one if the input plane is already used for other purposes.  Some sketch planes (such as those obtained from detail curves) are suitable only for use in creating detail elements; they will be rejected when used for other element types.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> ShowSketchPlane(SketchPlane sketchPlane)
+{
+    <span class="highlight-comment">// get the information of the created sketch plane</span>
+    <span class="highlight-keyword">string</span> information = <span class="highlight-literal">"Sketch Plane: "</span>;
+    <span class="highlight-comment">//get the corresponding Plane</span>
+    Autodesk.Revit.DB.Plane plane = sketchPlane.GetPlane();
+    <span class="highlight-comment">//show the plane's origin point</span>
+    information += <span class="highlight-literal">"\norigin of the plane:  "</span> + XYZToString(plane.Origin);
+    <span class="highlight-comment">//show the plane's normal vector</span>
+    information += <span class="highlight-literal">"\nnormal of the plane:  "</span> + XYZToString(plane.Normal);
+    <span class="highlight-comment">//show the plane's Xvec vector</span>
+    information += <span class="highlight-literal">"\nXvec of the plane: ("</span> + XYZToString(plane.XVec);
+    <span class="highlight-comment">//show the plane's Yvec vector</span>
+    information += <span class="highlight-literal">"\nYvec of the plane: ("</span> + XYZToString(plane.YVec);
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,information);
+}
+
+<span class="highlight-comment">// output the point's three coordinates</span>
+<span class="highlight-keyword">string</span> XYZToString(XYZ point)
+{
+    <span class="highlight-keyword">return</span> <span class="highlight-literal">"("</span> + point.X + <span class="highlight-literal">", "</span> + point.Y + <span class="highlight-literal">", "</span> + point.Z + <span class="highlight-literal">")"</span>;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> ShowSketchPlane(sketchPlane <span class="highlight-keyword">As</span> SketchPlane)
+    <span class="highlight-comment">' get the information of the created sketch plane</span>
+    <span class="highlight-keyword">Dim</span> information <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"Sketch Plane: "</span>
+    <span class="highlight-comment">'get the corresponding Plane</span>
+    <span class="highlight-keyword">Dim</span> plane <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Plane = sketchPlane.GetPlane()
+    <span class="highlight-comment">'show the plane's origin point</span>
+    information += vbLf &amp; <span class="highlight-literal">"origin of the plane:  "</span> &amp; XYZToString(plane.Origin)
+    <span class="highlight-comment">'show the plane's normal vector</span>
+    information += vbLf &amp; <span class="highlight-literal">"normal of the plane:  "</span> &amp; XYZToString(plane.Normal)
+    <span class="highlight-comment">'show the plane's Xvec vector</span>
+    information += vbLf &amp; <span class="highlight-literal">"Xvec of the plane: ("</span> &amp; XYZToString(plane.XVec)
+    <span class="highlight-comment">'show the plane's Yvec vector</span>
+    information += vbLf &amp; <span class="highlight-literal">"Yvec of the plane: ("</span> &amp; XYZToString(plane.YVec)
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, information)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span>
+
+<span class="highlight-comment">' output the point's three coordinates</span>
+<span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> XYZToString(point <span class="highlight-keyword">As</span> XYZ) <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span>
+    <span class="highlight-keyword">Return</span> <span class="highlight-literal">"("</span> &amp; Convert.ToString(point.X) &amp; <span class="highlight-literal">", "</span> &amp; Convert.ToString(point.Y) &amp; <span class="highlight-literal">", "</span> &amp; Convert.ToString(point.Z) &amp; <span class="highlight-literal">")"</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+      Autodesk.Revit.DB
+      Element
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      SketchPlane
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="2c590f87-babc-517b-409e-58dd78f25c41.htm">
+       SketchPlane Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

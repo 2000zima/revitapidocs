@@ -1,0 +1,208 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     This enumeration specifies the level of detail of the exported analytical energy model in gbXML.
+   Complex means that Curtain Walls and Curtain Systems are exported as several openings, panel by panel;
+   a curtain wall with 50 panels gets exported as 50 openings. Simple means that one "huge" opening with
+   the total opening area equal to the 50 panels is exported. This is more appropriate for most energy analysis.
+   Mullions mean that Mullions in Curtain Walls and Systems are exported as shading surfaces. A "simplified"
+   analytical shading surface is produced from a mullion based on its centerline, thickness and offset.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="958e2e12-587d-f188-5d7b-f13d7dbfdf48.htm">
+      Autodesk.Revit.DB.Analysis
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="identifier">gbXMLExportComplexity</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Enumeration</span> <span class="identifier">gbXMLExportComplexity</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum class</span> <span class="identifier">gbXMLExportComplexity</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <div id="enumerationSection">
+     <h1 class="heading">
+      Members
+     </h1>
+     <div class="section" id="membersSection" name="collapseableSection" style="">
+      <table cellpadding="2" class="members" frame="lhs" id="memberList">
+       <colgroup>
+        <col width="10%">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr>
+         <th class="nameColumn">
+          Member name
+         </th>
+         <th class="descriptionColumn">
+          Description
+         </th>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Analysis.gbXMLExportComplexity.Simple">
+          <span class="selflink">
+           Simple
+          </span>
+         </td>
+         <td>
+          Curtain Walls and Curtain Systems are normally exported as several openings, panel by panel,
+   while for energy analysis all you need is one giant window. A curtain wall with 50 panels
+   gets exported as 50 openings, while 1 opening with the total opening area would be more appropriate.
+   Using this enumeration, one "large" window/opening will be exported for a curtain wall/system
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Analysis.gbXMLExportComplexity.SimpleWithShadingSurfaces">
+          <span class="selflink">
+           SimpleWithShadingSurfaces
+          </span>
+         </td>
+         <td>
+          Using this enumeration, shading surfaces will be produced from
+   room bounding building elements that are not bounding spaces
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Analysis.gbXMLExportComplexity.Complex">
+          <span class="selflink">
+           Complex
+          </span>
+         </td>
+         <td>
+          Using this enumeration, Curtain Walls and Curtain Systems will
+   exported as several openings, panel by panel.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Analysis.gbXMLExportComplexity.ComplexWithShadingSurfaces">
+          <span class="selflink">
+           ComplexWithShadingSurfaces
+          </span>
+         </td>
+         <td>
+          Using this enumeration, shading surfaces will be produced from
+   room bounding building elements that are not bounding spaces.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Analysis.gbXMLExportComplexity.ComplexWithMullionsAndShadingSurfaces">
+          <span class="selflink">
+           ComplexWithMullionsAndShadingSurfaces
+          </span>
+         </td>
+         <td>
+          Using this enumeration, mullions will be exported as shading
+   surfaces. A "simplified" analytical shading surface is produced
+   from a mullion based on its centerline, thickness and offset.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="958e2e12-587d-f188-5d7b-f13d7dbfdf48.htm">
+       Autodesk.Revit.DB.Analysis Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

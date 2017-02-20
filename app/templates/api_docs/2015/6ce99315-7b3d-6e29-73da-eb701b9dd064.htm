@@ -1,0 +1,350 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="cba2c84a-22c0-e6e7-a99c-67656901853a.htm">
+       ItemFactoryBase Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates Family instances within the document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>&gt; <span class="identifier">NewFamilyInstances2</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/6sh2ey19" target="_blank">List</a>&lt;<a href="bcd1f300-616b-5a36-9909-5273f99d78c8.htm">FamilyInstanceCreationData</a>&gt; <span class="parameter">dataList</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewFamilyInstances2</span> ( _
+	<span class="parameter">dataList</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/6sh2ey19" target="_blank">List</a>(<span class="keyword">Of</span> <a href="bcd1f300-616b-5a36-9909-5273f99d78c8.htm">FamilyInstanceCreationData</a>) _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>(<span class="keyword">Of</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^&gt;^ <span class="identifier">NewFamilyInstances2</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/6sh2ey19" target="_blank">List</a>&lt;<a href="bcd1f300-616b-5a36-9909-5273f99d78c8.htm">FamilyInstanceCreationData</a>^&gt;^ <span class="parameter">dataList</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="dataList">
+       <dt>
+        <span class="parameter">
+         dataList
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/6sh2ey19" target="_blank">
+         System.Collections.Generic
+         List
+        </a>
+        <a href="bcd1f300-616b-5a36-9909-5273f99d78c8.htm">
+         FamilyInstanceCreationData
+        </a>
+        <br/>
+        A list of FamilyInstanceCreationData which wraps the creation arguments of the families to be created.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If the creation is successful, a set of ElementIds which contains the Family instances should be returned, otherwise the exception will be thrown.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      Note: ForbiddenForDynamicUpdateException might be thrown during a dynamic update if the inserted instance establishes a mutual dependency with another structure.
+     </p>
+     <p>
+      Note: if the created family instance includes nested instances, the API framework will automatically regenerate 
+the document during this method call.
+     </p>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code>ICollection&lt;ElementId&gt; BatchCreateColumns(Autodesk.Revit.DB.Document document, Level level)
+{
+    List&lt;FamilyInstanceCreationData&gt; fiCreationDatas = <span class="highlight-keyword">new</span> List&lt;FamilyInstanceCreationData&gt;();
+
+    <span class="highlight-comment">//ElementSet elementSet = null;</span>
+    ICollection&lt;ElementId&gt; elementSet = <span class="highlight-keyword">null</span>;
+
+    <span class="highlight-comment">//Try to get a FamilySymbol</span>
+    FamilySymbol familySymbol = <span class="highlight-keyword">null</span>;
+    FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(document);
+    ICollection&lt;Element&gt; collection = collector.OfClass(<span class="highlight-keyword">typeof</span>(FamilySymbol)).ToElements();
+    <span class="highlight-keyword">foreach</span> (Element e <span class="highlight-keyword">in</span> collection)
+    {
+        familySymbol = e <span class="highlight-keyword">as</span> FamilySymbol;
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != familySymbol.Category)
+        {
+            <span class="highlight-keyword">if</span> (<span class="highlight-literal">"Structural Columns"</span> == familySymbol.Category.Name)
+            {
+                <span class="highlight-keyword">break</span>;
+            }
+        }
+    }
+
+    <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != familySymbol)
+    {
+        <span class="highlight-comment">//Create 10 FamilyInstanceCreationData items for batch creation </span>
+        <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = <span class="highlight-number">1</span>; i &lt; <span class="highlight-number">11</span>; i++)
+        {
+            XYZ location = <span class="highlight-keyword">new</span> XYZ(i * <span class="highlight-number">10</span>, <span class="highlight-number">100</span>, <span class="highlight-number">0</span>);
+            FamilyInstanceCreationData fiCreationData =
+                <span class="highlight-keyword">new</span> FamilyInstanceCreationData(location, familySymbol, level,  StructuralType.Column);
+
+            <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != fiCreationData)
+            {
+                fiCreationDatas.Add(fiCreationData);
+            }
+        }
+
+        <span class="highlight-keyword">if</span> (fiCreationDatas.Count &gt; <span class="highlight-number">0</span>)
+        {
+            <span class="highlight-comment">// Create Columns</span>
+            elementSet = document.Create.NewFamilyInstances2(fiCreationDatas);
+        }
+        <span class="highlight-keyword">else</span>
+        {
+            <span class="highlight-keyword">throw</span> <span class="highlight-keyword">new</span> Exception(<span class="highlight-literal">"Batch creation failed."</span>);
+        }
+    }
+    <span class="highlight-keyword">else</span>
+    {
+        <span class="highlight-keyword">throw</span> <span class="highlight-keyword">new</span> Exception(<span class="highlight-literal">"No column types found."</span>);
+    }
+
+    <span class="highlight-keyword">return</span> elementSet;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> BatchCreateColumns(document <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Document, level <span class="highlight-keyword">As</span> Level) <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> ElementId)
+    <span class="highlight-keyword">Dim</span> fiCreationDatas <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> List(<span class="highlight-keyword">Of</span> FamilyInstanceCreationData)()
+
+    <span class="highlight-comment">'ElementSet elementSet = null;</span>
+    <span class="highlight-keyword">Dim</span> elementSet <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> ElementId) = <span class="highlight-keyword">Nothing</span>
+
+    <span class="highlight-comment">'Try to get a FamilySymbol</span>
+    <span class="highlight-keyword">Dim</span> familySymbol <span class="highlight-keyword">As</span> FamilySymbol = <span class="highlight-keyword">Nothing</span>
+    <span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(document)
+    <span class="highlight-keyword">Dim</span> collection <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> Element) = collector.OfClass(<span class="highlight-keyword">GetType</span>(FamilySymbol)).ToElements()
+    <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> e <span class="highlight-keyword">As</span> Element <span class="highlight-keyword">In</span> collection
+        familySymbol = <span class="highlight-keyword">TryCast</span>(e, FamilySymbol)
+        <span class="highlight-keyword">If</span> familySymbol.Category <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+            <span class="highlight-keyword">If</span> <span class="highlight-literal">"Structural Columns"</span> = familySymbol.Category.Name <span class="highlight-keyword">Then</span>
+                <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">For</span>
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">Next</span>
+
+    <span class="highlight-keyword">If</span> familySymbol <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-comment">'Create 10 FamilyInstanceCreationData items for batch creation </span>
+        <span class="highlight-keyword">For</span> i <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> = <span class="highlight-number">1</span> <span class="highlight-keyword">To</span> <span class="highlight-number">10</span>
+            <span class="highlight-keyword">Dim</span> location <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(i * <span class="highlight-number">10</span>, <span class="highlight-number">100</span>, <span class="highlight-number">0</span>)
+            <span class="highlight-keyword">Dim</span> fiCreationData <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FamilyInstanceCreationData(location, familySymbol, level, StructuralType.Column)
+
+            <span class="highlight-keyword">If</span> fiCreationData <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+                fiCreationDatas.Add(fiCreationData)
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+        <span class="highlight-keyword">Next</span>
+
+        <span class="highlight-keyword">If</span> fiCreationDatas.Count &gt; <span class="highlight-number">0</span> <span class="highlight-keyword">Then</span>
+            <span class="highlight-comment">' Create Columns</span>
+            elementSet = document.Create.NewFamilyInstances2(fiCreationDatas)
+        <span class="highlight-keyword">Else</span>
+            <span class="highlight-keyword">Throw</span> <span class="highlight-keyword">New</span> Exception(<span class="highlight-literal">"Batch creation failed."</span>)
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">Else</span>
+        <span class="highlight-keyword">Throw</span> <span class="highlight-keyword">New</span> Exception(<span class="highlight-literal">"No column types found."</span>)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-keyword">Return</span> elementSet
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          If FamilyInstanceCreationData's 'curve' or 'symbol' member is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          If regeneration fails at the end of the batch creation.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="cba2c84a-22c0-e6e7-a99c-67656901853a.htm">
+       ItemFactoryBase Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

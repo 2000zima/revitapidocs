@@ -1,0 +1,384 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new room within the confines of a plan circuit, or places an unplaced room within the confines of the plan circuit.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="75c9d2c7-a402-ea8b-9e7c-f8bc3510bbd5.htm">Room</a> <span class="identifier">NewRoom</span>(
+	<a href="75c9d2c7-a402-ea8b-9e7c-f8bc3510bbd5.htm">Room</a> <span class="parameter">room</span>,
+	<a href="9fdb77cb-c579-1cbd-71de-01f06a18ea3a.htm">PlanCircuit</a> <span class="parameter">circuit</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewRoom</span> ( _
+	<span class="parameter">room</span> <span class="keyword">As</span> <a href="75c9d2c7-a402-ea8b-9e7c-f8bc3510bbd5.htm">Room</a>, _
+	<span class="parameter">circuit</span> <span class="keyword">As</span> <a href="9fdb77cb-c579-1cbd-71de-01f06a18ea3a.htm">PlanCircuit</a> _
+) <span class="keyword">As</span> <a href="75c9d2c7-a402-ea8b-9e7c-f8bc3510bbd5.htm">Room</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="75c9d2c7-a402-ea8b-9e7c-f8bc3510bbd5.htm">Room</a>^ <span class="identifier">NewRoom</span>(
+	<a href="75c9d2c7-a402-ea8b-9e7c-f8bc3510bbd5.htm">Room</a>^ <span class="parameter">room</span>, 
+	<a href="9fdb77cb-c579-1cbd-71de-01f06a18ea3a.htm">PlanCircuit</a>^ <span class="parameter">circuit</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="room">
+       <dt>
+        <span class="parameter">
+         room
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="75c9d2c7-a402-ea8b-9e7c-f8bc3510bbd5.htm">
+         Autodesk.Revit.DB.Architecture
+         Room
+        </a>
+        <br/>
+        The room which you want to locate in the circuit.  Pass
+        <span class="keyword">
+        </span>
+        <span class="nu">
+         a null reference (
+         <span class="keyword">
+          Nothing
+         </span>
+         in Visual Basic)
+        </span>
+        to create a new room.
+       </dd>
+      </dl>
+      <dl paramname="circuit">
+       <dt>
+        <span class="parameter">
+         circuit
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="9fdb77cb-c579-1cbd-71de-01f06a18ea3a.htm">
+         Autodesk.Revit.DB
+         PlanCircuit
+        </a>
+        <br/>
+        The circuit in which you want to locate a room.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If successful the room is returned, otherwise
+     <span class="keyword">
+     </span>
+     <span class="nu">
+      a null reference (
+      <span class="keyword">
+       Nothing
+      </span>
+      in Visual Basic)
+     </span>
+     .
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This method will regenerate the document even in manual regeneration mode.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code>Room InsertNewRoomInPlanCircuit(Autodesk.Revit.DB.Document document, Level level, Phase newConstructionPhase)
+{
+    <span class="highlight-comment">// create room using Phase</span>
+    Room newScheduleRoom = document.Create.NewRoom(newConstructionPhase);
+
+    <span class="highlight-comment">// set the Room Number and Name</span>
+    <span class="highlight-keyword">string</span> newRoomNumber = <span class="highlight-literal">"101"</span>;
+    <span class="highlight-keyword">string</span> newRoomName = <span class="highlight-literal">"Class Room 1"</span>;
+    newScheduleRoom.Name = newRoomName;
+    newScheduleRoom.Number = newRoomNumber;
+
+    <span class="highlight-comment">// Get a PlanCircuit</span>
+    PlanCircuit planCircuit = <span class="highlight-keyword">null</span>;
+    <span class="highlight-comment">// first get the plan topology for given level</span>
+    PlanTopology planTopology = document.get_PlanTopology(level);
+
+    <span class="highlight-comment">// Iterate circuits in this plan topology</span>
+    <span class="highlight-keyword">foreach</span> (PlanCircuit circuit <span class="highlight-keyword">in</span> planTopology.Circuits)
+    {
+        <span class="highlight-comment">// get the first circuit we find</span>
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != circuit)
+        {
+            planCircuit = circuit;
+            <span class="highlight-keyword">break</span>;
+        }
+    }
+
+    Room newRoom2 = <span class="highlight-keyword">null</span>;
+    <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != planCircuit)
+    {
+        <span class="highlight-keyword">using</span> (Transaction transaction = <span class="highlight-keyword">new</span> Transaction(document, <span class="highlight-literal">"Create Room"</span>))
+        {
+           <span class="highlight-keyword">if</span> (transaction.Start() == TransactionStatus.Started)
+           {
+               <span class="highlight-comment">// The input room must exist only in the room schedule, </span>
+               <span class="highlight-comment">// meaning that it does not display in any plan view.</span>
+               newRoom2 = document.Create.NewRoom(newScheduleRoom, planCircuit);
+               <span class="highlight-comment">// a model room with the same name and number is created in the </span>
+               <span class="highlight-comment">// view where the PlanCircuit is located</span>
+               <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != newRoom2)
+               {
+                   <span class="highlight-comment">// Give the user some information</span>
+                   TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, <span class="highlight-literal">"Room placed in Plan Circuit successfully."</span>);
+               }
+               transaction.Commit();
+           }
+        }
+    }
+
+    <span class="highlight-keyword">return</span> newRoom2;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> InsertNewRoomInPlanCircuit(document <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Document, level <span class="highlight-keyword">As</span> Level, newConstructionPhase <span class="highlight-keyword">As</span> Phase) <span class="highlight-keyword">As</span> Room
+    <span class="highlight-comment">' create room using Phase</span>
+    <span class="highlight-keyword">Dim</span> newScheduleRoom <span class="highlight-keyword">As</span> Room = document.Create.NewRoom(newConstructionPhase)
+
+    <span class="highlight-comment">' set the Room Number and Name</span>
+    <span class="highlight-keyword">Dim</span> newRoomNumber <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"101"</span>
+    <span class="highlight-keyword">Dim</span> newRoomName <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"Class Room 1"</span>
+    newScheduleRoom.Name = newRoomName
+    newScheduleRoom.Number = newRoomNumber
+
+    <span class="highlight-comment">' Get a PlanCircuit</span>
+    <span class="highlight-keyword">Dim</span> planCircuit <span class="highlight-keyword">As</span> PlanCircuit = <span class="highlight-keyword">Nothing</span>
+    <span class="highlight-comment">' first get the plan topology for given level</span>
+    <span class="highlight-keyword">Dim</span> planTopology <span class="highlight-keyword">As</span> PlanTopology = document.PlanTopology(level)
+
+    <span class="highlight-comment">' Iterate circuits in this plan topology</span>
+    <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> circuit <span class="highlight-keyword">As</span> PlanCircuit <span class="highlight-keyword">In</span> planTopology.Circuits
+        <span class="highlight-comment">' get the first circuit we find</span>
+        <span class="highlight-keyword">If</span> circuit <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+            planCircuit = circuit
+            <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">For</span>
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">Next</span>
+
+    <span class="highlight-keyword">Dim</span> newRoom2 <span class="highlight-keyword">As</span> Room = <span class="highlight-keyword">Nothing</span>
+    <span class="highlight-keyword">If</span> planCircuit <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Using</span> transaction <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> Transaction(document, <span class="highlight-literal">"Create Room"</span>)
+            <span class="highlight-keyword">If</span> transaction.Start() = TransactionStatus.Started <span class="highlight-keyword">Then</span>
+                <span class="highlight-comment">' The input room must exist only in the room schedule, </span>
+                <span class="highlight-comment">' meaning that it does not display in any plan view.</span>
+                newRoom2 = document.Create.NewRoom(newScheduleRoom, planCircuit)
+                <span class="highlight-comment">' a model room with the same name and number is created in the </span>
+                <span class="highlight-comment">' view where the PlanCircuit is located</span>
+                <span class="highlight-keyword">If</span> newRoom2 <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+                    <span class="highlight-comment">' Give the user some information</span>
+                    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, <span class="highlight-literal">"Room placed in Plan Circuit successfully."</span>)
+                <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+                transaction.Commit()
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">Using</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-keyword">Return</span> newRoom2
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          If the existing room is already placed.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the room does not exist in the given document.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the circuit does not exist in the given document.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="f057ddd6-b007-0f98-5837-f16845e01e00.htm">
+       NewRoom Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

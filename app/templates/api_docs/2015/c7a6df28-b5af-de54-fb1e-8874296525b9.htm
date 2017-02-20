@@ -1,0 +1,326 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+       Document Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Imports an SKP file into the document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="identifier">Import</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a> <span class="parameter">file</span>,
+	<a href="79e692ab-e01d-f723-158a-1951f40aa2b6.htm">SKPImportOptions</a> <span class="parameter">options</span>,
+	<a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a> <span class="parameter">pDBView</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">Import</span> ( _
+	<span class="parameter">file</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>, _
+	<span class="parameter">options</span> <span class="keyword">As</span> <a href="79e692ab-e01d-f723-158a-1951f40aa2b6.htm">SKPImportOptions</a>, _
+	<span class="parameter">pDBView</span> <span class="keyword">As</span> <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a> _
+) <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="identifier">Import</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^ <span class="parameter">file</span>, 
+	<a href="79e692ab-e01d-f723-158a-1951f40aa2b6.htm">SKPImportOptions</a>^ <span class="parameter">options</span>, 
+	<a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a>^ <span class="parameter">pDBView</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="file">
+       <dt>
+        <span class="parameter">
+         file
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         System
+         String
+        </a>
+        <br/>
+        Full path of the file to link. File must exist and must be a valid SAT file.
+       </dd>
+      </dl>
+      <dl paramname="options">
+       <dt>
+        <span class="parameter">
+         options
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="79e692ab-e01d-f723-158a-1951f40aa2b6.htm">
+         Autodesk.Revit.DB
+         SKPImportOptions
+        </a>
+        <br/>
+        Various import options applicable to the SKP format. If
+        <span class="keyword">
+        </span>
+        <span class="nu">
+         a null reference (
+         <span class="keyword">
+          Nothing
+         </span>
+         in Visual Basic)
+        </span>
+        , all options will be set to their respective default values.
+       </dd>
+      </dl>
+      <dl paramname="pDBView">
+       <dt>
+        <span class="parameter">
+         pDBView
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">
+         Autodesk.Revit.DB
+         View
+        </a>
+        <br/>
+        The view into which the file will be linked.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     Returns the element Id of the linked instance.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Not a valid file for SKP import (.skp file is valid).
+   -or-
+   ThisViewOnly cannot be true when importing a DWG|DGN drawing into a 3D view
+   -or-
+   One or more strings describing layer selection is invalid or empty.
+   -or-
+   The scale is not valid as a CustomScale for use during import.
+   -or-
+   NullOrEmpty
+   -or-
+   The view is not printable.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="ca9ccaa9-ed08-d40d-31a7-1af3ad2dcb84.htm">
+           Autodesk.Revit.Exceptions
+           FileArgumentNotFoundException
+          </a>
+         </td>
+         <td>
+          The given file does not exist.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Import is temporarily disabled.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="53205486-5917-7c33-8e67-e362106ddc97.htm">
+           Autodesk.Revit.Exceptions
+           ModificationForbiddenException
+          </a>
+         </td>
+         <td>
+          The document is in failure mode: an operation has failed,
+   and Revit requires the user to either cancel the operation
+   or fix the problem (usually by deleting certain elements).
+   -or-
+   The document is being loaded, or is in the midst of another
+   sensitive process.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="8f025460-c283-ea99-aa8a-5a36e11528f4.htm">
+           Autodesk.Revit.Exceptions
+           ModificationOutsideTransactionException
+          </a>
+         </td>
+         <td>
+          The document has no open transaction.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="0612a676-b6ba-8c37-2e28-b197438305ab.htm">
+           Autodesk.Revit.Exceptions
+           OptionalFunctionalityNotAvailableException
+          </a>
+         </td>
+         <td>
+          The SKP Import/Link module is not available in the installed Revit.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="05c3dbe2-fe7e-c293-761d-b11f356a011b.htm">
+       Import Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

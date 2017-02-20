@@ -1,0 +1,198 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a floor within the project with the given horizontal profile using the default floor style.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="96cc6685-003d-ff90-1c5b-c25a4830f0f7.htm">Floor</a> <span class="identifier">NewFloor</span>(
+	<a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a> <span class="parameter">profile</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">structural</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewFloor</span> ( _
+	<span class="parameter">profile</span> <span class="keyword">As</span> <a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a>, _
+	<span class="parameter">structural</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a> _
+) <span class="keyword">As</span> <a href="96cc6685-003d-ff90-1c5b-c25a4830f0f7.htm">Floor</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="96cc6685-003d-ff90-1c5b-c25a4830f0f7.htm">Floor</a>^ <span class="identifier">NewFloor</span>(
+	<a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a>^ <span class="parameter">profile</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">structural</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="profile">
+       <dt>
+        <span class="parameter">
+         profile
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">
+         Autodesk.Revit.DB
+         CurveArray
+        </a>
+        <br/>
+        An array of planar lines and arcs that represent the horizontal profile of the floor.
+       </dd>
+      </dl>
+      <dl paramname="structural">
+       <dt>
+        <span class="parameter">
+         structural
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">
+         System
+         Boolean
+        </a>
+        <br/>
+        If set, specifies that the floor is structural in nature.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If successful a new floor object within the project, otherwise
+     <span class="keyword">
+     </span>
+     <span class="nu">
+      a null reference (
+      <span class="keyword">
+       Nothing
+      </span>
+      in Visual Basic)
+     </span>
+     .
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The curves of the profile must be contiguous and 
+   the Face formed by profile should be suitable to create floor.
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="a026924c-ed96-761a-8d0d-2114086fe656.htm">
+       NewFloor Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

@@ -1,0 +1,176 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="a7622967-1381-c17f-ed04-1ebe40da0440.htm">
+       FamilyItemFactory Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Create new Form element by cap operation (to create a single-surface form), and add it into the Autodesk Revit family document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="49f6ae4c-1629-98ef-d9a9-799bb1fd43ec.htm">Form</a> <span class="identifier">NewFormByCap</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">isSolid</span>,
+	<a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">ReferenceArray</a> <span class="parameter">profile</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewFormByCap</span> ( _
+	<span class="parameter">isSolid</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a>, _
+	<span class="parameter">profile</span> <span class="keyword">As</span> <a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">ReferenceArray</a> _
+) <span class="keyword">As</span> <a href="49f6ae4c-1629-98ef-d9a9-799bb1fd43ec.htm">Form</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="49f6ae4c-1629-98ef-d9a9-799bb1fd43ec.htm">Form</a>^ <span class="identifier">NewFormByCap</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">isSolid</span>, 
+	<a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">ReferenceArray</a>^ <span class="parameter">profile</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="isSolid">
+       <dt>
+        <span class="parameter">
+         isSolid
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">
+         System
+         Boolean
+        </a>
+        <br/>
+        Indicates if the Form is Solid or Void.
+       </dd>
+      </dl>
+      <dl paramname="profile">
+       <dt>
+        <span class="parameter">
+         profile
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="bc9192b5-6666-a8de-0128-87dae479fd6a.htm">
+         Autodesk.Revit.DB
+         ReferenceArray
+        </a>
+        <br/>
+        The profile of the newly created cap. It should consist of only one curve loop.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If creation was successful new form is returned.
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="a7622967-1381-c17f-ed04-1ebe40da0440.htm">
+       FamilyItemFactory Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

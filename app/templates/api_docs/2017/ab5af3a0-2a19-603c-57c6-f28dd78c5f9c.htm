@@ -1,0 +1,228 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="7d0c88ee-2c6e-3a99-1ec3-2a54cf19ddd0.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Represents a group of related buttons in the Ribbon.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">RadioButtonGroup</span> : <a href="79225f03-1633-3722-15b0-752c91a3740d.htm">RibbonItem</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">RadioButtonGroup</span> _
+	<span class="keyword">Inherits</span> <a href="79225f03-1633-3722-15b0-752c91a3740d.htm">RibbonItem</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">RadioButtonGroup</span> : <span class="keyword">public</span> <a href="79225f03-1633-3722-15b0-752c91a3740d.htm">RibbonItem</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This class contains a collection of ToggleButtons. Only one of the ToggleButtons will appear active at a given time. 
+When a different button is clicked in the UI the current ToggleButton will be changed, and the ToggleButton's external command will be invoked.
+Use of this class is not supported in Revit Macros.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> AddRadioGroup(RibbonPanel panel)
+{
+    <span class="highlight-comment">// add radio button group</span>
+    RadioButtonGroupData radioData = <span class="highlight-keyword">new</span> RadioButtonGroupData(<span class="highlight-literal">"radioGroup"</span>);
+    RadioButtonGroup radioButtonGroup = panel.AddItem(radioData) <span class="highlight-keyword">as</span> RadioButtonGroup;
+
+    <span class="highlight-comment">// create toggle buttons and add to radio button group</span>
+    ToggleButtonData tb1 = <span class="highlight-keyword">new</span> ToggleButtonData(<span class="highlight-literal">"toggleButton1"</span>, <span class="highlight-literal">"Red"</span>);
+    tb1.ToolTip = <span class="highlight-literal">"Red Option"</span>;
+    tb1.LargeImage = <span class="highlight-keyword">new</span> BitmapImage(<span class="highlight-keyword">new</span> Uri(<span class="highlight-literal">@"D:\Sample\HelloWorld\bin\Debug\Red.bmp"</span>));
+    ToggleButtonData tb2 = <span class="highlight-keyword">new</span> ToggleButtonData(<span class="highlight-literal">"toggleButton2"</span>, <span class="highlight-literal">"Green"</span>);
+    tb2.ToolTip = <span class="highlight-literal">"Green Option"</span>;
+    tb2.LargeImage = <span class="highlight-keyword">new</span> BitmapImage(<span class="highlight-keyword">new</span> Uri(<span class="highlight-literal">@"D:\Sample\HelloWorld\bin\Debug\Green.bmp"</span>));
+    ToggleButtonData tb3 = <span class="highlight-keyword">new</span> ToggleButtonData(<span class="highlight-literal">"toggleButton3"</span>, <span class="highlight-literal">"Blue"</span>);
+    tb3.ToolTip = <span class="highlight-literal">"Blue Option"</span>;
+    tb3.LargeImage = <span class="highlight-keyword">new</span> BitmapImage(<span class="highlight-keyword">new</span> Uri(<span class="highlight-literal">@"D:\Sample\HelloWorld\bin\Debug\Blue.bmp"</span>));
+    radioButtonGroup.AddItem(tb1);
+    radioButtonGroup.AddItem(tb2);
+    radioButtonGroup.AddItem(tb3);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> AddRadioGroup(panel <span class="highlight-keyword">As</span> RibbonPanel)
+   <span class="highlight-comment">' add radio button group</span>
+   <span class="highlight-keyword">Dim</span> radioData <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> RadioButtonGroupData(<span class="highlight-literal">"radioGroup"</span>)
+   <span class="highlight-keyword">Dim</span> radioButtonGroup <span class="highlight-keyword">As</span> RadioButtonGroup = <span class="highlight-keyword">TryCast</span>(panel.AddItem(radioData), RadioButtonGroup)
+
+   <span class="highlight-comment">' create toggle buttons and add to radio button group</span>
+   <span class="highlight-keyword">Dim</span> tb1 <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ToggleButtonData(<span class="highlight-literal">"toggleButton1"</span>, <span class="highlight-literal">"Red"</span>)
+   tb1.ToolTip = <span class="highlight-literal">"Red Option"</span>
+   tb1.LargeImage = <span class="highlight-keyword">New</span> BitmapImage(<span class="highlight-keyword">New</span> Uri(<span class="highlight-literal">"D:\Sample\HelloWorld\bin\Debug\Red.bmp"</span>))
+   <span class="highlight-keyword">Dim</span> tb2 <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ToggleButtonData(<span class="highlight-literal">"toggleButton2"</span>, <span class="highlight-literal">"Green"</span>)
+   tb2.ToolTip = <span class="highlight-literal">"Green Option"</span>
+   tb2.LargeImage = <span class="highlight-keyword">New</span> BitmapImage(<span class="highlight-keyword">New</span> Uri(<span class="highlight-literal">"D:\Sample\HelloWorld\bin\Debug\Green.bmp"</span>))
+   <span class="highlight-keyword">Dim</span> tb3 <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ToggleButtonData(<span class="highlight-literal">"toggleButton3"</span>, <span class="highlight-literal">"Blue"</span>)
+   tb3.ToolTip = <span class="highlight-literal">"Blue Option"</span>
+   tb3.LargeImage = <span class="highlight-keyword">New</span> BitmapImage(<span class="highlight-keyword">New</span> Uri(<span class="highlight-literal">"D:\Sample\HelloWorld\bin\Debug\Blue.bmp"</span>))
+   radioButtonGroup.AddItem(tb1)
+   radioButtonGroup.AddItem(tb2)
+   radioButtonGroup.AddItem(tb3)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="79225f03-1633-3722-15b0-752c91a3740d.htm">
+      Autodesk.Revit.UI
+      RibbonItem
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.UI
+      RadioButtonGroup
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="7d0c88ee-2c6e-3a99-1ec3-2a54cf19ddd0.htm">
+       RadioButtonGroup Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

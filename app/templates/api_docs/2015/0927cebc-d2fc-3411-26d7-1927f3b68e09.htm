@@ -1,0 +1,211 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Describes the visibility of a particular geometry object.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="identifier">Visibility</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Enumeration</span> <span class="identifier">Visibility</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum class</span> <span class="identifier">Visibility</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <div id="enumerationSection">
+     <h1 class="heading">
+      Members
+     </h1>
+     <div class="section" id="membersSection" name="collapseableSection" style="">
+      <table cellpadding="2" class="members" frame="lhs" id="memberList">
+       <colgroup>
+        <col width="10%">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr>
+         <th class="nameColumn">
+          Member name
+         </th>
+         <th class="descriptionColumn">
+          Description
+         </th>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Visibility.Visible">
+          <span class="selflink">
+           Visible
+          </span>
+         </td>
+         <td>
+          The geometry object is always visible. This type of geometry is always returned by
+          <a href="d8a55a5b-2a69-d5ab-3e1f-6cf1ee43c8ec.htm">
+           Geometry
+           Options
+          </a>
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Visibility.Highlight">
+          <span class="selflink">
+           Highlight
+          </span>
+         </td>
+         <td>
+          The geometry object is visible, but is affected by highlight or prehighlight special coloration. 
+This type of geometry is returned by
+          <a href="d8a55a5b-2a69-d5ab-3e1f-6cf1ee43c8ec.htm">
+           Geometry
+           Options
+          </a>
+          if
+          <a href="0d277b80-d5e5-1151-d413-b0899da0976f.htm">
+           IncludeNonVisibleObjects
+          </a>
+          is true.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Visibility.Contextual">
+          <span class="selflink">
+           Contextual
+          </span>
+         </td>
+         <td>
+          The geometry object is visible in some contexts, but not in others.  This type of geometry is always returned by
+          <a href="d8a55a5b-2a69-d5ab-3e1f-6cf1ee43c8ec.htm">
+           Geometry
+           Options
+          </a>
+          ,
+even when Revit is in a context where the geometry should not be visible, but only if
+          <a href="0d277b80-d5e5-1151-d413-b0899da0976f.htm">
+           IncludeNonVisibleObjects
+          </a>
+          is true.  
+Examples of geometry of this class include Solids representing insulation and lining for MEP ducts and pipes.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Visibility.Invisible">
+          <span class="selflink">
+           Invisible
+          </span>
+         </td>
+         <td>
+          The geometry object is never visible. This type of geometry is never returned by
+          <a href="d8a55a5b-2a69-d5ab-3e1f-6cf1ee43c8ec.htm">
+           Geometry
+           Options
+          </a>
+          but may be obtained by other
+API operations.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

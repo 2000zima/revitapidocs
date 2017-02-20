@@ -1,0 +1,210 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="af882c60-68ae-2e53-5c41-7aa43cfc1df4.htm">
+       Revision Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Indicates what number type the Revision Number for this Revision should use.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="9bbde707-5b86-1f51-d6a4-7c12cb8ac6e5.htm">RevisionNumberType</a> <span class="identifier">NumberType</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Property</span> <span class="identifier">NumberType</span> <span class="keyword">As</span> <a href="9bbde707-5b86-1f51-d6a4-7c12cb8ac6e5.htm">RevisionNumberType</a>
+	<span class="keyword">Get</span>
+	<span class="keyword">Set</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">property</span> <a href="9bbde707-5b86-1f51-d6a4-7c12cb8ac6e5.htm">RevisionNumberType</a> <span class="identifier">NumberType</span> {
+	<a href="9bbde707-5b86-1f51-d6a4-7c12cb8ac6e5.htm">RevisionNumberType</a> <span class="keyword">get</span> ();
+	<span class="keyword">void</span> <span class="keyword">set</span> (<a href="9bbde707-5b86-1f51-d6a4-7c12cb8ac6e5.htm">RevisionNumberType</a> <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This property defines how the Revision Number (not including any user-specified prefix or suffix) will be assigned
+   and displayed.
+     <ul>
+      <li>
+       RevisionNumberType.Numeric:  Revision Numbers will be consecutive integers, starting by default with a
+   value of 1.  Alternatively, the starting value can be set to any non-negative value using the
+   NumericRevisionSettings stored in the project-wide RevisionSettings.
+      </li>
+      <li>
+       RevisionNumberType.Alphabetic:  This number type has been replaced by RevisionNumberType.Alphanumeric.
+      </li>
+      <li>
+       RevisionNumberType.None:  The Revision Number will always be the empty string.
+      </li>
+      <li>
+       RevisionNumberType.Alphanumeric:  The Revision Numbers will be taken consecutively from a list of arbitrary
+   strings, specified in the AlphanumericRevisionSettings object stored in the project-wide RevisionSettings.
+      </li>
+     </ul>
+     Revision numbers will always be assigned in revision sequence order.  Any prefixes or suffixes specified in the
+   NumericRevisionSettings and AlphanumericRevisionSettings will be prepended or appended respectively to the
+   Revision Number assigned to the Revision.
+     <p>
+      If the project contains a mix of Revision objects with different NumberTypes then the Revisions using a
+   particular NumberType will always be assigned consecutive revision numbers.  In other words, the first three
+   numeric Revisions in the project will always be assigned revision numbers 1, 2, and 3, even if the revision
+   sequence includes intervening Revisions that are alphabetic or not numbered.
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          When setting this property: A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          When setting this property: This operation cannot be performed on Revisions that have already been issued.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="af882c60-68ae-2e53-5c41-7aa43cfc1df4.htm">
+       Revision Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

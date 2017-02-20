@@ -1,0 +1,212 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Identifies what type of Analytical Model curves should be extracted.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="identifier">AnalyticalCurveType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Enumeration</span> <span class="identifier">AnalyticalCurveType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum class</span> <span class="identifier">AnalyticalCurveType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <div id="enumerationSection">
+     <h1 class="heading">
+      Members
+     </h1>
+     <div class="section" id="membersSection" name="collapseableSection" style="">
+      <table cellpadding="2" class="members" frame="lhs" id="memberList">
+       <colgroup>
+        <col width="10%">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr>
+         <th class="nameColumn">
+          Member name
+         </th>
+         <th class="descriptionColumn">
+          Description
+         </th>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.AnalyticalCurveType.RawCurves">
+          <span class="selflink">
+           RawCurves
+          </span>
+         </td>
+         <td>
+          Base Analytical Model curves generated.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.AnalyticalCurveType.RigidLinkHead">
+          <span class="selflink">
+           RigidLinkHead
+          </span>
+         </td>
+         <td>
+          Rigid Link at end 0 (head) of the Beam.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.AnalyticalCurveType.RigidLinkTail">
+          <span class="selflink">
+           RigidLinkTail
+          </span>
+         </td>
+         <td>
+          Rigid Link at end 1 (tail) of the Beam.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.AnalyticalCurveType.ActiveCurves">
+          <span class="selflink">
+           ActiveCurves
+          </span>
+         </td>
+         <td>
+          Curves displayed on screen (not including Rigid Links).
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.AnalyticalCurveType.ApproximatedCurves">
+          <span class="selflink">
+           ApproximatedCurves
+          </span>
+         </td>
+         <td>
+          Curves approximated using linear segments.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.AnalyticalCurveType.BaseCurve">
+          <span class="selflink">
+           BaseCurve
+          </span>
+         </td>
+         <td>
+          Default Analytical Model curve of linear elements (beams, braces, columns).
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Structure.AnalyticalCurveType.AllRigidLinks">
+          <span class="selflink">
+           AllRigidLinks
+          </span>
+         </td>
+         <td>
+          All Rigid Link curves.
+   Rigid Link at end 0 (head) will be in the first entry.
+   Rigid Link at end 1 (tail) will be in the last entry.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

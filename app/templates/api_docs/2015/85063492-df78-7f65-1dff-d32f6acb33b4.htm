@@ -1,0 +1,207 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="4ce2dfc6-1d91-1f4b-771f-a8ef6f40cf8b.htm">
+       AnalyticalModelColumn Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     The top extension option.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="95d7aa54-0bda-c8ca-3d6a-7a1860e08eb0.htm">StickElementExtension</a> <span class="identifier">TopExtension</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Property</span> <span class="identifier">TopExtension</span> <span class="keyword">As</span> <a href="95d7aa54-0bda-c8ca-3d6a-7a1860e08eb0.htm">StickElementExtension</a>
+	<span class="keyword">Get</span>
+	<span class="keyword">Set</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">property</span> <a href="95d7aa54-0bda-c8ca-3d6a-7a1860e08eb0.htm">StickElementExtension</a> <span class="identifier">TopExtension</span> {
+	<a href="95d7aa54-0bda-c8ca-3d6a-7a1860e08eb0.htm">StickElementExtension</a> <span class="keyword">get</span> ();
+	<span class="keyword">void</span> <span class="keyword">set</span> (<a href="95d7aa54-0bda-c8ca-3d6a-7a1860e08eb0.htm">StickElementExtension</a> <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// Change the top extension for the column to Reference Level</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> ChangeColumnTopExtension(FamilyInstance column)
+{
+    AnalyticalModelColumn amc = column.GetAnalyticalModel() <span class="highlight-keyword">as</span> AnalyticalModelColumn;
+    <span class="highlight-keyword">if</span> (amc != <span class="highlight-keyword">null</span>)
+    {
+        <span class="highlight-keyword">using</span> (Transaction tran = <span class="highlight-keyword">new</span> Transaction(column.Document, <span class="highlight-literal">"Change Top Extension"</span>))
+        {
+            tran.Start();
+
+            StickElementExtension orgTopExt = amc.TopExtension;
+            StickElementExtension newTopExt = StickElementExtension.ReferenceLevel;
+            amc.TopExtension = newTopExt;
+
+            TaskDialog.Show(<span class="highlight-literal">"AnalyticalModelColumn"</span>, <span class="highlight-literal">"AnalyticalModelColumn ID: "</span> + amc.Id + <span class="highlight-literal">"; \nOriginal TopExtension value was: "</span> + orgTopExt + <span class="highlight-literal">"; \nNew TopExtension value: "</span> + newTopExt);
+
+            tran.Commit();
+        }
+    }
+}</code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          When setting this property: A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="4ce2dfc6-1d91-1f4b-771f-a8ef6f40cf8b.htm">
+       AnalyticalModelColumn Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

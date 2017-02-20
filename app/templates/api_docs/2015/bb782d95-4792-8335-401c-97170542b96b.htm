@@ -1,0 +1,450 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ea0e49a0-a007-79d0-c902-a24b1359ae28.htm">
+       StairsRun Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a sketched run in the project document by providing a group of boundary curves and riser curves.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="720f0c58-cb2b-4f13-374a-7348ed0a1cd3.htm">
+      Autodesk.Revit.DB.Architecture
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="ea0e49a0-a007-79d0-c902-a24b1359ae28.htm">StairsRun</a> <span class="identifier">CreateSketchedRun</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">document</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">stairsId</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">baseElevation</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>&gt; <span class="parameter">boundaryCurves</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>&gt; <span class="parameter">riserCurves</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>&gt; <span class="parameter">stairsPath</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">CreateSketchedRun</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">stairsId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">baseElevation</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a>, _
+	<span class="parameter">boundaryCurves</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>), _
+	<span class="parameter">riserCurves</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>), _
+	<span class="parameter">stairsPath</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>) _
+) <span class="keyword">As</span> <a href="ea0e49a0-a007-79d0-c902-a24b1359ae28.htm">StairsRun</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="ea0e49a0-a007-79d0-c902-a24b1359ae28.htm">StairsRun</a>^ <span class="identifier">CreateSketchedRun</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">document</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">stairsId</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">baseElevation</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>^&gt;^ <span class="parameter">boundaryCurves</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>^&gt;^ <span class="parameter">riserCurves</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>^&gt;^ <span class="parameter">stairsPath</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        The document.
+       </dd>
+      </dl>
+      <dl paramname="stairsId">
+       <dt>
+        <span class="parameter">
+         stairsId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        The stairs that the new stairs run will belong to.
+       </dd>
+      </dl>
+      <dl paramname="baseElevation">
+       <dt>
+        <span class="parameter">
+         baseElevation
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         System
+         Double
+        </a>
+        <br/>
+        Base elevation of the new stairs run. It has following restrictions:
+        <ul>
+         <li>
+          The base elevation is relative to the base elevation of the stairs.
+         </li>
+         <li>
+          The base elevation will be rounded automatically to a multiple of the riser height.
+         </li>
+        </ul>
+       </dd>
+      </dl>
+      <dl paramname="boundaryCurves">
+       <dt>
+        <span class="parameter">
+         boundaryCurves
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">
+         Curve
+        </a>
+        <br/>
+        The boundary curves of the new stairs run. The curves have following restriction:
+        <ul>
+         <li>
+          The curves should consist of bound Line or Arc curves only.
+         </li>
+         <li>
+          The curves should be a pair of curve chains(two sets of curves which connect end-to-end
+   to form the left and right boundaries).
+         </li>
+         <li>
+          The left and right boundary chain curves should not connect to each other.
+         </li>
+         <li>
+          They can be single curves or multi-segmented curves(for example, straight lines and
+   arcs connected).
+         </li>
+        </ul>
+       </dd>
+      </dl>
+      <dl paramname="riserCurves">
+       <dt>
+        <span class="parameter">
+         riserCurves
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">
+         Curve
+        </a>
+        <br/>
+        The riser curves of the new stairs run. The curves have following restriction:
+        <ul>
+         <li>
+          The curves should consist of bound Line or Arc curves only.
+         </li>
+         <li>
+          The curves should be able to make at least two curve chains.
+         </li>
+         <li>
+          The curves in each chain should connect between the left and right boundaries.
+         </li>
+        </ul>
+       </dd>
+      </dl>
+      <dl paramname="stairsPath">
+       <dt>
+        <span class="parameter">
+         stairsPath
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">
+         Curve
+        </a>
+        <br/>
+        The stair path curves of the new stairs run. The curves have following restriction:
+        <ul>
+         <li>
+          The curves should consist of bound Line or Arc curves only.
+         </li>
+         <li>
+          The curves should be able to make one curve chain.
+         </li>
+         <li>
+          The curve chain should have intersection with all riser curve chains.
+         </li>
+         <li>
+          The curves should connect between the first and last riser chain curves.
+         </li>
+        </ul>
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The new stairs run.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The run type of the new stairs run will be determined by the specified stairs.
+   The new stairs run and the document will be regenerated.
+   This should be run from within an open transaction.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The stairsId is not a valid stairs element.
+   -or-
+   The input boundaryCurves is empty.
+   -or-
+   The input riserCurves is empty.
+   -or-
+   The input stairsPath is empty.
+   -or-
+   The input boundaryCurves contains at least one curve which is not a bound Line or bound Arc
+   and is not supported for this operation.
+   -or-
+   The input riserCurves contains at least one curve which is not a bound Line or bound Arc
+   and is not supported for this operation.
+   -or-
+   The input stairsPath contains at least one curve which is not a bound Line or bound Arc
+   and is not supported for this operation.
+   -or-
+   The riserCurves or boundaryCurves or stairsPath don't meet restrictions to create sketch run.
+   -or-
+   The boundaryCurves has invalid curve used as sketch boundary curve.
+   -or-
+   The riserCurves has invalid curve used as sketch riser curve.
+   -or-
+   The stairsPath has invalid curve used as sketch stairspath curve.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          The given value for baseElevation must be no more than 30000 feet in absolute value.
+   -or-
+   The baseElevation doesn't meet the restriction that bottom of run should not be lower than bottom of stairs.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          The stairs element represented by stairsId is not in an active StairsEditScope.
+   New components cannot be added to it.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="53205486-5917-7c33-8e67-e362106ddc97.htm">
+           Autodesk.Revit.Exceptions
+           ModificationForbiddenException
+          </a>
+         </td>
+         <td>
+          The document is in failure mode: an operation has failed,
+   and Revit requires the user to either cancel the operation
+   or fix the problem (usually by deleting certain elements).
+   -or-
+   The document is being loaded, or is in the midst of another
+   sensitive process.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="8f025460-c283-ea99-aa8a-5a36e11528f4.htm">
+           Autodesk.Revit.Exceptions
+           ModificationOutsideTransactionException
+          </a>
+         </td>
+         <td>
+          The document has no open transaction.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="787bb389-74c2-5ce7-cdd6-32211209ded2.htm">
+           Autodesk.Revit.Exceptions
+           RegenerationFailedException
+          </a>
+         </td>
+         <td>
+          The boundaryCurves, riserCurves, stairsPath don't meet restrictions to generate sketch run.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ea0e49a0-a007-79d0-c902-a24b1359ae28.htm">
+       StairsRun Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="720f0c58-cb2b-4f13-374a-7348ed0a1cd3.htm">
+       Autodesk.Revit.DB.Architecture Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

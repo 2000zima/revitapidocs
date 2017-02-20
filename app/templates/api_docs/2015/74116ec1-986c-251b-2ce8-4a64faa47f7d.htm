@@ -1,0 +1,343 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="a7622967-1381-c17f-ed04-1ebe40da0440.htm">
+       FamilyItemFactory Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Create new Form element by Loft operation, and add it into the Autodesk Revit family document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="49f6ae4c-1629-98ef-d9a9-799bb1fd43ec.htm">Form</a> <span class="identifier">NewLoftForm</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">isSolid</span>,
+	<a href="b50edc19-b437-2aab-bd03-5d1a0aed4164.htm">ReferenceArrayArray</a> <span class="parameter">profiles</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewLoftForm</span> ( _
+	<span class="parameter">isSolid</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a>, _
+	<span class="parameter">profiles</span> <span class="keyword">As</span> <a href="b50edc19-b437-2aab-bd03-5d1a0aed4164.htm">ReferenceArrayArray</a> _
+) <span class="keyword">As</span> <a href="49f6ae4c-1629-98ef-d9a9-799bb1fd43ec.htm">Form</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="49f6ae4c-1629-98ef-d9a9-799bb1fd43ec.htm">Form</a>^ <span class="identifier">NewLoftForm</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">isSolid</span>, 
+	<a href="b50edc19-b437-2aab-bd03-5d1a0aed4164.htm">ReferenceArrayArray</a>^ <span class="parameter">profiles</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="isSolid">
+       <dt>
+        <span class="parameter">
+         isSolid
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">
+         System
+         Boolean
+        </a>
+        <br/>
+        Indicates if the Form is Solid or Void.
+       </dd>
+      </dl>
+      <dl paramname="profiles">
+       <dt>
+        <span class="parameter">
+         profiles
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="b50edc19-b437-2aab-bd03-5d1a0aed4164.htm">
+         Autodesk.Revit.DB
+         ReferenceArrayArray
+        </a>
+        <br/>
+        The profile set of the newly created loft. Each profile should consist of only one curve loop.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If creation was successful form is are returned.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">private</span> Form CreateLoftForm(Autodesk.Revit.DB.Document document)
+{
+    Form loftForm = <span class="highlight-keyword">null</span>;
+
+    ReferencePointArray rpa = <span class="highlight-keyword">new</span> ReferencePointArray();
+    ReferenceArrayArray ref_ar_ar = <span class="highlight-keyword">new</span> ReferenceArrayArray();
+    ReferenceArray ref_ar = <span class="highlight-keyword">new</span> ReferenceArray();
+    ReferencePoint rp = <span class="highlight-keyword">null</span>;
+    XYZ xyz = <span class="highlight-keyword">null</span>;
+
+    <span class="highlight-comment">// make first profile curve for loft</span>
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>);
+    rp = document.FamilyCreate.NewReferencePoint(xyz);
+    rpa.Append(rp);
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">0</span>, <span class="highlight-number">50</span>, <span class="highlight-number">10</span>);
+    rp = document.FamilyCreate.NewReferencePoint(xyz);
+    rpa.Append(rp);
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">0</span>, <span class="highlight-number">100</span>, <span class="highlight-number">0</span>);
+    rp = document.FamilyCreate.NewReferencePoint(xyz);
+    rpa.Append(rp);
+
+    CurveByPoints cbp = document.FamilyCreate.NewCurveByPoints(rpa);
+    ref_ar.Append(cbp.GeometryCurve.Reference);
+    ref_ar_ar.Append(ref_ar);
+    rpa.Clear();
+    ref_ar = <span class="highlight-keyword">new</span> ReferenceArray();
+
+    <span class="highlight-comment">// make second profile curve for loft</span>
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">50</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>);
+    rp = document.FamilyCreate.NewReferencePoint(xyz);
+    rpa.Append(rp);
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">50</span>, <span class="highlight-number">50</span>, <span class="highlight-number">30</span>);
+    rp = document.FamilyCreate.NewReferencePoint(xyz);
+    rpa.Append(rp);
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">50</span>, <span class="highlight-number">100</span>, <span class="highlight-number">0</span>);
+    rp = document.FamilyCreate.NewReferencePoint(xyz);
+    rpa.Append(rp);
+
+    cbp = document.FamilyCreate.NewCurveByPoints(rpa);
+    ref_ar.Append(cbp.GeometryCurve.Reference);
+    ref_ar_ar.Append(ref_ar);
+    rpa.Clear();
+    ref_ar = <span class="highlight-keyword">new</span> ReferenceArray();
+
+    <span class="highlight-comment">// make third profile curve for loft</span>
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">75</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>);
+    rp = document.FamilyCreate.NewReferencePoint(xyz);
+    rpa.Append(rp);
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">75</span>, <span class="highlight-number">50</span>, <span class="highlight-number">5</span>);
+    rp = document.FamilyCreate.NewReferencePoint(xyz);
+    rpa.Append(rp);
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">75</span>, <span class="highlight-number">100</span>, <span class="highlight-number">0</span>);
+    rp = document.FamilyCreate.NewReferencePoint(xyz);
+    rpa.Append(rp);
+
+    cbp = document.FamilyCreate.NewCurveByPoints(rpa);
+    ref_ar.Append(cbp.GeometryCurve.Reference);
+    ref_ar_ar.Append(ref_ar);
+
+    loftForm = document.FamilyCreate.NewLoftForm(<span class="highlight-keyword">true</span>, ref_ar_ar);
+
+    <span class="highlight-keyword">return</span> loftForm;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> CreateLoftForm(document <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Document) <span class="highlight-keyword">As</span> Form
+    <span class="highlight-keyword">Dim</span> loftForm <span class="highlight-keyword">As</span> Form = <span class="highlight-keyword">Nothing</span>
+
+    <span class="highlight-keyword">Dim</span> rpa <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ReferencePointArray()
+    <span class="highlight-keyword">Dim</span> ref_ar_ar <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ReferenceArrayArray()
+    <span class="highlight-keyword">Dim</span> ref_ar <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ReferenceArray()
+    <span class="highlight-keyword">Dim</span> rp <span class="highlight-keyword">As</span> ReferencePoint = <span class="highlight-keyword">Nothing</span>
+    <span class="highlight-keyword">Dim</span> xyz <span class="highlight-keyword">As</span> XYZ = <span class="highlight-keyword">Nothing</span>
+
+    <span class="highlight-comment">' make first profile curve for loft</span>
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>)
+    rp = document.FamilyCreate.NewReferencePoint(xyz)
+    rpa.Append(rp)
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">0</span>, <span class="highlight-number">50</span>, <span class="highlight-number">10</span>)
+    rp = document.FamilyCreate.NewReferencePoint(xyz)
+    rpa.Append(rp)
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">0</span>, <span class="highlight-number">100</span>, <span class="highlight-number">0</span>)
+    rp = document.FamilyCreate.NewReferencePoint(xyz)
+    rpa.Append(rp)
+
+    <span class="highlight-keyword">Dim</span> cbp <span class="highlight-keyword">As</span> CurveByPoints = document.FamilyCreate.NewCurveByPoints(rpa)
+    ref_ar.Append(cbp.GeometryCurve.Reference)
+    ref_ar_ar.Append(ref_ar)
+    rpa.Clear()
+    ref_ar = <span class="highlight-keyword">New</span> ReferenceArray()
+
+    <span class="highlight-comment">' make second profile curve for loft</span>
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">50</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>)
+    rp = document.FamilyCreate.NewReferencePoint(xyz)
+    rpa.Append(rp)
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">50</span>, <span class="highlight-number">50</span>, <span class="highlight-number">30</span>)
+    rp = document.FamilyCreate.NewReferencePoint(xyz)
+    rpa.Append(rp)
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">50</span>, <span class="highlight-number">100</span>, <span class="highlight-number">0</span>)
+    rp = document.FamilyCreate.NewReferencePoint(xyz)
+    rpa.Append(rp)
+
+    cbp = document.FamilyCreate.NewCurveByPoints(rpa)
+    ref_ar.Append(cbp.GeometryCurve.Reference)
+    ref_ar_ar.Append(ref_ar)
+    rpa.Clear()
+    ref_ar = <span class="highlight-keyword">New</span> ReferenceArray()
+
+    <span class="highlight-comment">' make third profile curve for loft</span>
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">75</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>)
+    rp = document.FamilyCreate.NewReferencePoint(xyz)
+    rpa.Append(rp)
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">75</span>, <span class="highlight-number">50</span>, <span class="highlight-number">5</span>)
+    rp = document.FamilyCreate.NewReferencePoint(xyz)
+    rpa.Append(rp)
+
+    xyz = document.Application.Create.NewXYZ(<span class="highlight-number">75</span>, <span class="highlight-number">100</span>, <span class="highlight-number">0</span>)
+    rp = document.FamilyCreate.NewReferencePoint(xyz)
+    rpa.Append(rp)
+
+    cbp = document.FamilyCreate.NewCurveByPoints(rpa)
+    ref_ar.Append(cbp.GeometryCurve.Reference)
+    ref_ar_ar.Append(ref_ar)
+
+    loftForm = document.FamilyCreate.NewLoftForm(<span class="highlight-keyword">True</span>, ref_ar_ar)
+
+    <span class="highlight-keyword">Return</span> loftForm
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="a7622967-1381-c17f-ed04-1ebe40da0440.htm">
+       FamilyItemFactory Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

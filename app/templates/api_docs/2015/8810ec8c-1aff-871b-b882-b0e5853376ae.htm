@@ -1,0 +1,202 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="d032aa74-3835-7cfa-7a8e-b5a8c1f4f7d0.htm">
+       IExporterIFC Interface
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     The method that Revit will invoke to perform an export to IFC.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="b823fafb-1ba1-896b-4097-142c2817ce74.htm">
+      Autodesk.Revit.DB.IFC
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIIFC
+     </span>
+     (in RevitAPIIFC.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">void</span> <span class="identifier">ExportIFC</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">document</span>,
+	<a href="c8697b81-e080-9202-14d3-ec883f951521.htm">ExporterIFC</a> <span class="parameter">exporter</span>,
+	<a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a> <span class="parameter">filterView</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Sub</span> <span class="identifier">ExportIFC</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">exporter</span> <span class="keyword">As</span> <a href="c8697b81-e080-9202-14d3-ec883f951521.htm">ExporterIFC</a>, _
+	<span class="parameter">filterView</span> <span class="keyword">As</span> <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">void</span> <span class="identifier">ExportIFC</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">document</span>, 
+	<a href="c8697b81-e080-9202-14d3-ec883f951521.htm">ExporterIFC</a>^ <span class="parameter">exporter</span>, 
+	<a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a>^ <span class="parameter">filterView</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        The document to export.
+       </dd>
+      </dl>
+      <dl paramname="exporter">
+       <dt>
+        <span class="parameter">
+         exporter
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c8697b81-e080-9202-14d3-ec883f951521.htm">
+         Autodesk.Revit.DB.IFC
+         ExporterIFC
+        </a>
+        <br/>
+        The IFC exporter object.
+       </dd>
+      </dl>
+      <dl paramname="filterView">
+       <dt>
+        <span class="parameter">
+         filterView
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">
+         Autodesk.Revit.DB
+         View
+        </a>
+        <br/>
+        The view whose filter visibility settings govern the export.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     There will be a transaction group opened for the document.  Any changes made to the document
+   must be temporary, as the transaction group will automatically be rolled back at the end.
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="d032aa74-3835-7cfa-7a8e-b5a8c1f4f7d0.htm">
+       IExporterIFC Interface
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="b823fafb-1ba1-896b-4097-142c2817ce74.htm">
+       Autodesk.Revit.DB.IFC Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

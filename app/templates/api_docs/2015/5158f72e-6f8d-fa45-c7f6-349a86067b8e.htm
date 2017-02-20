@@ -1,0 +1,264 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="d78d1e9c-1cee-1336-88d5-b605dacd077d.htm">
+       TransmissionData Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Reads the TransmissionData associated with the
+   file at the given location.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="d78d1e9c-1cee-1336-88d5-b605dacd077d.htm">TransmissionData</a> <span class="identifier">ReadTransmissionData</span>(
+	<a href="40a84c72-e4b8-72ac-2f71-3216c66a11b3.htm">ModelPath</a> <span class="parameter">path</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">ReadTransmissionData</span> ( _
+	<span class="parameter">path</span> <span class="keyword">As</span> <a href="40a84c72-e4b8-72ac-2f71-3216c66a11b3.htm">ModelPath</a> _
+) <span class="keyword">As</span> <a href="d78d1e9c-1cee-1336-88d5-b605dacd077d.htm">TransmissionData</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="d78d1e9c-1cee-1336-88d5-b605dacd077d.htm">TransmissionData</a>^ <span class="identifier">ReadTransmissionData</span>(
+	<a href="40a84c72-e4b8-72ac-2f71-3216c66a11b3.htm">ModelPath</a>^ <span class="parameter">path</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="path">
+       <dt>
+        <span class="parameter">
+         path
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="40a84c72-e4b8-72ac-2f71-3216c66a11b3.htm">
+         Autodesk.Revit.DB
+         ModelPath
+        </a>
+        <br/>
+        A ModelPath indicating the file Revit should read
+   the TransmissionData of.
+   If this ModelPath is a file path, it must be an absolute path.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The TransmissionData containing external file
+   information for the file at the given location.
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The TransmissionData returned by this function contains
+   data about all ExternalFileReferences in the document.
+   ExternalResourceReferences to extenal servers will not
+   be returned by this function. TransmissionData contains
+   information about local or Revit Server references only.
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="3e38b7b1-1ee8-c7f0-6cdd-bacf67bf61f4.htm">
+           Autodesk.Revit.Exceptions
+           CentralModelAccessDeniedException
+          </a>
+         </td>
+         <td>
+          Access to the central model was denied. A possible reason is because the model was under maintenance.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="ad511076-c435-23c1-5720-1205c4ed28b9.htm">
+           Autodesk.Revit.Exceptions
+           CentralModelContentionException
+          </a>
+         </td>
+         <td>
+          The central model are locked by another client.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="0e2ac15f-ca64-42c3-b3ef-e6f7ca1cb59a.htm">
+           Autodesk.Revit.Exceptions
+           CentralModelException
+          </a>
+         </td>
+         <td>
+          The central model is missing.
+   -or-
+   An internal error happened on the central model, please contact the server administrator.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="ca9ccaa9-ed08-d40d-31a7-1af3ad2dcb84.htm">
+           Autodesk.Revit.Exceptions
+           FileArgumentNotFoundException
+          </a>
+         </td>
+         <td>
+          There is not a valid Revit file at path's location
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="a0003d89-0113-6623-65da-0db5c568bfb6.htm">
+           Autodesk.Revit.Exceptions
+           RevitServerCommunicationException
+          </a>
+         </td>
+         <td>
+          The server-based central model could not be accessed
+   because of a network communication error.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="d78d1e9c-1cee-1336-88d5-b605dacd077d.htm">
+       TransmissionData Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

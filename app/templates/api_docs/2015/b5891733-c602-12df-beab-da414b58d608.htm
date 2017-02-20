@@ -1,0 +1,238 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="d0678575-843b-42ea-c91d-c94b13d7dd4f.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Represents a wall in Autodesk Revit.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">Wall</span> : <a href="56a32e0b-df65-a6ba-40bd-8f50a1f31dcd.htm">HostObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">Wall</span> _
+	<span class="keyword">Inherits</span> <a href="56a32e0b-df65-a6ba-40bd-8f50a1f31dcd.htm">HostObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">Wall</span> : <span class="keyword">public</span> <a href="56a32e0b-df65-a6ba-40bd-8f50a1f31dcd.htm">HostObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The wall object represents all the different kinds of walls in Revit.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> GetInfo_Wall(Wall wall)
+{
+    <span class="highlight-keyword">string</span> message = <span class="highlight-literal">"Wall : "</span>;
+    <span class="highlight-comment">// Get wall AnalyticalModel type</span>
+    AnalyticalModel model = wall.GetAnalyticalModel();
+    <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != model)
+    {
+        <span class="highlight-comment">// For some situation(such as architecture wall or in building version),</span>
+        <span class="highlight-comment">// this property may return null, but if it doesn't return null, it should </span>
+        <span class="highlight-comment">// be AnalyticalModelWall.</span>
+        message += <span class="highlight-literal">"\nWall AnalyticalModel type is : "</span> + model;
+    }
+
+    wall.Flip();
+    message += <span class="highlight-literal">"\nIf wall Flipped : "</span> + wall.Flipped;
+    <span class="highlight-comment">// Get curve start point</span>
+    message += <span class="highlight-literal">"\nWall orientation point is :("</span> + wall.Orientation.X + <span class="highlight-literal">", "</span>
+        + wall.Orientation.Y + <span class="highlight-literal">", "</span> + wall.Orientation.Z + <span class="highlight-literal">")"</span>;
+    <span class="highlight-comment">// Get wall StructuralUsage</span>
+    message += <span class="highlight-literal">"\nWall StructuralUsage is : "</span> + wall.StructuralUsage;
+    <span class="highlight-comment">// Get wall type name</span>
+    message += <span class="highlight-literal">"\nWall type name is : "</span> + wall.WallType.Name;
+    <span class="highlight-comment">// Get wall width</span>
+    message += <span class="highlight-literal">"\nWall width is : "</span> + wall.Width;
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,message);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> GetInfo_Wall(wall <span class="highlight-keyword">As</span> Wall)
+    <span class="highlight-keyword">Dim</span> message <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"Wall : "</span>
+    <span class="highlight-comment">' Get wall AnalyticalModel type</span>
+    <span class="highlight-keyword">Dim</span> model <span class="highlight-keyword">As</span> AnalyticalModel = wall.GetAnalyticalModel()
+    <span class="highlight-keyword">If</span> model <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-comment">' For some situation(such as architecture wall or in building version),</span>
+        <span class="highlight-comment">' this property may return null, but if it doesn't return null, it should </span>
+        <span class="highlight-comment">' be AnalyticalModelWall.</span>
+        message += vbLf &amp; <span class="highlight-literal">"Wall AnalyticalModel type is : "</span> &amp; model.ToString()
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    wall.Flip()
+    message += vbLf &amp; <span class="highlight-literal">"If wall Flipped : "</span> &amp; Convert.ToString(wall.Flipped)
+    <span class="highlight-comment">' Get curve start point</span>
+    message += vbLf &amp; <span class="highlight-literal">"Wall orientation point is :("</span> &amp; Convert.ToString(wall.Orientation.X) &amp; <span class="highlight-literal">", "</span> &amp; Convert.ToString(wall.Orientation.Y) &amp; <span class="highlight-literal">", "</span> &amp; Convert.ToString(wall.Orientation.Z) &amp; <span class="highlight-literal">")"</span>
+    <span class="highlight-comment">' Get wall StructuralUsage</span>
+    message += vbLf &amp; <span class="highlight-literal">"Wall StructuralUsage is : "</span> &amp; Convert.ToString(wall.StructuralUsage)
+    <span class="highlight-comment">' Get wall type name</span>
+    message += vbLf &amp; <span class="highlight-literal">"Wall type name is : "</span> &amp; Convert.ToString(wall.WallType.Name)
+    <span class="highlight-comment">' Get wall width</span>
+    message += vbLf &amp; <span class="highlight-literal">"Wall width is : "</span> &amp; Convert.ToString(wall.Width)
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, message)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+      Autodesk.Revit.DB
+      Element
+     </a>
+     <br/>
+     <a href="56a32e0b-df65-a6ba-40bd-8f50a1f31dcd.htm">
+      Autodesk.Revit.DB
+      HostObject
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      Wall
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="d0678575-843b-42ea-c91d-c94b13d7dd4f.htm">
+       Wall Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

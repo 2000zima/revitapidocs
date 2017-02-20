@@ -1,0 +1,330 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+       Document Class
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Returns whether the model in the current session is up to date with central.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">HasAllChangesFromCentral</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">HasAllChangesFromCentral</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">HasAllChangesFromCentral</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     True means up to date; false means out of date.
+     <p>
+      If central is locked but Revit can determine that
+   the model in the current session is out of date
+   without opening central, this method will return false
+   instead of throwing CentralModelContentionException.
+     </p>
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">void</span> ReloadDocument(Document doc)
+{
+    ReloadLatestOptions reloadOpts = <span class="highlight-keyword">new</span> ReloadLatestOptions();
+    <span class="highlight-keyword">try</span>
+    {
+        doc.ReloadLatest(reloadOpts);
+        <span class="highlight-comment">// Check to make sure no new changes were synced with Central during reload</span>
+        <span class="highlight-keyword">if</span> (doc.HasAllChangesFromCentral() == <span class="highlight-keyword">false</span>)
+        {
+            <span class="highlight-comment">// If there are changes from central, reload again</span>
+            doc.ReloadLatest(reloadOpts);
+        }
+    }
+    <span class="highlight-keyword">catch</span> (Exception e)
+    {
+        TaskDialog.Show(<span class="highlight-literal">"Reload Failed"</span>, e.Message);
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> ReloadDocument(doc <span class="highlight-keyword">As</span> Document)
+    <span class="highlight-keyword">Dim</span> reloadOpts <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> ReloadLatestOptions()
+    <span class="highlight-keyword">Try</span>
+        doc.ReloadLatest(reloadOpts)
+        <span class="highlight-comment">' Check to make sure no new changes were synced with Central during reload</span>
+        <span class="highlight-keyword">If</span> doc.HasAllChangesFromCentral() = <span class="highlight-keyword">False</span> <span class="highlight-keyword">Then</span>
+            <span class="highlight-comment">' If there are changes from central, reload again</span>
+            doc.ReloadLatest(reloadOpts)
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">Catch</span> e <span class="highlight-keyword">As</span> Exception
+        TaskDialog.Show(<span class="highlight-literal">"Reload Failed"</span>, e.Message)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Try</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="20094e4f-8326-8378-e5bc-452341d131c2.htm">
+           Autodesk.Revit.Exceptions
+           CentralFileCommunicationException
+          </a>
+         </td>
+         <td>
+          The file-based central model could not be reached, because e.g. the network is down or the file server is down.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="3e38b7b1-1ee8-c7f0-6cdd-bacf67bf61f4.htm">
+           Autodesk.Revit.Exceptions
+           CentralModelAccessDeniedException
+          </a>
+         </td>
+         <td>
+          Access to the central model was denied due to lack of access privileges.
+   -or-
+   Access to the central model was denied. A possible reason is because the model was under maintenance.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="ad511076-c435-23c1-5720-1205c4ed28b9.htm">
+           Autodesk.Revit.Exceptions
+           CentralModelContentionException
+          </a>
+         </td>
+         <td>
+          The central model is locked by another client.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="0e2ac15f-ca64-42c3-b3ef-e6f7ca1cb59a.htm">
+           Autodesk.Revit.Exceptions
+           CentralModelException
+          </a>
+         </td>
+         <td>
+          Username does not match the one used to create the local file.
+   -or-
+   The central model has been replaced by a local model.
+   -or-
+   Local incompatible because it was closed without saving after synchronizing with central.
+   -or-
+   The central model is missing.
+   -or-
+   The central model is incompatible.
+   -or-
+   The central model is corrupt or not an RVT file.
+   -or-
+   The central model was rolled back.
+   -or-
+   The central model is overritten by other user.
+   -or-
+   An internal error happened on the central model, please contact the server administrator.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="73250198-dbc6-e760-4297-ec062f00f574.htm">
+           Autodesk.Revit.Exceptions
+           FileNotFoundException
+          </a>
+         </td>
+         <td>
+          Cannot access the local file.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          This Document is not a workshared document.
+   -or-
+   This Document is a local file that is not owned by the current user, who therefore is not allowed to modify it.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="a0003d89-0113-6623-65da-0db5c568bfb6.htm">
+           Autodesk.Revit.Exceptions
+           RevitServerCommunicationException
+          </a>
+         </td>
+         <td>
+          The server-based central model could not be accessed
+   because of a network communication error.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="6dcd093c-d643-07cd-535f-36ffa9d2db52.htm">
+           Autodesk.Revit.Exceptions
+           RevitServerInternalException
+          </a>
+         </td>
+         <td>
+          An internal error happened on the server, please contact the server administrator.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

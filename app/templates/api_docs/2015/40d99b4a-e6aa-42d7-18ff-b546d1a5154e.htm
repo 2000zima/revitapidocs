@@ -1,0 +1,250 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="7d0dc6df-db0e-6a07-3b42-8dde1bedb3c1.htm">
+       IExportContext Interface
+      </a>
+      <a href="#exampleToggle" onclick="OpenSection(exampleToggle)">
+       Example
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     This method marks the beginning of a link instance to be exported.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="39f98799-628b-8d65-765c-ca86949ce7ed.htm">RenderNodeAction</a> <span class="identifier">OnLinkBegin</span>(
+	<a href="9141cd14-5aa4-d81f-66ad-8ca3af394886.htm">LinkNode</a> <span class="parameter">node</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Function</span> <span class="identifier">OnLinkBegin</span> ( _
+	<span class="parameter">node</span> <span class="keyword">As</span> <a href="9141cd14-5aa4-d81f-66ad-8ca3af394886.htm">LinkNode</a> _
+) <span class="keyword">As</span> <a href="39f98799-628b-8d65-765c-ca86949ce7ed.htm">RenderNodeAction</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="39f98799-628b-8d65-765c-ca86949ce7ed.htm">RenderNodeAction</a> <span class="identifier">OnLinkBegin</span>(
+	<a href="9141cd14-5aa4-d81f-66ad-8ca3af394886.htm">LinkNode</a>^ <span class="parameter">node</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="node">
+       <dt>
+        <span class="parameter">
+         node
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="9141cd14-5aa4-d81f-66ad-8ca3af394886.htm">
+         Autodesk.Revit.DB
+         LinkNode
+        </a>
+        <br/>
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     Return RenderNodeAction.Skip if you wish to skip processing this link instance,
+   or return RenderNodeAction.Proceed otherwise.
+    </div>
+    <h1 class="heading">
+     Examples
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// This code demonstrates how to process instances of Revit links.</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-keyword">public</span> RenderNodeAction OnLinkBegin(LinkNode node)
+{
+   <span class="highlight-comment">// We can get more information about the family instance and its type if we need to</span>
+   ElementId symbolId = node.GetSymbolId();
+   RevitLinkType linkType = m_document.GetElement(symbolId) <span class="highlight-keyword">as</span> RevitLinkType;
+   String linkDocumentName = linkType.Name;
+
+   <span class="highlight-comment">// Typically, an export context has to manage a stack of transformation</span>
+   <span class="highlight-comment">// for all nested objects, such as instances, lights, links, etc.</span>
+   <span class="highlight-comment">// A combined transformation needs to be applied to the incoming geometry</span>
+   <span class="highlight-comment">// (providing all geometry is to be flattened in the resultant format.)</span>
+   m_TransformationStack.Push(m_TransformationStack.Peek().Multiply(node.GetTransform()));
+
+   <span class="highlight-comment">// We can either skip this link instance or proceed with rendering it</span>
+   <span class="highlight-keyword">return</span> RenderNodeAction.Proceed;
+}
+
+<span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// This method marks the end of processing a Revit link</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> OnLinkEnd(LinkNode node)
+{
+   <span class="highlight-comment">// Note: This method is invoked even for instances that were skipped.</span>
+
+   <span class="highlight-comment">// If we maintain a transformation stack, we need to remove the latest one from it.</span>
+   m_TransformationStack.Pop();
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" onclick="javascript:CopyColorizedCode(this.parentNode);" onkeypress="javascript:CopyColorizedCodeCheckKey(this.parentNode, event);" onmouseout="CopyCodeChangeIcon(this)" onmouseover="CopyCodeChangeIcon(this)" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' &lt;summary&gt;</span>
+<span class="highlight-comment">' This code demonstrates how to process instances of Revit links.</span>
+<span class="highlight-comment">' &lt;/summary&gt;</span>
+<span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> OnLinkBegin(node <span class="highlight-keyword">As</span> LinkNode) <span class="highlight-keyword">As</span> RenderNodeAction <span class="highlight-keyword">Implements</span> IExportContext.OnLinkBegin
+    <span class="highlight-comment">' We can get more information about the family instance and its type if we need to</span>
+    <span class="highlight-keyword">Dim</span> symbolId <span class="highlight-keyword">As</span> ElementId = node.GetSymbolId()
+    <span class="highlight-keyword">Dim</span> linkType <span class="highlight-keyword">As</span> RevitLinkType = <span class="highlight-keyword">TryCast</span>(m_document.GetElement(symbolId), RevitLinkType)
+    <span class="highlight-keyword">Dim</span> linkDocumentName <span class="highlight-keyword">As</span> [<span class="highlight-keyword">String</span>] = linkType.Name
+
+    <span class="highlight-comment">' Typically, an export context has to manage a stack of transformation</span>
+    <span class="highlight-comment">' for all nested objects, such as instances, lights, links, etc.</span>
+    <span class="highlight-comment">' A combined transformation needs to be applied to the incoming geometry</span>
+    <span class="highlight-comment">' (providing all geometry is to be flattened in the resultant format.)</span>
+    m_TransformationStack.Push(m_TransformationStack.Peek().Multiply(node.GetTransform()))
+
+    <span class="highlight-comment">' We can either skip this link instance or proceed with rendering it</span>
+    <span class="highlight-keyword">Return</span> RenderNodeAction.Proceed
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span>
+
+<span class="highlight-comment">' &lt;summary&gt;</span>
+<span class="highlight-comment">' This method marks the end of processing a Revit link</span>
+<span class="highlight-comment">' &lt;/summary&gt;</span>
+<span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> OnLinkEnd(node <span class="highlight-keyword">As</span> LinkNode) <span class="highlight-keyword">Implements</span> IExportContext.OnLinkEnd
+    <span class="highlight-comment">' Note: This method is invoked even for instances that were skipped.</span>
+
+
+    <span class="highlight-comment">' If we maintain a transformation stack, we need to remove the latest one from it.</span>
+    m_TransformationStack.Pop()
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="7d0dc6df-db0e-6a07-3b42-8dde1bedb3c1.htm">
+       IExportContext Interface
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>

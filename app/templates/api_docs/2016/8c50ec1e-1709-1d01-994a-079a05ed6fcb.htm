@@ -1,0 +1,210 @@
+<div class="chm_content">
+ <div id="header">
+  <table cellpadding="0" cellspacing="0" id="topTable">
+   <tbody>
+    <tr>
+     <td>
+      <span>
+      </span>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+  <table cellpadding="0" cellspacing="0" id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="a35dc3de-c8a4-8af0-6a3c-706716e5f885.htm">
+       FailuresProcessingEventArgs Class
+      </a>
+      <a href="#seeAlsoToggle" onclick="OpenSection(seeAlsoToggle)">
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Sets the result of the failures processing accomplished during this event callback.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="b86712d6-83b3-e044-8016-f9881ecd3800.htm">
+      Autodesk.Revit.DB.Events
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetProcessingResult</span>(
+	<a href="f147e6e6-4b2e-d61c-df9b-8b8e5ebe3fcb.htm">FailureProcessingResult</a> <span class="parameter">result</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetProcessingResult</span> ( _
+	<span class="parameter">result</span> <span class="keyword">As</span> <a href="f147e6e6-4b2e-d61c-df9b-8b8e5ebe3fcb.htm">FailureProcessingResult</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetProcessingResult</span>(
+	<a href="f147e6e6-4b2e-d61c-df9b-8b8e5ebe3fcb.htm">FailureProcessingResult</a> <span class="parameter">result</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="result">
+       <dt>
+        <span class="parameter">
+         result
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="f147e6e6-4b2e-d61c-df9b-8b8e5ebe3fcb.htm">
+         Autodesk.Revit.DB
+         FailureProcessingResult
+        </a>
+        <br/>
+        The result.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      If this value is not explicitly set, the default value (Continue) will be used.  If the event callback
+   is resolving errors explicitly, it must be set to ProceedWithCommit - see the remarks for the
+      <a href="a35dc3de-c8a4-8af0-6a3c-706716e5f885.htm">
+       FailuresProcessingEventArgs
+      </a>
+      object for more details.
+     </p>
+     <p>
+      Note that ProceedWithCommit should not be set if the handler has not resolved any errors - the
+   handler will be called again as a result of the commit request and Revit failure handling will
+   never be reached.
+     </p>
+     <p>
+      Setting this result may not affect the outcome if other observers of the event are invoked after this one.
+   The most prohibitive result set by all handlers will be used.
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table cellpadding="5" cellspacing="2" frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="a35dc3de-c8a4-8af0-6a3c-706716e5f885.htm">
+       FailuresProcessingEventArgs Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="b86712d6-83b3-e044-8016-f9881ecd3800.htm">
+       Autodesk.Revit.DB.Events Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
