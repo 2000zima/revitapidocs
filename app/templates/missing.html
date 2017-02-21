@@ -18,7 +18,7 @@
       <br/>
       {% endif %}
       <p><span class="text-muted">Resource Only Available for</span></p>
-      {% for year in available_in %}
+      {% for year in api_availability.keys() %}
       <a class="btn btn-primary" href="/{{year}}/{{active_href}}">{{year}}</a>
       {% endfor %}
       <br/>
@@ -28,7 +28,7 @@
       <a class="btn btn-default" href="/{{active_year}}/">CONTINUE TO {{ active_year }}</a>
       <!-- <h4><a href="/{{year}}/{{active_href}}">Continue to {{ year }} API</a></h4> -->
 
-    {# include 'disqus.html' #}
+    {# include '__disqus.html' #}
 
 </div>
 

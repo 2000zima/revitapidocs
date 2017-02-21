@@ -4,6 +4,15 @@
    <tbody>
     <tr>
      <td>
+      <span onclick="ExpandCollapseAll(toggleAllImage)" onkeypress="ExpandCollapseAll_CheckKey(toggleAllImage, event)" style="cursor:default;" tabindex="0">
+       <img class="toggleAll" id="toggleAllImage" src='{{ url_for("static", filename="img/chm/icons/collapse_all.gif") }}'/>
+       <label for="toggleAllImage" id="collapseAllLabel" style="display: none;">
+        Collapse All
+       </label>
+       <label for="toggleAllImage" id="expandAllLabel" style="display: none;">
+        Expand All
+       </label>
+      </span>
       <span>
       </span>
      </td>

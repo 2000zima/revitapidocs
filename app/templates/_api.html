@@ -10,53 +10,32 @@
 
 {% block content %}
 <!-- START  API HTML -->
-    <!-- MODAL SEARCH -->
-    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title truncate" id="myModalLabel"></h4>
-            <div id="result-filter-list" class="text-muted small">Filter: <span id="result-filter" class="result-tag badge"></span><span id="result-size" class="pull-right"></span></div>
-          </div>
-          <div class="modal-body">
-            <div id="result-div">
-            </div>
 
-          </div>
-          <div class="modal-footer">
-            <span class="text-muted small">Could not find what you were looking for?
-            Try a <a id="google-link" target="=_blank">Google Search</a></span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- MODAL SEARCH -->
+    {% include 'components/__modalsearch.html' %}
 
     <!-- START SIDEBAR -->
     <div class="col-sm-12 col-md-5 col-lg-4" id="sidebar">
 
         <!-- SIDEBAR SEARCH -->
         <div id="sidebar-search">
-            <form>
+          <form>
             <div class="form-group">
-                <!-- <label class="control-label">Search</label> -->
-                  <div class="input-group input-group-sm">
-                    <input type="text" class="form-control" id="input-search" placeholder="Search Term" autocomplete="off">
-                      <span class="input-group-btn">
-                        <button class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal"><span class="glyphicon glyphicon-search"></span></button>
-                        <!-- <button class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button> -->
-                      </span>
-                  </div>
+              <div class="input-group input-group-sm">
+                <input type="text" class="form-control" id="search-box" placeholder="Search Term" autocomplete="off">
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+              </div>
             </div>
-            </form>
+          </form>
         </div>
         <!-- SIDEBAR SEARCH -->
 
+        <!-- START BOOTSTRAP TREEVIEW -->
         <span id="menu-loading" class="small text-muted"><img src="{{ url_for('static', filename="img/loader.gif") }}">
         &nbsp;Loading</span>
-        <!-- START BOOTSTRAP TREEVIEW -->
-        <div id="treeview"></div>
+        <div id="treeview">
+        </div>
         <!-- END BOOTSTRAP TREEVIEW -->
 
     </div>
@@ -64,31 +43,30 @@
 
     <!-- START MAIN -->
     <div class="col-sm-12 col-md-7 col-lg-8" id="main-sidebar">
+        <ul class="breadcrumb">
+            <li><a href="{{ entry.member_of_href }}">{{ entry.member_of }}</a></li>
+            <li class="active">{{ entry.title }}</li>
+        </ul>
+
         <h4 class="truncate"> {{ entry.title if entry else 'Documentation' }} </h4>
         <hr/>
+
+
         <!-- START MAIN CONTENT -->
         {% include '%s' % content_path %}
         <!-- END MAIN CONTENT -->
 
-        <!-- START API ADSENSE -->
-        {#
-        <div id="adsense-responsive">
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <!-- RevitAPIDocs-API-Responsive -->
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-2370986191740757"
-                 data-ad-slot="6712583026"
-                 data-ad-format="auto"></ins>
-            <script>
-            (adsbygoogle = window.adsbygoogle || []).push({});
-            </script>
-        </div>
-        #}
+        <!-- API ADSENSE -->
+        {# {% include 'components/__adsense.hmlt' %}  #}
         <!-- END ADSENSE -->
+
+
         <a href="https://github.com/gtalarico/revitapidocs/edit/master/app/templates/{{content_path}}"> Edit On Github</a>
         <!-- START DISQUS -->
-        {% include 'components/disqus.html' with context %}
+
+        {% if active_href %}
+        {% include 'components/__disqus.html' with context %}
+        {% endif %}
         <!-- END DISQUS -->
     </div>
     <!-- END MAIN -->
@@ -101,35 +79,66 @@
 <!-- START API SCRIPT  -->
 <script>
 
-// Get Constructor.io Autocomplete Script
-$.getScript("//cnstrc.com/js/ac.js", function() {
-        $('#input-search').constructorAutocomplete({
-        key: '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}',
-        boostRecentSearches : true,
-        maxResults : 10,
-        triggerSubmitOnSelect: true
-        });
-});
-
-
 $(document).ready(function() {
 
-    // LOAD MENU
-    var string_json
-    var ajax = $.getJSON("namespace.json", function(json) {
-        string_json = JSON.stringify(json);
-        buildMenu()
+
+    // Globals
+    var searchBoxInput = $('input#search-box')
+    var is_mobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    var is_small_screen = ($(window).width() < 768);
+    console.log('is_mobile: ' + is_mobile)
+    console.log('is_small_screen: ' + is_small_screen)
+
+    // Catch CHM script call to toggle section
+    function OpenSection(sectionToggleName) {
+      var scrollTo = $(sectionToggleName).parent().position().top
+      console.log(scrollTo)
+      $('#main-sidebar').animate({ scrollTop: scrollTo - 20 }, 400, "swing");
+      // $('#main-sidebar').scrollTop(scrollTo);
+    }
+
+
+
+    //////////////////////////////
+    /// CONSTRUCTOR.IO AJAX
+    /////////////////////////////
+    $.getScript("//cnstrc.com/js/ac.js", function() {
+            searchBoxInput.constructorAutocomplete({
+            key: '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}',
+            boostRecentSearches : true,
+            maxResults : 10,
+            triggerSubmitOnSelect: true
+            });
     });
 
-    // Needs fail handling
-    ajax.done(function() {
-        console.log('Ajax JSON namespace loaded.');
+
+    //////////////////////////////
+    /// NAMESPACE TREEVIEW AJAX
+    /////////////////////////////
+    if (!is_mobile){
+        // Load Menue, Desktop Only
+        var ajaxNamespaceJson = $.getJSON("namespace.json", function(json) {
+            var namespace_json = JSON.stringify(json);
+            buildMenu(namespace_json)
         });
 
-    // LOAD MENU CALL BACK
-    function buildMenu() {
+        // Needs fail handling
+        ajaxNamespaceJson.done(function() {
+            console.log('Ajax JSON namespace loaded.');
+            });
 
-        var $searchableTree = $('#treeview').treeview({
+        ajaxNamespaceJson.fail(function() {
+            console.log('Could not get namespace.json.');
+            $('#menu-loading').html('Error Loading Namespace')
+            });
+    };
+
+    //////////////////////////////
+    /// BUILD NAMESPACE TREEVIEW
+    /////////////////////////////
+    function buildMenu(namespace_json) {
+
+        var $namespaceTreeview = $('#treeview').treeview({
               expandIcon: "node-icon collapsed",
               collapseIcon: "node-icon expanded",
               emptyIcon: "node-icon empty",
@@ -141,16 +150,19 @@ $(document).ready(function() {
               enableLinks: true,
               onhoverColor: '#e0e0e0',
               backColor: 'inherit',
-              data: string_json,
+              data: namespace_json,
             });
 
-        var is_desktop = ($(window).width() > 768)
-        if (("{{active_href}}" != 'None') && is_desktop){
+        ///////////////////////////////////////////
+        // Iterate nodes, try to match active_href
+        ///////////////////////////////////////////
+        if ("{{active_href}}" != 'None' && !is_small_screen){
             console.log('active_href is not None. Iterating to find matching href');
             var node, activeNode
-            var activeNodeId, nodeId = 0;
+            var activeNodeId = null;
+            var nodeId = 0;
                 do {
-                    node = $('#treeview').treeview("getNode", nodeId);
+                    node = $namespaceTreeview.treeview("getNode", nodeId);
                     if (node && node.href == "{{active_href}}") {
                         // console.log(node.nodeId)
                         activeNode = node
@@ -162,40 +174,35 @@ $(document).ready(function() {
                 while (node.nodeId != undefined);
         };
 
-        if (activeNodeId != undefined){
+        if (activeNodeId != null){
             // console.log('Found Node.')
-
-            $('#treeview').treeview('revealNode', [ activeNodeId, { silent: false } ]);
-            $('#treeview').treeview('toggleNodeSelected', [ activeNodeId, { silent: false } ]);
-            $('#treeview').treeview('toggleNodeExpanded', [ activeNodeId, { silent: false } ]);
-
+            $namespaceTreeview.treeview('revealNode', [ activeNodeId, { silent: false } ]);
+            $namespaceTreeview.treeview('toggleNodeSelected', [ activeNodeId, { silent: false } ]);
+            $namespaceTreeview.treeview('toggleNodeExpanded', [ activeNodeId, { silent: false } ]);
             var scrollto = $('a[href="' + activeNode.href +'"]').offset().top - 200;
-            // $('#sidebar').animate({ scrollTop: scrollto }, 500, "swing");
             $('#sidebar').scrollTop(scrollto); // Scroll, no animation
         }
 
+        // Active Node not found. Reveal First Level
         else {
-            // console.log('Could not find matching node.')
-             if (is_desktop) {
-                // Auto Expand First level on Desktop
-                // console.log("Active Node Not found, but it's a desktop. Open Node1")
-                $('#treeview').treeview('revealNode', [ 1, { silent: false } ]);
-                };
+            $namespaceTreeview.treeview('revealNode', [ 1, { silent: false } ]);
         };
 
         // console.log("Hiding Loader Gif...")
         $('#menu-loading').animate({opacity: 0},300);
         $('#menu-loading').hide();
-        $('#treeview').animate({opacity: 1}, 300);
-
-        // $('#treeview').on('nodeExpanded', function(event, node) {
-        //     $(event.target).addClass("node-expanded")
-        //     $(event.target).removeClass("node-collapsed")
-        // });
+        $namespaceTreeview.animate({opacity: 1}, 300);
 
     };  // End of Build Menue Call Back Function
 
+
+
+    //////////////////////////////
+    /// SEARCH
+    /////////////////////////////
     function search(pattern, filter, pushHistory){
+
+    //   RESTORE FILTER //
       var filter = getUrlParam('filter')
       if ((filter == null)&&(filter == undefined)&&(filter == '0')){
         filter = ''
@@ -255,7 +262,7 @@ $(document).ready(function() {
             {% raw %}
             var result_entry_template =
                 '<div class="result-entry {{is_exact_match}}" data-tag="{{tag}}">' +
-                    '<h5 class="truncate"><a href=" {{href}} {{is_enumeration}}">{{title}}</a>' +
+                    '<h5 class="truncate"><a href="{{href}}{{is_enumeration}}">{{title}}</a>' +
                     '<span class="result-tag badge pull-right">{{tag}}</span></h5>' +
                     '<p class="member-of small"><a href="{{member_of_href}}">{{member_of}}</a>' +
                     '<span class="small year {{year_class}}">{{all_years}}</span></p>' +
@@ -360,7 +367,7 @@ $(document).ready(function() {
         $('#searchModal').modal('show');
 
         e.preventDefault() // Keeps page from submitting and reloading
-        var pattern = $('#input-search').val();
+        var pattern = searchBoxInput.val();
         sessionStorage.removeItem('result_scroll');
         sessionStorage.removeItem('tag_name');
         $('#result-filter').html('')
@@ -400,49 +407,7 @@ $(document).ready(function() {
         event.stopPropagation();
         history.pushState(null, null, '/{{active_year}}/');
 
-        $('#input-search').focus().val('');
-        // $('#input-search')
-        // history.replaceState(null, null, '/{{active_year}}/');
-    });
-
-    // Build Model and Results From URL
-    function check_modal_url(){
-      var pattern = getUrlParam('query')
-      var filter = getUrlParam('filter')
-      var anchor = getUrlParam('enumeration')
-
-      var modalOpen = window.location.href.indexOf('#searchModal') != -1
-      if(modalOpen) {
-        $('#searchModal').modal('show');
-        search(pattern, filter, false)
-      }
-      else {
-        $('#searchModal').modal('hide');
-      }
-
-      // If url has ?enumeration=WALL_LOCATION
-      // Will try to find matching span
-      if (anchor) {
-
-          var target = $("span:contains('" + anchor +"')")
-          if (target) {
-
-              target.closest('tr').addClass('selected-enumeration')
-              var scrollto = target.offset().top - 150;
-              $('#main-sidebar').scrollTop(scrollto)
-          }
-
-        //   $('html, body').animate({
-            //   scrollTop: $("#elementtoScrollToID").offset().top
-        //   }, 2000);
-      }
-    };
-    // Check Url on loading - When coming back from another page
-    check_modal_url()
-
-    // Check Url from when using back button but staying on the same page
-    window.addEventListener('popstate', function(event) {
-      check_modal_url()
+        searchBoxInput.focus().val('');
     });
 
     // Restore Scroll
@@ -464,6 +429,47 @@ $(document).ready(function() {
           $(this).addClass("no-bottom-shadow")
           $(this).removeClass("bottom-shadow")
       }
+    });
+
+    // Build Model and Results From URL
+    function check_modal_url(){
+      var pattern = getUrlParam('query')
+      var filter = getUrlParam('filter')
+      var enumeration_title = getUrlParam('enumeration')
+
+      var modalOpen = window.location.href.indexOf('#searchModal') != -1
+      if(modalOpen) {
+        $('#searchModal').modal('show');
+        search(pattern, filter, false)
+      }
+      else {
+        $('#searchModal').modal('hide');
+      }
+
+      // If url has ?enumeration=WALL_LOCATION
+      // Will try to find matching span
+      if (enumeration_title) {
+
+          var short_name = enumeration_title.split(' ')[0]
+          var target = $("span:contains('" + short_name +"')")
+          if (target) {
+
+              target.closest('tr').addClass('selected-enumeration')
+              var scrollto = target.offset().top - 150;
+              $('#main-sidebar').scrollTop(scrollto)
+          }
+
+        //   $('html, body').animate({
+            //   scrollTop: $("#elementtoScrollToID").offset().top
+        //   }, 2000);
+      }
+    };
+    // Check Url on loading - When coming back from another page
+    check_modal_url()
+
+    // Check Url from when using back button but staying on the same page
+    window.addEventListener('popstate', function(event) {
+      check_modal_url()
     });
 
 }); //END OF DOC READY

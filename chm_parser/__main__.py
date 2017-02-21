@@ -19,7 +19,7 @@ from .upload_autocomplete import upload
 from .merger import merge
 from .utils import open_html, write_html, dump_json, load_json, Timer
 from .config import replacement_list
-from .config import DEFAULT_OUT_HTML_DIR, DEFAULT_OUT_JSON_DIR, IGNORE_ERRORS
+from .config import DEFAULT_OUT_HTML_DIR, DEFAULT_OUT_JSON_DIR
 from .config import DEFAULT_DB_INDEX_JSON, DEAFULT_DB_INDEX_MEMBERS_JSON, DEFAULT_NAMESPACE_JSON, DEFAULT_DB_INDEX_MERGED_JSON
 
 __doc__ = """
@@ -160,6 +160,8 @@ if arguments['parse_pages']:
     in_html_dir = arguments['<in-html-dir>']
     out_html_dir = arguments['--output'].format(year=year)
 
+    logger.info('Finding files in: {}'.format(in_html_dir))
+
     # Options
     testing = arguments['--html-test-mode']
     single_file = arguments['--single-file']
@@ -170,10 +172,10 @@ if arguments['parse_pages']:
     filenames = sorted(os.listdir(in_html_dir))[MIN:MAX]
     total = len(filenames)
     for n, filename in enumerate(filenames):
+        if single_file and filename not in single_file:
+            continue
         if not filename.endswith('.htm'):
             logger.warning('File is not .htm. Skipping.')
-            continue
-        if single_file and filename not in single_file:
             continue
 
         logger.info('Parsing [{}]:{}/{}'.format(filename, n, total))
@@ -188,7 +190,7 @@ if arguments['parse_pages']:
         # final_html = soup.prettify().encode('ascii', errors=i).decode('utf-8-sig')
 
         if make_html:
-            write_html(final_html, filename, directory=out_html_dir, ignore_errors=IGNORE_ERRORS)
+            write_html(final_html, filename, directory=out_html_dir)
         # Add Year Key [m.update({'year': [year]}) for m in members.values()]
 
     if make_json:
@@ -198,7 +200,8 @@ if arguments['parse_pages']:
     print('Done: {} seconds'.format(timer.stop()))
     print('{} items'.format(len(filenames)))
 
+    logger.info('Output folder: {}'.format(out_html_dir))
+
 
 if not make_html or not make_json:
     logger.info('Json or Html were not made. Make sure arguments are correct.')
-    pprint(arguments)

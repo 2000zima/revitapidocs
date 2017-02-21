@@ -4,12 +4,11 @@ from flask_assets import Bundle
 join = os.path.join
 
 scss = Bundle(
-            # 'css/index.scss',
               'css/main.scss',
               'css/chm_content.scss',
               filters='libsass', output='packed/sass.css',
               depends='**/*.scss'
-              )
+             )
 
 css_assets = Bundle(scss,
                     # 'css/overrides.css',
@@ -26,15 +25,11 @@ js_assets = Bundle(
                    'js/treeview.js',
                    'js/typed.js',
                    'js/mustache.js',
+                   'js/urlhelper.js',
                    filters='rjsmin',
                    output='packed/packed.js'
-                   )
+                  )
 
-#
-# css_chm = Bundle('styles/Presentation.css',
-#                  output=join('packed/chm_packed.css')
-#                  )
-#
 # js_chm = Bundle('scripts/overrides.js',
 #                 # 'scripts/EventUtilities.js',
 #                 # 'scripts/SplitScreen.js',

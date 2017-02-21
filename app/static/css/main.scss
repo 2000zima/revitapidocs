@@ -99,7 +99,8 @@ hr {
 
 .navbar-default .navbar-nav > {
 
-  li>a {
+  li > a {
+
     @include transition(all .20s ease-in-out);
     padding-top: 13px;
     padding-bottom: 11px;
@@ -107,32 +108,44 @@ hr {
     text-align: center;
     color: $gray-light-lighter;
     border-bottom: $nav-bar-border-width solid $brand-nav-gray;
-  }
 
-  li > a:hover,
-  li.active > a,
-  li.missing > a:hover {
-    color: #fff;
-    border-bottom: $nav-bar-border-width solid $brand-primary;
-    background-color: #222;
-  }
-
-  li.missing > a {
-    border-bottom: $nav-bar-border-width solid darken($brand-danger,25%);
-  }
-
-  li.active.missing > a {
-    border-bottom: $nav-bar-border-width solid $brand-danger;
-    background-color: #222;
-  }
-
-  // Border Removed on Mobile Menu
-  @include mobile {
-    li > a {
-      border-bottom: $nav-bar-border-width solid $brand-nav-gray !important;
+    &.active {
+      background-color: #222;
+      border-bottom-color: $brand-primary;
     }
+
+    &.active:hover{
+      border-bottom-color: $brand-primary;
+    }
+
+    &:hover,
+    &.missing:hover,
+    &.updated:hover, {
+      background-color: #202020;
+      color: #fff;
+    }
+
+    &.missing {
+      border-bottom-color: darken($brand-danger,25%);
+    }
+    &.active.missing &.missing:hover {
+      border-bottom-color: $brand-danger;
+    }
+    &.updated {
+      border-bottom-color: darken($brand-warning,10%);
+    }
+    &.active.updated, &.updated:hover {
+      border-bottom-color: $brand-warning;
+    }
+
+    // Border Removed on Mobile Menu
+    @include mobile {
+      a {
+        border-bottom-color: $brand-nav-gray !important;
+        }
+      }
   }
-}
+ }
 
 
 ////////////////////////////////////////
@@ -187,6 +200,10 @@ hr {
     position: relative;
     padding: 12px;
     border-bottom: 1px solid #ddd;
+
+    #menu-loading {
+      display: none;
+    }
   }
 
 
@@ -535,7 +552,7 @@ border:0px !important;
 ////////////////////////////////////////
 
 
-#direct-search {
+div#direct-search {
 
   @extend .col-centered;
   @include transition(all 0.75s ease-in-out);
@@ -562,9 +579,13 @@ border:0px !important;
   img {
     @include transition(all 0.75s ease-in-out);
 
+    #index-logo {
+
+    }
+
     @include desktop{
       margin-bottom: 65px;
-      max-height: 70px;
+      height: 80px;
     }
     @include mobile{
       margin-bottom: 30px;

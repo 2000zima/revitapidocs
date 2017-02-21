@@ -289,6 +289,8 @@ def _remove_junk_from_soup(soup):
         new_h1_tag['class'] = 'heading'
         new_h1_tag.append(script_tag.text.strip())
         script_tag.replace_with(new_h1_tag)
+
+    # Removing this broke script OpenSection
     # After headings were replaced, remove remaining Toggle
     [script_tag.extract() for script_tag in soup.find_all('span', {"onclick": "ExpandCollapseAll(toggleAllImage)"})]
     [script_tag.extract() for script_tag in soup.find_all('span', {"onclick": "ExpandCollapse(exampleToggle"})]
@@ -300,6 +302,22 @@ def _remove_junk_from_soup(soup):
             new_pre_tag.insert(0, soup.new_tag('code'))
             new_pre_tag.find('code').contents = script_tag.contents
             script_tag.replace_with(new_pre_tag)
+
+
+
+    REMOVE_ATTRIBUTES = ['x-lang','onmouseover','onkeypress','onclick','onmouseout', 'onmouseover','tabindex'
+                         'cellpadding', 'cellspacing', ]
+    # 'script','style','font', 'dir','face','size','color','style','class','width','height','hspace',
+    # 'border','valign''text','link','vlink','alink', 'cellpadding','cellspacing','align'
+    for tag in soup.recursiveChildGenerator():
+        # print(tag)
+        # input('continue?')
+        try:
+            tag.attrs = {key:value for key, value in tag.attrs.items() if key not in REMOVE_ATTRIBUTES}
+        except AttributeError:
+            # 'NavigableString' object has no attribute 'attrs'
+            pass
+
 
     return soup
 

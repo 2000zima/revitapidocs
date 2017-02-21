@@ -2,6 +2,34 @@ $(".alert").delay(8000).fadeOut(300, function() {
     $(this).alert('close');
 });
 
+$(document).ready(function() {
+    $('[data-toggle="tooltip"]').tooltip();
+});
+
+// // Catch CHM script call to toggle section
+// function OpenSection(sectionToggleName) {
+//   var scrollTo = $(sectionToggleName).parent().position().top
+//   console.log(scrollTo)
+//   $('#main-sidebar').animate({ scrollTop: scrollTo - 20 }, 400, "swing");
+//   // $('#main-sidebar').scrollTop(scrollTo);
+// }
+
+function OpenSection(imageItem)
+{
+	if (sectionStates[imageItem.id] == "c") ExpandCollapse(imageItem);
+}
+
+function getInstanceDelegate (obj, methodName) {
+    return( function(e) {
+        e = e || window.event;
+        return obj[methodName](e);
+    } );
+}
+
+
+
+
+
 // Updates a key-value on url parameter:
 // URL: revitpythondocs.com/python/?query=3
 // updateQueryStringParameter(query, '5')

@@ -63,8 +63,9 @@ def api_year_file(year, filename):
         template = 'missing.html'
 
     return render_template(template, active_year=year, active_href=filename,
-                           content_path=content_path, available_in=entry['years'].keys(),
+                           content_path=content_path, api_availability=entry['years'],
                            entry=entry)
+
 
 @app.route('/<string:year>/news', methods=["GET"])
 def api_whats_new(year):
@@ -77,9 +78,10 @@ def api_whats_new(year):
                            content_path=content_path,
                            active_href=None)
 
+
 @cache.cached(timeout=3600)  # 1 Hour
 @app.route('/<string:year>/namespace.json', methods=['GET'])
-def namespace_get(year):
+def ajax_namespace_get(year):
     namespace_json_year = namespace_jsons.get(year)
     if namespace_json_year:
         return jsonify(namespace_json_year)

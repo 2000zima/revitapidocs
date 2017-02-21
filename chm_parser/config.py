@@ -43,7 +43,7 @@ AUTODESK_NAMESPACE = 'd4648875-d41a-783b-d5f4-638df39ee413.htm'
 # Used to Replace path on html output
 replacement = namedtuple('replacement', ['old_pattern', 'new_pattern', 'mandatory'])
 replacement_list = (
-                    #   replacement('src="../icons/', 'src="../static/chm/icons/', False),
-                    #   replacement('ï»¿<', '', True),
+                      replacement('(on\w+="[^"]+") ', '', False),
+                      replacement('(cell\w+="[^"]+") ', '', False),
                     #   replacement(u'\uFEFF', u'', False),
                     )

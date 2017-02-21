@@ -9,7 +9,8 @@
     */
     var disqus_config = function () {
         this.page.url = 'http://www.revitapidocs.com{{request.path}}';  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = '{{request.path}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        // this.page.identifier = '{{request.path}}'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.identifier = '{{active_href}}'; // using HREF so discussions will be combined across years
     };
     (function() { // DON'T EDIT BELOW THIS LINE
         var d = document, s = d.createElement('script');
