@@ -42,7 +42,9 @@ def api_year_home(year):
 
     filename = 'home.html'
     entry = {'title': 'Revit API {}'.format(year),
-             'description': 'Full Online Documentation for Revit API {}'.format(year)}
+             'member_of': 'Home',
+             'description': 'Full Online Documentation for Revit API {}'.format(year),
+             }
 
     return render_template(template, active_year=year, content_path=filename, entry=entry)
 
@@ -64,14 +66,16 @@ def api_year_file(year, filename):
 
     return render_template(template, active_year=year, active_href=filename,
                            content_path=content_path, api_availability=entry['years'],
-                           entry=entry)
+                           entry=entry, actual_year=year_best_match)
 
 
 @app.route('/<string:year>/news', methods=["GET"])
 def api_whats_new(year):
     template = '_api.html'
-    entry = {'title': "Revit API {} - What's New".format(year),
-             'description': 'API Changes for the {} API'.format(year)}
+    entry = {'member_of': "Revit API {}".format(year),
+             'title': 'API Changes'.format(year),
+             'description': 'API Changes for the {} API'.format(year),
+             }
     content_path = '{}/{}/{}.htm'.format(API_DOCS_NAME, 'news', year)
 
     return render_template(template, active_year=year, entry=entry,

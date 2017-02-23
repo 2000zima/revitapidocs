@@ -39,21 +39,40 @@ def get_entry(filename):
 #     return available_in
 
 
-def get_best_entry_match(entry, year):
-    entry_years = entry['years']
-    if year not in entry_years:
+def get_best_entry_match(entry, target_year):
+    """Figures out the best match based on the target year.
+    The best match is self is content is the first to exists or has been updated
+    if That doesn't apply
+    For example is the years entry are:
+    {'years': {'2015': 'exists',
+               '2016': 'unchanged',
+               '2017': 'updated',
+               '2017.1': 'unchanged'}}
+
+    Target > Best Match:
+    - 2015 > 2015
+    - 2016 > 2015
+    - 2017 > 2017
+    - 2017.1 > 2017
+    """
+    years_dict = entry['years']
+
+    if target_year not in years_dict:
         return None
 
-    if entry_years[year] == 'exists' or entry_years[year] == 'updated':
-        return year
+    if years_dict[target_year] == 'exists' or years_dict[target_year] == 'updated':
+        return target_year
 
-    # entry_years[year] == 'unchanged':
-    for entry_year, status in sorted(entry_years.items()):
-        if entry_year < year and (status == 'exists' or status == 'updated'):
-            return entry_year
-    else:
-        logger.error('Could not Find best match for: {}:{}'.format(entry['href'], year))
+    possible_years = [year for year, status in years_dict.items()
+                      if year < target_year and
+                      ((status == 'exists') or (status == 'updated'))]
+
+    if not possible_years:
+        logger.error('Could not Find best match for: {}:{}'.format(entry['href'], target_year))
         raise Exception('Could not find template match f')
+    else:
+        last_possible_year = sorted(possible_years)[-1]
+        return last_possible_year
 
 
 def process_query(query):
@@ -75,10 +94,10 @@ def process_query(query):
 
 @Timer.time_function('SEARCH DB')
 def search_db(pattern=None, field=None):
-    '''Searches db_index.json
-    if looking up by href, which is the key, a dictionary look up is used,
+    """ Searches db_index.json
+    If looking up by href, which is the key, a dictionary look up is used,
     else it uses list comprehensian + regex search
-    '''
+    """
     if field == 'href':
         return db_json.get(pattern)
 
@@ -92,7 +111,7 @@ def search_db(pattern=None, field=None):
         return results
 
 
-@Timer.time_function('Prioritize Results')
+# @Timer.time_function('Prioritize Results')
 def prioritize_match(results=None, raw_query=None, field=None):
     """If Search query matches title exactly (no fuzzy or space forgiveness)
     result is pushed up to top of list

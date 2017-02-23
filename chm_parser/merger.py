@@ -11,6 +11,7 @@ merge parser.
 """
 
 import os
+import re
 from collections import defaultdict
 from pprint import pprint
 import difflib
@@ -50,9 +51,9 @@ def html_has_changed(member, next_member, current_year, next_year, out_folders):
     """
 
     basic_match = all(((member['title'] == next_member['title']),
-                   (member['description'] == next_member['description']),
-                   (member['namespace'] == next_member['namespace']),
-                    ))
+                       (member['description'] == next_member['description']),
+                       (member['namespace'] == next_member['namespace']),
+                       ))
 
     # if basic parameters don't match, skip, proceed to check html content.
     if not basic_match:
@@ -69,11 +70,26 @@ def html_has_changed(member, next_member, current_year, next_year, out_folders):
     html_content2 = open_html(html_filepath2)
 
     diff = difflib.SequenceMatcher(None, html_content1.split('\n'), html_content2.split('\n'))
-    diff_ration = diff.quick_ratio()
-    if diff_ration > 0.99:
+    diff_ratio = diff.quick_ratio()
+
+    # Percentage of Change
+    if diff_ratio == 1.0:
+        # Has Not changed, it's identical
         return False
+    elif diff_ratio > 0.99:
+        # Only one change, and it's the line with Dll version - common
+        diffs_a = [a for a, b in zip(diff.a, diff.b) if a != b]
+        if len(diffs_a) == 1 and re.search('.dll', diffs_a[0]):
+            return False
+        else:
+            return False
     else:
         return True
+        # diffs_a = [a for a, b in zip(diff.a, diff.b) if a!=b]
+        # diffs_b = [b for a, b in zip(diff.a, diff.b) if a!=b]
+        # print('Diff-a:{} \n Diff-b:{} \n Ratio: {}'.format(diffs_a, diffs_b, diff_ratio))
+        # input('Continue?')
+
 
 def merge(out_sample_path):
     """ Merge db_index_outputs

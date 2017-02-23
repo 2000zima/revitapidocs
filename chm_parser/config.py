@@ -43,7 +43,8 @@ AUTODESK_NAMESPACE = 'd4648875-d41a-783b-d5f4-638df39ee413.htm'
 # Used to Replace path on html output
 replacement = namedtuple('replacement', ['old_pattern', 'new_pattern', 'mandatory'])
 replacement_list = (
-                      replacement('(on\w+="[^"]+") ', '', False),
-                      replacement('(cell\w+="[^"]+") ', '', False),
+                      replacement(r'(on\w+="[^"]+")\s?', '', False),
+                      replacement(r'(cell\w+="[^"]+")\s?', '', False),
+                    #   replacement(r'span', '', False),
                     #   replacement(u'\uFEFF', u'', False),
                     )

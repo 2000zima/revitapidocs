@@ -42,11 +42,26 @@
     <!-- END SIDEBAR -->
 
     <!-- START MAIN -->
-    <div class="col-sm-12 col-md-7 col-lg-8" id="main-sidebar">
-        <ul class="breadcrumb">
-            <li><a href="{{ entry.member_of_href }}">{{ entry.member_of }}</a></li>
-            <li class="active">{{ entry.title }}</li>
-        </ul>
+    <!-- <div class="col-sm-12 col-md-7 col-lg-8" id="main-sidebar"> -->
+    <div class="col-sm-12 col-md-6 col-lg-8" id="main-sidebar">
+
+        <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="/{{active_year}}/">{{ entry.member_of }}</a></li>
+                <li class="active">{{ entry.title }}</li>
+
+                <!-- <li> -->
+                <span class="pull-right">
+                    {{ actual_year }}
+                    | <a id="language-selector" class="" href="#">C#</a>
+                    | <a href="https://github.com/gtalarico/revitapidocs/edit/master/app/templates/{{content_path}}">Edit</a>
+                </span>
+                <!-- </li> -->
+            </ul>
+        </div>
+
+        </div>
 
         <h4 class="truncate"> {{ entry.title if entry else 'Documentation' }} </h4>
         <hr/>
@@ -60,8 +75,6 @@
         {# {% include 'components/__adsense.hmlt' %}  #}
         <!-- END ADSENSE -->
 
-
-        <a href="https://github.com/gtalarico/revitapidocs/edit/master/app/templates/{{content_path}}"> Edit On Github</a>
         <!-- START DISQUS -->
 
         {% if active_href %}
@@ -88,15 +101,6 @@ $(document).ready(function() {
     var is_small_screen = ($(window).width() < 768);
     console.log('is_mobile: ' + is_mobile)
     console.log('is_small_screen: ' + is_small_screen)
-
-    // Catch CHM script call to toggle section
-    function OpenSection(sectionToggleName) {
-      var scrollTo = $(sectionToggleName).parent().position().top
-      console.log(scrollTo)
-      $('#main-sidebar').animate({ scrollTop: scrollTo - 20 }, 400, "swing");
-      // $('#main-sidebar').scrollTop(scrollTo);
-    }
-
 
 
     //////////////////////////////
@@ -184,7 +188,7 @@ $(document).ready(function() {
         }
 
         // Active Node not found. Reveal First Level
-        else {
+        else if (!is_small_screen) {
             $namespaceTreeview.treeview('revealNode', [ 1, { silent: false } ]);
         };
 
@@ -256,8 +260,14 @@ $(document).ready(function() {
                 years_string.push(key.toString())
             }
             // console.log(years_string)
-            value.all_years = years_string.join(' / ')
-            value.year_class = (value.all_years.indexOf(active_year) == -1) ? 'text-danger': 'text-muted'
+            if (years_string.length < 4) {
+                value.all_years = years_string.join(' / ')
+                value.year_class = (value.all_years.indexOf(active_year) == -1) ? 'text-danger': 'text-muted'
+            }
+            else {
+                value.all_years = 'All Years'
+                value.year_class = 'text-muted'
+            }
 
             {% raw %}
             var result_entry_template =
@@ -277,7 +287,7 @@ $(document).ready(function() {
           });
 
             // This shit should really be handled somewhere else. Show alert if results is 300
-            $('#result-size').html('API {{active_year}} | Results: ' +  results.length);
+            $('#result-size').html('Target API {{active_year}} | Results: ' +  results.length);
             if (results.length == 500) {
                 console.log('Results Truncated')
                 $('#content-wrapper').append(
@@ -336,28 +346,66 @@ $(document).ready(function() {
     // End Build Results
 
 
-    // PAGE LOADING FUNCS
-
-    {#
-    // Manually Hide unwanted elements
-    var target_top = 80
-    var position = $("div#header").position()
-    if (position != undefined){
-        var delta = position.top - target_top
-        $("div#header").css("margin-top", - delta);
-        // console.log('Delta:' + delta)
+    // New Scroller Function
+    function goToByScroll(anchor){
+        var anchorName = anchor.replace('#','')
+        var targetScrollTop = $('a[name=' + anchorName +']').offset().top - 75
+        $('#main-sidebar').animate({scrollTop: targetScrollTop},'slow');
     }
 
-    var headerText = $('#mainBody>div.summary')
-    if (headerText.text().length < 2) {
-    //   console.log('No header text. Hiding...')
-      headerText.hide()
-    }
-    #}
+    // Smooth Anchor Travel
+    $('#headerTableRow3 a').click(function(){
+        goToByScroll($(this).attr('href'));
+        return false;
+    });
 
-    // Show Content
-    // $('#main-sidebar').animate({opacity: 1},300);
-    $('#main-sidebar').css({opacity: 1});
+    // On load, set language
+
+    // Globals
+    var order = ['C#', 'VB', 'C++']
+    var languages = {'C#':'CSharp',
+                     'VB':'VisualBasicDeclaration',
+                     'C++':'ManagedCPlusPlus'
+                    }
+
+    if(sessionStorage) {
+        var storeLanguage = sessionStorage.getItem('languagePref')
+         if (storeLanguage) {
+             $('#language-selector').text(storeLanguage)
+             var language = storeLanguage
+         }
+         else {
+             $('#language-selector').text('C#')
+             var language = 'C#'
+         }
+
+         var languageClass = languages[language]
+         $('span[codelanguage=' + languageClass +']').show()
+
+    }
+
+    $('#language-selector').on('click', function(e) {
+        selected = $(e.target)
+
+        var languageClass = languages[selected.text()]
+        $('span[codelanguage=' +languageClass +']').hide()
+
+        var currentIndex = order.indexOf(selected.text())
+        var nextIndex = currentIndex + 1
+        var nextLanguage = order[nextIndex]
+        if (nextLanguage == undefined) {
+            var nextLanguage = order[0]
+        }
+        selected.text(nextLanguage)
+        var nextClass = languages[nextLanguage]
+        $('span[codelanguage=' + nextClass +']').show()
+
+        if (sessionStorage) {
+             sessionStorage.setItem('languagePref', nextLanguage)
+         }
+
+    })
+
 
 
     $("#sidebar-search>form").submit(function(e) {
@@ -399,6 +447,7 @@ $(document).ready(function() {
       var result_scroll = $(".modal").scrollTop()
       sessionStorage.setItem('result_scroll', result_scroll);
     });
+
 
 
     $('.modal').on('hidden.bs.modal', function (event) {
@@ -471,6 +520,9 @@ $(document).ready(function() {
     window.addEventListener('popstate', function(event) {
       check_modal_url()
     });
+
+    $('#main-sidebar').animate({'opacity':1},150);
+    // $('#main-sidebar').css({'opacity':1});
 
 }); //END OF DOC READY
 

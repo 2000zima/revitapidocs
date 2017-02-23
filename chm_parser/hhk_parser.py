@@ -105,15 +105,16 @@ def parse_members(hhk_data, db_index):
         member = {}
         member['tag'] = 'Enumeration Member'
         member['title'] = corrected_member_title
-        member['short_title'] = corrected_member_title.split(' ')[0]  # TODO: Add to Main ?
+        # member['short_title'] = corrected_member_title.split(' ')[0]''
         member['href'] = member_href
         member['member_of_href'] = member_href
         member['member_of'] = '.'.join([entry['member_of'], entry['title']])
         member['type'] = 'member'
         member['namespace'] = entry['namespace']
         member['description'] = ''  # TODO: Open Page, and extract Enum Name
+        short_title = corrected_member_title.split(' ')[0]  # TODO: Add to Main ?
 
-        member_key = '{}::{}'.format(member['href'], member['short_title'])
+        member_key = '{}::{}'.format(member['href'], short_title)
         members_index[member_key] = member
         # print(member['member_of'])
 

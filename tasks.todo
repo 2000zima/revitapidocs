@@ -1,15 +1,22 @@
-Refactor:
-☐ clean up api.html
-
-Check:
+Taks:
+☐ OnClick for Section Toggles
+☐ Add New Header
+    ☐ Clean Breadcrumb
+    ☐ Edit On Github
+    ☐ Page year Data
+    ☐ Insights Link
+☐ Clean up api.html
+    ☐ Clean URL/URI logic for page state
+    ☐ Clean and review scroll storage
+    ☐ Clean and review data passing between view.py and template
 ☐ Check Diff Data Logic
 
 Features:
 
 ✔ Parse Revit API 2017.1 @done(2017-02-20 04:13)
-☐ Edit On Github
 ☐ Inisights
-☐ Breadcrumbs
+☐ Edit on Github
+✔ Breadcrumbs @done(2017-02-21 03:36)
 
 Organization:
 ✔ Organize Folders, Parsers @done(2017-02-20 04:13)

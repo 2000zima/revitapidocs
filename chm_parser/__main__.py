@@ -17,6 +17,7 @@ from .hhk_parser import parse_members, extract_enumeration_descriptions
 from .bootstrap import bootstrap
 from .upload_autocomplete import upload
 from .merger import merge
+from .news_parser import parse_news
 from .utils import open_html, write_html, dump_json, load_json, Timer
 from .config import replacement_list
 from .config import DEFAULT_OUT_HTML_DIR, DEFAULT_OUT_JSON_DIR
@@ -32,8 +33,9 @@ __doc__ = """
       chm_parser parse_namespaces <year> <hhc-filepath> [--json-directory=<DIR>] [--no-minify]
       chm_parser parse_members <year> <hhk-filepath> <in-html-dir> <db-index-filepath> [--json-directory=<DIR>] [--no-minify]
                                                                                        [--no-html] [--no-json]
-      chm_parser merge <out-2015>
+      chm_parser merge <out-2015> [--no-json]
       chm_parser bootstrap <out-html-dir> <db-index.json> <out-merge-dir>
+      chm_parser parse_news <year> <whastnew> [--output=<DIR>]
       chm_parser upload <db-index.json>
       chm_parser -h | --help
       chm_parser --version
@@ -82,6 +84,19 @@ if arguments['upload']:
     upload(db_index_path)
 
 
+##############
+# PARSE NEWS #
+##############
+if arguments['parse_news']:
+    whatsnew_html_path = arguments['<whastnew>']
+    out_whatsnew_html = arguments['--output'].format(year=year)
+
+    soup = parse_news(whatsnew_html_path)
+    filename = '{year}.htm'.format(year=year)
+    write_html(soup.prettify(), filename, directory=out_whatsnew_html)
+
+    print('Done.')
+
 ############################
 # Bootstrap #
 ############################
@@ -107,7 +122,11 @@ if arguments['merge']:
 
     out_json_dir = out_json_dir.replace('None', 'Merged')
     json_filepath = os.path.join(out_json_dir, DEFAULT_DB_INDEX_MERGED_JSON)
-    dump_json(db_index_merged, json_filepath, indent=1, minify=minify_json)
+
+    if make_json:
+        dump_json(db_index_merged, json_filepath, indent=1, minify=minify_json)
+    else:
+        logger.info('JSON was not built (--no-json)')
 
     print('Done: {} seconds'.format(timer.stop()))
     print('{} items'.format(len(db_index_merged)))
@@ -199,9 +218,10 @@ if arguments['parse_pages']:
 
     print('Done: {} seconds'.format(timer.stop()))
     print('{} items'.format(len(filenames)))
-
     logger.info('Output folder: {}'.format(out_html_dir))
 
 
 if not make_html or not make_json:
     logger.info('Json or Html were not made. Make sure arguments are correct.')
+
+sys.exit(0)

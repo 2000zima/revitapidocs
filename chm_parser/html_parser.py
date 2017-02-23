@@ -241,14 +241,16 @@ def _remove_junk_from_soup(soup):
         img_filename = img_tag['src'].split('/')[-1]
         img_tag['src'] = STATIC_ASSET_EXPRESSION.format(img_filename)
     #
-    # # Options
-    [script_tag.extract() for script_tag in soup.find_all('span', {"id": "memberOptionsDropdown"})]
-    [script_tag.extract() for script_tag in soup.find_all('div', {"id": "memberOptionsMenu"})]
     # # Top Table Collpse Options
     soup.find('tr', {"id": "headerTableRow1"}).extract()
     soup.find('tr', {"id": "headerTableRow2"}).extract()
     soup.find('table', {"id": "gradientTable"}).extract()
-    #
+    soup.find('table', {"id": "topTable"}).extract()
+
+    # # Options
+    [script_tag.extract() for script_tag in soup.find_all('span', {"id": "memberOptionsDropdown"})]
+    [script_tag.extract() for script_tag in soup.find_all('div', {"id": "memberOptionsMenu"})]
+
 
     # # Removes script calls from this div, which is child of mainBody
     # # <div id="mainSection"><div id="mainBody">
@@ -274,12 +276,6 @@ def _remove_junk_from_soup(soup):
         if span_tag['class'] != 'cs':
             span_tag.extract()
 
-    # Section  Toggle. Intead of removing, replace with just header.
-    # [script_tag.extract() for script_tag in soup.find_all('span', {"onclick": "ExpandCollapseAll(toggleAllImage)"})]
-    # <h1 class="heading"><span onclick="ExpandCollapse(syntaxToggle)" style="cursor:default;"
-    # onkeypress="ExpandCollapse_CheckKey(syntaxToggle, event)" tabindex="0">
-    # <img id="syntaxToggle" class="toggle" name="toggleSwitch" src="../icons/collapse_all.gif">Syntax</span></h1>
-
     # # Collapsible Code Block
     # [script_tag.parent.extract() for script_tag in soup.find_all('img', {"name": "toggleSwitch"})]
     heading_tags = soup.find_all('h1', {'class':'heading'})
@@ -288,6 +284,12 @@ def _remove_junk_from_soup(soup):
         new_h1_tag = soup.new_tag("h1")
         new_h1_tag['class'] = 'heading'
         new_h1_tag.append(script_tag.text.strip())
+
+        img_anchor = script_tag.find('img')['id']
+        new_anchor = soup.new_tag("a")
+        new_anchor['name'] = img_anchor
+        new_h1_tag.append(new_anchor)
+
         script_tag.replace_with(new_h1_tag)
 
     # Removing this broke script OpenSection
@@ -304,19 +306,17 @@ def _remove_junk_from_soup(soup):
             script_tag.replace_with(new_pre_tag)
 
 
-
-    REMOVE_ATTRIBUTES = ['x-lang','onmouseover','onkeypress','onclick','onmouseout', 'onmouseover','tabindex'
-                         'cellpadding', 'cellspacing', ]
-    # 'script','style','font', 'dir','face','size','color','style','class','width','height','hspace',
-    # 'border','valign''text','link','vlink','alink', 'cellpadding','cellspacing','align'
-    for tag in soup.recursiveChildGenerator():
-        # print(tag)
-        # input('continue?')
-        try:
-            tag.attrs = {key:value for key, value in tag.attrs.items() if key not in REMOVE_ATTRIBUTES}
-        except AttributeError:
-            # 'NavigableString' object has no attribute 'attrs'
-            pass
+    # Child iterator breaks and does not go beyong <pre><code> blocks
+    # REMOVE_ATTRIBUTES = ['x-lang','onmouseover','onkeypress','onclick','onmouseout', 'onmouseover','tabindex'
+    #                      'cellpadding', 'cellspacing', ]
+    # # 'script','style','font', 'dir','face','size','color','style','class','width','height','hspace',
+    # # 'border','valign''text','link','vlink','alink', 'cellpadding','cellspacing','align'
+    # for tag in soup.recursiveChildGenerator():
+    #     try:
+    #         tag.attrs = {key:value for key, value in tag.attrs.items() if key not in REMOVE_ATTRIBUTES}
+    #     except AttributeError:
+    #         # 'NavigableString' object has no attribute 'attrs'
+    #         pass
 
 
     return soup
@@ -352,12 +352,14 @@ def _inject_testing_tags(soup, css_path=TEST_CSS_PATH):
 def batch_replacement(string, replacement_list, force_ignore=False):
     """ Helper to do process replacement tuples, and enforce replacement """
     for replacement in replacement_list:
-        old_pattern = re.compile(replacement.old_pattern)
+        old_pattern = replacement.old_pattern
         new_pattern = replacement.new_pattern
         string, was_replaced = re.subn(old_pattern, new_pattern, string)
+        # import pdb; pdb.set_trace()
         if not force_ignore and (replacement.mandatory and not was_replaced):
             raise Exception('Replacement error: could not replace[{}]'.format(replacement))
     return string
+
 
 def clean_string(string):
     """ Selective replacement, targets "Title" """
