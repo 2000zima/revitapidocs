@@ -65,36 +65,18 @@ def content_year_file(year, filename):
         template = 'missing.html'
 
     content_path = '{}/{}/{}'.format(API_DOCS_NAME, year_best_match, filename)
-
-    return render_template(template, active_year=year, active_href=filename,
-                           content_path=content_path,
-                           entry=entry, actual_year=year_best_match)
-
-# TEST CONTENT API
-@app.route('/<string:year>/api/<path:filename>', methods=["GET"])
-def api_year_file(year, filename, internal_request=None):
-    """ API Doc Router. Inserts xxx-xxx.html into api.html base"""
-    template = '_api.html'
-    entry = get_entry(filename)
-
-    if year not in AVAILABLE_YEARS or not entry:
-        return jsonify({'error': 'invalid year'})
-
-    year_best_match = get_best_entry_match(entry, year)
-    content_path = '{}/{}/{}'.format(API_DOCS_NAME, year_best_match, filename)
-    if not year_best_match:
-        # file exists but not year requested
-        return jsonify({'error': 'missing'})
-
-    payload = {'content_html': render_template(content_path),
-               'entry': entry,
-               'actual_year': year_best_match,
+    context = {'entry': entry,
                'content_path': content_path,
+               'active_href': filename,
+               'actual_year': year_best_match,
                'active_year': year,
-               'active_href': filename
-              }
+               }
 
-    return jsonify(payload)
+    if 'ajax' in request.args:
+        context['content_html'] = render_template(content_path)
+        return jsonify(context)
+
+    return render_template(template, **context)
 
 
 @app.route('/<string:year>/news', methods=["GET"])

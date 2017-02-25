@@ -28,9 +28,8 @@
             data-toggle="tooltip"
             data-placement="bottom"
             data-name={{btn_year}}
-            title="{% if status and status != 'exists' %}
-            {{ status }}
-            {% endif %}"
+            title="{{ status }}"
+            {# title="{{ status if status != 'exists' }}" #}
             >
             {{btn_year}}
         </a></li>

@@ -78,10 +78,10 @@ $(document).ready(function() {
     /// TREEVIEW HELPERS //
     ///////////////////////
     function revealTreeview($treeview) {
-        $('#menu-loading').animate({opacity: 0}, 'slow'); // Hide Loading
+        // $('#menu-loading').fadeOut('fast')
         $('#menu-loading').hide();                    // Hide Loading
         $treeview.fadeIn('slow');    // Reveal Menu
-        // $('#treeview').animate({opacity: 1},300);    // Reveal Menu
+        $('#treeview').animate({opacity: 1},'slow');    // Reveal Menu
     };
 
     function scrollToNode(nodeId) {
@@ -121,9 +121,10 @@ $(document).ready(function() {
 
         e.preventDefault();
 
-        var ajaxContent = $.getJSON( 'api/'+contenHref , function(json) {
-            loadContent(json, false)
-            updateYearNavStatus(json)
+        var ajaxContent = $.getJSON( contenHref + '?ajax' , function(json) {
+            $("#api-content-wrapper").html(loadingSpan)
+            ajaxHelper.loadContent(json, false)
+            ajaxHelper.updateYearNavStatus(json)
             UrlHelper.pushUrl(contenHref)
         });
 

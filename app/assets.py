@@ -18,14 +18,16 @@ css_assets = Bundle(scss,
                     )
 
 js_assets = Bundle(
-                   'js/jquery.min.js',
-                   'js/jquery.cookie.js',
-                   'js/bootstrap.js',
+                #    'js/jquery.min.js',
+                #    'js/jquery.cookie.js',
+                #    'js/bootstrap.js',
                    'js/main.js',
+                   'js/ajaxHelper.js',
+                   'js/urlhelper.js',
+                   'js/apiTreeview.js',
                    'js/treeview.js',
                    'js/typed.js',
                    'js/mustache.js',
-                   'js/urlhelper.js',
                    filters='rjsmin',
                    output='packed/packed.js'
                   )
