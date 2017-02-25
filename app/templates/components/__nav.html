@@ -20,17 +20,18 @@
         {% macro nav_button(btn_year) -%}
         <li>
         <a  class="{{ 'active' if active_year == btn_year }}
-            {% if api_availability %}
-            {% set status = api_availability[btn_year]|default('missing') %}
+            {% if entry and entry.get('years') %}
+            {% set status = entry['years'][btn_year]|default('missing') %}
             {{ status }}
             {% endif %}"
             href="/{{btn_year}}/{% if btn_year != active_year %}{{ active_href if active_href is not none }}{% endif %}"
             data-toggle="tooltip"
             data-placement="bottom"
-            data-label={{btn_year}}
+            data-name={{btn_year}}
             title="{% if status and status != 'exists' %}
-            {{ status|capitalize }}
-            {% endif %}">
+            {{ status }}
+            {% endif %}"
+            >
             {{btn_year}}
         </a></li>
         {%- endmacro %}
@@ -41,7 +42,7 @@
         {{ nav_button('2017') }}
         {{ nav_button('2017.1') }}
         <!-- <li class="{{ 'active' if year == '2015' }} {{ 'missing' if '2015' not in available_in }}"><a href="/2015/{{ active_href if active_href is not none }}">2015</a></li> -->
-        <li class="{{ 'active' if 'python' in request.path }}"><a href="{{ url_for('python')}}">Python</a></li>
+        <li class="{{ 'active' if 'python' in request.path }}"><a href="{{ url_for('python')}}"  data-name="Python">Python</a></li>
       </ul>
 
 

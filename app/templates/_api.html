@@ -14,7 +14,7 @@
     {% include 'components/__modalsearch.html' %}
 
     <!-- START SIDEBAR -->
-    <nav id="sidebar" class="col-sm-12 col-md-5 col-lg-4">
+    <nav id="sidebar" class="col-sm-12 col-md-5 col-lg-3">
 
         <!-- SIDEBAR SEARCH -->
         <div id="sidebar-search">
@@ -43,7 +43,7 @@
     <!-- END SIDEBAR -->
 
     <!-- START MAIN -->
-    <div class="col-sm-12 col-md-6 col-lg-8" id="content-with-sidebar">
+    <div class="col-sm-12 col-md-6 col-lg-9" id="content-with-sidebar">
 
         <header class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -58,12 +58,15 @@
         <hr/>
 
         <!-- START MAIN CONTENT -->
+        <article id="api-content-wrapper">
         {% include '%s' % content_path %}
+        </article>
         <!-- END MAIN CONTENT -->
 
         <!-- ////////////////////////////// -->
             <!-- API ADSENSE -->
             {# {% include 'components/__adsense.html' %}  #}
+
             <!-- END ADSENSE -->
         <!-- ////////////////////////////// -->
 
@@ -114,11 +117,12 @@ var breadcrumb = '<li><a href="{{entry.member_of_href}}">{{ entry.member_of }}</
 $(document).ready(function() {
 
     templateData = { entry: {{entry|tojson|safe }},
-                     actual_year : "{{actual_year|default('0')}}",
+                     actual_year : "{{actual_year|default('')}}",
                      content_path: "{{content_path|safe}}"
                     }
 
-    loadContent(templateData)
+    loadContent(templateData, true)
+    // updateYearNavStatus(templateData)
 
 });
 

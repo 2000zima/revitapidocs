@@ -4,18 +4,26 @@ $(".alert").delay(8000).fadeOut(300, function() {
 
 $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
+    // $('#alertTooltip').attr('title', "Tooltip new <br /> message").tooltip('fixTitle');
+    // data-selector needed for tooltip bughttps://github.com/twbs/bootstrap/issues/15359 -->
+
 });
 
 
-function loadContent(contentJson ,menu) {
-    console.log('Loading content: ' + contentJson['active_href'])
+function loadContent(contentJson, firstLoad) {
+    $('.breadcrumb').first().html( Mustache.to_html(breadcrumb, contentJson) );
+
+    if (firstLoad == true) {
+        return
+    }
+
+    console.log('Loading content: ' + contentJson['content_path'])
     var contentHtml = contentJson['content_html']
     var years = contentJson['content_html']
 
-    $('.breadcrumb').first().html( Mustache.to_html(breadcrumb, contentJson) );
     $('#api-title').html( contentJson['entry']['title'] );
 
-    $("#api-content").fadeOut(function() {
+    $("#api-content-wrapper").fadeOut(function() {
         $(this).scrollTop(0);
         $(this).html(contentHtml).fadeIn('slow');
     });
@@ -23,15 +31,34 @@ function loadContent(contentJson ,menu) {
 };
 
 function updateYearNavStatus(contentJson) {
-    var years = contentJson['years']
-    console.log(years)
-    $('#nav-main a').each(function(key, value) {
-        var year = $(this).attr('data-label')
-        var status = years[year]
-        $(this).removeClass('missing')
-        $(this).removeClass('updated')
-        $(this).removeClass('unchanged')
-        $(this).addClass(status)
+    var years = contentJson['entry']['years']
+    $('#nav-main a').each(function(index, navLiTag) {
+        var $navLiTag = $(navLiTag)
+        var title = $navLiTag.attr('data-name')
+        if (title != 'Python' && contentJson['entry']['years'])
+        {
+            // console.log('Adding: ' + $navLiTag.attr('title'))
+            var year = $(navLiTag).attr('data-name')
+            var status = years[year]
+            if (!status) { status = 'missing'}
+
+            $navLiTag.removeClass('exists')
+            $navLiTag.removeClass('missing')
+            $navLiTag.removeClass('updated')
+            $navLiTag.removeClass('unchanged')
+            $navLiTag.addClass(status)
+            $navLiTag.attr({'title':''})
+            if (status != 'exists') {
+                $navLiTag.attr({'data-original-title':status})
+            }
+            if (year == contentJson['active_year']){
+                var href = '/' + year
+            }
+            else {
+                var href = '/' + year + '/' + contentJson['entry']['href']
+            }
+            $navLiTag.attr({'href': href})
+        }
     })
 
 

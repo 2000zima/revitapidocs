@@ -67,34 +67,34 @@ def content_year_file(year, filename):
     content_path = '{}/{}/{}'.format(API_DOCS_NAME, year_best_match, filename)
 
     return render_template(template, active_year=year, active_href=filename,
-                           content_path=content_path, api_availability=entry['years'],
+                           content_path=content_path,
                            entry=entry, actual_year=year_best_match)
 
 # TEST CONTENT API
 @app.route('/<string:year>/api/<path:filename>', methods=["GET"])
-def api_year_file(year, filename):
+def api_year_file(year, filename, internal_request=None):
     """ API Doc Router. Inserts xxx-xxx.html into api.html base"""
     template = '_api.html'
     entry = get_entry(filename)
 
     if year not in AVAILABLE_YEARS or not entry:
-        return {'error': 'invalid year'}
+        return jsonify({'error': 'invalid year'})
 
     year_best_match = get_best_entry_match(entry, year)
-
+    content_path = '{}/{}/{}'.format(API_DOCS_NAME, year_best_match, filename)
     if not year_best_match:
         # file exists but not year requested
-        return {'error': 'missing'}
+        return jsonify({'error': 'missing'})
 
-    content_path = '{}/{}/{}'.format(API_DOCS_NAME, year_best_match, filename)
-    # with open(content_filepath) as fp:
-    #     content_html = fp.read()
+    payload = {'content_html': render_template(content_path),
+               'entry': entry,
+               'actual_year': year_best_match,
+               'content_path': content_path,
+               'active_year': year,
+               'active_href': filename
+              }
 
-    return jsonify({'content_html': render_template(content_path),
-                    'entry': entry,
-                    'years': entry['years'],
-                    'actual_year': year_best_match,
-                    'content_path': content_path})
+    return jsonify(payload)
 
 
 @app.route('/<string:year>/news', methods=["GET"])

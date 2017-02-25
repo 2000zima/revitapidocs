@@ -18,7 +18,7 @@
       <br/>
       {% endif %}
       <p><span class="text-muted">Resource Only Available for</span></p>
-      {% for year in api_availability.keys() %}
+      {% for year in entry['years'].keys()|sort %}
       <a class="btn btn-primary" href="/{{year}}/{{active_href}}">{{year}}</a>
       {% endfor %}
       <br/>

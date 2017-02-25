@@ -122,7 +122,7 @@ $(document).ready(function() {
         e.preventDefault();
 
         var ajaxContent = $.getJSON( 'api/'+contenHref , function(json) {
-            loadContent(json)
+            loadContent(json, false)
             updateYearNavStatus(json)
             UrlHelper.pushUrl(contenHref)
         });
@@ -137,8 +137,13 @@ $(document).ready(function() {
                 var nodeId = findNodeIdByHref($treeview, contenHref)
             }
 
-            // $treeview.treeview('collapseAll', [ Number(nodeId), { silent: false } ]);
-            // $treeview.treeview('revealNode', [ Number(nodeId), { silent: false } ]);
+            var node = document.querySelectorAll('[data-nodeId="' + nodeId + '"]')[0];
+            if (!node) {
+                // If node is not visible, reload windows
+                // Trying to expand it it's too intensive
+                // and slows down browser
+                location.reload();
+            }
 
             $treeview.treeview('selectNode', [ Number(nodeId), { silent: false } ]);
             $treeview.treeview('expandNode', [ Number(nodeId), { silent: false } ]);
