@@ -29,7 +29,7 @@ def parse_news(whatsnew_html_path):
                 # 'NavigableString' object has no attribute 'attrs'
                 pass
 
-    final_soup = soup.new_tag('div')
-    final_soup['class'] = 'chm_news'
+    final_soup = soup.new_tag('section')
+    final_soup['id'] = 'api-content'
     final_soup.contents = soup.body.contents
     return final_soup

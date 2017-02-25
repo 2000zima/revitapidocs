@@ -34,7 +34,7 @@ def index():
 
 @cache.cached(timeout=600)
 @app.route('/<string:year>/', methods=["GET"])
-def api_year_home(year):
+def content_year_home(year):
     """ Home of api years. Inserts home.html into api.html base"""
     template = '_api.html'
     if year not in AVAILABLE_YEARS:
@@ -43,6 +43,7 @@ def api_year_home(year):
     filename = 'home.html'
     entry = {'title': 'Revit API {}'.format(year),
              'member_of': 'Home',
+             'member_of_href': '',
              'description': 'Full Online Documentation for Revit API {}'.format(year),
              }
 
@@ -50,7 +51,7 @@ def api_year_home(year):
 
 
 @app.route('/<string:year>/<path:filename>', methods=["GET"])
-def api_year_file(year, filename):
+def content_year_file(year, filename):
     """ API Doc Router. Inserts xxx-xxx.html into api.html base"""
     template = '_api.html'
     entry = get_entry(filename)
@@ -59,20 +60,48 @@ def api_year_file(year, filename):
         abort(404)  # File was not found
 
     year_best_match = get_best_entry_match(entry, year)
-    content_path = '{}/{}/{}'.format(API_DOCS_NAME, year_best_match, filename)
     if not year_best_match:
         # file exists but not year requested
         template = 'missing.html'
 
+    content_path = '{}/{}/{}'.format(API_DOCS_NAME, year_best_match, filename)
+
     return render_template(template, active_year=year, active_href=filename,
                            content_path=content_path, api_availability=entry['years'],
                            entry=entry, actual_year=year_best_match)
+
+# TEST CONTENT API
+@app.route('/<string:year>/api/<path:filename>', methods=["GET"])
+def api_year_file(year, filename):
+    """ API Doc Router. Inserts xxx-xxx.html into api.html base"""
+    template = '_api.html'
+    entry = get_entry(filename)
+
+    if year not in AVAILABLE_YEARS or not entry:
+        return {'error': 'invalid year'}
+
+    year_best_match = get_best_entry_match(entry, year)
+
+    if not year_best_match:
+        # file exists but not year requested
+        return {'error': 'missing'}
+
+    content_path = '{}/{}/{}'.format(API_DOCS_NAME, year_best_match, filename)
+    # with open(content_filepath) as fp:
+    #     content_html = fp.read()
+
+    return jsonify({'content_html': render_template(content_path),
+                    'entry': entry,
+                    # 'years': entry['years'],
+                    'actual_year': year_best_match,
+                    'content_path': content_path})
 
 
 @app.route('/<string:year>/news', methods=["GET"])
 def api_whats_new(year):
     template = '_api.html'
     entry = {'member_of': "Revit API {}".format(year),
+             'member_of_href': '/{}'.format(year),
              'title': 'API Changes'.format(year),
              'description': 'API Changes for the {} API'.format(year),
              }

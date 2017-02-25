@@ -188,6 +188,30 @@ ul.breadcrumb {
   }
 }
 
+
+#content-with-sidebar {
+  // Hides Sidebar while loading
+  // opacity: 0;
+  padding: $padding-large-vertical $padding-large-horizontal;
+
+  @include desktop {
+    position: absolute;
+    width: 65%;
+    top: $nav-bar-height;
+    bottom: $footer-height;
+    right: 0;
+    // overflow-y: auto;
+    overflow-y: scroll; // Mod for Adsense width fix
+    }
+
+  @include mobile {
+    position: relative;
+    overflow-x: auto;
+    margin-bottom: 20px;
+
+  }
+}
+
 #sidebar {
   background-color: $gray-lighter;
 
@@ -257,30 +281,6 @@ ul.breadcrumb {
 
 }
 
-
-#main-sidebar {
-  // Hides Sidebar while loading
-  // opacity: 0;
-  padding: $padding-large-vertical $padding-large-horizontal;
-
-  @include desktop {
-    position: absolute;
-    width: 65%;
-    top: $nav-bar-height;
-    bottom: $footer-height;
-    right: 0;
-    // overflow-y: auto;
-    overflow-y: scroll; // Mod for Adsense width fix
-    }
-
-  @include mobile {
-    position: relative;
-    overflow-x: auto;
-    margin-bottom: 20px;
-
-  }
-}
-
 #disqus {
   margin-top: 20px;
   padding: 0;
@@ -320,7 +320,7 @@ ul.breadcrumb {
 ////////////////////////////////////////
 // my footer is used because footer is used by chm css style
 
-#myfooter {
+footer {
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -637,13 +637,9 @@ div#direct-search {
 
 //
 
-span[codelanguage="CSharp"],
-span[codelanguage="VisualBasicDeclaration"],
+// span[codelanguage="CSharp"]
 // span[codelanguage="VisualBasicDeclaration"],
-span[codelanguage="ManagedCPlusPlus"], {
-  display: none
-}
-
-#main-sidebar {
-  opacity: 0;
-}
+// span[codelanguage="VisualBasicDeclaration"],
+// span[codelanguage="ManagedCPlusPlus"], {
+  // display: none
+// }

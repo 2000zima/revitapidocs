@@ -92,7 +92,7 @@ def process_query(query):
     return final_query
 
 
-@Timer.time_function('SEARCH DB')
+# @Timer.time_function('SEARCH DB')
 def search_db(pattern=None, field=None):
     """ Searches db_index.json
     If looking up by href, which is the key, a dictionary look up is used,

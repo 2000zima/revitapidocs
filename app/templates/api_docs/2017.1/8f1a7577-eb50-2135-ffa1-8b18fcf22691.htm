@@ -1,0 +1,145 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="94db8ea8-d2c3-5e71-8030-466bcb8e4426.htm">
+       Application Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Subscribe to the WorksharedOperationProgressChanged to be notified when progress has changed during Collaboration for Revit's workshared operations: open model and synchronize with central.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="91957e18-2935-006c-83ab-3b5b9dbb5928.htm">
+      Autodesk.Revit.ApplicationServices
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.1090.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017 Subscription Update
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> event <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="110ee5e7-4cc1-3dbb-c824-6fd7bb5a8061.htm">WorksharedOperationProgressChangedEventArgs</a>&gt; <span class="identifier">WorksharedOperationProgressChanged</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> Event <span class="identifier">WorksharedOperationProgressChanged</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>(<span class="keyword">Of</span> <a href="110ee5e7-4cc1-3dbb-c824-6fd7bb5a8061.htm">WorksharedOperationProgressChangedEventArgs</a>)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+ <span class="keyword">event</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="110ee5e7-4cc1-3dbb-c824-6fd7bb5a8061.htm">WorksharedOperationProgressChangedEventArgs</a>^&gt;^ <span class="identifier">WorksharedOperationProgressChanged</span> {
+	<span class="keyword">void</span> <span class="keyword">add</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="110ee5e7-4cc1-3dbb-c824-6fd7bb5a8061.htm">WorksharedOperationProgressChangedEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+	<span class="keyword">void</span> <span class="keyword">remove</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="110ee5e7-4cc1-3dbb-c824-6fd7bb5a8061.htm">WorksharedOperationProgressChangedEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This event is only supported for Collaboration for Revit and will not be raised for those operations occurring in local-worksharing and Revit Server workflow.
+   Users may not change the document in the handler for this event.
+   It is NOT recommended to do any time-consuming work when handling WorksharedOperationProgressChanged event. This can increase workshared operation time."
+   Exception
+      <a href="53205486-5917-7c33-8e67-e362106ddc97.htm">
+       ModificationForbiddenException
+      </a>
+      will be thrown if any document-modifying method is called during this event's handler.
+     </p>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="94db8ea8-d2c3-5e71-8030-466bcb8e4426.htm">
+       Application Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="91957e18-2935-006c-83ab-3b5b9dbb5928.htm">
+       Autodesk.Revit.ApplicationServices Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

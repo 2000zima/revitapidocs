@@ -26,3 +26,10 @@ https://cse.google.com/cse/publicurl?cx=014747897160299638528:fxtbgkrsxas
 * Autocomplete [Constructor.IO](https://www.constructor.io)
 * Node Navigation [Bootstrap Treeview](https://github.com/jonmiles/bootstrap-treeview)
 * Theme by [Bootswatch](http://bootswatch.com/)
+
+
+1. Commit
+2. Push to original
+3. Set Flask to Staging
+4. Upload Assets
+5. Push to H

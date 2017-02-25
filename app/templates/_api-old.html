@@ -1,0 +1,533 @@
+{% extends "_base.html" %}
+
+<!-- Rendered tempaltes must include header() macro#} -->
+
+{% block header %}
+<!-- HEADER CONTENTS FROM API.HTML -->
+<title>{{ entry.title | default('Revit API Docs') }}</title>
+<!-- HEADER CONTENTS FROM API.HTML -->
+{% endblock %}
+
+{% block content %}
+<!-- START  API HTML -->
+
+    {% include 'components/__modalsearch.html' %}
+
+    <!-- START SIDEBAR -->
+    <nav id="sidebar" class="col-sm-12 col-md-5 col-lg-4">
+
+        <!-- SIDEBAR SEARCH -->
+        <div id="sidebar-search">
+          <form>
+            <div class="form-group">
+              <div class="input-group input-group-sm">
+                <input type="text" class="form-control" id="search-box" placeholder="Search Term" autocomplete="off">
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- SIDEBAR SEARCH -->
+
+        <!-- START BOOTSTRAP TREEVIEW -->
+        <span id="menu-loading" class="small text-muted"><img src="{{ url_for('static', filename="img/loader.gif") }}">
+        &nbsp;Loading</span>
+        <div id="treeview">
+        </div>
+        <!-- END BOOTSTRAP TREEVIEW -->
+
+    </nav>
+    <!-- END SIDEBAR -->
+
+    <!-- START MAIN -->
+    <!-- <div class="col-sm-12 col-md-7 col-lg-8" id="content-with-sidebar"> -->
+    <div class="col-sm-12 col-md-6 col-lg-8" id="content-with-sidebar">
+
+        <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <ul class="breadcrumb">
+                <li><a href="/{{active_year}}/">{{ entry.member_of }}</a></li>
+                <li class="active">{{ entry.title }}</li>
+
+                <!-- <li> -->
+                <span class="pull-right">
+                    {{ actual_year }}
+                    | <a id="language-selector" class="" href="#">C#</a>
+                    | <a href="https://github.com/gtalarico/revitapidocs/edit/master/app/templates/{{content_path}}">Edit</a>
+                </span>
+                <!-- </li> -->
+            </ul>
+        </div>
+
+        </div>
+
+        <h4 class="truncate"> {{ entry.title if entry else 'Documentation' }} </h4>
+        <hr/>
+
+
+        <!-- START MAIN CONTENT -->
+        {% include '%s' % content_path %}
+        <!-- END MAIN CONTENT -->
+
+        <!-- API ADSENSE -->
+        {# {% include 'components/__adsense.hmlt' %}  #}
+        <!-- END ADSENSE -->
+
+        <!-- START DISQUS -->
+
+        {% if active_href %}
+        {% include 'components/__disqus.html' with context %}
+        // USE THIS TO INSERT JAVASCRIPT!!!
+        {% endif %}
+        <!-- END DISQUS -->
+    </div>
+    <!-- END MAIN -->
+
+<!-- END API HTML -->
+{% endblock %}
+
+
+{% block script %}
+<!-- START API SCRIPT  -->
+<script>
+
+$(document).ready(function() {
+
+
+    // Globals
+    var searchBoxInput = $('input#search-box')
+    var is_mobile = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
+    var is_small_screen = ($(window).width() < 768);
+    console.log('is_mobile: ' + is_mobile)
+    console.log('is_small_screen: ' + is_small_screen)
+
+
+    //////////////////////////////
+    /// CONSTRUCTOR.IO AJAX
+    /////////////////////////////
+    $.getScript("//cnstrc.com/js/ac.js", function() {
+            searchBoxInput.constructorAutocomplete({
+            key: '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}',
+            boostRecentSearches : true,
+            maxResults : 10,
+            triggerSubmitOnSelect: true
+            });
+    });
+
+
+    //////////////////////////////
+    /// NAMESPACE TREEVIEW AJAX
+    /////////////////////////////
+    if (!is_mobile){
+        // Load Menue, Desktop Only
+        var ajaxNamespaceJson = $.getJSON("namespace.json", function(json) {
+            var namespace_json = JSON.stringify(json);
+            buildMenu(namespace_json)
+        });
+
+        // Needs fail handling
+        ajaxNamespaceJson.done(function() {
+            console.log('Ajax JSON namespace loaded.');
+            });
+
+        ajaxNamespaceJson.fail(function() {
+            console.log('Could not get namespace.json.');
+            $('#menu-loading').html('Error Loading Namespace')
+            });
+    };
+
+    //////////////////////////////
+    /// BUILD NAMESPACE TREEVIEW
+    /////////////////////////////
+    function buildMenu(namespace_json) {
+
+        var $namespaceTreeview = $('#treeview').treeview({
+              expandIcon: "node-icon collapsed",
+              collapseIcon: "node-icon expanded",
+              emptyIcon: "node-icon empty",
+              selectedBackColor: "#21a3a3",
+              selectedColor: "#fff",
+              selectionAllowed: false,
+              showBorder: false,
+              levels: 1,
+              enableLinks: true,
+              onhoverColor: '#e0e0e0',
+              backColor: 'inherit',
+              data: namespace_json,
+            });
+
+        ///////////////////////////////////////////
+        // Iterate nodes, try to match active_href
+        ///////////////////////////////////////////
+        if ("{{active_href}}" != 'None' && !is_small_screen){
+            console.log('active_href is not None. Iterating to find matching href');
+            var node, activeNode
+            var activeNodeId = null;
+            var nodeId = 0;
+                do {
+                    node = $namespaceTreeview.treeview("getNode", nodeId);
+                    if (node && node.href == "{{active_href}}") {
+                        // console.log(node.nodeId)
+                        activeNode = node
+                        activeNodeId = node.nodeId
+                        break;
+                    };
+                    nodeId++;
+                    }
+                while (node.nodeId != undefined);
+        };
+
+        if (activeNodeId != null){
+            // console.log('Found Node.')
+            $namespaceTreeview.treeview('revealNode', [ activeNodeId, { silent: false } ]);
+            $namespaceTreeview.treeview('toggleNodeSelected', [ activeNodeId, { silent: false } ]);
+            $namespaceTreeview.treeview('toggleNodeExpanded', [ activeNodeId, { silent: false } ]);
+            var scrollto = $('a[href="' + activeNode.href +'"]').offset().top - 200;
+            $('#sidebar').scrollTop(scrollto); // Scroll, no animation
+        }
+
+        // Active Node not found. Reveal First Level
+        else if (!is_small_screen) {
+            $namespaceTreeview.treeview('revealNode', [ 1, { silent: false } ]);
+        };
+
+        // console.log("Hiding Loader Gif...")
+        $('#menu-loading').animate({opacity: 0},300);
+        $('#menu-loading').hide();
+        $namespaceTreeview.animate({opacity: 1}, 300);
+
+    };  // End of Build Menue Call Back Function
+
+
+
+    //////////////////////////////
+    /// SEARCH
+    /////////////////////////////
+    function search(pattern, filter, pushHistory){
+
+    //   RESTORE FILTER //
+      var filter = getUrlParam('filter')
+      if ((filter == null)&&(filter == undefined)&&(filter == '0')){
+        filter = ''
+      };
+
+      if (pushHistory) {
+        history.pushState(null, null, '?query=' + pattern + '&filter=' + filter +'&#searchModal');
+      };
+
+      $('.modal-title').html('Query: <strong>'+pattern+'</strong>');
+      $('#result-div').html('<span class="small text-muted"><img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp; Loading</span>');
+      $('#google-link').attr("href", "http://www.google.com/search?q=site:www.revitapidocs.com " + pattern)
+
+      var results_json;
+      $.getJSON("searchapi?query=" + pattern, function(json) {
+          console.log('Search Ajax call successful. ')
+          results_json = json;
+          })
+          .done(function(){
+              // Search successful
+              buildResults(results_json, pattern);
+              ga('send', 'pageview', '{{active_year}}/?query=' + pattern);
+              // console.log('GA PV Sent:' + '?query=' + pattern)
+          }).fail(function(){
+              console.log('Search Ajax call FAILED.')
+              var results = {'error':'Could not reach search API'};
+              buildResults(results, pattern);
+          })
+    };
+    // End Search
+
+    function buildResults(results, pattern){
+        if (pattern.length < 1) { pattern = 'None'}
+        var content = ''
+        var numresults = (results.length == undefined) ? 0 : results.length
+
+        if (results.error) {
+            content = '<p class="text-danger">' + results.error + '</p>'
+        }
+        else{
+          $.each(results, function (index, value) {
+
+            var active_year = "{{active_year}}" // Get year in context
+            // value.all_years = value.years
+            // value.all_years = value.years.join(' / ')
+            value.is_exact_match = (pattern.toLowerCase() == value.title.toLowerCase()) ? 'result-exact-match' : ''
+            value.is_enumeration = (value.member_of.indexOf('Enumeration') == -1) ? '' : '?enumeration=' + value.title
+
+            var years_string = []
+            for (var key in value.years) {
+                years_string.push(key.toString())
+            }
+            // console.log(years_string)
+            if (years_string.length < 4) {
+                value.all_years = years_string.join(' / ')
+                value.year_class = (value.all_years.indexOf(active_year) == -1) ? 'text-danger': 'text-muted'
+            }
+            else {
+                value.all_years = 'All Years'
+                value.year_class = 'text-muted'
+            }
+
+            {% raw %}
+            var result_entry_template =
+                '<div class="result-entry {{is_exact_match}}" data-tag="{{tag}}">' +
+                    '<h5 class="truncate"><a href="{{href}}{{is_enumeration}}">{{title}}</a>' +
+                    '<span class="result-tag badge pull-right">{{tag}}</span></h5>' +
+                    '<p class="member-of small"><a href="{{member_of_href}}">{{member_of}}</a>' +
+                    '<span class="small year {{year_class}}">{{all_years}}</span></p>' +
+                    '<p class="small description">{{description}}</p>' +
+                '</div>'
+            {% endraw %}
+
+            var entry_html = Mustache.to_html(result_entry_template, value);
+            // console.log(value)
+            // console.log(entry_html)
+            content += entry_html
+          });
+
+            // This shit should really be handled somewhere else. Show alert if results is 300
+            $('#result-size').html('Target API {{active_year}} | Results: ' +  results.length);
+            if (results.length == 500) {
+                console.log('Results Truncated')
+                $('#content-wrapper').append(
+                '<div class = "alert alert-danger" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                'Results Truncated to 500.</br> Try narrowing your search.</div>')
+
+                $(".alert").delay(8000).fadeOut(300, function() {
+                    $(this).alert('close');
+                });
+            };
+        };
+
+        $('#result-div').html(content);
+
+
+        // Toggle Tag Filter Function
+        function toggle_tag(tag_name){
+
+          // Ignore when empty. Patch
+          if (tag_name != ''){
+            var filter = getUrlParam('filter')
+            if (filter == tag_name){
+              $('#result-filter').html('');
+              $('.result-entry').show();
+
+              var new_uri = updateQueryStringParameter('filter', '');
+              history.pushState(null, null, new_uri);
+              // console.log('RESET FILTER')
+            }
+            else {
+              $('#result-filter').html(tag_name);
+              $('.result-entry[data-tag!="' + tag_name + '"]').hide();
+              var new_uri = updateQueryStringParameter('filter', tag_name);
+              history.pushState(null, null, new_uri);
+              // console.log('ACTIVE FILTER')
+            };
+          };
+
+        };
+
+        // Add Badge Click Listener
+        $('.result-tag.badge').on('click', function(e){
+          var tag_name = e.target.innerText;
+          toggle_tag(tag_name)
+        });
+
+        // Restore Stored Filter
+        var tag_name = getUrlParam('filter')
+        if ((tag_name != null)&&(tag_name != '')&&(tag_name != 0)){
+            $('#result-filter').html(tag_name)
+            $('.result-entry[data-tag!="' + tag_name + '"]').hide();
+            $('.result-entry[data-tag*="' + tag_name + '"]').show();
+        };
+
+    };
+    // End Build Results
+
+
+    // New Scroller Function
+    function goToByScroll(anchor){
+        var anchorName = anchor.replace('#','')
+        var targetScrollTop = $('a[name=' + anchorName +']').offset().top - 75
+        $('#content-with-sidebar').animate({scrollTop: targetScrollTop},'slow');
+    }
+
+    // Smooth Anchor Travel
+    $('#headerTableRow3 a').click(function(){
+        goToByScroll($(this).attr('href'));
+        return false;
+    });
+
+    // On load, set language
+
+    // Globals
+    var order = ['C#', 'VB', 'C++']
+    var languages = {'C#':'CSharp',
+                     'VB':'VisualBasicDeclaration',
+                     'C++':'ManagedCPlusPlus'
+                    }
+
+    if(sessionStorage) {
+        var storeLanguage = sessionStorage.getItem('languagePref')
+         if (storeLanguage) {
+             $('#language-selector').text(storeLanguage)
+             var language = storeLanguage
+         }
+         else {
+             $('#language-selector').text('C#')
+             var language = 'C#'
+         }
+
+         var languageClass = languages[language]
+         $('span[codelanguage=' + languageClass +']').show()
+
+    }
+
+    $('#language-selector').on('click', function(e) {
+        selected = $(e.target)
+
+        var languageClass = languages[selected.text()]
+        $('span[codelanguage=' +languageClass +']').hide()
+
+        var currentIndex = order.indexOf(selected.text())
+        var nextIndex = currentIndex + 1
+        var nextLanguage = order[nextIndex]
+        if (nextLanguage == undefined) {
+            var nextLanguage = order[0]
+        }
+        selected.text(nextLanguage)
+        var nextClass = languages[nextLanguage]
+        $('span[codelanguage=' + nextClass +']').show()
+
+        if (sessionStorage) {
+             sessionStorage.setItem('languagePref', nextLanguage)
+         }
+
+    })
+
+
+
+    $("#sidebar-search>form").submit(function(e) {
+
+        // Button and enter would automatically trigger modal
+        // This is added here so that the Autocomplete trigger will work
+        $('#searchModal').modal('show');
+
+        e.preventDefault() // Keeps page from submitting and reloading
+        var pattern = searchBoxInput.val();
+        sessionStorage.removeItem('result_scroll');
+        sessionStorage.removeItem('tag_name');
+        $('#result-filter').html('')
+
+        var clean_uri = updateQueryStringParameter('filter', '');
+        history.pushState(null, null, clean_uri);
+
+        search(pattern, null, true)
+        console.log('Done!')
+    });
+
+
+    // Sidebar Search
+    $("#sidebar").scroll(function(){
+      if ($("#sidebar").scrollTop() > 1){
+          $("#sidebar-search").css("top", $("#sidebar").scrollTop() + 0 + "px");
+          $("#sidebar-search").addClass("bottom-shadow")
+          $("#sidebar-search").removeClass("no-bottom-shadow")
+
+      } else {
+          $("#sidebar-search").css("top", "0px");
+          $("#sidebar-search").addClass("no-bottom-shadow")
+          $("#sidebar-search").removeClass("bottom-shadow")
+      }
+    });
+
+    // Store Scroll
+    $(".modal").scroll(function(){
+      var result_scroll = $(".modal").scrollTop()
+      sessionStorage.setItem('result_scroll', result_scroll);
+    });
+
+
+
+    $('.modal').on('hidden.bs.modal', function (event) {
+        $('#searchModal').modal('hide');
+        $('#result-size').html('')
+        event.stopPropagation();
+        history.pushState(null, null, '/{{active_year}}/');
+
+        searchBoxInput.focus().val('');
+    });
+
+    // Restore Scroll
+    $('.modal').on('shown.bs.modal', function () {
+      if(sessionStorage && sessionStorage.getItem('result_scroll')){
+          var result_scroll = sessionStorage.getItem('result_scroll');
+          $('.modal').scrollTop(result_scroll);
+          console.log('Scroll Restored')
+      };
+    });
+
+    // Sidebar Search Search
+    $(".modal-body").scroll(function(){
+      if ($(this).scrollTop() > 1){
+          $(this).addClass("bottom-shadow")
+          $(this).removeClass("no-bottom-shadow")
+
+      } else {
+          $(this).addClass("no-bottom-shadow")
+          $(this).removeClass("bottom-shadow")
+      }
+    });
+
+    // Build Model and Results From URL
+    function check_modal_url(){
+      var pattern = getUrlParam('query')
+      var filter = getUrlParam('filter')
+      var enumeration_title = getUrlParam('enumeration')
+
+      var modalOpen = window.location.href.indexOf('#searchModal') != -1
+      if(modalOpen) {
+        $('#searchModal').modal('show');
+        search(pattern, filter, false)
+      }
+      else {
+        $('#searchModal').modal('hide');
+      }
+
+      // If url has ?enumeration=WALL_LOCATION
+      // Will try to find matching span
+      if (enumeration_title) {
+
+          var short_name = enumeration_title.split(' ')[0]
+          var target = $("span:contains('" + short_name +"')")
+          if (target) {
+
+              target.closest('tr').addClass('selected-enumeration')
+              var scrollto = target.offset().top - 150;
+              $('#content-with-sidebar').scrollTop(scrollto)
+          }
+
+        //   $('html, body').animate({
+            //   scrollTop: $("#elementtoScrollToID").offset().top
+        //   }, 2000);
+      }
+    };
+    // Check Url on loading - When coming back from another page
+    check_modal_url()
+
+    // Check Url from when using back button but staying on the same page
+    window.addEventListener('popstate', function(event) {
+      check_modal_url()
+    });
+
+    $('#content-with-sidebar').animate({'opacity':1},150);
+    // $('#main-sidebar').css({'opacity':1});
+
+}); //END OF DOC READY
+
+<!-- END API SCRIPT  -->
+</script>
+
+{% endblock %}

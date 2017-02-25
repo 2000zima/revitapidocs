@@ -332,8 +332,8 @@ def _inject_title(soup, entry):
 def _final_div_from_body(soup):
     """ Inject New Content in Soup and cleans outter divs"""
     # Inject Tile
-    final_soup = soup.new_tag('div')
-    final_soup['class'] = 'chm_content'
+    final_soup = soup.new_tag('article')
+    final_soup['id'] = 'api-content'
     final_soup.contents = soup.body.contents
     return final_soup
 

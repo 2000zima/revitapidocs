@@ -6,29 +6,37 @@ $(document).ready(function() {
     $('[data-toggle="tooltip"]').tooltip();
 });
 
-// // Catch CHM script call to toggle section
-// function OpenSection(sectionToggleName) {
-//   var scrollTo = $(sectionToggleName).parent().position().top
-//   console.log(scrollTo)
-//   $('#main-sidebar').animate({ scrollTop: scrollTo - 20 }, 400, "swing");
-//   // $('#main-sidebar').scrollTop(scrollTo);
-// }
 
-function OpenSection(imageItem)
-{
-	if (sectionStates[imageItem.id] == "c") ExpandCollapse(imageItem);
-}
-
-function getInstanceDelegate (obj, methodName) {
-    return( function(e) {
-        e = e || window.event;
-        return obj[methodName](e);
-    } );
-}
+function loadContent(contentJson ,menu) {
+    var contentHtml = contentJson['content_html']
+    var years = contentJson['content_html']
 
 
+    $("article#api-content").fadeOut(function() {
+        // $("article#api-content").scrollTop();
+        $(this).html(contentHtml).fadeIn(250);
+        $("article#api-content").animate({scrollTop:0}, '300');
+    });
 
+    $('ul.breadcrumb').first().html( Mustache.to_html(breadcrumb, contentJson) );
+    $('#api-title').html( contentJson['entry']['title'] );
 
+    // menu: Update Colors and tooltips
+};
+
+// function getJson(url) {
+//     var ajaxContent = $.getJSON(url, function(json) {
+//         var contentJson = json
+//
+//     });
+//         ajaxContent.done(function() {
+//             console.log('! Content Loaded.');
+//         });
+//
+//         ajaxNamespaceJson.fail(function(e) {
+//             console.log('* Could load content');
+//         });
+//     }
 
 // Updates a key-value on url parameter:
 // URL: revitpythondocs.com/python/?query=3

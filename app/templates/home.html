@@ -1,19 +1,21 @@
-<p class='text-muted'>Use the search box or collapsible namespace navigation to explore the API documentation.</p>
+<article id="api-content">
+    <p class='text-muted'>Use the search box or collapsible namespace navigation to explore the API documentation.</p>
 
-<br/>
-<div class="well">
-    <h5><a href="news">
-      What's New in the Revit {{active_year}} API
-  </a></h5>
+    <br/>
+    <div class="well">
+        <h5><a href="news">
+          What's New in the Revit {{active_year}} API
+      </a></h5>
 
-    {% if active_year != '2017.1'%}
-    <h5><a href="http://help.autodesk.com/view/RVT/{{active_year}}/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">
-      Revit API {{active_year}} - Official Reference Guide
-  </a></h5>
-    {% endif %}
+        {% if active_year != '2017.1'%}
+        <h5><a href="http://help.autodesk.com/view/RVT/{{active_year}}/ENU/?guid=GUID-F0A122E0-E556-4D0D-9D0F-7E72A9315A42">
+          Revit API {{active_year}} - Official Reference Guide
+      </a></h5>
+        {% endif %}
 
-    <h5><a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
-    Autodesk Developer Network
-</a></h5>
-</div>
-<!-- <img alt="Revit API Docs Instructions Gif" src="{{url_for('static', filename='img/instructions.gif')}}"> -->
+        <h5><a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
+        Autodesk Developer Network
+    </a></h5>
+    </div>
+    <!-- <img alt="Revit API Docs Instructions Gif" src="{{url_for('static', filename='img/instructions.gif')}}"> -->
+</article>

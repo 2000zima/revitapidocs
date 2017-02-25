@@ -1,4 +1,3 @@
-
 import sys
 import os
 import re
@@ -54,6 +53,9 @@ __doc__ = """
 
     """.format(default_out_dir=DEFAULT_OUT_HTML_DIR,
                json_out_dir=DEFAULT_OUT_JSON_DIR)
+
+# TODO: Improve path/args
+# TODO: Create batch command for all
 
 __version__ = '1.0.0'
 arguments = docopt(__doc__, version=__version__)

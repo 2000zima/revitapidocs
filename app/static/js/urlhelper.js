@@ -2,6 +2,7 @@ var UrlHelper = new function() {
 
   // getUrl: Something%20With%20Space
   this.getUrl = window.location.href;
+  this.getUrlPath = window.location.pathname;
   // getDecodedUrl: Something With Space
   this.getDecodedUrl = decodeURIComponent(this.getUrl);
 

@@ -33,7 +33,7 @@ def _copy_helper(filename, year, out_html_dir, out_merge_dir):
     src = os.path.join(hmtl_directory, filename)
     dst = os.path.join(out_directory)
     shutil.copy2(src, dst)
-    logger.info('Copying: {} > {}'.format(src, dst))
+    # logger.info('Copying: {} > {}'.format(src, dst))
 
 
 def bootstrap(db_index_path, out_html_dir, out_merge_dir):

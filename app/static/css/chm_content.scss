@@ -4,7 +4,7 @@
 @import "bootstrap/_variables.scss";
 // @import url(https://fonts.googleapis.com/css?family=Roboto+Mono:300);
 
-div.chm_content {
+article#api-content {
   // .table {
   //   border-style: hidden;
   font-size: $font-size-small;
@@ -21,6 +21,8 @@ div.chm_content {
     font-size: $font-size-h4;
     margin-bottom: 16px;
     padding-top: 16px;
+    font-weight: 400;
+    color: $gray-light
     // margin-top: 20px;
     // border-top: 1px solid #ddd;
   }
@@ -150,15 +152,15 @@ div.chm_content {
       }
 
 
-  // hide
-  span.highlight-copycode,
-  table#topTable,
-  {
-    display: none
-  }
-
-  div#header:empty{
+  div.saveHistory>p,
+  span.highlight-copycode
+   {
     display: none;
   }
+  // div#header:empty{
+  //   display: none;
+  // }
+
+
 
 }
