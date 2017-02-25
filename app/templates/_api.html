@@ -103,7 +103,6 @@ console.log('is_small_screen: ' + is_small_screen)
 
 {% include 'components/__api-treeview.js' %}
 
-
 {% raw %}
 var breadcrumb = '<li><a href="{{entry.member_of_href}}">{{ entry.member_of }}</a></li>' +
                  '<span class="pull-right">' +
@@ -118,6 +117,7 @@ $(document).ready(function() {
                      actual_year : "{{actual_year|default('0')}}",
                      content_path: "{{content_path|safe}}"
                     }
+
     loadContent(templateData)
 
 });

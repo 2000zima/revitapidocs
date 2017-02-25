@@ -60,16 +60,15 @@ $(document).ready(function() {
                 $treeview.treeview('toggleNodeSelected', [ activeNodeId, { silent: false } ]);
                 $treeview.treeview('toggleNodeExpanded', [ activeNodeId, { silent: false } ]);
 
-
-                scrollToNode(activeNodeId)
                 revealTreeview($treeview)
+                scrollToNode(activeNodeId)
             }
         }
 
         else if (!is_small_screen) {
             $treeview.treeview('revealNode', [ 1, { silent: false } ]);
-            revealTreeview($treeview)
         };
+        revealTreeview($treeview)
 
     return $treeview
     };
@@ -86,7 +85,9 @@ $(document).ready(function() {
     };
 
     function scrollToNode(nodeId) {
-        var scrollto = $('li[data-NodeId="' + nodeId +'"]').offset().top - 200;
+        var node = document.querySelectorAll('[data-nodeId="' + nodeId + '"]')[0];
+        var elPosition = node.offsetTop;
+        var scrollto = elPosition - 100
         $('#sidebar').scrollTop(scrollto); // Scroll, no animation
     };
 
@@ -111,7 +112,7 @@ $(document).ready(function() {
     // On Tree href click //
     ////////////////////////
     // $(document).on('click', '.node-treeview a', function(e){
-    $(document).on('click', 'a', function(e){
+    $(document).on('click', '.node-treeview a, #api-content a', function(e){
         // Use this to handle all links to load them ajax style
         var contenHref = $(this).attr('href')
         var hrefPattern = new RegExp('[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12}.htm')
@@ -119,28 +120,36 @@ $(document).ready(function() {
         if (!contenHref.match(hrefPattern)) { return true }
 
         e.preventDefault();
-        var $treeview = $('#treeview')
-        var nodeId = $(this).parent().attr('data-nodeId')
-        var isMainContentClick // Click came from main div
-
-        if (!nodeId) {
-            var isMainContentClick = true
-            var nodeId = findNodeIdByHref($treeview, contenHref)
-        }
 
         var ajaxContent = $.getJSON( 'api/'+contenHref , function(json) {
             loadContent(json)
+            updateYearNavStatus(json)
             UrlHelper.pushUrl(contenHref)
         });
 
-        if (isMainContentClick) {
-            $treeview.treeview('revealNode', [ Number(nodeId), { silent: false } ]);
-            scrollToNode(nodeId)
+        if (!is_mobile && !is_small_screen) {
+            var $treeview = $('#treeview')
+            var nodeId = $(this).parent().attr('data-nodeId')
+            var isMainContentClick // Click came from main div
+
+            if (!nodeId) {
+                var isMainContentClick = true
+                var nodeId = findNodeIdByHref($treeview, contenHref)
+            }
+
+            // $treeview.treeview('collapseAll', [ Number(nodeId), { silent: false } ]);
+            // $treeview.treeview('revealNode', [ Number(nodeId), { silent: false } ]);
+
+            $treeview.treeview('selectNode', [ Number(nodeId), { silent: false } ]);
+            $treeview.treeview('expandNode', [ Number(nodeId), { silent: false } ]);
+
+            if (isMainContentClick) {
+                // $treeview.treeview('revealNode', [ Number(nodeId), { silent: false } ]);
+                scrollToNode(nodeId)
+            };
+
+            // TODO: Clicking here crashes node search > 2017.1/cba2c84a-22c0-e6e7-a99c-67656901853a.htm
         };
-
-        $treeview.treeview('selectNode', [ Number(nodeId), { silent: false } ]);
-        $treeview.treeview('expandNode', [ Number(nodeId), { silent: false } ]);
-
     });
 
 

@@ -92,7 +92,7 @@ def api_year_file(year, filename):
 
     return jsonify({'content_html': render_template(content_path),
                     'entry': entry,
-                    # 'years': entry['years'],
+                    'years': entry['years'],
                     'actual_year': year_best_match,
                     'content_path': content_path})
 

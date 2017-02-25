@@ -24,7 +24,7 @@ app.config.from_object('app.config.{}'.format(flask_config))
 compress.init_app(app)
 flasks3.init_app(app)
 cache.init_app(app)
-toolbar.init_app(app)
+# toolbar.init_app(app)
 
 logger.info('** CACHE_TYPE: {}'.format(os.environ['CACHE_TYPE']))
 if bool(int(os.getenv('CACHE_CLEAR', 0))):

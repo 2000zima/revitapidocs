@@ -8,20 +8,33 @@ $(document).ready(function() {
 
 
 function loadContent(contentJson ,menu) {
+    console.log('Loading content: ' + contentJson['active_href'])
     var contentHtml = contentJson['content_html']
     var years = contentJson['content_html']
 
-
-    $("article#api-content").fadeOut(function() {
-        // $("article#api-content").scrollTop();
-        $(this).html(contentHtml).fadeIn(250);
-        $("article#api-content").animate({scrollTop:0}, '300');
-    });
-
-    $('ul.breadcrumb').first().html( Mustache.to_html(breadcrumb, contentJson) );
+    $('.breadcrumb').first().html( Mustache.to_html(breadcrumb, contentJson) );
     $('#api-title').html( contentJson['entry']['title'] );
 
-    // menu: Update Colors and tooltips
+    $("#api-content").fadeOut(function() {
+        $(this).scrollTop(0);
+        $(this).html(contentHtml).fadeIn('slow');
+    });
+
+};
+
+function updateYearNavStatus(contentJson) {
+    var years = contentJson['years']
+    console.log(years)
+    $('#nav-main a').each(function(key, value) {
+        var year = $(this).attr('data-label')
+        var status = years[year]
+        $(this).removeClass('missing')
+        $(this).removeClass('updated')
+        $(this).removeClass('unchanged')
+        $(this).addClass(status)
+    })
+
+
 };
 
 // function getJson(url) {

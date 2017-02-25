@@ -143,7 +143,7 @@ ul.breadcrumb {
       border-bottom-color: $brand-danger;
     }
     &.updated {
-      border-bottom-color: darken($brand-warning,10%);
+      border-bottom-color: darken($brand-warning,15%);
     }
     &.active.updated, &.updated:hover {
       border-bottom-color: $brand-warning;
