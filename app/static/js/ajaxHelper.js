@@ -1,5 +1,4 @@
 var ajaxHelper = new function() {
-
     ///////////////////////////////
     /// LOAD CONTENT DYNAMIcALLY //
     ///////////////////////////////

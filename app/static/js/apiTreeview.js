@@ -9,7 +9,6 @@ $(document).ready(function() {
             var namespace_json = JSON.stringify(json)
             buildTreeView(namespace_json)
         });
-
         // Needs fail handling
         ajaxNamespaceJson.done(function() {
             console.log('Ajax JSON namespace loaded.');
@@ -20,6 +19,20 @@ $(document).ready(function() {
             $('#menu-loading').html('Error Loading Namespace')
             });
     };
+
+    /////////////////////////////
+    // SIDEBAR SEARCH SCROLL  ///
+    /////////////////////////////
+    $("#sidebar").scroll(function(){
+      if ($("#sidebar").scrollTop() > 1){
+          $("#sidebar-search").css("top", $("#sidebar").scrollTop() + 0 + "px");
+          $("#sidebar-search").addClass("bottom-shadow")
+
+      } else {
+          $("#sidebar-search").css("top", "0px");
+          $("#sidebar-search").removeClass("bottom-shadow")
+      }
+    });
 
 }); // End of Doc Ready
 
@@ -121,7 +134,20 @@ $(document).on('click', '.node-treeview a, #api-content a', function(e){
     var contenHref = $(this).attr('href')
     var hrefPattern = new RegExp('[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12}.htm')
 
-    if (!contenHref.match(hrefPattern)) { return true }
+    // Overrides Anchor click, else pop state would change page
+    if (!contenHref.match(hrefPattern)) {
+        if (contenHref.indexOf('#') != -1) {
+            e.preventDefault()
+            contenHref = contenHref.replace('#','')
+            var target = $('a[name="' + contenHref + '"]')
+            scrollHelper($('#content-with-sidebar'), target, true)
+            urlHelper.updateParam('section', contenHref)
+            return
+        }
+        else{
+            return
+        }
+    }
 
     e.preventDefault();
 
@@ -134,7 +160,7 @@ $(document).on('click', '.node-treeview a, #api-content a', function(e){
 
     if (!IS_MOBILE && !IS_SMALL_SCREEN) {
         var $treeview = $('#treeview')
-        var nodeId = $(this).parent().attr('data-nodeId')
+        var nodeId = $(this).parent().data('nodeId')
         var isMainContentClick // Click came from main div
 
         if (!nodeId) {
@@ -150,11 +176,11 @@ $(document).on('click', '.node-treeview a, #api-content a', function(e){
             location.reload();
         }
 
+        // $treeview.treeview('revealNode', [ Number(nodeId), { silent: false } ]);
         $treeview.treeview('selectNode', [ Number(nodeId), { silent: false } ]);
         $treeview.treeview('expandNode', [ Number(nodeId), { silent: false } ]);
 
         if (isMainContentClick) {
-            // $treeview.treeview('revealNode', [ Number(nodeId), { silent: false } ]);
             scrollToNode(nodeId)
         };
     };

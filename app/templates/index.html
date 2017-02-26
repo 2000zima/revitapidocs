@@ -177,7 +177,7 @@ $(document).ready(function(e){
 
     // Typying Animation
     // Conditional Statement makes it so animation only runs the first time
-    if (localStorage && !localStorage.getItem('revitapidocs_year')){
+    if (!localStorageHelper.get('revitapidocs_year')){
         $(function(){
           $searchBoxInput.typed({
             strings: ["Wall Class", "Pushbutton", "Global Parameter",
@@ -212,8 +212,8 @@ $(document).ready(function(e){
     })
 
     // Get Stored year
-    if(localStorage && localStorage.getItem('revitapidocs_year')){
-      var year = localStorage.getItem('revitapidocs_year');
+    if(localStorageHelper.get('revitapidocs_year')){
+      var year = localStorageHelper.get('revitapidocs_year');
       $('button#direct-search-year').attr('value', year)
       $('span#dropdown-label').text(year)
     };
@@ -227,9 +227,8 @@ $(document).ready(function(e){
       $("div#direct-search").find('.form-group').removeClass('has-error')
       $("div#direct-search").find('.control-label').html("&nbsp;")
 
-      if (localStorage) {
-        localStorage.setItem('revitapidocs_year', year);
-      }
+      localStorageHelper.set('revitapidocs_year', year);
+
     })
 
     function search(query, year){

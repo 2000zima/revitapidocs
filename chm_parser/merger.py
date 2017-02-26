@@ -128,7 +128,7 @@ def merge(out_sample_path):
 
         for member_key, member in db_index_by_year[current_year].items():
             # print('='*20)
-            # logger.info('Merging: {}:{} | {}'.format(current_year, next_year, member_key))
+            logger.info('Merging: {}:{} | {}'.format(current_year, next_year, member_key))
 
             # Tries to retrieve entry, if not present, load first member
             member_db_index_merged = db_index_merged.get(member_key)

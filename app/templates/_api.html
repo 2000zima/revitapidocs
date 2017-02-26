@@ -47,6 +47,7 @@
         <header class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <ul class="breadcrumb">
+                    <li>&nbsp;</li>
                 </ul>
                 <script id="breadcrumb-template" type="text/x-handlebars-template">{% raw %}
                     <li><a href="{{entry.member_of_href}}">{{ entry.member_of }}</a></li>
@@ -100,12 +101,24 @@ var CONSTRUCTOR_KEY = '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}'
 $(document).ready(function() {
 
     ajaxHelper.loadContent(templateData, true)
-    urlHelper.getParams()
-    if (urlHelper.params.query) {
-        submitSearch(urlHelper.params.query)
+    var urlParams = urlHelper.getParams()
+    if (urlParams.query) {
+        submitSearch(urlParams.query)
     }
-    console.log(urlHelper.params)
 
+    if (urlParams.enumeration) {
+        var target = $("span:contains('" + urlParams.enumeration +"')")
+        if (target) {
+            target.closest('tr').addClass('selected-enumeration')
+            $('')
+            scrollHelper($('#content-with-sidebar'), target, false, 200)
+        }
+    }
+    if (urlParams.section) {
+        var anchor = $('a[name="' + urlParams.section + '"]')
+        var parent = $('#content-with-sidebar')
+        scrollHelper(parent, anchor, true, 200)
+    }
 });
 
 </script>

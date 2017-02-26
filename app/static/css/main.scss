@@ -46,10 +46,16 @@ ul.breadcrumb {
 .alert {
   z-index: 1200;
   position: absolute;
-  top: 70px;
+  top: 65px;
+  // top: 25px;
   right: 40px;
   width: 200px;
   border: 0;
+
+  &.alert-info {
+    background-color: $brand-primary;
+  }
+
 
   @include mobile {
     left: 10%;
@@ -364,22 +370,22 @@ footer {
      }
 
     .modal-dialog{
-    @include transition(all 0.2s ease-in-out);
+      @include transition(all 0.2s ease-in-out);
 
-    // Slide dialog down
-    margin-top: 60px;
-    overflow-y: initial !important;
+      // Slide dialog down
+      margin-top: 60px;
+      overflow-y: initial !important;
 
-    @include desktop{
-      width: 700px;
-    }
-    @include large-desktop{
-      width: 900px;
-    }
+      @include desktop{
+        width: 700px;
+      }
+      @include large-desktop{
+        width: 900px;
+      }
 
-    @include mobile {
-      margin: 25px;
-    }
+      @include mobile {
+        margin: 25px;
+      }
     }
 
     .modal-header{
@@ -390,8 +396,7 @@ footer {
     line-height: $font-size-small;
     font-size: $font-size-small;
     padding: $padding-large-vertical $padding-large-horizontal;
-    text-align: center;
-    }
+    text-align: center;    }
 
    .result-entry:not(:last-child){
     border-bottom: 1px solid #ddd;

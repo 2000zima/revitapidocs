@@ -2,22 +2,19 @@ $(document).ready(function() {
 
     var $searchBoxInput = $('#search-box')
     ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_KEY, 10)
-    console.log('here')
 
     $("#sidebar-search > form").submit(function(e) {
         e.preventDefault() // Keeps page from submitting and reloading
         var query = $searchBoxInput.val();
         submitSearch(query)
-
     });
+
 });
 
 function submitSearch(query) {
-    $('#modal-results').html(loadingSpan)
-    $('#searchModal').modal('show');
-    // $('#result-filter').html('')
-    // var pushUrl = updateQueryStringParameter('filter', '');
-    // urlHelper.pushUrl(clean_uri);
+
+    var alertLoading = flashAlert('Loading')
+    urlHelper.updateParam('query', query)
 
     var resultsJson;
     var ajaxSearch = $.getJSON("search?query=" + query, function(json) {
@@ -39,19 +36,73 @@ function submitSearch(query) {
 
 function buildResults(resultsJson, query) {
     var $modalResults = $('#modal-results')
-    if (resultsJson.error) {
-        $modalResults.html('<p class="text-danger">' + resultsJson.error + '</p>')
+    var source   = $("#modal-template").html();
+    var template = Handlebars.compile(source);
+    var html = template(resultsJson);
+    $modalResults.html(html);
+
+    $('.alert').hide();
+    $('#searchModal').modal('show');
+
+    var urlParams = urlHelper.getParams()
+    if (urlParams.filter) { toggle_tag(urlParams.filter) }
+    if (urlParams.scroll) {
+        scrollHelper($('.modal-body'), urlParams.scroll, false, 0)
     }
-    else{
-        var source   = $("#result-entry-template").html();
-        var template = Handlebars.compile(source);
 
-        // var results = {'results': resultsJson }
-        var html = template(resultsJson);
-        $modalResults.html(html);
+    // SHOW TRUNCATED WARNING
+    var maxResults = resultsJson['max_results']
+    var totalResults = resultsJson['total_results']
+    if (totalResults >= maxResults) {
+        var alertResults = flashAlert('Results truncated to '+maxResults, 'danger')
+        alertResults.delay(6000).fadeOut('slow')
+    }
 
-        }
+    bindToModalElements()
+};
 
+// Toggle Tag Filter Function
+function toggle_tag(tag_name){
+    var activeTagName = $('#result-filter').text()
+
+    if (activeTagName == tag_name){
+        // Tag is ACtive, Toggle Off
+        $('#result-filter').html('')
+        $('.result-entry[data-tag!="' + tag_name + '"]').show();
+        urlHelper.updateParam('filter', undefined)
+    }
+
+    else {
+        // No Tag Active, Toggle On
+        $('#result-filter').html(tag_name)
+        $('.result-entry[data-tag!="' + tag_name + '"]').hide();
+        urlHelper.updateParam('filter', tag_name)
+
+    }
+};
+
+function bindToModalElements(){
+
+    // ON SCROLL
+    $(".modal-body").on('scroll', function(){
+        if ($(this).scrollTop() > 1){ $(this).addClass("bottom-shadow") }
+        else {$(this).removeClass("bottom-shadow")}
+
+        var result_scroll = $(".modal-body").scrollTop()
+        urlHelper.updateParam('scroll', result_scroll)
+    })
+
+    // ON MODAL CLOSE
+    $('.modal').on('hidden.bs.modal', function (event) {
+        urlHelper.setToYear(activeYear)
+        $('search-box').focus()
+    });
+
+    // ON TAG CLICK
+    $('.result-tag').on('click', function(e){
+      var tag_name = $(this).text()
+      toggle_tag(tag_name)
+    });
 }
 
 //////////////////////////

@@ -115,3 +115,7 @@ def prioritize_match(results=None, raw_query=None, field=None):
 
 
 def process_hrefs(results):
+    for entry in results:
+        if entry['tag'] == 'Enumeration Member':
+            entry['href'] += '?enumeration={}'.format(entry.get('short_title'))
+    return results

@@ -1,10 +1,9 @@
 var urlHelper = new function() {
 
-  // getUrl: Something%20With%20Space
-  this.getUrl = window.location.href;
-  this.getUrlPath = window.location.pathname;
-  // getDecodedUrl: Something With Space
-  this.getDecodedUrl = decodeURIComponent(this.getUrl);
+  this.getUrl = function(){ return window.location.href };
+  this.getUrlLocal = function(){ return window.location.pathname };
+  this.getUrlParams = function(){ return window.location.search.substring(1) };
+  this.getDecodedUrl = function() {decodeURIComponent(this.getUrl)};
 
   this.getParam = function(paramName) {
       var results = new RegExp('[\?&]' + paramName + '=([^&#]*)').exec(this.getDecodedUrl);
@@ -17,33 +16,61 @@ var urlHelper = new function() {
   }
 
   this.getParams = function() {
-      this.params = {}
-      this.params.query = this.getParam('query')
-      this.params.filter = this.getParam('filter')
+      // Returns all params in url as json object
+      var uri = this.getUrlParams()
+
+      var re = new RegExp('(&$|#$)')
+      uri = uri.replace(re, '')
+    //   uri = uri.split('#')[0] // Remove, tripping parser, and not in use
+      if (uri) {
+          var jsonString = '{"' + decodeURI(uri).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}'
+          return JSON.parse(jsonString)
+      }
+      return {}
   }
 
-  this.pushUrl = function(urlString, append=false) {
-      if (append) { urlString += this.getUrl };
+  this.pushUrl = function(urlString) {
       history.pushState(null, null, urlString);
-      return this.getUrl
+      return this.getUrl()
   }
 
-  this.updateParam = function(key, value, push=true) {
-      var uri_parts = this.getDecodedUrl.split('/')
-      var uri_local = uri_parts[uri_parts.length - 1]
-      var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-      var separator = uri_local.indexOf('?') !== -1 ? "&" : "?";
-      if (uri_local.match(re)) {
-        var new_uri = uri_local.replace(re, '$1' + key + "=" + value + '$2');
-      }
-      else {
-        var new_uri = uri_local + separator + key + "=" + value;
-      }
-      if (push) {
-          this.pushUrl(new_uri);
-      }
+  this.setToYear = function(year) {
+      this.pushUrl('/' + year + '/')
   }
-}
+
+  this.updateParam = function updateParam(key, value) {
+      var uri = this.getUrl()
+      var newUrl = this._updateParam(uri, key, value)
+      this.pushUrl(newUrl)
+  }
+
+  this._updateParam = function updateParam(uri, key, value) {
+  // http://stackoverflow.com/questions/5999118/add-or-update-query-string-parameter
+
+          var re = new RegExp("([?&])" + key + "=.*?(&|#|$)", "i");
+          if( value === undefined ) {
+          	if (uri.match(re)) {
+        		return uri.replace(re, '$1$2');
+        	} else {
+        		return uri;
+        	}
+          } else {
+          	if (uri.match(re)) {
+          		return uri.replace(re, '$1' + key + "=" + value + '$2');
+        	} else {
+            var hash =  '';
+            if( uri.indexOf('#') !== -1 ){
+                hash = uri.replace(/.*#/, '#');
+                uri = uri.replace(/#.*/, '');
+            }
+            var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+            return uri + separator + key + "=" + value + hash;
+          }
+          }
+        }
+
+
+};
 
 
 // Updates a key-value on url parameter:

@@ -11,10 +11,10 @@ activeHref = (activeHref) ? activeHref[1] : null
 
 var IS_MOBILE = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
 var IS_SMALL_SCREEN = ($(window).width() < 768);
+var IS_WITH_SIDEBAR = !IS_MOBILE && ! IS_SMALL_SCREEN
 
 window.addEventListener('popstate', function(event) {
-    // Check Url from when using back button but staying on the same page
-    location.reload(urlHelper.getUrl)
+        location.reload(urlHelper.getUrl);
 });
 
 
@@ -24,21 +24,9 @@ $(".alert").delay(8000).fadeOut(300, function() {
 
 
 $(document).ready(function() {
+    // Enable Tooltips
     $('[data-toggle="tooltip"]').tooltip();
 
-    /////////////////////////////
-    // SIDEBAR SEARCH SCROLL  ///
-    /////////////////////////////
-    $("#sidebar").scroll(function(){
-      if ($("#sidebar").scrollTop() > 1){
-          $("#sidebar-search").css("top", $("#sidebar").scrollTop() + 0 + "px");
-          $("#sidebar-search").addClass("bottom-shadow")
-
-      } else {
-          $("#sidebar-search").css("top", "0px");
-          $("#sidebar-search").removeClass("bottom-shadow")
-      }
-    });
 
     ///////////////////////////////
     // COPY PASTE CODE EXAMPLES ///
@@ -73,3 +61,48 @@ $(document).ready(function() {
     });
 
 });
+
+// FLASH HELPER
+function flashAlert(text, style='info') {
+    var alertBox = '<div class = "alert alert-'+style+'" role="alert">' +
+                   '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+                   '<span aria-hidden="true">&times;</span></button>' +
+                   '</div>'
+
+    $('#content-wrapper').append(alertBox)
+    $('.alert').append(text)
+    return $('.alert')
+}
+
+// SCROLL HELPER
+function scrollHelper(parent, anchor, animate, offset=75){
+
+    if (typeof(anchor) == 'string') {
+        var targetScrollTop = Number(anchor)
+    }
+    else {
+        var targetScrollTop = anchor.offset().top - offset
+    }
+
+    if (animate) {
+        parent.animate({scrollTop: targetScrollTop},'slow');
+    }
+    else {
+        parent.scrollTop(targetScrollTop - offset)
+    }
+}
+
+var localStorageHelper = new function() {
+    this.set = function(key, value){
+        if (localStorage){
+            localStorage.setItem(key, value);
+            return true
+        }
+    }
+
+    this.get = function(key){
+        if (localStorage){
+            return localStorage.getItem(key);
+        }
+    }
+}
