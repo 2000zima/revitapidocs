@@ -30,7 +30,9 @@ js_assets = Bundle(
                    'js/ajaxHelper.js',
                    'js/apiTreeview.js',
                    'js/apiSearch.js',
-                #    'js/mustache.js',
+                   'js/navHelper.js',
+                   'js/index.js',
+
                    filters='rjsmin',
                    output='packed/packed.js'
                   )

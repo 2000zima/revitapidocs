@@ -43,6 +43,10 @@ ul.breadcrumb {
   width: 75%;
   }
 
+.strong {
+  font-weight: 600
+}
+
 .alert {
   z-index: 1200;
   position: absolute;
@@ -437,11 +441,29 @@ footer {
     }
 
     #result-filter-list {
-    min-height: 25px;
-    padding-left: 5px;
-    padding-top: 8px;
-    line-height: 20px;
-    vertical-align: middle;
+      margin-top: 16px;
+      margin-bottom: 12px;
+      padding-left: 3px;
+      // vertical-align: middle;
+      // line-height: 20px;
+      // min-height: 25px;
+    }
+
+    #result-filter-list>input {
+      display: inline;
+      width: 25%;
+      min-width: 125px;
+      height: 35px;
+      font-size: $font-size-small;
+      @include mobile {
+      width: 100%;
+      }
+
+    }
+
+    #result-info {
+      float: right;
+      text-align: right;
     }
 
     .member-of {

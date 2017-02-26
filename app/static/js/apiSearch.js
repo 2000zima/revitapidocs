@@ -63,22 +63,52 @@ function buildResults(resultsJson, query) {
 
 // Toggle Tag Filter Function
 function toggle_tag(tag_name){
-    var activeTagName = $('#result-filter').text()
+
+    // var activeTagName = $('#result-filter').text()
+    var activeTagName = urlHelper.getParams().filter
+
 
     if (activeTagName == tag_name){
-        // Tag is ACtive, Toggle Off
-        $('#result-filter').html('')
+        var $filterBox = $('#result-filter-box')
+        var tagNamePat = new RegExp('(\\s+)?' + tag_name, 'i')
+        $filterBox.val($filterBox.val().replace(tagNamePat, ''))
+        // $('#result-filter-box').val(tag_name)
         $('.result-entry[data-tag!="' + tag_name + '"]').show();
         urlHelper.updateParam('filter', undefined)
     }
 
     else {
         // No Tag Active, Toggle On
-        $('#result-filter').html(tag_name)
+        var $filterBox = $('#result-filter-box')
+        var space = $filterBox.val() == '' ? '' : ' '
+        $filterBox.val($filterBox.val() + space + tag_name)
+        // $('#result-filter').html(tag_name)
         $('.result-entry[data-tag!="' + tag_name + '"]').hide();
         urlHelper.updateParam('filter', tag_name)
-
     }
+
+    filterResults()
+};
+
+
+function filterResults(){
+    $filterBox = $('#result-filter-box')
+    var valThis = $filterBox.val();
+    $('.result-entry').each(function(){
+        var title = $(this).find('h5>a').text();
+        // var desc = $(this).find('.description').text();
+        var words = valThis.split(' ')
+        var combined = words.join('.+')
+        pat = new RegExp(combined, 'i')
+
+        if (title.match(pat)) {
+        // if ( (title.match(pat)) || (desc.match(pat)) ) {
+            $(this).show();
+        }
+        else{
+            $(this).hide()
+        }
+    });
 };
 
 function bindToModalElements(){
@@ -103,7 +133,12 @@ function bindToModalElements(){
       var tag_name = $(this).text()
       toggle_tag(tag_name)
     });
+
+    $('#result-filter-box').keyup(function(){
+        filterResults()
+    });
 }
+
 
 //////////////////////////
 // HANDLE BARS HELPERS ///

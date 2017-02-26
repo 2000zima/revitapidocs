@@ -21,7 +21,7 @@ class Config(object):
     FLASKS3_USE_CACHE_CONTROL = True
     FLASKS3_HEADERS = {'Cache-Control': 'max-age={}'.format(SEND_FILE_MAX_AGE_DEFAULT)}
 
-    FLASKS3_ONLY_MODIFIED = True
+    FLASKS3_ONLY_MODIFIED = False
     FLASKS3_GZIP = True
 
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
@@ -55,7 +55,7 @@ class Development(Config):
     CACHE_CLEAR = True
     DEBUG = True
     SECRET_KEY = 'SuperSecretKey'
-    ASSETS_DEBUG = True
+    ASSETS_DEBUG = bool(int(os.getenv('ASSETS_DEBUG', False)))
     FLASKS3_ACTIVE = bool(int(os.getenv('FLASKS3_ACTIVE', 0)))
     FLASK_ASSETS_USE_S3 = FLASKS3_ACTIVE
     FLASKS3_BUCKET_NAME = 'fake-bucket'

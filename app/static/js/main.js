@@ -25,7 +25,10 @@ $(window).resize(function(){
 
 
 window.addEventListener('popstate', function(event) {
-        location.reload(urlHelper.getUrl);
+    if (urlHelper.getUrl().indexOf('#') != -1){
+        return
+    }
+    location.reload(urlHelper.getUrl);
 });
 
 

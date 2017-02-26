@@ -26,7 +26,6 @@ flasks3.init_app(app)
 cache.init_app(app)
 toolbar.init_app(app)
 
-logger.info('** CACHE_TYPE: {}'.format(os.environ['CACHE_TYPE']))
 if app.config['CACHE_CLEAR']:
     cache.clear()
     logger.info('** Cached cleared [CLEAR_CACHE] True')

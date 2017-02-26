@@ -21,10 +21,18 @@ var urlHelper = new function() {
 
       var re = new RegExp('(&$|#$)')
       uri = uri.replace(re, '')
+      var re = new RegExp('(&{2,})')
+      uri = uri.replace(re, '&')
+    //   this.pushUrl(uri)
     //   uri = uri.split('#')[0] // Remove, tripping parser, and not in use
       if (uri) {
           var jsonString = '{"' + decodeURI(uri).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}'
-          return JSON.parse(jsonString)
+          try {
+              return JSON.parse(jsonString)
+          }
+          catch(e){
+              console.log('ERROR PARSING: ' + jsonString)
+          }
       }
       return {}
   }
@@ -46,6 +54,11 @@ var urlHelper = new function() {
 
   this._updateParam = function updateParam(uri, key, value) {
   // http://stackoverflow.com/questions/5999118/add-or-update-query-string-parameter
+          // Sanitizes: clears double && and at end
+          var re = new RegExp('(&$|#$)')
+          uri = uri.replace(re, '')
+          var re = new RegExp('(&{2,})')
+          uri = uri.replace(re, '&')
 
           var re = new RegExp("([?&])" + key + "=.*?(&|#|$)", "i");
           if( value === undefined ) {

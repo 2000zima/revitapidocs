@@ -16,10 +16,15 @@
               <span aria-hidden="true">&times;</span></button>
 
           <h4 class="modal-title truncate" id="myModalLabel">Query: <strong>{{query}}</strong></h4>
+
+
           <div id="result-filter-list" class="text-muted small">
-              Filter: <span id="result-filter" class="result-tag badge" data-filter=""></span>
-              <span id="result-size" class="pull-right">
-              Results: {{total_results}} | Target API: {{target_year}}</span>
+               <!-- <p>Type Filter: <span id="result-filter" class="result-tag badge" data-filter=""></span></p> -->
+               <input id="result-filter-box" type="text" class="form-control" id="filter" placeholder="Filter" autocomplete="off">
+               <div id="result-info" class='hidden-xs'>
+                   <span id="result-size">Results: {{total_results}}</span></br>
+                   <span id="result-size">Target API: {{target_year}}</span>
+               </div>
           </div>
       </div>
       <!-- MODAL HEADER -->
