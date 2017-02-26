@@ -47,11 +47,15 @@
         <header class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
                 <ul class="breadcrumb">
-                    &nbsp;
                 </ul>
+                <script id="breadcrumb-template" type="text/x-handlebars-template">{% raw %}
+                    <li><a href="{{entry.member_of_href}}">{{ entry.member_of }}</a></li>
+                     <span class="pull-right">
+                     {{ actual_year }} | <a href="https://github.com/gtalarico/revitapidocs/edit/master/app/templates/{{content_path}}">Edit</a>
+                     </span>{% endraw %}
+                </script>
             </div>
         </header>
-
 
         <h4 id="api-title" class="truncate"> {{ entry.title if entry else 'Documentation' }} </h4>
         <hr/>
@@ -62,13 +66,9 @@
         </article>
         <!-- END MAIN CONTENT -->
 
-        <!-- ////////////////////////////// -->
-            <!-- API ADSENSE -->
-            {# {% include 'components/__adsense.html' %}  #}
-
-            <!-- END ADSENSE -->
-        <!-- ////////////////////////////// -->
-
+        <!-- API ADSENSE -->
+        {# {% include 'components/__adsense.html' %}  #}
+        <!-- END ADSENSE -->
 
         <!-- START DISQUS -->
         {% if active_href %}
@@ -89,10 +89,21 @@ var loadingSpan = '<img src="{{ url_for('static', filename="img/loader.gif") }}"
 $('#menu-loading').html(loadingSpan)
 
 {% raw %}
-var breadcrumb = '<li><a href="{{entry.member_of_href}}">{{ entry.member_of }}</a></li>' +
+var breadcrumbTemplate = '<li><a href="{{entry.member_of_href}}">{{ entry.member_of }}</a></li>' +
                  '<span class="pull-right">' +
                  '{{ actual_year }} | <a href="https://github.com/gtalarico/revitapidocs/edit/master/app/templates/{{content_path}}">Edit</a>' +
                  '</span>'
+
+var resultEntryTemplate =
+                '{{#results}}' +
+                '<div class="result-entry" data-tag="{{tag}}">' +
+                    '<h5 class="truncate"><a href="{{href}}">{{title}}</a>' +
+                    '<span class="result-tag badge pull-right">{{tag}}</span></h5>' +
+                    '<p class="member-of small"><a href="{{member_of_href}}">{{member_of}}</a>' +
+                    '<span class="small year">{{#years}}{{@key}}{{/years}}</span></p>' +
+                    '<p class="small description">{{description}}</p>' +
+                '</div>' +
+                '{{/results}}'
 {% endraw %}
 
 templateData = { entry: {{entry|tojson|safe }},
@@ -102,9 +113,16 @@ templateData = { entry: {{entry|tojson|safe }},
                  active_year : "{{active_year}}",
 }
 
+var CONSTRUCTOR_KEY = '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}'
+
 $(document).ready(function() {
 
     ajaxHelper.loadContent(templateData, true)
+    urlHelper.getParams()
+    if (urlHelper.params.query) {
+        submitSearch(urlHelper.params.query)
+    }
+    console.log(urlHelper.params)
 
 });
 

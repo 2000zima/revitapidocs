@@ -147,20 +147,35 @@ article#api-content {
 
         span.highlight-comment{
             font-style: italic;
-            color:#838785;
+            color:#878383;
         }
       }
 
 
-  div.saveHistory>p,
-  span.highlight-copycode
-   {
+  div.saveHistory > p, {
     display: none;
   }
+
+  span.highlight-copycode {
+    float: right;
+    opacity: .75;
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+    &:focus{
+      outline: 0px solid transparent;
+    }
+  }
+
+}
   // div#header:empty{
   //   display: none;
   // }
 
-
-
-}
+// span[codelanguage="CSharp"]
+// span[codelanguage="VisualBasicDeclaration"],
+// span[codelanguage="VisualBasicDeclaration"],
+// span[codelanguage="ManagedCPlusPlus"], {
+  // display: none
+// }

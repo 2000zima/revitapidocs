@@ -43,18 +43,6 @@ ul.breadcrumb {
   width: 75%;
   }
 
-  h4 {
-    @extend .truncate;
-    line-height: 22px;
-    margin-bottom: 0;
-    }
-
-  h5 {
-    @extend .truncate;
-    line-height: 18px;
-    margin-bottom: 0;
-    }
-
 .alert {
   z-index: 1200;
   position: absolute;
@@ -120,7 +108,7 @@ ul.breadcrumb {
     border-bottom: $nav-bar-border-width solid $brand-nav-gray;
 
     &.active {
-      background-color: #222;
+      background-color: #1c1c1c;
       border-bottom-color: $brand-primary;
     }
 
@@ -146,7 +134,7 @@ ul.breadcrumb {
       border-bottom-color: $brand-danger !important;
     }
     &.updated {
-      border-bottom-color: darken($brand-warning,17%);
+      border-bottom-color: darken($brand-warning,15%);
     }
     &.active.updated, &.updated:hover {
       border-bottom-color: $brand-warning;
@@ -200,9 +188,19 @@ ul.breadcrumb {
 
 
 #content-with-sidebar {
-  // Hides Sidebar while loading
-  // opacity: 0;
   padding: $padding-large-vertical $padding-large-horizontal;
+
+  h4 {
+    @extend .truncate;
+    line-height: 22px;
+    margin-bottom: 0;
+    }
+
+  h5 {
+    @extend .truncate;
+    line-height: 18px;
+    margin-bottom: 0;
+    }
 
   @include desktop {
     position: absolute;
@@ -251,25 +249,6 @@ ul.breadcrumb {
     }
   }
 
-
-  @include desktop {
-    .bottom-shadow {
-      @include box-shadow(0 3px 35px 0 rgba(0,0,0,0.25));
-      @include transition(box-shadow 150ms ease-in-out, padding-bottom 150ms ease-in-out);
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 10px;
-    }
-
-
-    .no-bottom-shadow {
-      @include box-shadow(0 0 0 0 rgba(0,0,0,0.0));
-      @include transition(box-shadow 150ms ease-in-out, padding-bottom 150ms ease-in-out);
-      background-color: $gray-lighter !important;
-      border-bottom: 0 solid $gray-lighter;
-      padding-bottom: 8px;
-    }
-  }
-
   .form-group {
     margin:0
   }
@@ -279,6 +258,18 @@ ul.breadcrumb {
     position: relative;
     margin:0px;
     background-color: $gray-lighter;
+    border-bottom: 0 solid $gray-lighter;
+
+    @include box-shadow(0 0 0 0 rgba(0,0,0,0.0));
+    @include transition(box-shadow 200ms ease-in-out, padding-bottom 200ms ease-out);
+
+    &.bottom-shadow {
+      @include transition(box-shadow 200ms ease-in-out, padding-bottom 200ms ease-out);
+      @include box-shadow(0 3px 35px 0 rgba(0,0,0,0.25));
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 2-px;
+      background-color: lighten($gray-lighter, 1%);
+    }
 
     @include desktop {
       padding: $padding-large-horizontal;
@@ -642,14 +633,3 @@ div#direct-search {
   }
 
 }
-
-
-
-//
-
-// span[codelanguage="CSharp"]
-// span[codelanguage="VisualBasicDeclaration"],
-// span[codelanguage="VisualBasicDeclaration"],
-// span[codelanguage="ManagedCPlusPlus"], {
-  // display: none
-// }

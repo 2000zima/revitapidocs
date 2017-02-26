@@ -1,7 +1,14 @@
 var ajaxHelper = new function() {
 
+    ///////////////////////////////
+    /// LOAD CONTENT DYNAMIcALLY //
+    ///////////////////////////////
     this.loadContent = function(contentJson, firstLoad) {
-        $('.breadcrumb').first().html( Mustache.to_html(breadcrumb, contentJson) );
+        // $('.breadcrumb').first().html( Mustache.to_html(breadcrumbTemplate, contentJson) );
+        var source   = $("#breadcrumb-template").html();
+        var template = Handlebars.compile(source);
+        var html = template(contentJson);
+        $('.breadcrumb').first().html(html);
 
         if (firstLoad == true) {
             return
@@ -20,6 +27,9 @@ var ajaxHelper = new function() {
 
     };
 
+    ///////////////////////////
+    /// UPDATE NAV BAR YEARS //
+    ///////////////////////////
     this.updateYearNavStatus = function(contentJson) {
         var years = contentJson['entry']['years']
         $('#nav-main a').each(function(index, navLiTag) {
@@ -50,4 +60,18 @@ var ajaxHelper = new function() {
             };
         });
     };
+
+    ///////////////////////////
+    /// CONSTRUCTOR.IO AJAX  //
+    ///////////////////////////
+    this.createConstructor = function($inputbox, CONSTRUCTOR_KEY, maxResults) {
+        $.getScript("//cnstrc.com/js/ac.js", function() {
+                $inputbox.constructorAutocomplete({
+                key: CONSTRUCTOR_KEY,
+                boostRecentSearches : true,
+                maxResults : maxResults,
+                triggerSubmitOnSelect: true
+                });
+        });
+    }
 };

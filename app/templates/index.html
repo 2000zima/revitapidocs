@@ -163,25 +163,15 @@
   <script>
 
 
-var searchBoxInput = $('#search-box')
-
-// AUTOCOMPLETE
-$.getScript("//cnstrc.com/js/ac.js", function() {
-searchBoxInput.on('click', function() {
-  searchBoxInput.constructorAutocomplete({
-      key: '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}',
-      boostRecentSearches : true,
-      maxResults : 6,
-      triggerSubmitOnSelect: true
-      });
-  });
-});
+var $searchBoxInput = $('#search-box')
+var CONSTRUCTOR_KEY = '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}'
+ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_KEY, 5)
 
 
 $(document).ready(function(e){
 
     // Set Input
-    searchBoxInput.delay(1500).fadeIn(function() {
+    $searchBoxInput.delay(1500).fadeIn(function() {
       $(this).focus();
     });
 
@@ -189,7 +179,7 @@ $(document).ready(function(e){
     // Conditional Statement makes it so animation only runs the first time
     if (localStorage && !localStorage.getItem('revitapidocs_year')){
         $(function(){
-          searchBoxInput.typed({
+          $searchBoxInput.typed({
             strings: ["Wall Class", "Pushbutton", "Global Parameter",
             "Idling Event", "Ribbon Item", "CreateBound", "ViewSchedule",
             "ViewType", "Revit.UI", "ActiveDocument", "DocumentClass",
@@ -199,24 +189,24 @@ $(document).ready(function(e){
             startDelay: 2500,
           });
         });
-        searchBoxInput.typed.isRunning = true
+        $searchBoxInput.typed.isRunning = true
     }
     else {
-        searchBoxInput.attr({'Placeholder':'Search Term'})
-        searchBoxInput.typed.isRunning = false
+        $searchBoxInput.attr({'Placeholder':'Search Term'})
+        $searchBoxInput.typed.isRunning = false
     }
 
     // On First Click only, Clear Animation
-    searchBoxInput.one('click', function(){
-      if (searchBoxInput.typed.isRunning) {
-          searchBoxInput.typed('stops')
-          searchBoxInput.val('')
-          searchBoxInput.attr({'Placeholder':'Search Term'})
+    $searchBoxInput.one('click', function(){
+      if ($searchBoxInput.typed.isRunning) {
+          $searchBoxInput.typed('stops')
+          $searchBoxInput.val('')
+          $searchBoxInput.attr({'Placeholder':'Search Term'})
       }
     })
 
     // Clears Error when user clicks on input again
-    searchBoxInput.on('click', function(){
+    $searchBoxInput.on('click', function(){
       $("div#direct-search").find('.form-group').removeClass('has-error')
       $("div#direct-search").find('.control-label').html("&nbsp;")
     })
@@ -251,7 +241,7 @@ $(document).ready(function(e){
     $("#direct-search").submit(function(e) {
       e.preventDefault() // Keeps page from submitting and reloading
       var year = $('#direct-search-year').attr('value')
-      var query = searchBoxInput.val()
+      var query = $searchBoxInput.val()
 
       if (year === 'UNDEFINED'){
         $("#direct-search").find('.form-group').addClass('has-error')

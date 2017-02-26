@@ -1,4 +1,4 @@
-var UrlHelper = new function() {
+var urlHelper = new function() {
 
   // getUrl: Something%20With%20Space
   this.getUrl = window.location.href;
@@ -14,6 +14,12 @@ var UrlHelper = new function() {
       else{
          return results[1] || 0;
       }
+  }
+
+  this.getParams = function() {
+      this.params = {}
+      this.params.query = this.getParam('query')
+      this.params.filter = this.getParam('filter')
   }
 
   this.pushUrl = function(urlString, append=false) {
@@ -38,6 +44,7 @@ var UrlHelper = new function() {
       }
   }
 }
+
 
 // Updates a key-value on url parameter:
 // URL: revitpythondocs.com/python/?query=3

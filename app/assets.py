@@ -22,12 +22,14 @@ js_assets = Bundle(
                 #    'js/jquery.cookie.js',
                 #    'js/bootstrap.js',
                    'js/main.js',
-                   'js/ajaxHelper.js',
                    'js/urlhelper.js',
+                   'js/ajaxHelper.js',
                    'js/apiTreeview.js',
+                   'js/apiSearch.js',
                    'js/treeview.js',
                    'js/typed.js',
-                   'js/mustache.js',
+                   'js/handlebars-v4.0.5.js',
+                #    'js/mustache.js',
                    filters='rjsmin',
                    output='packed/packed.js'
                   )
