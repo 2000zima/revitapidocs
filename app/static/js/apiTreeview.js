@@ -24,7 +24,7 @@ $(document).ready(function() {
     // SIDEBAR SEARCH SCROLL  ///
     /////////////////////////////
     $("#sidebar").scroll(function(){
-      if ($("#sidebar").scrollTop() > 1 && IS_WITH_SIDEBAR){
+      if ($("#sidebar").scrollTop() > 1){
           $("#sidebar-search").css("top", $("#sidebar").scrollTop() + 0 + "px");
           $("#sidebar-search").addClass("bottom-shadow")
 
@@ -70,7 +70,6 @@ function buildTreeView(namespace_json) {
 
         // Find Node, Expand, Select, and Scroll to it
         if (activeNodeId){
-            console.log('Found Node.')
             $treeview.treeview('revealNode', [ activeNodeId, { silent: false } ]);
             $treeview.treeview('toggleNodeSelected', [ activeNodeId, { silent: false } ]);
             $treeview.treeview('toggleNodeExpanded', [ activeNodeId, { silent: false } ]);
@@ -107,19 +106,24 @@ function scrollToNode(nodeId) {
     $('#sidebar').scrollTop(scrollto); // Scroll, no animation
 };
 
-function findNodeIdByHref ($treeview, href) {
+function findNodeIdByHref ($treeview, href, startIndex=0, maxLookup=null) {
 
     var node
-    var nodeId = 0;
+    var nodeId = startIndex;
+    var maxIndex = maxLookup ? (startIndex+maxLookup) : null
     do {
         node = $treeview.treeview("getNode", nodeId);
         if (node && node.href == href) {
+            console.log('Searghing Node: Found Node.')
             return node.nodeId
-        };
+        }
+        else if (maxIndex != null && nodeId > maxIndex) {
+            console.log('Searghing Node: early exit. Node not within range.')
+            return null
+        }
         nodeId++;
     }
     while (node.nodeId != undefined);
-
     return null
 }
 
@@ -130,29 +134,34 @@ function findNodeIdByHref ($treeview, href) {
 // logic is tightly integrated with treevie
 // $(document).on('click', '.node-treeview a', function(e){
 $(document).on('click', '.node-treeview a, #api-content a', function(e){
+    // return
 
     var contenHref = $(this).attr('href')
     var hrefPattern = new RegExp('[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12}.htm')
 
-    // Overrides Anchor click, else pop state would change page
+    // TODO: Optimize if it's not in -10 to next 20, reload page
+
+
+    // SPECIAL CASE: IS ANCHOR
     if (!contenHref.match(hrefPattern)) {
         if (contenHref.indexOf('#') != -1) {
-            e.preventDefault()
+            // Contains #,
             contenHref = contenHref.replace('#','')
             var target = $('a[name="' + contenHref + '"]')
             scrollHelper($('#content-with-sidebar'), target, true)
             urlHelper.updateParam('section', contenHref)
+            e.preventDefault()
             return
         }
-        else{
+        else {
+            // Doesn't match content, and it's not anchor href,
+            // exit and let default handle it
             return
         }
     }
-
-    e.preventDefault();
+    // SPECIAL CASE: NEWS
 
     var ajaxContent = $.getJSON( contenHref + '?ajax' , function(json) {
-        $("#api-content-wrapper").html(loadingSpan)
         ajaxHelper.loadContent(json, false)
         ajaxHelper.updateYearNavStatus(json)
         urlHelper.pushUrl(contenHref)
@@ -160,15 +169,24 @@ $(document).on('click', '.node-treeview a, #api-content a', function(e){
 
     if (!IS_MOBILE && !IS_SMALL_SCREEN) {
         var $treeview = $('#treeview')
-        var nodeId = $(this).parent().data('nodeId')
-        var isMainContentClick // Click came from main div
+        var nodeId = $(this).parent().attr('data-nodeId')
+        var clickIsFromTreeview = nodeId ? true : false // Will store if
 
         if (!nodeId) {
-            var isMainContentClick = true
-            var nodeId = findNodeIdByHref($treeview, contenHref)
+            console.log('Click originated from non-node source. Trying to find it.')
+            var selectedNodeId = $treeview.treeview('getSelected')[0].nodeId
+            var nodeId = findNodeIdByHref($treeview, contenHref, selectedNodeId-3, 10)
         }
 
-        var node = document.querySelectorAll('[data-nodeId="' + nodeId + '"]')[0];
+        if (nodeId == null) {
+            console.log('! Could not find node. Reloading...')
+            return
+        }
+
+        e.preventDefault();
+
+        var node = $treeview.treeview('getNode', [ nodeId, { silent: true } ]);
+        // var node = document.querySelectorAll('[data-nodeId="' + nodeId + '"]')[0];
         if (!node) {
             // If node is not visible, reload windows
             // Trying to expand it it's too intensive
@@ -176,12 +194,16 @@ $(document).on('click', '.node-treeview a, #api-content a', function(e){
             location.reload();
         }
 
-        // $treeview.treeview('revealNode', [ Number(nodeId), { silent: false } ]);
-        $treeview.treeview('selectNode', [ Number(nodeId), { silent: false } ]);
-        $treeview.treeview('expandNode', [ Number(nodeId), { silent: false } ]);
+        $treeview.treeview('selectNode', [ Number(nodeId), { silent: true } ]);
+        $treeview.treeview('revealNode', [ Number(nodeId), { silent: false } ]);
+        // $treeview.treeview('expandNode', [ Number(nodeId), { silent: false } ]);
 
-        if (isMainContentClick) {
+        if (!clickIsFromTreeview) {
             scrollToNode(nodeId)
         };
     };
 });
+
+// TODO:
+// Reload if + than x nodes are open
+// $('#treeview').treeview('getExpanded')

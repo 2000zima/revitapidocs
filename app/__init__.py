@@ -27,13 +27,12 @@ cache.init_app(app)
 toolbar.init_app(app)
 
 logger.info('** CACHE_TYPE: {}'.format(os.environ['CACHE_TYPE']))
-if bool(int(os.getenv('CACHE_CLEAR', 0))):
+if app.config['CACHE_CLEAR']:
     cache.clear()
     logger.info('** Cached cleared [CLEAR_CACHE] True')
 
 # ASSETS
 assets = Environment(app)
-assets.debug = bool(int(os.getenv('ASSETS_DEBUG', False)))
 assets.register('css_assets', css_assets)
 assets.register('js_assets', js_assets)
 logger.debug('ASSETS DEBUG: {}'.format(assets.debug))

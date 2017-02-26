@@ -16,6 +16,11 @@ var IS_WITH_SIDEBAR = !IS_MOBILE && ! IS_SMALL_SCREEN
 $(window).resize(function(){
     var IS_SMALL_SCREEN = ($(window).width() < 768);
     var IS_WITH_SIDEBAR = !IS_MOBILE && !IS_SMALL_SCREEN
+    if (!IS_WITH_SIDEBAR) {
+        // Patch for when window is resized small after quick search is on
+        $("#sidebar-search").css("top", "0px");
+        $("#sidebar-search").removeClass("bottom-shadow")
+        }
 })
 
 

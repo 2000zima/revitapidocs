@@ -12,6 +12,7 @@ class Config(object):
 
     SEND_FILE_MAX_AGE_DEFAULT = 604800  # 60*60*24*7 = 1 Week
     CACHE_TYPE = os.getenv('CACHE_TYPE', 'simple')  # simple, redis
+    CACHE_CLEAR = False
 
     GITHUB_TOKEN = os.environ['GITHUB_TOKEN']
     CONSTRUCTOR_IO_AUTOCOMPLETE_KEY = os.environ['CONSTRUCTOR_IO_AUTOCOMPLETE_KEY']
@@ -22,9 +23,6 @@ class Config(object):
 
     FLASKS3_ONLY_MODIFIED = True
     FLASKS3_GZIP = True
-    FLASKS3_ACTIVE = bool(int(os.getenv('FLASKS3_ACTIVE', 0)))
-    FLASK_ASSETS_USE_S3 = FLASKS3_ACTIVE
-    FLASKS3_BUCKET_NAME = 'fake-bucket'
 
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
@@ -37,23 +35,30 @@ class Config(object):
 
 class Production(Config):
     PRODUCTION = True
-    FLASKS3_ACTIVE = FLASKS3_ACTIVE = True
+    ASSETS_DEBUG = bool(int(os.getenv('ASSETS_DEBUG', False)))
+    FLASKS3_ACTIVE = FLASK_ASSETS_USE_S3 = bool(int(os.getenv('FLASKS3_ACTIVE', True)))
+    FLASKS3_ACTIVE = FLASKS3_ACTIVE
     SECRET_KEY = os.environ['SECRET_KEY']
     FLASKS3_BUCKET_NAME = 'revitapidocs'
 
 
 class Staging(Config):
-    DEBUG = False
     STAGING = True
+    CACHE_CLEAR = bool(int(os.getenv('CACHE_CLEAR', 0)))
+    ASSETS_DEBUG = bool(int(os.getenv('ASSETS_DEBUG', False)))
+    FLASKS3_ACTIVE = FLASK_ASSETS_USE_S3 = bool(int(os.getenv('FLASKS3_ACTIVE', True)))
+    DEBUG = False
+    FLASKS3_BUCKET_NAME = 'revitapidocs-staging'
     SECRET_KEY = os.environ['SECRET_KEY']
 
-    FLASKS3_BUCKET_NAME = 'revitapidocs-staging'
-    FLASKS3_ACTIVE = FLASK_ASSETS_USE_S3 = True
-
-
 class Development(Config):
+    CACHE_CLEAR = True
     DEBUG = True
     SECRET_KEY = 'SuperSecretKey'
+    ASSETS_DEBUG = True
+    FLASKS3_ACTIVE = bool(int(os.getenv('FLASKS3_ACTIVE', 0)))
+    FLASK_ASSETS_USE_S3 = FLASKS3_ACTIVE
+    FLASKS3_BUCKET_NAME = 'fake-bucket'
 
     DEBUG_TB_INTERCEPT_REDIRECTS = False
     DEBUG_TB_TEMPLATE_EDITOR_ENABLED = True
@@ -71,7 +76,7 @@ class Development(Config):
     )
 
 
-class Testing(Config):
+class Testing(Development):
     TESTING = True
     DEBUG = True
     SECRET_KEY = 'SuperSecretKey'

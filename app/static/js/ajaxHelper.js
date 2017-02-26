@@ -12,17 +12,22 @@ var ajaxHelper = new function() {
         if (firstLoad == true) {
             return
         }
+        var $apiContentWrapper = $("#api-content-wrapper")
+        $apiContentWrapper.html(loadingSpan)
+        $('#api-title').html( contentJson['entry']['title'] );
 
         console.log('Loading content: ' + contentJson['content_path'])
         var contentHtml = contentJson['content_html']
         var years = contentJson['content_html']
 
-        $('#api-title').html( contentJson['entry']['title'] );
 
-        $("#api-content-wrapper").fadeOut(function() {
-            $(this).scrollTop(0);
-            $(this).html(contentHtml).fadeIn('slow');
-        });
+        $apiContentWrapper.scrollTop(0);
+        $apiContentWrapper.html(contentHtml)
+        // $apiContentWrapper.hide(function() {
+        //     $(this).scrollTop(0);
+        //     $(this).html(contentHtml).show();
+        //     $(this).html(contentHtml).fadeIn('slow');
+        // });
 
     };
 
