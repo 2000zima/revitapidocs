@@ -13,6 +13,12 @@ var IS_MOBILE = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini
 var IS_SMALL_SCREEN = ($(window).width() < 768);
 var IS_WITH_SIDEBAR = !IS_MOBILE && ! IS_SMALL_SCREEN
 
+$(window).resize(function(){
+    var IS_SMALL_SCREEN = ($(window).width() < 768);
+    var IS_WITH_SIDEBAR = !IS_MOBILE && !IS_SMALL_SCREEN
+})
+
+
 window.addEventListener('popstate', function(event) {
         location.reload(urlHelper.getUrl);
 });

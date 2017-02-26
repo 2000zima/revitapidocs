@@ -24,7 +24,7 @@ $(document).ready(function() {
     // SIDEBAR SEARCH SCROLL  ///
     /////////////////////////////
     $("#sidebar").scroll(function(){
-      if ($("#sidebar").scrollTop() > 1){
+      if ($("#sidebar").scrollTop() > 1 && IS_WITH_SIDEBAR){
           $("#sidebar-search").css("top", $("#sidebar").scrollTop() + 0 + "px");
           $("#sidebar-search").addClass("bottom-shadow")
 

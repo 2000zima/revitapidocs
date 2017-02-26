@@ -14,7 +14,7 @@
     {% include 'components/__modalsearch.html' %}
 
     <!-- START SIDEBAR -->
-    <nav id="sidebar" class="col-sm-12 col-md-5 col-lg-3">
+    <nav id="sidebar" class="col-sm-12 col-md-5 col-lg-2">
 
         <!-- SIDEBAR SEARCH -->
         <div id="sidebar-search">
@@ -42,7 +42,7 @@
     <!-- END SIDEBAR -->
 
     <!-- START MAIN -->
-    <div class="col-sm-12 col-md-6 col-lg-9" id="content-with-sidebar">
+    <div class="col-sm-12 col-md-6 col-lg-10" id="content-with-sidebar">
 
         <header class="row">
             <div class="col-sm-12 col-md-12 col-lg-12">
@@ -101,6 +101,7 @@ var CONSTRUCTOR_KEY = '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}'
 $(document).ready(function() {
 
     ajaxHelper.loadContent(templateData, true)
+
     var urlParams = urlHelper.getParams()
     if (urlParams.query) {
         submitSearch(urlParams.query)
