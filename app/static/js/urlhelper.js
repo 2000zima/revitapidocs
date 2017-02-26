@@ -7,7 +7,7 @@ var urlHelper = new function() {
   this.getDecodedUrl = decodeURIComponent(this.getUrl);
 
   this.getParam = function(paramName) {
-      var results = new RegExp('[\?&]' + paramName + '=([^&#]*)').exec(this.getUrl);
+      var results = new RegExp('[\?&]' + paramName + '=([^&#]*)').exec(this.getDecodedUrl);
       if (results==null){
          return null;
       }

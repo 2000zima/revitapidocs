@@ -13,7 +13,7 @@ from app.utils.db import db_json, namespace_jsons
 
 from app.utils.db_utils import search_db
 from app.utils.db_utils import get_entry, get_best_entry_match
-from app.utils.db_utils import process_query, prioritize_match
+from app.utils.db_utils import process_query, prioritize_match, process_hrefs
 
 from app.utils.gists import get_gists
 from app.utils.misc import Timer
@@ -106,7 +106,7 @@ def ajax_namespace_get(year):
 
 @app.route('/<string:year>/search', methods=['GET'])
 def search_api(year):
-    MAX_RESULTS = 500
+    MAX_RESULTS = 300
     raw_query = request.args.get('query')
 
     if not raw_query or raw_query == '0':
@@ -124,9 +124,17 @@ def search_api(year):
 
     sorted_results = sorted(results, key=lambda k: k['title'])
     prioritized_results = prioritize_match(results=sorted_results, raw_query=raw_query, field='title')
-    if len(prioritized_results) > MAX_RESULTS:
+    total_results = len(prioritized_results)
+    if total_results > MAX_RESULTS:
         prioritized_results = prioritized_results[:MAX_RESULTS]
-    return jsonify(prioritized_results)
+
+    processed_restults = processs_results(prioritized_results)
+    return jsonify({'results': prioritized_results,
+                    'target_year': year,
+                    'query': raw_query,
+                    'total_results': total_results,
+                    'max_results': MAX_RESULTS
+                    })
 
 
 @app.route('/python/', methods=['GET'])

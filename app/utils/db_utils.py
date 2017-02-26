@@ -22,23 +22,6 @@ def get_entry(filename):
     return entry
 
 
-# @cache.memoize(timeout=3600) # 1 Hour
-# def get_file_available_years(filename):
-#     ''' Checks which years resource file is available in.
-#     Returns: list of years a string, empty string if there not matches
-#     '''
-#     available_in = []
-#     for year in AVAILABLE_YEARS:
-#         fullpath = os.path.join(API_DOCS_PATH, year, filename)
-#         if os.path.exists(fullpath):
-#             available_in.append(year)
-#     logger.debug('Available in [{}]:{}'.format(available_in, filename))
-#     if not available_in:
-#         logger.error('File was not found in any year: {}'.format(filename))
-#     import pdb; pdb.set_trace()
-#     return available_in
-
-
 def get_best_entry_match(entry, target_year):
     """Figures out the best match based on the target year.
     The best match is self is content is the first to exists or has been updated
@@ -129,3 +112,6 @@ def prioritize_match(results=None, raw_query=None, field=None):
         else:
             prioritized_results.append(member)
     return prioritized_results
+
+
+def process_hrefs(results):

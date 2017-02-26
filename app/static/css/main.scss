@@ -398,12 +398,8 @@ footer {
     margin-bottom: 18px;
     }
 
-    .result-exact-match > h5{
+    h5.result-exact-match{
     font-weight: 600;
-    }
-    .result-exact-match{
-    // border-bottom-width: 1px !important;
-    // border-color: $brand-primary !important;
     }
 
     h5 {
@@ -448,6 +444,10 @@ footer {
     .year {
       line-height: 18px;
       float: right;
+
+      .missing{
+        color: $brand-danger
+      }
 
       @include mobile {
       display:none;

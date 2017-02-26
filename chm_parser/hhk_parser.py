@@ -105,7 +105,7 @@ def parse_members(hhk_data, db_index):
         member = {}
         member['tag'] = 'Enumeration Member'
         member['title'] = corrected_member_title
-        # member['short_title'] = corrected_member_title.split(' ')[0]''
+        member['short_title'] = corrected_member_title.split(' ')[0]
         member['href'] = member_href
         member['member_of_href'] = member_href
         member['member_of'] = '.'.join([entry['member_of'], entry['title']])

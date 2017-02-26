@@ -1,26 +1,48 @@
 <!-- MODAL SEARCH -->
 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+
+    <div class="modal-content" id="modal-results">
+    <!-- Handlebars TEMPLATE -->
+    </div>
+
+    {% raw %}
+    <script id="result-entry-template" type="text/x-handlebars-template">
+
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title truncate" id="myModalLabel"></h4>
-        <div id="result-filter-list" class="text-muted small">Filter: <span id="result-filter" class="result-tag badge"></span><span id="result-size" class="pull-right"></span></div>
+
+        <h4 class="modal-title truncate" id="myModalLabel">Query: <strong>{{query}}</strong></h4>
+        <div id="result-filter-list" class="text-muted small">
+            Filter: <span id="result-filter" class="result-tag badge"></span>
+            <span id="result-size" class="pull-right">Results {{total_results}} | Target API: {{target_year}}</span>
+        </div>
       </div>
       <div class="modal-body">
-
-        <!-- MAIN RESULT DIV -->
-        <div id="modal-results">
+    <!-- MAIN RESULT DIV -->
+        {{#each results}}
+        <div class="result-entry" data-tag="{{tag}}">
+            <h5 class="truncate {{#exactMatch}}{{/exactMatch}}"><a href="{{href}}{{#if enumeration}}{{tag}}{{/if}}">{{title}}</a>
+            <span class="result-tag badge pull-right">{{tag}}</span></h5>
+            <p class="member-of small"><a href="{{member_of_href}}">{{member_of}}</a>
+                <span class="small year">{{#joinyears}}{{years}}{{/joinyears}}
+                </span>
+            </p>
+            <p class="small description">{{description}}</p>
         </div>
-        <!-- MAIN RESULT DIV -->
+        {{/each}}
+    <!-- MAIN RESULT DIV -->
 
-      </div>
-      <div class="modal-footer">
-        <span class="text-muted small">Could not find what you were looking for?
-        Try a <a id="google-link" target="=_blank">Google Search</a></span>
-      </div>
     </div>
+    <div class="modal-footer text-muted small hidden-xs">
+    <span>Could not find it?
+    Try a <a id="google-link" target="=_blank" href="http://www.google.com/search?q=site:www.revitapidocs.com {{query}}">Google Search</a></span>
+    </div>
+    </script>
+    {% endraw %}
+    <!-- Handlebars TEMPLATE -->
+
   </div>
 </div>
 <!-- MODAL SEARCH -->

@@ -13,14 +13,11 @@ $(document).ready(function() {
 });
 
 function submitSearch(query) {
-    $('.modal-title').html('Query: <strong>'+ query +'</strong>');
-    $('#google-link').attr("href", "www.google.com/search?q=site:www.revitapidocs.com " + query)
     $('#modal-results').html(loadingSpan)
     $('#searchModal').modal('show');
     // $('#result-filter').html('')
     // var pushUrl = updateQueryStringParameter('filter', '');
     // urlHelper.pushUrl(clean_uri);
-    // search(pattern, null, true)
 
     var resultsJson;
     var ajaxSearch = $.getJSON("search?query=" + query, function(json) {
@@ -28,36 +25,58 @@ function submitSearch(query) {
         resultsJson = json;
         });
     ajaxSearch.done(function(){
-        buildResults(resultsJson, query);
         var gaUrl = '/' + activeYear +'/?query=' + query
         ga('send', 'pageview', gaUrl);
     })
     ajaxSearch.fail(function(){
         console.log('Search Ajax call FAILED.')
-        var resultsJson = {'error':' Could not reach search API'};
+        resultsJson = {'error':' Could not reach search API'};
+    })
+    ajaxSearch.always(function(){
+        buildResults(resultsJson, query);
     })
 };
 
 function buildResults(resultsJson, query) {
-    var modalResults = $('#modal-results')
+    var $modalResults = $('#modal-results')
     if (resultsJson.error) {
-        modalResults.html('<p class="text-danger">' + resultsJson.error + '</p>')
+        $modalResults.html('<p class="text-danger">' + resultsJson.error + '</p>')
     }
     else{
-        // $.each(resultsJson) {
+        var source   = $("#result-entry-template").html();
+        var template = Handlebars.compile(source);
 
-        function unwrapYears() {
-           return function(years, render) {
+        // var results = {'results': resultsJson }
+        var html = template(resultsJson);
+        $modalResults.html(html);
 
-               var yearsArr = []
-               for (var key in years) {
-                   yearsArr.push(key.toString())
-               }
-               return render(yearsArr.join(' / '))
-            }
         }
 
-        var results = {'results': resultsJson }
-        modalResults.html( Mustache.to_html(resultEntryTemplate, results) );
-        }
 }
+
+//////////////////////////
+// HANDLE BARS HELPERS ///
+//////////////////////////
+
+Handlebars.registerHelper('joinyears', function(options) {
+    var years = this.years
+    var yearsArr = []
+    for (var year in years) {
+        yearsArr.push(year)
+    }
+
+    if (yearsArr.length === 4){ return 'All years' }
+    var cls
+    if (yearsArr.indexOf(options.data.root['target_year']) == -1) {
+        var cls = 'missing'
+    }
+    return '<span class="'+cls+'">' + yearsArr.join(' / ') + '</span>'
+});
+
+Handlebars.registerHelper('exactMatch', function(options) {
+    var query = options.data.root['query'].toLowerCase()
+    var title = this.title.toLowerCase()
+    if (query == title) {
+        return 'result-exact-match'
+    }
+});
