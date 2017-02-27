@@ -8,40 +8,48 @@
 <div id="content-full-width">
 
   <div class="row">
-  </br>
-  <div class="col-xs-11 col-sm-7 col-md-6 col-lg-5 col-centered">
+      </br>
+      <div class="col-xs-11 col-sm-7 col-md-6 col-lg-5 col-centered">
 
-    <div id="direct-search">
-        <img class="center-block" id="index-logo" alt="Revit API Docs Logo" height="70px" src="{{ url_for('static', filename="img/logos/logo-title.svg") }}"/>
-        <form>
-          <div class="form-group">
-            <label class="control-label text-danger">&nbsp;</label>
-            <div class="input-group">
-              <input type="text" class="form-control" id="direct-search-input" placeholder="" aria-label="..." autocomplete="off">
-              <div class="input-group-btn">
+        <!-- MARGING ADDED -->
+        <div id="direct-search"  style="margin-bottom:0px">
+            <img class="center-block" id="index-logo" alt="Revit API Docs Logo" height="70px" src="{{ url_for('static', filename="img/logos/logo-title.svg") }}"/>
+            <form>
+              <div class="form-group">
+                <label class="control-label text-danger">&nbsp;</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="direct-search-input" placeholder="" aria-label="..." autocomplete="off">
+                  <div class="input-group-btn">
 
-                <button id="direct-search-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="UNDEFINED" aria-haspopup="true" aria-expanded="false">
-                  <span id="dropdown-label">YEAR</span>&nbsp;<span class="caret"></span>
-                </button>
-                <button id="direct-search-go" class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li class="text-center"><a>2017</a></li>
-                  <li class="text-center"><a>2016</a></li>
-                  <li class="text-center"><a>2015</a></li>
-                </ul>
+                    <button id="direct-search-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="UNDEFINED" aria-haspopup="true" aria-expanded="false">
+                      <span id="dropdown-label">YEAR</span>&nbsp;<span class="caret"></span>
+                    </button>
+                    <button id="direct-search-go" class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                      <li class="text-center"><a>2017</a></li>
+                      <li class="text-center"><a>2016</a></li>
+                      <li class="text-center"><a>2015</a></li>
+                    </ul>
+                  </div>
+                </div>
               </div>
+            </form>
+
+            <p class="text-muted text-center small">Web-based, searchbable, and extensible Revit API documentation.<br/>
+                <!-- <p class="text-muted small">This website was created to improve access to the API documentation</br> by providing a web-based, searchable interface.</p> -->
+                For more information about the API visit the<a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
+                Autodesk Developer Network</a>.</p>
+
+            <div class="text-center well" class="col-centered" style="margin: auto; margin-top: 30px; max-width:500px; margin-bottom:30px">
+            Felling Frisky? Checkout the upcoming <a href="http://beta.revitapidocs.com/">Beta Version</a>
+            </br>
+            <span style="margin-top:40px;" class="small text-muted">Please help make the website better by reporting bugs on project's
+            <a href="https://github.com/gtalarico/revitapidocs/milestone/7">Github Page</a></span>
             </div>
-          </div>
-        </form>
-
-        <p class="text-muted text-center small">Web-based, searchbable, and extensible Revit API documentation.<br/>
-            <!-- <p class="text-muted small">This website was created to improve access to the API documentation</br> by providing a web-based, searchable interface.</p> -->
-            For more information about the API visit the<a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
-            Autodesk Developer Network</a>.</p>
-    </div>  <!-- SEARCH DIV -->
+        </div>  <!-- SEARCH DIV -->
 
 
-    </div> <!-- COLUMN -->
+        </div> <!-- COLUMN -->
 
   </div>  <!-- ROW -->
   <h4 class="text-center"><a href="#contribute" id="toggle-contribute">Contribute</a></h4>
