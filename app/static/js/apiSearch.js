@@ -43,6 +43,7 @@ function buildResults(resultsJson, query) {
 
     $('.alert').hide();
     $('#searchModal').modal('show');
+    $('#result-filter-box').focus()
 
     var urlParams = urlHelper.getParams()
     if (urlParams.filter) { toggle_tag(urlParams.filter) }
@@ -125,7 +126,7 @@ function bindToModalElements(){
     // ON MODAL CLOSE
     $('.modal').on('hidden.bs.modal', function (event) {
         urlHelper.setToYear(activeYear)
-        $('search-box').focus()
+        $('#search-box').focus()
     });
 
     // ON TAG CLICK
@@ -135,6 +136,11 @@ function bindToModalElements(){
     });
 
     $('#result-filter-box').keyup(function(){
+        filterResults()
+    });
+
+    $('#result-filter-box').click(function(){
+        $(this).val('')
         filterResults()
     });
 }
@@ -166,3 +172,10 @@ Handlebars.registerHelper('exactMatch', function(options) {
         return 'result-exact-match'
     }
 });
+
+// Handlebars.registerHelper('if', function(item) {
+//     console.log('here')
+//     if (item) {
+//         return
+//     }
+// });

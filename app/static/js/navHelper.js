@@ -1,13 +1,14 @@
 $(document).ready(function(){
 
-    var language = 'C#'
+    // Default
+    var language = 'All'
     // Get Stored year
     if(localStorageHelper.get('dev_lanuage')){
       var language = localStorageHelper.get('dev_lanuage');
       $('#language-active').text(language)
     }
     else {
-        localStorageHelper.set('dev_lanuage', 'C#');
+        localStorageHelper.set('dev_lanuage', language);
     }
     filterLanguage(language);
 

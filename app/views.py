@@ -126,15 +126,18 @@ def search_api(year):
     sorted_results = sorted(results, key=lambda k: k['title'])
     prioritized_results = prioritize_match(results=sorted_results, raw_query=raw_query, field='title')
     total_results = len(prioritized_results)
+    truncated = False
     if total_results > MAX_RESULTS:
         prioritized_results = prioritized_results[:MAX_RESULTS]
+        truncated = True
 
     processed_restults = process_hrefs(prioritized_results)
     return jsonify({'results': prioritized_results,
                     'target_year': year,
                     'query': raw_query,
                     'total_results': total_results,
-                    'max_results': MAX_RESULTS
+                    'max_results': MAX_RESULTS,
+                    'truncated': truncated
                     })
 
 

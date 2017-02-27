@@ -450,7 +450,10 @@ footer {
     }
 
     #result-filter-list>input {
+      float: right;
+      text-align: right;
       display: inline;
+      // margin-right: 15px;
       width: 25%;
       min-width: 125px;
       height: 35px;
@@ -462,8 +465,8 @@ footer {
     }
 
     #result-info {
-      float: right;
-      text-align: right;
+      float: left;
+      text-align: left;
     }
 
     .member-of {

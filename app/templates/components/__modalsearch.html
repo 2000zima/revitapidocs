@@ -20,11 +20,11 @@
 
           <div id="result-filter-list" class="text-muted small">
                <!-- <p>Type Filter: <span id="result-filter" class="result-tag badge" data-filter=""></span></p> -->
-               <input id="result-filter-box" type="text" class="form-control" id="filter" placeholder="Filter" autocomplete="off">
                <div id="result-info" class='hidden-xs'>
-                   <span id="result-size">Results: {{total_results}}</span></br>
-                   <span id="result-size">Target API: {{target_year}}</span>
+                   <span id="result-size">Target API: {{target_year}}</span></br>
+                   <span id="result-size">Results: {{total_results}}{{#if truncated}} [ Showing: {{max_results}} ]{{/if}}</span>
                </div>
+               <input id="result-filter-box" type="text" class="form-control" id="filter" placeholder="Filter" autocomplete="off">
           </div>
       </div>
       <!-- MODAL HEADER -->
