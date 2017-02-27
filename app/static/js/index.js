@@ -10,7 +10,7 @@ $(document).ready(function(e){
     // Conditional Statement makes it so animation only runs the first time
     if (!localStorageHelper.get('revitapidocs_year')){
         $(function(){
-          $searchBoxInput.typed({
+          $('#direct-search input').typed({
             strings: ["Wall Class", "Pushbutton", "Global Parameter",
             "Idling Event", "Ribbon Item", "CreateBound", "ViewSchedule",
             "ViewType", "Revit.UI", "ActiveDocument", "DocumentClass",
@@ -47,7 +47,10 @@ $(document).ready(function(e){
       var year = localStorageHelper.get('revitapidocs_year');
       $('button#direct-search-year').attr('value', year)
       $('span#dropdown-label').text(year)
-    };
+    }
+    else{
+      localStorageHelper.set('revitapidocs_year', '2017.1');
+    }
 
     // Select Item from dropdown
     $('div#direct-search li').on('mousedown', function(){
