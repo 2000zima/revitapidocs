@@ -80,6 +80,20 @@
     <!-- END MAIN -->
 
 <!-- END API HTML -->
+
+{% raw %}
+<script id="code-template" type="text/x-handlebars-template">
+     <span codelanguage="{{language}}" id="cbc_1" x-lang="{{language}}">
+      <div class="highlight-title">
+       {{language}}
+      </div>
+      <div class="code">
+       <pre><code><span class="text-muted">Found a Python Snippet [beta]: {{repo}}</span></br><a href="{{href}}">Go To Example</a><br/>{{code}}</code></pre>
+      </div>
+     </span>
+</script>
+{% endraw %}
+
 {% endblock %}
 
 {% block script %}
@@ -89,11 +103,11 @@
 var loadingSpan = '<img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp;Loading'
 $('#menu-loading').html(loadingSpan)
 
-templateData = { entry: {{entry|tojson|safe }},
-                 content_path: "{{content_path|safe}}",
-                 active_href : "{{active_href}}",
-                 actual_year : "{{actual_year|default('')}}",
-                 active_year : "{{active_year}}",
+var templateData = { entry: {{entry|tojson|safe }},
+                     content_path: "{{content_path|safe}}",
+                     active_href : "{{active_href}}",
+                     actual_year : "{{actual_year|default('')}}",
+                     active_year : "{{active_year}}",
 }
 
 var CONSTRUCTOR_KEY = '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}'

@@ -1,6 +1,7 @@
 import os
 import re
 from collections import OrderedDict
+import requests
 
 from flask import render_template, redirect, url_for, send_from_directory
 from flask import request
@@ -146,6 +147,21 @@ def python(path=None):
     entry = {'title': 'Revit API - Python',
              'description': 'Python Examples for the Revit API'}
     return render_template('python.html', gists_categories=d, entry=entry)
+
+
+@app.route('/api/insights', methods=['GET'])
+def api_insights():
+    SEARCH_URL = 'https://api.github.com/search/code?q={query}+in:file+language:{lang}+user:{user}'
+
+    token = os.getenv('GITHUB_TOKEN')
+    query = request.args.get('query')
+    user = request.args.get('user', 'gtalarico')
+    language = request.args.get('language', 'Python')
+    headers = {'Authorization': 'token {}'.format(token),
+               'Accept': 'application/vnd.github.v3.text-match+json'}
+    r = requests.get(SEARCH_URL.format(query=query, lang=language, user=user),
+                     headers=headers)
+    return jsonify(r.json())
 
 
 @app.after_request

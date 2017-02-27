@@ -55,7 +55,7 @@ class Development(Config):
     CACHE_CLEAR = True
     DEBUG = True
     SECRET_KEY = 'SuperSecretKey'
-    ASSETS_DEBUG = bool(int(os.getenv('ASSETS_DEBUG', False)))
+    ASSETS_DEBUG = bool(int(os.getenv('ASSETS_DEBUG', True)))
     FLASKS3_ACTIVE = bool(int(os.getenv('FLASKS3_ACTIVE', 0)))
     FLASK_ASSETS_USE_S3 = FLASKS3_ACTIVE
     FLASKS3_BUCKET_NAME = 'fake-bucket'

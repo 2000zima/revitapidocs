@@ -32,6 +32,7 @@ js_assets = Bundle(
                    'js/apiSearch.js',
                    'js/navHelper.js',
                    'js/index.js',
+                   'js/apiInsights.js',
 
                    filters='rjsmin',
                    output='packed/packed.js'
