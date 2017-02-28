@@ -152,18 +152,28 @@ def python(path=None):
 
 
 @app.route('/api/insights', methods=['GET'])
-def api_insights():
+def api_python_insights():
     SEARCH_URL = 'https://api.github.com/search/code?q={query}+in:file+language:{lang}+user:{user}'
 
     token = os.getenv('GITHUB_TOKEN')
     query = request.args.get('query')
-    user = request.args.get('user', 'gtalarico')
     language = request.args.get('language', 'Python')
+    user = request.args.get('language', 'gtalarico')
     headers = {'Authorization': 'token {}'.format(token),
                'Accept': 'application/vnd.github.v3.text-match+json'}
-    r = requests.get(SEARCH_URL.format(query=query, lang=language, user=user),
-                     headers=headers)
-    return jsonify(r.json())
+
+    users = ['andydandy74', 'gtalarico', 'eirannejad']
+
+    results = []
+    for user in users:
+        req = requests.get(SEARCH_URL.format(query=query, lang=language, user=user),
+                                           headers=headers)
+        json_data = req.json()
+        if json_data.get('total_count', 0) > 0:
+            results.extend(json_data['items'][:2])
+
+    MAX = 6
+    return jsonify(results[:MAX])
 
 
 @app.after_request
