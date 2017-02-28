@@ -14,8 +14,9 @@ var IS_SMALL_SCREEN = ($(window).width() < 768);
 var IS_WITH_SIDEBAR = !IS_MOBILE && ! IS_SMALL_SCREEN
 
 $(window).resize(function(){
-    var IS_SMALL_SCREEN = ($(window).width() < 768);
-    var IS_WITH_SIDEBAR = !IS_MOBILE && !IS_SMALL_SCREEN
+    // Keps Variables Updated
+    IS_SMALL_SCREEN = ($(window).width() < 768);
+    IS_WITH_SIDEBAR = !IS_MOBILE && !IS_SMALL_SCREEN
     if (!IS_WITH_SIDEBAR) {
         // Patch for when window is resized small after quick search is on
         $("#sidebar-search").css("top", "0px");
@@ -40,7 +41,6 @@ $(".alert").delay(8000).fadeOut(300, function() {
 $(document).ready(function() {
     // Enable Tooltips
     $('[data-toggle="tooltip"]').tooltip();
-
 
     ///////////////////////////////
     // COPY PASTE CODE EXAMPLES ///

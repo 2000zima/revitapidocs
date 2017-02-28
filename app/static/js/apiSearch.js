@@ -16,10 +16,10 @@ function submitSearch(query) {
     var alertLoading = flashAlert('Loading')
     urlHelper.updateParam('query', query)
 
-    var resultsJson;
+    var rawResultsJson;
     var ajaxSearch = $.getJSON("search?query=" + query, function(json) {
         console.log('Search Ajax call successful. ')
-        resultsJson = json;
+        rawResultsJson = json;
         });
     ajaxSearch.done(function(){
         var gaUrl = '/' + activeYear +'/?query=' + query
@@ -27,14 +27,15 @@ function submitSearch(query) {
     })
     ajaxSearch.fail(function(){
         console.log('Search Ajax call FAILED.')
-        resultsJson = {'error':' Could not reach search API'};
+        rawResultsJson = {'error':' Could not reach search API'};
     })
     ajaxSearch.always(function(){
-        buildResults(resultsJson, query);
+        buildResults(rawResultsJson, query);
     })
 };
 
-function buildResults(resultsJson, query) {
+function buildResults(rawResultsJson, query) {
+    var resultsJson = processResults(rawResultsJson)
     var $modalResults = $('#modal-results')
     var source   = $("#modal-template").html();
     var template = Handlebars.compile(source);
@@ -43,10 +44,9 @@ function buildResults(resultsJson, query) {
 
     $('.alert').hide();
     $('#searchModal').modal('show');
-    $('#result-filter-box').focus()
 
     var urlParams = urlHelper.getParams()
-    if (urlParams.filter) { toggle_tag(urlParams.filter) }
+    if (urlParams.filter) { filterResults(urlParams.filter) }
     if (urlParams.scroll) {
         scrollHelper($('.modal-body'), urlParams.scroll, false, 0)
     }
@@ -61,6 +61,16 @@ function buildResults(resultsJson, query) {
 
     bindToModalElements()
 };
+
+function processResults(resultsJson) {
+    for (i=0; i<resultsJson['results'].length; i++) {
+        var entry = resultsJson['results'][i]
+        if (entry['tag'] == "Enumeration Member") {
+            entry['href'] += '?enumeration=' + entry['short_title']
+        }
+    }
+    return resultsJson
+}
 
 // Toggle Tag Filter Function
 function toggle_tag(tag_name){
@@ -92,8 +102,9 @@ function toggle_tag(tag_name){
 };
 
 
-function filterResults(){
+function filterResults(value){
     $filterBox = $('#result-filter-box')
+    if (value) { $filterBox.val(value) }
     var valThis = $filterBox.val();
     $('.result-entry').each(function(){
         var title = $(this).find('h5>a').text();

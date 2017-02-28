@@ -26,7 +26,7 @@ var urlHelper = new function() {
     //   this.pushUrl(uri)
     //   uri = uri.split('#')[0] // Remove, tripping parser, and not in use
       if (uri) {
-          var jsonString = '{"' + decodeURI(uri).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}'
+          var jsonString = '{"' + decodeURI(uri).replace(/"/g, '\\"').replace(/[&?]/g, '","').replace(/=/g,'":"') + '"}'
           try {
               return JSON.parse(jsonString)
           }

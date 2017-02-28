@@ -14,7 +14,7 @@ from app.utils.db import db_json, namespace_jsons
 
 from app.utils.db_utils import search_db
 from app.utils.db_utils import get_entry, get_best_entry_match
-from app.utils.db_utils import process_query, prioritize_match, process_hrefs
+from app.utils.db_utils import process_query, prioritize_match
 
 from app.utils.gists import get_gists
 from app.utils.misc import Timer
@@ -131,7 +131,6 @@ def search_api(year):
         prioritized_results = prioritized_results[:MAX_RESULTS]
         truncated = True
 
-    processed_restults = process_hrefs(prioritized_results)
     return jsonify({'results': prioritized_results,
                     'target_year': year,
                     'query': raw_query,
