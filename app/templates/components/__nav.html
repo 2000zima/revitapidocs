@@ -63,8 +63,9 @@
 
 
         <li><a target="_blank" href="http://twitter.com/intent/tweet?text=Check out&url=http://RevitAPIdocs.com&hashtags=revitapi&via=gtalarico&"><img src="{{ url_for('static', filename="img/social/social-twitter-navbar.svg") }}" alt="Tweet" /></a></li>
+        {% if not config.PRODUCTION %}
         <li><a href="https://github.com/gtalarico/revitapidocs/issues">[BETA]</a></li>
-
+        {% endif %}
       </ul>
 
 
