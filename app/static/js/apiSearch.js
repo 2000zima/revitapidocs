@@ -183,10 +183,3 @@ Handlebars.registerHelper('exactMatch', function(options) {
         return 'result-exact-match'
     }
 });
-
-// Handlebars.registerHelper('if', function(item) {
-//     console.log('here')
-//     if (item) {
-//         return
-//     }
-// });

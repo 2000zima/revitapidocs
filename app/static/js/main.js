@@ -33,9 +33,9 @@ window.addEventListener('popstate', function(event) {
 });
 
 
-$(".alert").delay(8000).fadeOut(300, function() {
-    $(this).alert('close');
-});
+// $(".alert").delay(8000).fadeOut(300, function() {
+//     $(this).alert('close');
+// });
 
 
 $(document).ready(function() {

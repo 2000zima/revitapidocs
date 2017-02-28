@@ -51,10 +51,11 @@ ul.breadcrumb {
   z-index: 1200;
   position: absolute;
   top: 65px;
-  // top: 25px;
   right: 40px;
   width: 200px;
   border: 0;
+  line-height: 22px;
+  cursor: default;
 
   &.alert-info {
     background-color: $brand-primary;
