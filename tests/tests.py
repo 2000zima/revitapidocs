@@ -7,11 +7,13 @@ from flask import request
 import logging
 
 from app import app
-from app.logger import logger
-from app.utils import check_available_years, get_schema
-# from app.db import db, db_query
+from app.utils.logger import logger
+from app.utils.db_utils import get_entry, get_best_entry_match
+from app.utils.db import db_json
 
 logger.setLevel(logging.ERROR)
+
+# TODO: Write complete test suite: Search, query_process, priority_list, etc
 
 class UrlsTestCase(unittest.TestCase):
 
@@ -62,40 +64,50 @@ class UtilsTestCase(unittest.TestCase):
         app.config['TESTING'] = True
         self.app = app.test_client()
 
-    def test_check_available_in(self):
-        with app.test_request_context('/'):
-            rv = check_available_years(self.filename)
-            self.assertEqual(rv, ['2015','2016','2017'])
-
-    def test_get_schema(self):
-        rv = get_schema(self.filename, '2015')
+    def test_get_entry(self):
+        filename = "94db8ea8-d2c3-5e71-8030-466bcb8e4426.htm"
+        rv = get_entry(filename)
+        self.assertIsInstance(rv, dict)
         self.assertEqual(rv['title'], 'Application Class')
         self.assertEqual(rv['description'], 'Represents the Autodesk Revit Application, providing access to documents, options and other application wide data and settings.')
         self.assertEqual(rv['namespace'], 'Autodesk.Revit.ApplicationServices')
 
-    # TODO: Add tests for DB
-    # def test_permitation_query(self):
-    #     query = 'Create Wall'
-    #     perm_query = create_permutation_query(query)
-    #     self.assertEqual('((create).*(wall))|((wall).*(create))', perm_query)
+    def test_get_best_entry_match1(self):
+        years = {'years':{'2015': 'exists', '2016': 'unchanged', '2017': 'unchanged', '2017.1': 'unchanged'}}
+        self.assertEqual(get_best_entry_match(years, '2015'), '2015')
+        self.assertEqual(get_best_entry_match(years, '2016'), '2015')
+        self.assertEqual(get_best_entry_match(years, '2017'), '2015')
+        self.assertEqual(get_best_entry_match(years, '2017.1'), '2015')
 
-# class DbTestCase(unittest.TestCase):
-#
-#     def setUp(self):
-#         self.db = db
-#
-#     def test_href(self):
-#         rv = self.db.search(db_query.title=='Namespaces')[0]
-#         self.assertEqual(rv['href'], 'd4648875-d41a-783b-d5f4-638df39ee413.htm')
-#
-#     def test_title(self):
-#         rv = self.db.search(db_query.title=='Namespaces')[0]
-#         print(rv)
-#         self.assertEqual(rv['title'], 'Namespaces')
-#
-#     def test_all(self):
-#         rv = self.db.all()
-#         self.assertGreater(len(rv), 10000)
+    def test_get_best_entry_match2(self):
+        years = {'years':{'2015': 'exists', '2016': 'updated', '2017': 'unchanged', '2017.1': 'unchanged'}}
+        self.assertEqual(get_best_entry_match(years, '2015'), '2015')
+        self.assertEqual(get_best_entry_match(years, '2016'), '2016')
+        self.assertEqual(get_best_entry_match(years, '2017'), '2016')
+        self.assertEqual(get_best_entry_match(years, '2017.1'), '2016')
+
+
+    def test_get_best_entry_match3(self):
+        years = {'years':{'2015': 'exists', '2016': 'unchanged', '2017': 'updated', '2017.1': 'updated'}}
+        self.assertEqual(get_best_entry_match(years, '2015'), '2015')
+        self.assertEqual(get_best_entry_match(years, '2016'), '2015')
+        self.assertEqual(get_best_entry_match(years, '2017'), '2017')
+        self.assertEqual(get_best_entry_match(years, '2017.1'), '2017.1')
+
+    def test_get_best_entry_match4(self):
+        years = {'years':{'2016': 'exists', '2017': 'unchanged', '2017.1': 'updated'}}
+        self.assertIsNone(get_best_entry_match(years, '2015'))
+        self.assertEqual(get_best_entry_match(years, '2016'), '2016')
+        self.assertEqual(get_best_entry_match(years, '2017'), '2016')
+        self.assertEqual(get_best_entry_match(years, '2017.1'), '2017.1')
+
+    def test_get_best_entry_match5(self):
+        years = {'years':{'2015': 'exists', '2016': 'unchanged', '2017': 'unchanged', '2017.1': 'updated'}}
+        self.assertEqual(get_best_entry_match(years, '2015'), '2015')
+        self.assertEqual(get_best_entry_match(years, '2016'), '2015')
+        self.assertEqual(get_best_entry_match(years, '2017'), '2015')
+        self.assertEqual(get_best_entry_match(years, '2017.1'), '2017.1')
+
 
 class HtmlContentCase(unittest.TestCase):
 

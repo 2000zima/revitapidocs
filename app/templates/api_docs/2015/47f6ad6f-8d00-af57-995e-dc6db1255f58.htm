@@ -1,0 +1,165 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="b1c7a878-996d-e49e-25e3-e6cf60d88576.htm">
+       Members
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Binding objects are used to take a parameter definition and bind it to one or
+more categories.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">class</span> <span class="identifier">Binding</span> : <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">APIObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">MustInherit</span> <span class="keyword">Class</span> <span class="identifier">Binding</span> _
+	<span class="keyword">Inherits</span> <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">APIObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">Binding</span> <span class="keyword">abstract</span> : <span class="keyword">public</span> <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">APIObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This class is a base class for all types of parameter binding within Autodesk
+Revit. Once the binding objects are created and added to the document parameters will be
+added to elements in those categories specified in the binding. There are currently two
+types of binding available, Instance binding and Type binding. The key difference between
+the two is that the instance bound parameters appear on all instances of the elements in
+those categories. Changing the parameter on one does not affect the other instances of
+the parameter. The Type bound parameters appear only on the type object and is shared by
+all the instances that use that type. Changing the type bound parameter affects all
+instances of the elements that use that type. Note, a definition can only be bound to an
+instance or a type and not both.
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">
+      Autodesk.Revit.DB
+      APIObject
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      Binding
+     </span>
+     <br/>
+     <a href="15ebf308-364c-2bef-e91c-dd6552e5ccbe.htm">
+      Autodesk.Revit.DB
+      ElementBinding
+     </a>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="b1c7a878-996d-e49e-25e3-e6cf60d88576.htm">
+       Binding Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

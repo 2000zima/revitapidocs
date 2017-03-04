@@ -1,0 +1,441 @@
+<section id="api-content">
+ <h1 ;="">
+  Major changes and renovations to the Revit API
+ </h1>
+ <hr/>
+ <p>
+ </p>
+ <p>
+ </p>
+ <h1 id="RevitAPIChanges2016SunriseQ3-APIadditions">
+  API additions
+ </h1>
+ <h2 id="RevitAPIChanges2016SunriseQ3-ParameterAPIadditions">
+  Parameter API additions
+ </h2>
+ <h3 id="RevitAPIChanges2016SunriseQ3-GlobalParameters">
+  <strong>
+   Global Parameters
+  </strong>
+ </h3>
+ <p>
+  Global Parameters support controlling geometry constraints through special parameters defined in a project document.  Global Parameters can be used for both labeling and reporting to/from dimensions, as well as setting values of instance parameters.
+ </p>
+ <p>
+  The new class
+ </p>
+ <ul>
+  <li>
+   GlobalParametersManager
+  </li>
+ </ul>
+ <p>
+  provides the main access point to managing global parameters in project document.  It offers the following members:
+ </p>
+ <ul>
+  <li>
+   AreGlobalParametersAllowed() - Tests whether global parameters are allowed in a document.
+  </li>
+  <li>
+   GetAllGlobalParameters() - Returns all global parameters in a document.
+  </li>
+  <li>
+   FindByName() - Find a global parameter by its name.
+  </li>
+  <li>
+   IsUniqueName() - Test uniqueness of the name of a prospective global parameter.
+  </li>
+  <li>
+   IsValidGlobalParameter() - Test if an Id is of a valid global parameter element.
+  </li>
+ </ul>
+ <p>
+  The new class:
+ </p>
+ <ul>
+  <li>
+   GlobalParameter
+  </li>
+ </ul>
+ <p>
+  contains methods to control and manipulate a single global parameter. Its most important members include:
+ </p>
+ <ul>
+  <li>
+   [static] Create() - Creates a new Global Parameter in the given document.
+  </li>
+  <li>
+   GetAffectedElements() - Returns all elements of which properties are driven by this global parameter.
+  </li>
+  <li>
+   GetAffectedGlobalParameters() - Returns all other global parameters which refer to this global parameter in their formulas.
+  </li>
+  <li>
+   GetLabeledDimensions() - Returns all dimension elements that are currently labeled by this global parameter.
+  </li>
+  <li>
+   CanLabelDimension() - Tests whether a dimension can be labeled by the global parameter.
+  </li>
+  <li>
+   LabelDimension() - Labels a dimension with this global parameter.
+  </li>
+  <li>
+   UnlabelDimension() - Un-labels a dimension that is currently labeled by this global parameter.
+  </li>
+  <li>
+   GetLabelName() - Returns the name of this parameter's label, which is used to label dimension elements.
+  </li>
+  <li>
+   SetDrivingDimension() - Set a dimension to drive the value of this parameter.
+  </li>
+  <li>
+   IsValidFormula() - Tests that the given expression is a valid as formula for this parameter.
+  </li>
+  <li>
+   GetFormula() - Returns the parameter's expression in form of a string.
+  </li>
+  <li>
+   SetFormula() - Sets a formula expression for this parameter.
+  </li>
+  <li>
+   GetValue() - Obtains the current value of the global parameter.
+  </li>
+  <li>
+   SetValue() - Sets a new value of the global parameter.
+  </li>
+  <li>
+   HasValidTypeForReporting() - Tests that the global parameter has data of a type that supports reporting.
+  </li>
+  <li>
+   [static] IsValidDataType() - Tests whether the input Data Type is valid as a type of a global parameter.
+  </li>
+ </ul>
+ <ul>
+  <li>
+   IsDrivenByDimension - Indicates whether this parameter is driven by a dimension or not.
+  </li>
+  <li>
+   IsDrivenByFormula - Indicates whether this parameter is driven by a formula or not.
+  </li>
+  <li>
+   IsReporting - Indicates whether this is a reporting global parameter or not.
+  </li>
+ </ul>
+ <p>
+  The new class:
+ </p>
+ <ul>
+  <li>
+   ParameterValue
+  </li>
+ </ul>
+ <p>
+  contains a value of a corresponding global parameter. It is a base class for derived concrete classes, one per each type of a parameter value:
+ </p>
+ <ul>
+  <li>
+   IntegerParameterValue
+  </li>
+  <li>
+   DoubleParameterValue
+  </li>
+  <li>
+   StringParameterValue
+  </li>
+  <li>
+   ElementIdParameterValue
+  </li>
+  <li>
+   NullParameterValue
+  </li>
+ </ul>
+ <p>
+  All the derived classes have only one property:
+ </p>
+ <ul>
+  <li>
+   Value - gets or sets the value as the corresponding type.
+  </li>
+ </ul>
+ <p>
+ </p>
+ <p>
+  New methods added the the Parameter class:
+ </p>
+ <ul>
+  <li>
+   CanBeAssociatedWithGlobalParameter() - Tests whether a parameter can be associated with the given global parameter.
+  </li>
+  <li>
+   CanBeAssociatedWithGlobalParameters() - Tests whether a parameter can be associated with any global parameter.
+  </li>
+  <li>
+   AssociateWithGlobalParameter() - Associates a parameter with a global parameter in the same document.
+  </li>
+  <li>
+   DissociateFromGlobalParameter() - Dissociates a parameter from a global parameter.
+  </li>
+  <li>
+   GetAssociatedGlobalParameter() - Returns a global parameter, if any, currently associated with a parameter.
+  </li>
+ </ul>
+ <h3 id="RevitAPIChanges2016SunriseQ3-MultilineTextparametersupport">
+  <span>
+   Multiline Text parameter support
+  </span>
+ </h3>
+ <p>
+ </p>
+ <p>
+  The new enumerated value:
+ </p>
+ <ul>
+  <li>
+   ParameterType.MultilineText
+  </li>
+ </ul>
+ <p>
+  was added for creation and use of multi-line text parameters.
+ </p>
+ <h2 id="RevitAPIChanges2016SunriseQ3-ViewAPIadditions">
+  View API additions
+ </h2>
+ <h3 id="RevitAPIChanges2016SunriseQ3-TemporaryViewModes">
+  TemporaryViewModes
+ </h3>
+ <p>
+  The new class:
+ </p>
+ <ul>
+  <li>
+   TemporaryViewModes
+  </li>
+ </ul>
+ <p>
+  carries data related to the state and properties of available temporary view modes.  Access to an instance of this class is via the property:
+ </p>
+ <ul>
+  <li>
+   View.TemporaryViewModes
+  </li>
+ </ul>
+ <p>
+  The class has the following methods and properties:
+ </p>
+ <ul>
+  <li>
+   TemporaryViewModes.DeactivateAllModes() - Deactivates all temporary modes that are currently active.
+  </li>
+  <li>
+   TemporaryViewModes.DeactivateMode() - Deactivates the given temporary mode.
+  </li>
+  <li>
+   TemporaryViewModes.GetCaption() - A text caption to use for the given mode.
+  </li>
+  <li>
+   TemporaryViewModes.IsModeActive() - Tests whether a given mode is currently active or not.
+  </li>
+  <li>
+   TemporaryViewModes.IsModeAvailable() - Tests whether a temporary view mode is currently available in the associated view.
+  </li>
+  <li>
+   TemporaryViewModes.IsModeEnabled() - Tests whether a temporary view mode is currently enabled in the associated view.
+  </li>
+  <li>
+   TemporaryViewModes.IsValidState() - Tests whether the given state is valid for the associated view and the context the view is currently in.
+  </li>
+  <li>
+   TemporaryViewModes.PreviewFamilyVisibility - The current state of the PreviewFamilyVisibility mode in the associated view.
+  </li>
+  <li>
+   TemporaryViewModes.RevealConstraints - The current state of the RevealConstraints mode in the associated view.
+  </li>
+  <li>
+   TemporaryViewModes.RevealHiddenElements - The current state of the RevealHiddenElements mode in the associated view.
+  </li>
+  <li>
+   TemporaryViewModes.WorskaringDisplay - The current state of the WorksharingDisplay mode in the associated view.
+  </li>
+ </ul>
+ <h3 id="RevitAPIChanges2016SunriseQ3-Convertdependentviewtoindependent">
+  Convert dependent view to independent
+ </h3>
+ <p>
+  The new function:
+ </p>
+ <ul>
+  <li>
+   View.ConvertToIndependent()
+  </li>
+ </ul>
+ <p>
+  converts a dependent view to be independent.
+ </p>
+ <h3 id="RevitAPIChanges2016SunriseQ3-Planviewunderlay">
+  Plan view underlay
+ </h3>
+ <p>
+  The new methods:
+ </p>
+ <ul>
+  <li>
+   ViewPlan.GetUnderlayBaseLevel()
+  </li>
+  <li>
+   ViewPlan.GetUnderlayTopLevel()
+  </li>
+  <li>
+   ViewPlan.SetUnderlayBaseLevel()
+  </li>
+  <li>
+   ViewPlan.SetUnderlayOrientation()
+  </li>
+  <li>
+   ViewPlan.SetUnderlayOrientation()
+  </li>
+ </ul>
+ <p>
+  provide access to the underlay levels and settings for plan views.
+ </p>
+ <h2 id="RevitAPIChanges2016SunriseQ3-MEPAPIadditions">
+  MEP API additions
+ </h2>
+ <h3 id="RevitAPIChanges2016SunriseQ3-FabricationPart-productlistsupport">
+  FabricationPart - product list support
+ </h3>
+ <p>
+  To specify a size, some FabricationPart elements, such as purchased duct and pipe fittings, have a Product Entry field in the Properties palette. In the API these FabricationPart elements are identified as having a "product list".  The product list entries represent a catalog of available sizes for the selected part.
+ </p>
+ <p>
+  The following new members are added to support product list FabricationPart elements:
+ </p>
+ <ul>
+  <li>
+   FabricationPart.ProductListEntry - The product list entry index of the fabrication part. A value of -1 indicates the fabrication part is not a product list.
+  </li>
+  <li>
+   FabricationPart.IsProductList()
+  </li>
+  <li>
+   FabricationPart.GetProductListEntryName()
+  </li>
+  <li>
+   FabricationPart.GetProductListEntryCount()
+  </li>
+  <li>
+   FabricationPart.IsProductListEntryCompatibleSize() -  Checks to see if this part can be changed to the specified product list entry without altering any connected dimensions.
+  </li>
+ </ul>
+ <h3 id="RevitAPIChanges2016SunriseQ3-MEPFabricationAPI">
+  MEP Fabrication API
+ </h3>
+ <p>
+  The following new members have been added to the MEP fabrication and FabricationPart capabilities:
+ </p>
+ <ul>
+  <li>
+   <span>
+    FabricationPart.ServiceId
+   </span>
+  </li>
+  <li>
+   FabricationPart.RotateConnectedPartByConnector()
+  </li>
+  <li>
+   FabricationPart.RotateConnectedTap()
+  </li>
+  <li>
+   FabricationServiceButton.ContainsFabricationPartType()
+  </li>
+ </ul>
+ <h3 id="RevitAPIChanges2016SunriseQ3-ElectricalAPIadditions">
+  Electrical API additions
+ </h3>
+ <p>
+  The new method:
+ </p>
+ <ul>
+  <li>
+   Wire.GetMEPSystems()
+  </li>
+ </ul>
+ <p>
+  gets the system(s) to which the wire belongs.
+ </p>
+ <p>
+  <strong>
+   The new property
+  </strong>
+ </p>
+ <ul>
+  <li>
+   ElectricalSetting.CircuitRating
+  </li>
+ </ul>
+ <p>
+  provides access to the default circuit rating for a newly created circuit.
+ </p>
+ <h2 id="RevitAPIChanges2016SunriseQ3-RevitLinkAPIadditions">
+  Revit Link API additions
+ </h2>
+ <h3 id="RevitAPIChanges2016SunriseQ3-Linkinstancelocations">
+  Link instance locations
+ </h3>
+ <p>
+  The new function:
+ </p>
+ <ul>
+  <li>
+   RevitLinkInstance.MoveBasePointToHostBasePoint()
+  </li>
+ </ul>
+ <p>
+  will move a RevitLinkInstance so that the link's base point and host project's base point are in the same location. This function does not set up a monitoring relationship.
+ </p>
+ <p>
+  The new method:
+ </p>
+ <ul>
+  <li>
+   RevitLinkInstance.MoveOriginToHostOrigin()
+  </li>
+ </ul>
+ <p>
+  moves this link instance so that the internal origin of the linked document is aligned to the internal origin of the host document. This is a one-time movement and does not set up any shared coordinates relationship.
+ </p>
+ <h3 id="RevitAPIChanges2016SunriseQ3-LocalunloadofRevitLinks">
+  Local unload of Revit Links
+ </h3>
+ <p>
+  The new method:
+ </p>
+ <ul>
+  <li>
+   RevitLinkType.UnloadLocally()
+  </li>
+ </ul>
+ <p>
+  allows unloading a Revit link in a workshared file for the current user only. When another user opens their local model, the link will still be loaded for them.  This method accepts an instance of a new interface class:
+ </p>
+ <ul>
+  <li>
+   ISaveSharedCoordinatesCallbackForUnloadLocally
+  </li>
+ </ul>
+ <p>
+  The response to the method in this interface is used to control Revit when trying to unload  locally a Revit link with changes in shared coordinates.
+ </p>
+ <p>
+  The new method:
+ </p>
+ <ul>
+  <li>
+   RevitLinkType.RevertLocalUnloadStatus()
+  </li>
+ </ul>
+ <p>
+  turns off a user's local link override. If the link is loaded for other users, this function will reload the link. If the link is unloaded for other users, then the link will remain unloaded, but the local unload override will be cleared.
+ </p>
+ <p>
+ </p>
+</section>

@@ -1,0 +1,236 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="49f6ae4c-1629-98ef-d9a9-799bb1fd43ec.htm">
+       Form Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Move a face/edge/curve/vertex of the form, specified by a reference, and an offset vector.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">MoveSubElement</span>(
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a> <span class="parameter">subElementReference</span>,
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">offset</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">MoveSubElement</span> ( _
+	<span class="parameter">subElementReference</span> <span class="keyword">As</span> <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a>, _
+	<span class="parameter">offset</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">MoveSubElement</span>(
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a>^ <span class="parameter">subElementReference</span>, 
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">offset</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="subElementReference">
+       <dt>
+        <span class="parameter">
+         subElementReference
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">
+         Autodesk.Revit.DB
+         Reference
+        </a>
+        <br/>
+        The geometry reference of face/edge/curve/vertex
+       </dd>
+      </dl>
+      <dl paramname="offset">
+       <dt>
+        <span class="parameter">
+         offset
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        The vector by which the element is to be moved.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> MoveSubElement(Form form)
+{
+    <span class="highlight-keyword">if</span> (form.ProfileCount &gt; <span class="highlight-number">0</span>)
+    {
+        <span class="highlight-keyword">int</span> profileIndex = <span class="highlight-number">0</span>;   <span class="highlight-comment">// get first profile</span>
+        ReferenceArray ra = form.get_CurveLoopReferencesOnProfile(profileIndex, <span class="highlight-number">0</span>);
+        <span class="highlight-keyword">foreach</span> (Reference r <span class="highlight-keyword">in</span> ra)
+        {
+            ReferenceArray ra2 = form.GetControlPoints(r);
+            <span class="highlight-keyword">foreach</span> (Reference r2 <span class="highlight-keyword">in</span> ra2)
+            {
+                Point vertex = document.GetElement(r2).GetGeometryObjectFromReference(r2) <span class="highlight-keyword">as</span> Point;
+
+                XYZ offset = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">15</span>, <span class="highlight-number">0</span>);
+                form.MoveSubElement(r2, offset);
+                <span class="highlight-keyword">break</span>;  <span class="highlight-comment">// just move the first point</span>
+            }
+        }
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> MoveSubElement(form <span class="highlight-keyword">As</span> Form)
+    <span class="highlight-keyword">If</span> form.ProfileCount &gt; <span class="highlight-number">0</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Dim</span> profileIndex <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> = <span class="highlight-number">0</span>
+        <span class="highlight-comment">' get first profile</span>
+        <span class="highlight-keyword">Dim</span> ra <span class="highlight-keyword">As</span> ReferenceArray = form.CurveLoopReferencesOnProfile(profileIndex, <span class="highlight-number">0</span>)
+        <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> r <span class="highlight-keyword">As</span> Reference <span class="highlight-keyword">In</span> ra
+            <span class="highlight-keyword">Dim</span> ra2 <span class="highlight-keyword">As</span> ReferenceArray = form.GetControlPoints(r)
+            <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> r2 <span class="highlight-keyword">As</span> Reference <span class="highlight-keyword">In</span> ra2
+                <span class="highlight-keyword">Dim</span> vertex <span class="highlight-keyword">As</span> Point = <span class="highlight-keyword">TryCast</span>(document.GetElement(r2).GetGeometryObjectFromReference(r2), Point)
+
+                <span class="highlight-keyword">Dim</span> offset <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">15</span>, <span class="highlight-number">0</span>)
+                form.MoveSubElement(r2, offset)
+                    <span class="highlight-comment">' just move the first point</span>
+                <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">For</span>
+            <span class="highlight-keyword">Next</span>
+        <span class="highlight-keyword">Next</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="49f6ae4c-1629-98ef-d9a9-799bb1fd43ec.htm">
+       Form Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

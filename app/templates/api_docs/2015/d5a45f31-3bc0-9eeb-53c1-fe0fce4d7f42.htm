@@ -1,0 +1,206 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="67306629-f31b-3763-fd13-237d62d2fa89.htm">
+       Members
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     This class supports registration of custom Point Cloud Engines in a Revit session.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="5974062a-47d4-c7bb-16f2-d5dd193bd170.htm">
+      Autodesk.Revit.DB.PointClouds
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">class</span> <span class="identifier">PointCloudEngineRegistry</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">NotInheritable</span> <span class="keyword">Class</span> <span class="identifier">PointCloudEngineRegistry</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">PointCloudEngineRegistry</span> <span class="keyword">abstract</span> <span class="keyword">sealed</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This class is the start point for engine providers.  A custom engine implementation consists of the following:
+     </p>
+     <ul>
+      <li>
+       An implementation of IPointCloudEngine registered to Revit via the PointCloudEngineRegistry.
+      </li>
+      <li>
+       An implementation of IPointCloudAccess coded to respond to inquiries from Revit regarding the
+   properties of a single point cloud.
+      </li>
+      <li>
+       An implementation of IPointSetIterator code to return sets of points to Revit when requested.
+      </li>
+     </ul>
+     <p>
+     </p>
+     <p>
+      Engine implementations may be file-based or non-file-based:
+     </p>
+     <ul>
+      <li>
+       File-based implementations require that
+   each point cloud be mapped to a single file on disk.  Revit will allow users to create new point
+   cloud instances in a document directly by selecting point cloud files whose extension matches
+   the engine identifier.  These files are treated as external links in Revit and may be reloaded and remapped
+   when necessary from the Manage Links dialog.
+      </li>
+      <li>
+       Non-file-based engine implementations may obtain point clouds from anywhere (e.g. from a database,
+   from a server, or from one part of a larger aggregate file).  Because there is no file that the user may select,
+   Revit's user interface will not allow a user to create a point cloud of this type.  The engine provider should supply
+   a custom command using PointCloudType.Create() and PointCloudInstance.Create() to create and place point clouds of
+   this type.  The Manage Links dialog will show the point clouds of this type, but since there is no file
+   associated to the point cloud, the user cannot manage, reload or remap point clouds of this type.
+      </li>
+     </ul>
+     <p>
+     </p>
+     <p>
+      Regardless of the type of engine used, the implementation must supply enough information to Revit to
+   display the contents of the point cloud.  There are two ReadPoints methods which must be implemented:
+     </p>
+     <ul>
+      <li>
+       IPointCloudAccess.ReadPoints() - this provides a single set of points in a one-time call from Revit.  Revit uses
+   this during some display activities including selection prehighlighting.  It is also possible for API clients
+   to call this method directly (via PointCloudInstance.GetPoints()).
+      </li>
+      <li>
+       IPointSetIterator.ReadPoints() - this provides a subset of points as a part of a larger iteration of points
+   in the cloud.  Revit uses this method during normal display of the point cloud; quantities of points will be
+   requested repeatedly until it obtains enough points or until something in the display changes. The engine
+   implementation must keep track of which points have been returned to Revit during any given point set iteration.
+      </li>
+     </ul>
+     <p>
+     </p>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.PointClouds
+      PointCloudEngineRegistry
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="67306629-f31b-3763-fd13-237d62d2fa89.htm">
+       PointCloudEngineRegistry Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="5974062a-47d4-c7bb-16f2-d5dd193bd170.htm">
+       Autodesk.Revit.DB.PointClouds Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

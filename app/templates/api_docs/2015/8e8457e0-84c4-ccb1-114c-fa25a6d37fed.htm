@@ -1,0 +1,331 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     When CompoundStructure::isValid() returns false, it uses these values to indicate precise nature of defect.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="identifier">CompoundStructureError</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Enumeration</span> <span class="identifier">CompoundStructureError</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum class</span> <span class="identifier">CompoundStructureError</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <div id="enumerationSection">
+     <h1 class="heading">
+      Members
+      <a name="membersToggle">
+      </a>
+     </h1>
+     <div class="section" id="membersSection" name="collapseableSection" style="">
+      <table class="members" frame="lhs" id="memberList">
+       <colgroup>
+        <col width="10%">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr>
+         <th class="nameColumn">
+          Member name
+         </th>
+         <th class="descriptionColumn">
+          Description
+         </th>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.BadShellOrder">
+          <span class="selflink">
+           BadShellOrder
+          </span>
+         </td>
+         <td>
+          Layer Function Priorities ascend from the Core Boundary to the Finish Face.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.CoreTooThin">
+          <span class="selflink">
+           CoreTooThin
+          </span>
+         </td>
+         <td>
+          Core contain a membrane layer or thickness of core is zero.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.LayerTooThin">
+          <span class="selflink">
+           LayerTooThin
+          </span>
+         </td>
+         <td>
+          Layers with non-zero thickness is less than a minimum thickness.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.MembraneTooThick">
+          <span class="selflink">
+           MembraneTooThick
+          </span>
+         </td>
+         <td>
+          Thickness of membrane layer is more than zero.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.NonmembraneTooThin">
+          <span class="selflink">
+           NonmembraneTooThin
+          </span>
+         </td>
+         <td>
+          Thickness of non-membrane layer is too thin.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.BadShellsStructure">
+          <span class="selflink">
+           BadShellsStructure
+          </span>
+         </td>
+         <td>
+          The number of shell layers is larger than the total number of layers.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.ThinOuterLayer">
+          <span class="selflink">
+           ThinOuterLayer
+          </span>
+         </td>
+         <td>
+          Thickness of face layer is too thin.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.VerticalUnusedLayer">
+          <span class="selflink">
+           VerticalUnusedLayer
+          </span>
+         </td>
+         <td>
+          A layer is not membrane layer and the Thickness of layer is zero.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.VerticalWrongOrderLayer">
+          <span class="selflink">
+           VerticalWrongOrderLayer
+          </span>
+         </td>
+         <td>
+          Layers assigned to the same Row are not on the same side of the Core Boundary.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.VerticalWrongOrderCoreExterior">
+          <span class="selflink">
+           VerticalWrongOrderCoreExterior
+          </span>
+         </td>
+         <td>
+          Exterior core boundary have more than one face at any height.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.VerticalWrongOrderCoreInterior">
+          <span class="selflink">
+           VerticalWrongOrderCoreInterior
+          </span>
+         </td>
+         <td>
+          Interior core boundary have more than one face at any height.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.VerticalWrongOrderMembrane">
+          <span class="selflink">
+           VerticalWrongOrderMembrane
+          </span>
+         </td>
+         <td>
+          Membrane Layer have more than one face at any height.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.DeckCantBoundAbove">
+          <span class="selflink">
+           DeckCantBoundAbove
+          </span>
+         </td>
+         <td>
+          There is no layer above Structural deck or it is too thin.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.DeckCantBoundBelow">
+          <span class="selflink">
+           DeckCantBoundBelow
+          </span>
+         </td>
+         <td>
+          There is no layer below Structural deck or it is too thin.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.VarThickLayerCantBeZero">
+          <span class="selflink">
+           VarThickLayerCantBeZero
+          </span>
+         </td>
+         <td>
+          Variable thickness layer have zero thickness.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.InvalidMaterialId">
+          <span class="selflink">
+           InvalidMaterialId
+          </span>
+         </td>
+         <td>
+          Element id used as material id does not correspond to an actual MaterialElem.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.ExtensibleRegionsNotContiguousAlongTop">
+          <span class="selflink">
+           ExtensibleRegionsNotContiguousAlongTop
+          </span>
+         </td>
+         <td>
+          Extension Layers at the top of the wall must be adjacent.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.ExtensibleRegionsNotContiguousAlongBottom">
+          <span class="selflink">
+           ExtensibleRegionsNotContiguousAlongBottom
+          </span>
+         </td>
+         <td>
+          Extension Layers at the bottom of the wall must be adjacent.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CompoundStructureError.InvalidProfileId">
+          <span class="selflink">
+           InvalidProfileId
+          </span>
+         </td>
+         <td>
+          Element id used as profile id does not correspond to a valid deck profile.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

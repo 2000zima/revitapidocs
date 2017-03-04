@@ -1,0 +1,337 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="bd635989-6abd-3486-2c34-64571370065b.htm">
+       UnitFormatUtils Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Parses a formatted string into a number with units if possible.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">TryParse</span>(
+	<a href="89d89465-897f-4105-b935-27edf67aab3e.htm">Units</a> <span class="parameter">units</span>,
+	<a href="4155880c-f243-3456-fbb8-542c8f8ad692.htm">UnitType</a> <span class="parameter">unitType</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a> <span class="parameter">stringToParse</span>,
+	<span class="keyword">out</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">value</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">TryParse</span> ( _
+	<span class="parameter">units</span> <span class="keyword">As</span> <a href="89d89465-897f-4105-b935-27edf67aab3e.htm">Units</a>, _
+	<span class="parameter">unitType</span> <span class="keyword">As</span> <a href="4155880c-f243-3456-fbb8-542c8f8ad692.htm">UnitType</a>, _
+	<span class="parameter">stringToParse</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>, _
+	&lt;<a href="http://msdn2.microsoft.com/en-us/library/k8189tfc" target="_blank">OutAttribute</a>&gt; <span class="keyword">ByRef</span> <span class="parameter">value</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a> _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">TryParse</span>(
+	<a href="89d89465-897f-4105-b935-27edf67aab3e.htm">Units</a>^ <span class="parameter">units</span>, 
+	<a href="4155880c-f243-3456-fbb8-542c8f8ad692.htm">UnitType</a> <span class="parameter">unitType</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^ <span class="parameter">stringToParse</span>, 
+	[<a href="http://msdn2.microsoft.com/en-us/library/k8189tfc" target="_blank">OutAttribute</a>] <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a>% <span class="parameter">value</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="units">
+       <dt>
+        <span class="parameter">
+         units
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="89d89465-897f-4105-b935-27edf67aab3e.htm">
+         Autodesk.Revit.DB
+         Units
+        </a>
+        <br/>
+        The units formatting settings, typically obtained from
+        <a href="9ed56178-e9ae-b4bc-1c0e-e6a867ae3557.htm">
+         Document.GetUnits()
+        </a>
+        .
+       </dd>
+      </dl>
+      <dl paramname="unitType">
+       <dt>
+        <span class="parameter">
+         unitType
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="4155880c-f243-3456-fbb8-542c8f8ad692.htm">
+         Autodesk.Revit.DB
+         UnitType
+        </a>
+        <br/>
+        The target unit type for the value.
+       </dd>
+      </dl>
+      <dl paramname="stringToParse">
+       <dt>
+        <span class="parameter">
+         stringToParse
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         System
+         String
+        </a>
+        <br/>
+        The string to parse.
+       </dd>
+      </dl>
+      <dl paramname="value">
+       <dt>
+        <span class="parameter">
+         value
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         System
+         Double
+        </a>
+        <span class="cpp">
+         %
+        </span>
+        <br/>
+        The parsed value, in Revit's internal units.  Ignore this value if the function returns false.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     True if the string can be parsed, false otherwise.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">double</span> GetLengthInput(Document document, String userInputLength)
+{
+    <span class="highlight-keyword">double</span> dParsedLength = <span class="highlight-number">0</span>;
+    Units units = document.GetUnits();
+    <span class="highlight-comment">// try to parse a user entered string (i.e. 100 mm, 1'6")</span>
+    <span class="highlight-keyword">bool</span> parsed = UnitFormatUtils.TryParse(units, UnitType.UT_Length, userInputLength, <span class="highlight-keyword">out</span> dParsedLength);
+    <span class="highlight-keyword">if</span> (parsed == <span class="highlight-keyword">true</span>)
+    {
+        <span class="highlight-keyword">string</span> msg = <span class="highlight-keyword">string</span>.Format(<span class="highlight-literal">"User Input: {0}\r\nParsed value: {1}"</span>, userInputLength, dParsedLength);
+        TaskDialog.Show(<span class="highlight-literal">"Parsed Data"</span>, msg);
+    }
+
+    <span class="highlight-keyword">return</span> dParsedLength;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> GetLengthInput(document <span class="highlight-keyword">As</span> Document, userInputLength <span class="highlight-keyword">As</span> [<span class="highlight-keyword">String</span>]) <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span>
+   <span class="highlight-keyword">Dim</span> dParsedLength <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = <span class="highlight-number">0</span>
+   <span class="highlight-keyword">Dim</span> units <span class="highlight-keyword">As</span> Units = document.GetUnits()
+   <span class="highlight-comment">' try to parse a user entered string (i.e. 100 mm, 1'6")</span>
+   <span class="highlight-keyword">Dim</span> parsed <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span> = UnitFormatUtils.TryParse(units, UnitType.UT_Length, userInputLength, dParsedLength)
+   <span class="highlight-keyword">If</span> parsed = <span class="highlight-keyword">True</span> <span class="highlight-keyword">Then</span>
+      <span class="highlight-keyword">Dim</span> msg <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-keyword">String</span>.Format(<span class="highlight-literal">"User Input: {0}"</span> &amp; vbCr &amp; vbLf &amp; <span class="highlight-literal">"Parsed value: {1}"</span>, userInputLength, dParsedLength)
+      TaskDialog.Show(<span class="highlight-literal">"Parsed Data"</span>, msg)
+   <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+   <span class="highlight-keyword">Return</span> dParsedLength
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          unitType is an invalid unit type.  See UnitUtils.IsValidUnitType() and UnitUtils.GetValidUnitTypes().
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="bd635989-6abd-3486-2c34-64571370065b.htm">
+       UnitFormatUtils Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="3e6dcee8-6a58-efe5-67f8-3422af74545c.htm">
+       TryParse Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

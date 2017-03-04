@@ -1,0 +1,380 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Inserts a new instance of a family into the document, 
+using a curve, type/symbol and reference level.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="0d2231f8-91e6-794f-92ae-16aad8014b27.htm">FamilyInstance</a> <span class="identifier">NewFamilyInstance</span>(
+	<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a> <span class="parameter">curve</span>,
+	<a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a> <span class="parameter">symbol</span>,
+	<a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a> <span class="parameter">level</span>,
+	<a href="0a0a3793-5fce-283d-4953-a137f5593db9.htm">StructuralType</a> <span class="parameter">structuralType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewFamilyInstance</span> ( _
+	<span class="parameter">curve</span> <span class="keyword">As</span> <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>, _
+	<span class="parameter">symbol</span> <span class="keyword">As</span> <a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a>, _
+	<span class="parameter">level</span> <span class="keyword">As</span> <a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a>, _
+	<span class="parameter">structuralType</span> <span class="keyword">As</span> <a href="0a0a3793-5fce-283d-4953-a137f5593db9.htm">StructuralType</a> _
+) <span class="keyword">As</span> <a href="0d2231f8-91e6-794f-92ae-16aad8014b27.htm">FamilyInstance</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="0d2231f8-91e6-794f-92ae-16aad8014b27.htm">FamilyInstance</a>^ <span class="identifier">NewFamilyInstance</span>(
+	<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>^ <span class="parameter">curve</span>, 
+	<a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a>^ <span class="parameter">symbol</span>, 
+	<a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a>^ <span class="parameter">level</span>, 
+	<a href="0a0a3793-5fce-283d-4953-a137f5593db9.htm">StructuralType</a> <span class="parameter">structuralType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="curve">
+       <dt>
+        <span class="parameter">
+         curve
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">
+         Autodesk.Revit.DB
+         Curve
+        </a>
+        <br/>
+        The curve where the instance is based.
+       </dd>
+      </dl>
+      <dl paramname="symbol">
+       <dt>
+        <span class="parameter">
+         symbol
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">
+         Autodesk.Revit.DB
+         FamilySymbol
+        </a>
+        <br/>
+        A FamilySymbol object that represents the type of the instance that is to be inserted.
+       </dd>
+      </dl>
+      <dl paramname="level">
+       <dt>
+        <span class="parameter">
+         level
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">
+         Autodesk.Revit.DB
+         Level
+        </a>
+        <br/>
+        A Level object that is used as the base level for the object.
+       </dd>
+      </dl>
+      <dl paramname="structuralType">
+       <dt>
+        <span class="parameter">
+         structuralType
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="0a0a3793-5fce-283d-4953-a137f5593db9.htm">
+         Autodesk.Revit.DB.Structure
+         StructuralType
+        </a>
+        <br/>
+        If structural then specify the type of the component.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If creation was successful then an instance to the new object is returned, otherwise
+     <span class="keyword">
+     </span>
+     <span class="nu">
+      a null reference (
+      <span class="keyword">
+       Nothing
+      </span>
+      in Visual Basic)
+     </span>
+     .
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This method is used to insert one family instance into another element along the geometry of a curve. 
+If the instance fails to be created an
+exception may be thrown.
+     <p>
+      The type/symbol that is used must be loaded into the document before this
+method is called. Families and their symbols can be loaded using the Document.LoadFamily or
+Document.LoadFamilySymbol methods.
+     </p>
+     <p>
+      The host object must be one that supports insertion of
+instances otherwise this method will fail. All levels within the document can be found by iterating
+over the entire document and searching for objects of type Autodesk.Revit.Elements.Level.
+     </p>
+     <p>
+      Note: if the created family instance includes nested instances, the API framework will automatically regenerate 
+the document during this method call.
+     </p>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code>FamilyInstance CreateBeam(Autodesk.Revit.DB.Document document, View view)
+{
+
+   <span class="highlight-comment">// get the given view's level for beam creation</span>
+    Level level = document.GetElement(view.LevelId) <span class="highlight-keyword">as</span> Level;
+
+    <span class="highlight-comment">// get a family symbol</span>
+    FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(document);
+    collector.OfClass(<span class="highlight-keyword">typeof</span>(FamilySymbol)).OfCategory(BuiltInCategory.OST_StructuralFraming);
+
+    FamilySymbol gotSymbol = collector.FirstElement() <span class="highlight-keyword">as</span> FamilySymbol;
+
+    <span class="highlight-comment">// create new beam 10' long starting at origin</span>
+    XYZ startPoint = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>);
+    XYZ endPoint = <span class="highlight-keyword">new</span> Autodesk.Revit.DB.XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>);
+
+    Autodesk.Revit.DB.Curve beamLine = Line.CreateBound(startPoint, endPoint);
+
+    <span class="highlight-comment">// create a new beam</span>
+    FamilyInstance instance = document.Create.NewFamilyInstance(beamLine, gotSymbol,
+                                                                level, StructuralType.Beam);
+
+    <span class="highlight-keyword">return</span> instance;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> CreateBeam(document <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Document, view <span class="highlight-keyword">As</span> View) <span class="highlight-keyword">As</span> FamilyInstance
+
+    <span class="highlight-comment">' get the given view's level for beam creation</span>
+    <span class="highlight-keyword">Dim</span> level <span class="highlight-keyword">As</span> Level = <span class="highlight-keyword">TryCast</span>(document.GetElement(view.LevelId), Level)
+
+    <span class="highlight-comment">' get a family symbol</span>
+    <span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(document)
+    collector.OfClass(<span class="highlight-keyword">GetType</span>(FamilySymbol)).OfCategory(BuiltInCategory.OST_StructuralFraming)
+
+    <span class="highlight-keyword">Dim</span> gotSymbol <span class="highlight-keyword">As</span> FamilySymbol = <span class="highlight-keyword">TryCast</span>(collector.FirstElement(), FamilySymbol)
+
+    <span class="highlight-comment">' create new beam 10' long starting at origin</span>
+    <span class="highlight-keyword">Dim</span> startPoint <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>)
+    <span class="highlight-keyword">Dim</span> endPoint <span class="highlight-keyword">As</span> XYZ = <span class="highlight-keyword">New</span> Autodesk.Revit.DB.XYZ(<span class="highlight-number">10</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>)
+
+    <span class="highlight-keyword">Dim</span> beamLine <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Curve = Line.CreateBound(startPoint, endPoint)
+
+    <span class="highlight-comment">' create a new beam</span>
+    <span class="highlight-keyword">Dim</span> instance <span class="highlight-keyword">As</span> FamilyInstance = document.Create.NewFamilyInstance(beamLine, gotSymbol, level, StructuralType.Beam)
+
+    <span class="highlight-keyword">Return</span> instance
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the family symbol does not exist in the given document.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the level does not exist in the given document.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if The symbol is not active.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="0c0d640b-7810-55e4-3c5e-cd295dede87b.htm">
+       NewFamilyInstance Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

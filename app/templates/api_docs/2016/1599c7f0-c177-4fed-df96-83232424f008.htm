@@ -1,0 +1,245 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new CurtainSystem element from a set of faces.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="49847a7a-35e9-09f3-e723-5f906a14b0e3.htm">CurtainSystem</a> <span class="identifier">NewCurtainSystem</span>(
+	<a href="8606c5c3-46fc-f66c-06a8-84fb35c56743.htm">FaceArray</a> <span class="parameter">faces</span>,
+	<a href="8fc2105b-e7c7-afc5-5dea-15160cba19a1.htm">CurtainSystemType</a> <span class="parameter">curtainSystemType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewCurtainSystem</span> ( _
+	<span class="parameter">faces</span> <span class="keyword">As</span> <a href="8606c5c3-46fc-f66c-06a8-84fb35c56743.htm">FaceArray</a>, _
+	<span class="parameter">curtainSystemType</span> <span class="keyword">As</span> <a href="8fc2105b-e7c7-afc5-5dea-15160cba19a1.htm">CurtainSystemType</a> _
+) <span class="keyword">As</span> <a href="49847a7a-35e9-09f3-e723-5f906a14b0e3.htm">CurtainSystem</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="49847a7a-35e9-09f3-e723-5f906a14b0e3.htm">CurtainSystem</a>^ <span class="identifier">NewCurtainSystem</span>(
+	<a href="8606c5c3-46fc-f66c-06a8-84fb35c56743.htm">FaceArray</a>^ <span class="parameter">faces</span>, 
+	<a href="8fc2105b-e7c7-afc5-5dea-15160cba19a1.htm">CurtainSystemType</a>^ <span class="parameter">curtainSystemType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="faces">
+       <dt>
+        <span class="parameter">
+         faces
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="8606c5c3-46fc-f66c-06a8-84fb35c56743.htm">
+         Autodesk.Revit.DB
+         FaceArray
+        </a>
+        <br/>
+        The faces new CurtainSystem will be created on.
+       </dd>
+      </dl>
+      <dl paramname="curtainSystemType">
+       <dt>
+        <span class="parameter">
+         curtainSystemType
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="8fc2105b-e7c7-afc5-5dea-15160cba19a1.htm">
+         Autodesk.Revit.DB
+         CurtainSystemType
+        </a>
+        <br/>
+        The Type of CurtainSystem to be created.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The CurtainSystem created will be returned when the operation succeeds.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The input faces will be copied during the operations so that they can be any
+faces.
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown in following cases:
+The input argument faces or curtainSystemType is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+The size of faces is zero.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when the CurtainSystem cannot be created or regenerate fails.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the curtain system type does not exist in the given document.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

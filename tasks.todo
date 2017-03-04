@@ -1,12 +1,26 @@
-High Priority:
-☐ Add Revit API 2017.1
+Taks:
+☐ OnClick for Section Toggles
+☐ Add New Header
+    ☐ Clean Breadcrumb
+    ☐ Edit On Github
+    ☐ Page year Data
+    ☐ Insights Link
+☐ Clean up api.html
+    ☐ Clean URL/URI logic for page state
+    ☐ Clean and review scroll storage
+    ☐ Clean and review data passing between view.py and template
+☐ Check Diff Data Logic
 
-Refactor:
-☐ clean up api.html
-☐ Organize Folders, Parsers
-☐ Create components folder for html
-☐ Document Views and API.html
+Features:
 
+✔ Parse Revit API 2017.1 @done(2017-02-20 04:13)
+☐ Inisights
+☐ Edit on Github
+✔ Breadcrumbs @done(2017-02-21 03:36)
+
+Organization:
+✔ Organize Folders, Parsers @done(2017-02-20 04:13)
+✔ Create components folder for html @done(2017-02-20 04:13)
 
 Refactor:
 ✔ Change Schema/GetSchema > meta @done(2016-11-12 18:03)
@@ -20,6 +34,8 @@ Misc:
 ✔ Test Adsense @done(2017-01-16 23:51)
 
 Core Tasks:
+✔ Re-create parsers, make it reproducible @done(2017-02-20 04:14)
+✔ Clean up HTML/CHM mess @done(2017-02-20 04:14)
 ✔ Python Gists: add handling @done(2016-10-03 09:37)
 ✔ Improve Namespace menu (long html) @done(2016-08-14 12:55)
 ✔ Solution for Chm static @done(2016-08-14 12:55)

@@ -1,0 +1,231 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="f3be0603-e085-8c3f-9ce8-ca3b9f6c508b.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A class used to describe the criteria an application desires when obtaining members of a point cloud.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="5974062a-47d4-c7bb-16f2-d5dd193bd170.htm">
+      Autodesk.Revit.DB.PointClouds
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">PointCloudFilter</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">PointCloudFilter</span> _
+	<span class="keyword">Implements</span> <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">PointCloudFilter</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Client applications which wish to obtain points from a point cloud will have to create a
+   PointCloudFilter to define the volume of interest (see PointCloudFilterFactory).
+   Engine implementations will need to use the methods contained within the point cloud to determine
+   which points to return to Revit.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// Filter will match 1/8 of the overall point cloud</span>
+<span class="highlight-comment">// Use the bounding box (filter coordinates are in the coordinates of the model)</span>
+BoundingBoxXYZ boundingBox = pointCloudInstance.get_BoundingBox(<span class="highlight-keyword">null</span>);
+List&lt;Plane&gt; planes = <span class="highlight-keyword">new</span> List&lt;Plane&gt;();
+XYZ midpoint = (boundingBox.Min + boundingBox.Max) / <span class="highlight-number">2.0</span>;
+
+<span class="highlight-comment">// X boundaries</span>
+planes.Add(app.Create.NewPlane(XYZ.BasisX, boundingBox.Min));
+planes.Add(app.Create.NewPlane(-XYZ.BasisX, midpoint));
+
+<span class="highlight-comment">// Y boundaries</span>
+planes.Add(app.Create.NewPlane(XYZ.BasisY, boundingBox.Min));
+planes.Add(app.Create.NewPlane(-XYZ.BasisY, midpoint));
+
+<span class="highlight-comment">// Z boundaries</span>
+planes.Add(app.Create.NewPlane(XYZ.BasisZ, boundingBox.Min));
+planes.Add(app.Create.NewPlane(-XYZ.BasisZ, midpoint));
+
+<span class="highlight-comment">// Create filter</span>
+PointCloudFilter filter = PointCloudFilterFactory.CreateMultiPlaneFilter(planes);
+pointCloudInstance.FilterAction = SelectionFilterAction.Highlight;
+
+<span class="highlight-keyword">return</span> filter;</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' Filter will match 1/8 of the overall point cloud</span>
+<span class="highlight-comment">' Use the bounding box (filter coordinates are in the coordinates of the model)</span>
+<span class="highlight-keyword">Dim</span> boundingBox <span class="highlight-keyword">As</span> BoundingBoxXYZ = pointCloudInstance.BoundingBox(<span class="highlight-keyword">Nothing</span>)
+<span class="highlight-keyword">Dim</span> planes <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> List(<span class="highlight-keyword">Of</span> Plane)()
+<span class="highlight-keyword">Dim</span> midpoint <span class="highlight-keyword">As</span> XYZ = (boundingBox.Min + boundingBox.Max) / <span class="highlight-number">2.0</span>
+
+<span class="highlight-comment">' X boundaries</span>
+planes.Add(app.Create.NewPlane(XYZ.BasisX, boundingBox.Min))
+planes.Add(app.Create.NewPlane(-XYZ.BasisX, midpoint))
+
+<span class="highlight-comment">' Y boundaries</span>
+planes.Add(app.Create.NewPlane(XYZ.BasisY, boundingBox.Min))
+planes.Add(app.Create.NewPlane(-XYZ.BasisY, midpoint))
+
+<span class="highlight-comment">' Z boundaries</span>
+planes.Add(app.Create.NewPlane(XYZ.BasisZ, boundingBox.Min))
+planes.Add(app.Create.NewPlane(-XYZ.BasisZ, midpoint))
+
+<span class="highlight-comment">' Create filter</span>
+<span class="highlight-keyword">Dim</span> filter <span class="highlight-keyword">As</span> PointCloudFilter = PointCloudFilterFactory.CreateMultiPlaneFilter(planes)
+pointCloudInstance.FilterAction = SelectionFilterAction.Highlight
+
+<span class="highlight-keyword">Return</span> filter</code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.PointClouds
+      PointCloudFilter
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="f3be0603-e085-8c3f-9ce8-ca3b9f6c508b.htm">
+       PointCloudFilter Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="5974062a-47d4-c7bb-16f2-d5dd193bd170.htm">
+       Autodesk.Revit.DB.PointClouds Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

@@ -1,0 +1,210 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="0d2231f8-91e6-794f-92ae-16aad8014b27.htm">
+       FamilyInstance Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Returns the original geometry of the instance, before the instance is modified by 
+joins, cuts, coping, extensions, or other post-processing.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="09eaeb08-58bb-8049-8925-f3a5aa846fdc.htm">GeometryElement</a> <span class="identifier">GetOriginalGeometry</span>(
+	<a href="aa41fc13-9f81-836c-4271-82568ba5d7e8.htm">Options</a> <span class="parameter">options</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">GetOriginalGeometry</span> ( _
+	<span class="parameter">options</span> <span class="keyword">As</span> <a href="aa41fc13-9f81-836c-4271-82568ba5d7e8.htm">Options</a> _
+) <span class="keyword">As</span> <a href="09eaeb08-58bb-8049-8925-f3a5aa846fdc.htm">GeometryElement</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="09eaeb08-58bb-8049-8925-f3a5aa846fdc.htm">GeometryElement</a>^ <span class="identifier">GetOriginalGeometry</span>(
+	<a href="aa41fc13-9f81-836c-4271-82568ba5d7e8.htm">Options</a>^ <span class="parameter">options</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="options">
+       <dt>
+        <span class="parameter">
+         options
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="aa41fc13-9f81-836c-4271-82568ba5d7e8.htm">
+         Autodesk.Revit.DB
+         Options
+        </a>
+        <br/>
+        The options used to obtain the geometry.  Note that ComputeReferences may not
+be set to true.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This method returns the original geometry of the instance.  The instance's geometry
+will reflect the values of all instance level parameters (e.g. reference levels for columns) and
+of the placement conditions (so a beam placed along a 20' long line will be 20' long).  It excludes
+all modifications made to the geometry due to operations like joining, cutting, openings, coping, 
+or extensions.
+     </p>
+     <p>
+      The geometry will not include the GeometryInstance typically returned when you access the geometry
+of a FamilyInstance via Element.Geometry.  But GeometryInstances may be encountered if there
+are nested family instances within the family.
+     </p>
+     <p>
+      The geometry is returned in the coordinates of the FamilySymbol, not the coordinates of the 
+instance.  If needed, you can transform the returned GeometryElement using the GetTransformed() 
+method, passing the results from GetTransform(), or some other user-defined transformation.
+     </p>
+     <p>
+      The geometry returned is from Revit's internal computations and does not represent actual
+Revit geometry.  Thus, you cannot use it as a reference for other geometry.
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown when the options are not 
+valid for this operation (ComputeReferences == true)
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="0d2231f8-91e6-794f-92ae-16aad8014b27.htm">
+       FamilyInstance Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

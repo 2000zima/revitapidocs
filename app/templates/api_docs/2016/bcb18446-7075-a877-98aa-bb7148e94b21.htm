@@ -1,0 +1,294 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="5dc205a9-cafd-911b-6a56-26f2e8bfcdc1.htm">
+       AreaLoad Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new hosted area load within the project.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2016
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="5dc205a9-cafd-911b-6a56-26f2e8bfcdc1.htm">AreaLoad</a> <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">aDoc</span>,
+	<a href="8c656a67-d41d-c5e5-f75a-554173dfcdd9.htm">AnalyticalModelSurface</a> <span class="parameter">host</span>,
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">forceVector</span>,
+	<a href="eb4b548c-059a-d0d7-2431-8203c29dfebd.htm">AreaLoadType</a> <span class="parameter">symbol</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">Create</span> ( _
+	<span class="parameter">aDoc</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">host</span> <span class="keyword">As</span> <a href="8c656a67-d41d-c5e5-f75a-554173dfcdd9.htm">AnalyticalModelSurface</a>, _
+	<span class="parameter">forceVector</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>, _
+	<span class="parameter">symbol</span> <span class="keyword">As</span> <a href="eb4b548c-059a-d0d7-2431-8203c29dfebd.htm">AreaLoadType</a> _
+) <span class="keyword">As</span> <a href="5dc205a9-cafd-911b-6a56-26f2e8bfcdc1.htm">AreaLoad</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="5dc205a9-cafd-911b-6a56-26f2e8bfcdc1.htm">AreaLoad</a>^ <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">aDoc</span>, 
+	<a href="8c656a67-d41d-c5e5-f75a-554173dfcdd9.htm">AnalyticalModelSurface</a>^ <span class="parameter">host</span>, 
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">forceVector</span>, 
+	<a href="eb4b548c-059a-d0d7-2431-8203c29dfebd.htm">AreaLoadType</a>^ <span class="parameter">symbol</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="aDoc">
+       <dt>
+        <span class="parameter">
+         aDoc
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        Document to which new area load will be added.
+       </dd>
+      </dl>
+      <dl paramname="host">
+       <dt>
+        <span class="parameter">
+         host
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="8c656a67-d41d-c5e5-f75a-554173dfcdd9.htm">
+         Autodesk.Revit.DB.Structure
+         AnalyticalModelSurface
+        </a>
+        <br/>
+        The analytical surface host element (Analytical Floor, Analytical Foundation Slab or Analytical Wall) for the area Load.
+       </dd>
+      </dl>
+      <dl paramname="forceVector">
+       <dt>
+        <span class="parameter">
+         forceVector
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        The force vector applied to the 1st reference point of the area load.
+       </dd>
+      </dl>
+      <dl paramname="symbol">
+       <dt>
+        <span class="parameter">
+         symbol
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="eb4b548c-059a-d0d7-2431-8203c29dfebd.htm">
+         Autodesk.Revit.DB.Structure
+         AreaLoadType
+        </a>
+        <br/>
+        The symbol of the AreaLoad. Set
+        <span class="keyword">
+        </span>
+        <span class="nu">
+         a null reference (
+         <span class="keyword">
+          Nothing
+         </span>
+         in Visual Basic)
+        </span>
+        to use default type.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If successful, returns an object of the newly created AreaLoad.
+     <span class="keyword">
+     </span>
+     <span class="nu">
+      a null reference (
+      <span class="keyword">
+       Nothing
+      </span>
+      in Visual Basic)
+     </span>
+     is returned if the operation fails.
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The element host was not found in the given document.
+   -or-
+   Thrown when force vector is equal zero.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown if type could not be set for newly created line load.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="5dc205a9-cafd-911b-6a56-26f2e8bfcdc1.htm">
+       AreaLoad Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ad04ec26-96a4-ddc4-305a-e6316cdb6a70.htm">
+       Create Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

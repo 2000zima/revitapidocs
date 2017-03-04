@@ -1,0 +1,241 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="a6684d1f-2e02-02fe-9904-36b1b96dbe45.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A class that allows exporting 3D views via a custom export context.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">CustomExporter</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">CustomExporter</span> _
+	<span class="keyword">Implements</span> <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">CustomExporter</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The Export method of this class triggers standard rendering process
+   in Revit, but instead of displaying the result on screen or printer,
+   the output is channeled through the given custom context that handles
+   processing of the geometric as well as non-geometric information.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// This method initiates a custom export process for a given 3D view.</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-keyword">internal</span> <span class="highlight-keyword">void</span> ExportA3DView(Document document, View3D a3DView)
+{
+   <span class="highlight-comment">// Instantiate an export context - the class that receives the output data during </span>
+   <span class="highlight-comment">// export process. The context class must implement the IExportContext interface.</span>
+   MyExportContext context = <span class="highlight-keyword">new</span> MyExportContext(document);
+
+   <span class="highlight-comment">// Create an instance of a custom exporter by giving it a document and the context.</span>
+   CustomExporter exporter = <span class="highlight-keyword">new</span> CustomExporter(document, context);
+
+   <span class="highlight-comment">// Optionally set attributes that should apply to the export process. For example:</span>
+
+   <span class="highlight-comment">// a) Exclude OnFaceBegin and OnFaceEnd method from being invoked in the export</span>
+   <span class="highlight-comment">//    context if data about faces and edges are not relevant to the export.</span>
+   <span class="highlight-comment">//    Excluding face nodes would dramatically speed up the export process.</span>
+   <span class="highlight-comment">//    Note: Excluding faces just excludes the calls, not the actual processing of</span>
+   <span class="highlight-comment">//    face tessellation. Meshes of the faces will still be received by the context.</span>
+   exporter.IncludeFaces = <span class="highlight-keyword">false</span>;
+
+   <span class="highlight-comment">// b) Set TRUE or FALSE to abort the export process should an error occur</span>
+   exporter.ShouldStopOnError = <span class="highlight-keyword">true</span>;
+
+   <span class="highlight-comment">// Initiate the export process by calling one of Exporter's 'export' method,</span>
+   <span class="highlight-comment">// in this case the one that takes a single 3D view as an argument.</span>
+   exporter.Export(a3DView);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' &lt;summary&gt;</span>
+<span class="highlight-comment">' This method initiates a custom export process for a given 3D view.</span>
+<span class="highlight-comment">' &lt;/summary&gt;</span>
+<span class="highlight-keyword">Friend</span> <span class="highlight-keyword">Sub</span> ExportA3DView(document <span class="highlight-keyword">As</span> Document, a3DView <span class="highlight-keyword">As</span> View3D)
+    <span class="highlight-comment">' Instantiate an export context - the class that receives the output data during </span>
+    <span class="highlight-comment">' export process. The context class must implement the IExportContext interface.</span>
+    <span class="highlight-keyword">Dim</span> context <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> MyExportContext(document)
+
+    <span class="highlight-comment">' Create an instance of a custom exporter by giving it a document and the context.</span>
+    <span class="highlight-keyword">Dim</span> exporter <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> CustomExporter(document, context)
+
+    <span class="highlight-comment">' Optionally set attributes that should apply to the export process. For example:</span>
+
+
+    <span class="highlight-comment">' a) Exclude OnFaceBegin and OnFaceEnd method from being invoked in the export</span>
+    <span class="highlight-comment">'    context if data about faces and edges are not relevant to the export.</span>
+    <span class="highlight-comment">'    Excluding face nodes would dramatically speed up the export process.</span>
+    <span class="highlight-comment">'    Note: Excluding faces just excludes the calls, not the actual processing of</span>
+    <span class="highlight-comment">'    face tessellation. Meshes of the faces will still be received by the context.</span>
+    exporter.IncludeFaces = <span class="highlight-keyword">False</span>
+
+    <span class="highlight-comment">' b) Set TRUE or FALSE to abort the export process should an error occur</span>
+    exporter.ShouldStopOnError = <span class="highlight-keyword">True</span>
+
+    <span class="highlight-comment">' Initiate the export process by calling one of Exporter's 'export' method,</span>
+    <span class="highlight-comment">' in this case the one that takes a single 3D view as an argument.</span>
+    exporter.Export(a3DView)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      CustomExporter
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="a6684d1f-2e02-02fe-9904-36b1b96dbe45.htm">
+       CustomExporter Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

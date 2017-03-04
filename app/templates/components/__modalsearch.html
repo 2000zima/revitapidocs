@@ -1,0 +1,62 @@
+<!-- MODAL SEARCH -->
+{% raw %}
+
+<div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="ModalSearchResults">
+  <div class="modal-dialog" role="document">
+
+    <div class="modal-content" id="modal-results">
+        <!-- HANDLE BARS TEMPLATE INSERTED HERE -->
+    </div>
+
+
+    <script id="modal-template" type="text/x-handlebars-template">
+      <!-- MODAL HEADER -->
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span></button>
+
+          <h4 class="modal-title truncate" id="myModalLabel">Query: <strong>{{query}}</strong></h4>
+
+
+          <div id="result-filter-list" class="text-muted small">
+               <!-- <p>Type Filter: <span id="result-filter" class="result-tag badge" data-filter=""></span></p> -->
+               <div id="result-info" class='hidden-xs'>
+                   <span id="result-size">Target API: {{target_year}}</span></br>
+                   <span id="result-size">Results: {{total_results}}{{#if truncated}} [ Showing: {{max_results}} ]{{/if}}</span>
+               </div>
+               <input id="result-filter-box" type="text" class="form-control" id="filter" placeholder="Filter" autocomplete="off" autofocus>
+          </div>
+      </div>
+      <!-- MODAL HEADER -->
+
+      <!-- MODAL BODY -->
+      <div class="modal-body">
+          {{#each results}}
+          <div class="result-entry" data-tag="{{tag}}">
+            <h5 class="truncate {{#exactMatch}}{{/exactMatch}}"><a href="{{href}}">{{title}}</a>
+            <span data-name={{tag}} class="result-tag badge pull-right">{{tag}}</span></h5>
+            <p class="member-of small"><a href="{{member_of_href}}">{{member_of}}</a>
+                <span class="small year">{{#joinyears}}{{years}}{{/joinyears}}</span>
+            </p>
+            <p class="small description">{{description}}</p>
+          </div>
+          {{else}}
+          <span class="text-danger">{{error}}</span>
+          {{/each}}
+      </div>
+      <!-- MODAL BODY -->
+
+      <!-- MODAL FOOTER -->
+      <div class="modal-footer text-muted small hidden-xs">
+      <span>Could not find it?
+      Try a <a id="google-link" target="=_blank" href="http://www.google.com/search?q=site:www.revitapidocs.com {{query}}">Google Search</a></span>
+      </div>
+      <!-- MODAL FOOTER -->
+    </script>
+
+
+  </div>
+</div>
+<!-- MODAL SEARCH -->
+
+{% endraw %}

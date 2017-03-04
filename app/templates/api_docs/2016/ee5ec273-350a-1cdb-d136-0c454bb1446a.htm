@@ -1,0 +1,275 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="2befc0dc-d2e7-7bb0-5779-2d98e0570c79.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     An object that represents a force/moment applied in a linear manner.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">LineLoad</span> : <a href="4130f6dc-1963-2105-d85b-e08a7c34af8b.htm">LoadBase</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">LineLoad</span> _
+	<span class="keyword">Inherits</span> <a href="4130f6dc-1963-2105-d85b-e08a7c34af8b.htm">LoadBase</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">LineLoad</span> : <span class="keyword">public</span> <a href="4130f6dc-1963-2105-d85b-e08a7c34af8b.htm">LoadBase</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The load/moment may be uniform or it may vary between the two ends of the line.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code> <span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> LineLoadInformation(LineLoad lineLoad)
+{
+     StringBuilder information = <span class="highlight-keyword">new</span> StringBuilder(<span class="highlight-literal">"Line Load: "</span>);
+
+     <span class="highlight-comment">// Get the load case name</span>
+     information.Append(<span class="highlight-literal">"\nLoad case for load: "</span> + lineLoad.LoadCaseName);
+
+     <span class="highlight-comment">//Get the three dimensional force applied to the start point and end point of the line load.</span>
+     information.Append(<span class="highlight-literal">"\nForce at the start of this line load: "</span> + XYZToString(lineLoad.ForceVector1));
+     information.Append(<span class="highlight-literal">"\nForce at the end of this line load: "</span> + XYZToString(lineLoad.ForceVector2));
+
+     <span class="highlight-comment">//Get the three dimensional location of the start point and end point for the line load.</span>
+     information.Append(<span class="highlight-literal">"\nStart point of this line load: "</span> + XYZToString(lineLoad.StartPoint));
+     information.Append(<span class="highlight-literal">"\nEnd Point of this line load: "</span> + XYZToString(lineLoad.EndPoint));
+
+     <span class="highlight-comment">//Get the three dimensional moment applied to the start point and end point of the line load.</span>
+     information.Append(<span class="highlight-literal">"\nMoment at the start of this line load: "</span> + XYZToString(lineLoad.MomentVector1));
+     information.Append(<span class="highlight-literal">"\nMoment at the end of this line load: "</span> + XYZToString(lineLoad.MomentVector2));
+
+     <span class="highlight-comment">//Whether the load is projected or not</span>
+     <span class="highlight-keyword">if</span> (lineLoad.IsProjected)
+     {
+         information.Append(<span class="highlight-literal">"\nThis line load is projected."</span>);
+     }
+     <span class="highlight-keyword">else</span>
+     {
+         information.Append(<span class="highlight-literal">"\nThis line load is not projected"</span>);
+     }
+
+     <span class="highlight-comment">//Report if the load is uniform</span>
+     <span class="highlight-keyword">if</span> (<span class="highlight-keyword">false</span> != lineLoad.IsUniform)
+     {
+         information.Append(<span class="highlight-literal">"\nThis load is uniform."</span>);
+     }
+     <span class="highlight-keyword">else</span>
+     {
+         information.Append(<span class="highlight-literal">"\nThis load is not uniform."</span>);
+     }
+
+     <span class="highlight-comment">//show information of lineload in a MessageBox.</span>
+     TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,information.ToString());
+ }
+
+ <span class="highlight-comment">// output the point's three coordinates</span>
+ <span class="highlight-keyword">string</span> XYZToString(XYZ point)
+ {
+     <span class="highlight-keyword">return</span> <span class="highlight-literal">"("</span> + point.X + <span class="highlight-literal">", "</span> + point.Y + <span class="highlight-literal">", "</span> + point.Z + <span class="highlight-literal">")"</span>;
+ }</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> LineLoadInformation(lineLoad <span class="highlight-keyword">As</span> LineLoad)
+    <span class="highlight-keyword">Dim</span> information <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> StringBuilder(<span class="highlight-literal">"Line Load: "</span>)
+
+    <span class="highlight-comment">' Get the load case name</span>
+    information.Append(vbLf &amp; <span class="highlight-literal">"Load case for load: "</span> &amp; Convert.ToString(lineLoad.LoadCaseName))
+
+    <span class="highlight-comment">'Get the three dimensional force applied to the start point and end point of the line load.</span>
+ information.Append(vbLf &amp; <span class="highlight-literal">"Force at the start of this line load: "</span> &amp; XYZToString(lineLoad.ForceVector1))
+ information.Append(vbLf &amp; <span class="highlight-literal">"Force at the end of this line load: "</span> &amp; XYZToString(lineLoad.ForceVector2))
+
+    <span class="highlight-comment">'Get the three dimensional location of the start point and end point for the line load.</span>
+    information.Append(vbLf &amp; <span class="highlight-literal">"Start point of this line load: "</span> &amp; XYZToString(lineLoad.StartPoint))
+    information.Append(vbLf &amp; <span class="highlight-literal">"End Point of this line load: "</span> &amp; XYZToString(lineLoad.EndPoint))
+
+    <span class="highlight-comment">'Get the three dimensional moment applied to the start point and end point of the line load.</span>
+ information.Append(vbLf &amp; <span class="highlight-literal">"Moment at the start of this line load: "</span> &amp; XYZToString(lineLoad.MomentVector1))
+ information.Append(vbLf &amp; <span class="highlight-literal">"Moment at the end of this line load: "</span> &amp; XYZToString(lineLoad.MomentVector2))
+
+    <span class="highlight-comment">'Whether the load is projected or not</span>
+ <span class="highlight-keyword">If</span> lineLoad.IsProjected <span class="highlight-keyword">Then</span>
+    information.Append(vbLf &amp; <span class="highlight-literal">"This line load is projected."</span>)
+ <span class="highlight-keyword">Else</span>
+    information.Append(vbLf &amp; <span class="highlight-literal">"This line load is not projected"</span>)
+ <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-comment">'Report if the load is uniform</span>
+ <span class="highlight-keyword">If</span> <span class="highlight-keyword">False</span> &lt;&gt; lineLoad.IsUniform <span class="highlight-keyword">Then</span>
+    information.Append(vbLf &amp; <span class="highlight-literal">"This load is uniform."</span>)
+ <span class="highlight-keyword">Else</span>
+    information.Append(vbLf &amp; <span class="highlight-literal">"This load is not uniform."</span>)
+ <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-comment">'show information of lineload in a MessageBox.</span>
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, information.ToString())
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span>
+
+<span class="highlight-comment">' output the point's three coordinates</span>
+<span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> XYZToString(point <span class="highlight-keyword">As</span> XYZ) <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span>
+    <span class="highlight-keyword">Return</span> <span class="highlight-literal">"("</span> &amp; Convert.ToString(point.X) &amp; <span class="highlight-literal">", "</span> &amp; Convert.ToString(point.Y) &amp; <span class="highlight-literal">", "</span> &amp; Convert.ToString(point.Z) &amp; <span class="highlight-literal">")"</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+      Autodesk.Revit.DB
+      Element
+     </a>
+     <br/>
+     <a href="4130f6dc-1963-2105-d85b-e08a7c34af8b.htm">
+      Autodesk.Revit.DB.Structure
+      LoadBase
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.Structure
+      LineLoad
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="2befc0dc-d2e7-7bb0-5779-2d98e0570c79.htm">
+       LineLoad Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

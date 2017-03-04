@@ -1,0 +1,231 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="c5d3e9d9-0221-520b-6163-9843db20d5ea.htm">
+       KeyBasedTreeEntryTable Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Reloads KeyBasedTreeEntries from their currently-stored location into this KeyBasedTreeEntryTable.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="2f8c9146-6ae2-49a7-0a8b-cd544077602e.htm">ExternalResourceLoadStatus</a> <span class="identifier">Reload</span>(
+	<a href="f5208754-8b50-cfff-f2ca-f31a0645fbd5.htm">KeyBasedTreeEntriesLoadResults</a> <span class="parameter">loadResults</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">Reload</span> ( _
+	<span class="parameter">loadResults</span> <span class="keyword">As</span> <a href="f5208754-8b50-cfff-f2ca-f31a0645fbd5.htm">KeyBasedTreeEntriesLoadResults</a> _
+) <span class="keyword">As</span> <a href="2f8c9146-6ae2-49a7-0a8b-cd544077602e.htm">ExternalResourceLoadStatus</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="2f8c9146-6ae2-49a7-0a8b-cd544077602e.htm">ExternalResourceLoadStatus</a> <span class="identifier">Reload</span>(
+	<a href="f5208754-8b50-cfff-f2ca-f31a0645fbd5.htm">KeyBasedTreeEntriesLoadResults</a>^ <span class="parameter">loadResults</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="loadResults">
+       <dt>
+        <span class="parameter">
+         loadResults
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="f5208754-8b50-cfff-f2ca-f31a0645fbd5.htm">
+         Autodesk.Revit.DB
+         KeyBasedTreeEntriesLoadResults
+        </a>
+        <br/>
+        <p>
+         If provided, Revit will use this object to store any
+   errors or warnings that were encountered.  Note that if the KeyBasedTreeEntries in the model are
+   already up to date, no errors or warnings will be added to this object.
+        </p>
+        <p>
+         This argument may be
+         <span class="keyword">
+         </span>
+         <span class="nu">
+          a null reference (
+          <span class="keyword">
+           Nothing
+          </span>
+          in Visual Basic)
+         </span>
+         .
+        </p>
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     Returns the outcome of the reload operation.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Revit will try to read KeyBasedTreeEntries from the resource reference stored
+   within the KeyBasedTreeEntryTable. If the operation fails, the table will be
+   unchanged.
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="53205486-5917-7c33-8e67-e362106ddc97.htm">
+           Autodesk.Revit.Exceptions
+           ModificationForbiddenException
+          </a>
+         </td>
+         <td>
+          The document containing this KeyBasedTreeEntryTable is in failure mode: an operation has failed,
+   and Revit requires the user to either cancel the operation
+   or fix the problem (usually by deleting certain elements).
+   -or-
+   The document containing this KeyBasedTreeEntryTable is being loaded, or is in the midst of another
+   sensitive process.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="8f025460-c283-ea99-aa8a-5a36e11528f4.htm">
+           Autodesk.Revit.Exceptions
+           ModificationOutsideTransactionException
+          </a>
+         </td>
+         <td>
+          The document containing this KeyBasedTreeEntryTable has no open transaction.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="c5d3e9d9-0221-520b-6163-9843db20d5ea.htm">
+       KeyBasedTreeEntryTable Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

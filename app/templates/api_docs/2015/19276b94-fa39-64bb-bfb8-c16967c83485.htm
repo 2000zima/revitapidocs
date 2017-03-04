@@ -1,0 +1,288 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="939e9c37-4faf-8261-94d3-e6625bdcd3cb.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A filter to find elements that intersect the given solid geometry.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">ElementIntersectsSolidFilter</span> : <a href="b9e3bdcb-e85a-832d-0f51-312b3fd91cff.htm">ElementIntersectsFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">ElementIntersectsSolidFilter</span> _
+	<span class="keyword">Inherits</span> <a href="b9e3bdcb-e85a-832d-0f51-312b3fd91cff.htm">ElementIntersectsFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">ElementIntersectsSolidFilter</span> : <span class="keyword">public</span> <a href="b9e3bdcb-e85a-832d-0f51-312b3fd91cff.htm">ElementIntersectsFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This filter is a slow filter.
+   Slow filters require that the Element be obtained and expanded in memory first.
+   Thus it is preferable to couple this filter with at least one ElementQuickFilter,
+   which should minimize the number of Elements that are expanded.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// Find intersections between family instances and a selected element</span>
+Reference reference = uidoc.Selection.PickObject(ObjectType.Element, <span class="highlight-literal">"Select element that will be checked for intersection with all family instances"</span>);
+Element element = doc.GetElement(reference);
+GeometryElement geomElement = element.get_Geometry(<span class="highlight-keyword">new</span> Options());
+Solid solid = <span class="highlight-keyword">null</span>;
+<span class="highlight-keyword">foreach</span> (GeometryObject geomObj <span class="highlight-keyword">in</span> geomElement)
+{
+    solid = geomObj <span class="highlight-keyword">as</span> Solid;
+    <span class="highlight-keyword">if</span> (solid != <span class="highlight-keyword">null</span>) <span class="highlight-keyword">break</span>;
+}
+
+FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(doc);
+collector.OfClass(<span class="highlight-keyword">typeof</span>(FamilyInstance));
+collector.WherePasses(<span class="highlight-keyword">new</span> ElementIntersectsSolidFilter(solid)); <span class="highlight-comment">// Apply intersection filter to find matches</span>
+
+TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, collector.Count() + <span class="highlight-literal">" family instances intersect with the selected element ("</span> + element.Category.Name + <span class="highlight-literal">" id:"</span> + element.Id.ToString() + <span class="highlight-literal">")"</span>);</code></pre>
+      </div>
+     </span>
+     <span codelanguage="CSharp" id="cbc_2" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// Find intersections between family instances and a selected element</span>
+Reference reference = uidoc.Selection.PickObject(ObjectType.Element, <span class="highlight-literal">"Select element that will be checked for intersection with all family instances"</span>);
+Element element = doc.GetElement(reference);
+GeometryElement geomElement = element.get_Geometry(<span class="highlight-keyword">new</span> Options());
+Solid solid = <span class="highlight-keyword">null</span>;
+<span class="highlight-keyword">foreach</span> (GeometryObject geomObj <span class="highlight-keyword">in</span> geomElement)
+{
+    solid = geomObj <span class="highlight-keyword">as</span> Solid;
+    <span class="highlight-keyword">if</span> (solid != <span class="highlight-keyword">null</span>) <span class="highlight-keyword">break</span>;
+}
+
+FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(doc);
+collector.OfClass(<span class="highlight-keyword">typeof</span>(FamilyInstance));
+collector.WherePasses(<span class="highlight-keyword">new</span> ElementIntersectsSolidFilter(solid)); <span class="highlight-comment">// Apply intersection filter to find matches</span>
+
+TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, collector.Count() + <span class="highlight-literal">" family instances intersect with the selected element ("</span> + element.Category.Name + <span class="highlight-literal">" id:"</span> + element.Id.ToString() + <span class="highlight-literal">")"</span>);</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_3" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' Find intersections between family instances and a selected element</span>
+<span class="highlight-keyword">Dim</span> reference <span class="highlight-keyword">As</span> Reference = uidoc.Selection.PickObject(ObjectType.Element, <span class="highlight-literal">"Select element that will be checked for intersection with all family instances"</span>)
+<span class="highlight-keyword">Dim</span> element <span class="highlight-keyword">As</span> Element = doc.GetElement(reference)
+<span class="highlight-keyword">Dim</span> geomElement <span class="highlight-keyword">As</span> GeometryElement = element.Geometry(<span class="highlight-keyword">New</span> Options())
+<span class="highlight-keyword">Dim</span> solid <span class="highlight-keyword">As</span> Solid = <span class="highlight-keyword">Nothing</span>
+<span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> geomObj <span class="highlight-keyword">As</span> GeometryObject <span class="highlight-keyword">In</span> geomElement
+    solid = <span class="highlight-keyword">TryCast</span>(geomObj, Solid)
+    <span class="highlight-keyword">If</span> solid <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">For</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">Next</span>
+
+<span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(doc)
+collector.OfClass(<span class="highlight-keyword">GetType</span>(FamilyInstance))
+collector.WherePasses(<span class="highlight-keyword">New</span> ElementIntersectsSolidFilter(solid))
+<span class="highlight-comment">' Apply intersection filter to find matches</span>
+TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, (collector.Count() &amp; <span class="highlight-literal">" family instances intersect with the selected element ("</span>) + element.Category.Name &amp; <span class="highlight-literal">" id:"</span> &amp; element.Id.ToString() &amp; <span class="highlight-literal">")"</span>)</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_4" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' Find intersections between family instances and a selected element</span>
+<span class="highlight-keyword">Dim</span> reference <span class="highlight-keyword">As</span> Reference = uidoc.Selection.PickObject(ObjectType.Element, <span class="highlight-literal">"Select element that will be checked for intersection with all family instances"</span>)
+<span class="highlight-keyword">Dim</span> element <span class="highlight-keyword">As</span> Element = doc.GetElement(reference)
+<span class="highlight-keyword">Dim</span> geomElement <span class="highlight-keyword">As</span> GeometryElement = element.Geometry(<span class="highlight-keyword">New</span> Options())
+<span class="highlight-keyword">Dim</span> solid <span class="highlight-keyword">As</span> Solid = <span class="highlight-keyword">Nothing</span>
+<span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> geomObj <span class="highlight-keyword">As</span> GeometryObject <span class="highlight-keyword">In</span> geomElement
+    solid = <span class="highlight-keyword">TryCast</span>(geomObj, Solid)
+    <span class="highlight-keyword">If</span> solid <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">For</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">Next</span>
+
+<span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(doc)
+collector.OfClass(<span class="highlight-keyword">GetType</span>(FamilyInstance))
+collector.WherePasses(<span class="highlight-keyword">New</span> ElementIntersectsSolidFilter(solid))
+<span class="highlight-comment">' Apply intersection filter to find matches</span>
+TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, (collector.Count() &amp; <span class="highlight-literal">" family instances intersect with the selected element ("</span>) + element.Category.Name &amp; <span class="highlight-literal">" id:"</span> &amp; element.Id.ToString() &amp; <span class="highlight-literal">")"</span>)</code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="b8b46cbf-9ecc-0745-ec53-c3c3b6510113.htm">
+      Autodesk.Revit.DB
+      ElementFilter
+     </a>
+     <br/>
+     <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">
+      Autodesk.Revit.DB
+      ElementSlowFilter
+     </a>
+     <br/>
+     <a href="b9e3bdcb-e85a-832d-0f51-312b3fd91cff.htm">
+      Autodesk.Revit.DB
+      ElementIntersectsFilter
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      ElementIntersectsSolidFilter
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="939e9c37-4faf-8261-94d3-e6625bdcd3cb.htm">
+       ElementIntersectsSolidFilter Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

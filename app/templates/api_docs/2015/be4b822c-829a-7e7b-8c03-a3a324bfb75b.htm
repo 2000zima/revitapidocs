@@ -1,0 +1,390 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="cba2c84a-22c0-e6e7-a99c-67656901853a.htm">
+       ItemFactoryBase Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Inserts a new instance of a family onto a face referenced by the input Reference instance,
+ using a location, reference direction, and a type/symbol.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="0d2231f8-91e6-794f-92ae-16aad8014b27.htm">FamilyInstance</a> <span class="identifier">NewFamilyInstance</span>(
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a> <span class="parameter">reference</span>,
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">location</span>,
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">referenceDirection</span>,
+	<a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a> <span class="parameter">symbol</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewFamilyInstance</span> ( _
+	<span class="parameter">reference</span> <span class="keyword">As</span> <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a>, _
+	<span class="parameter">location</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>, _
+	<span class="parameter">referenceDirection</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>, _
+	<span class="parameter">symbol</span> <span class="keyword">As</span> <a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a> _
+) <span class="keyword">As</span> <a href="0d2231f8-91e6-794f-92ae-16aad8014b27.htm">FamilyInstance</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="0d2231f8-91e6-794f-92ae-16aad8014b27.htm">FamilyInstance</a>^ <span class="identifier">NewFamilyInstance</span>(
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a>^ <span class="parameter">reference</span>, 
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">location</span>, 
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">referenceDirection</span>, 
+	<a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">FamilySymbol</a>^ <span class="parameter">symbol</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="reference">
+       <dt>
+        <span class="parameter">
+         reference
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">
+         Autodesk.Revit.DB
+         Reference
+        </a>
+        <br/>
+        A reference to a face.
+       </dd>
+      </dl>
+      <dl paramname="location">
+       <dt>
+        <span class="parameter">
+         location
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        Point on the face where the instance is to be placed.
+       </dd>
+      </dl>
+      <dl paramname="referenceDirection">
+       <dt>
+        <span class="parameter">
+         referenceDirection
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        A vector that defines the direction of the family instance.
+Note that this direction defines the rotation of the instance on the face, and thus cannot be parallel
+to the face normal.
+       </dd>
+      </dl>
+      <dl paramname="symbol">
+       <dt>
+        <span class="parameter">
+         symbol
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="a1acaed0-6a62-4c1d-94f5-4e27ce0923d3.htm">
+         Autodesk.Revit.DB
+         FamilySymbol
+        </a>
+        <br/>
+        A FamilySymbol object that represents the type of the instance that is to be inserted.
+Note that this symbol must represent a family whose
+        <a href="7fcd2fda-21c3-9b9b-8ef3-ae2e53e02a05.htm">
+         FamilyPlacementType
+        </a>
+        is WorkPlaneBased.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     An instance of the new object if creation was successful, otherwise
+     <span class="keyword">
+     </span>
+     <span class="nu">
+      a null reference (
+      <span class="keyword">
+       Nothing
+      </span>
+      in Visual Basic)
+     </span>
+     .
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Use this method to insert one family instance on a face of another element, 
+using a point on the face and a vector to define the position and direction of the new symbol.
+     <p>
+      The type/symbol that is used must be loaded into the document before this method is called.
+Families and their symbols can be loaded using the Document.LoadFamily or
+Document.LoadFamilySymbol methods.
+     </p>
+     <p>
+      The host object must support insertion of instances, otherwise this method 
+will fail. If the instances fails to be created an exception may be thrown.
+     </p>
+     <p>
+      Some Families, such as Beams, have more than one endpoint and are inserted 
+in the same manner as single point instances. Once inserted, these linear family instances
+can have their endpoints changed by using the instance's Element.Location property.
+     </p>
+     <p>
+      Note: if the created family instance includes nested instances, the API framework will automatically regenerate 
+the document during this method call.
+     </p>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">void</span> CreateNurseCallDomeOnWall(Autodesk.Revit.DB.Document document, Wall wall)
+{
+    FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(document);
+    collector.OfClass(<span class="highlight-keyword">typeof</span>(FamilySymbol)).OfCategory(BuiltInCategory.OST_NurseCallDevices);
+
+    FamilySymbol symbol = collector.FirstElement() <span class="highlight-keyword">as</span> FamilySymbol;
+
+    <span class="highlight-comment">// Get interior face of wall</span>
+    IList&lt;Reference&gt; sideFaces = HostObjectUtils.GetSideFaces(wall, ShellLayerType.Interior);
+    Reference interiorFaceRef = sideFaces[<span class="highlight-number">0</span>];
+
+    XYZ location = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">4</span>, <span class="highlight-number">2</span>, <span class="highlight-number">8</span>);
+    XYZ refDir = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">1</span>);
+
+    FamilyInstance instance = document.Create.NewFamilyInstance(interiorFaceRef, location, refDir, symbol);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> CreateNurseCallDomeOnWall(document <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Document, wall <span class="highlight-keyword">As</span> Wall)
+    <span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(document)
+    collector.OfClass(<span class="highlight-keyword">GetType</span>(FamilySymbol)).OfCategory(BuiltInCategory.OST_NurseCallDevices)
+
+    <span class="highlight-keyword">Dim</span> symbol <span class="highlight-keyword">As</span> FamilySymbol = <span class="highlight-keyword">TryCast</span>(collector.FirstElement(), FamilySymbol)
+
+    <span class="highlight-comment">' Get interior face of wall</span>
+    <span class="highlight-keyword">Dim</span> sideFaces <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> Reference) = HostObjectUtils.GetSideFaces(wall, ShellLayerType.Interior)
+    <span class="highlight-keyword">Dim</span> interiorFaceRef <span class="highlight-keyword">As</span> Reference = sideFaces(<span class="highlight-number">0</span>)
+
+    <span class="highlight-keyword">Dim</span> location <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">4</span>, <span class="highlight-number">2</span>, <span class="highlight-number">8</span>)
+    <span class="highlight-keyword">Dim</span> refDir <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">1</span>)
+
+    <span class="highlight-keyword">Dim</span> instance <span class="highlight-keyword">As</span> FamilyInstance = document.Create.NewFamilyInstance(interiorFaceRef, location, refDir, symbol)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown when a non-optional argument was null.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown when the function cannot get the face from
+the reference, or, when the Family cannot be placed as line-based on an input face reference, because its FamilyPlacementType 
+is not WorkPlaneBased
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="05972c68-fa6d-3a83-d720-ad84fbc4780f.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentsInconsistentException
+          </a>
+         </td>
+         <td>
+          Thrown when reference direction is 
+parallel to face normal at insertion point.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when Revit is unable to place the family
+instance.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="cba2c84a-22c0-e6e7-a99c-67656901853a.htm">
+       ItemFactoryBase Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="451ee414-cea0-e9bd-227b-c73bc93507dd.htm">
+       NewFamilyInstance Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

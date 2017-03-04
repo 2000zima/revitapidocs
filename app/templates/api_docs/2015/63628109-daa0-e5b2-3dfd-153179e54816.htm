@@ -1,0 +1,201 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="9108112c-330d-d570-f461-01bf62cb0d0f.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     This element contains settings for gbXML Export and Heating and Cooling Load Calculations
+   and project level settings for Conceptual Energy Analysis.
+   for serialization
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="958e2e12-587d-f188-5d7b-f13d7dbfdf48.htm">
+      Autodesk.Revit.DB.Analysis
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">EnergyDataSettings</span> : <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">EnergyDataSettings</span> _
+	<span class="keyword">Inherits</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">EnergyDataSettings</span> : <span class="keyword">public</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> GetInfo_EnergyData(Document document)
+{
+   EnergyDataSettings energyData = EnergyDataSettings.GetFromDocument(document);
+
+   <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != energyData)
+    {
+        <span class="highlight-keyword">string</span> message = <span class="highlight-literal">"energyData : "</span>;
+        message += <span class="highlight-literal">"\nBuildingType : "</span> + energyData.BuildingType;
+        TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,message);
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> GetInfo_EnergyData(document <span class="highlight-keyword">As</span> Document)
+    <span class="highlight-keyword">Dim</span> energyData <span class="highlight-keyword">As</span> EnergyDataSettings = EnergyDataSettings.GetFromDocument(document)
+
+    <span class="highlight-keyword">If</span> energyData <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Dim</span> message <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"energyData : "</span>
+        message += vbLf &amp; <span class="highlight-literal">"BuildingType : "</span> + energyData.BuildingType
+        TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, message)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+      Autodesk.Revit.DB
+      Element
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.Analysis
+      EnergyDataSettings
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="9108112c-330d-d570-f461-01bf62cb0d0f.htm">
+       EnergyDataSettings Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="958e2e12-587d-f188-5d7b-f13d7dbfdf48.htm">
+       Autodesk.Revit.DB.Analysis Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

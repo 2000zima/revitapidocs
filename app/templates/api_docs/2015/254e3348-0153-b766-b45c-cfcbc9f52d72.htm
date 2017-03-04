@@ -1,0 +1,207 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="6282b3c9-3717-5c8f-7501-8a282244ce09.htm">
+       AreaVolumeSettings Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     True to enable volume computation.  False to disable it.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">ComputeVolumes</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Property</span> <span class="identifier">ComputeVolumes</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a>
+	<span class="keyword">Get</span>
+	<span class="keyword">Set</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">property</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">ComputeVolumes</span> {
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="keyword">get</span> ();
+	<span class="keyword">void</span> <span class="keyword">set</span> (<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     When this setting is False, rooms and spaces will be treated as simple extrusions of their 2d boundaries.
+   The volume parameter will report "not computed".
+   When this setting is True, the geometry of rooms and spaces will be trimmed
+   when it intersects elements such as ceilings, roofs, and floors.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> GetRoomDimensions(Document doc, Room room)
+{
+    String roominfo = <span class="highlight-literal">"Room dimensions:\n"</span>;
+    <span class="highlight-comment">// turn on volume calculations:</span>
+    <span class="highlight-keyword">using</span> (Transaction t = <span class="highlight-keyword">new</span> Transaction(doc, <span class="highlight-literal">"Turn on volume calculation"</span>))
+    {
+        t.Start();
+        AreaVolumeSettings settings = AreaVolumeSettings.GetAreaVolumeSettings(doc);
+        settings.ComputeVolumes = <span class="highlight-keyword">true</span>;
+        t.Commit();
+    }
+
+    roominfo += <span class="highlight-literal">"Vol: "</span> + room.Volume + <span class="highlight-literal">"\n"</span>;
+    roominfo += <span class="highlight-literal">"Area: "</span> + room.Area + <span class="highlight-literal">"\n"</span>;
+    roominfo += <span class="highlight-literal">"Perimeter: "</span> + room.Perimeter + <span class="highlight-literal">"\n"</span>;
+    roominfo += <span class="highlight-literal">"Unbounded height: "</span> + room.UnboundedHeight + <span class="highlight-literal">"\n"</span>;
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,roominfo);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> GetRoomDimensions(doc <span class="highlight-keyword">As</span> Document, room <span class="highlight-keyword">As</span> Room)
+    <span class="highlight-keyword">Dim</span> roominfo <span class="highlight-keyword">As</span> [<span class="highlight-keyword">String</span>] = <span class="highlight-literal">"Room dimensions:"</span> &amp; vbLf
+    <span class="highlight-comment">' turn on volume calculations:</span>
+    <span class="highlight-keyword">Using</span> t <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> Transaction(doc, <span class="highlight-literal">"Turn on volume calculation"</span>)
+        t.Start()
+        <span class="highlight-keyword">Dim</span> settings <span class="highlight-keyword">As</span> AreaVolumeSettings = AreaVolumeSettings.GetAreaVolumeSettings(doc)
+        settings.ComputeVolumes = <span class="highlight-keyword">True</span>
+        t.Commit()
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Using</span>
+
+    roominfo += <span class="highlight-literal">"Vol: "</span> &amp; Convert.ToString(room.Volume) &amp; vbLf
+    roominfo += <span class="highlight-literal">"Area: "</span> &amp; Convert.ToString(room.Area) &amp; vbLf
+    roominfo += <span class="highlight-literal">"Perimeter: "</span> &amp; Convert.ToString(room.Perimeter) &amp; vbLf
+    roominfo += <span class="highlight-literal">"Unbounded height: "</span> &amp; Convert.ToString(room.UnboundedHeight) &amp; vbLf
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, roominfo)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="6282b3c9-3717-5c8f-7501-8a282244ce09.htm">
+       AreaVolumeSettings Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

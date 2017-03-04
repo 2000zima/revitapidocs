@@ -5,7 +5,13 @@ import logging
 logger = logging.getLogger('flask_s3')
 logger.setLevel(logging.DEBUG)
 
-print('Uploading Assets to S3 Bucket...')
-flask_s3.create_all(app)
+# TODO: Implement API Clear, maybe CLI
 
-print('Done.')
+print('Uploading Assets to S3 Bucket...')
+bucket_name = app.config['FLASKS3_BUCKET_NAME']
+
+if input('Bucket is [{}]. Confirm? [y]'.format(bucket_name)) == 'y':
+    flask_s3.create_all(app)
+    print('Done.')
+else:
+    print('Canceled')

@@ -1,0 +1,183 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     This attribute indicates how the curve will be projected to the surface if the curve is sketched on the surface.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="identifier">CurveProjectionType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Enumeration</span> <span class="identifier">CurveProjectionType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum class</span> <span class="identifier">CurveProjectionType</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <div id="enumerationSection">
+     <h1 class="heading">
+      Members
+      <a name="membersToggle">
+      </a>
+     </h1>
+     <div class="section" id="membersSection" name="collapseableSection" style="">
+      <table class="members" frame="lhs" id="memberList">
+       <colgroup>
+        <col width="10%">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr>
+         <th class="nameColumn">
+          Member name
+         </th>
+         <th class="descriptionColumn">
+          Description
+         </th>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CurveProjectionType.FromTopDown">
+          <span class="selflink">
+           FromTopDown
+          </span>
+         </td>
+         <td>
+          Projects curve in a direction parallel to the height of the project or family (projects in an upwardly or downwardly direction).
+   For example, would be used to project curves to a surface that represented a roof or site,
+   where the goal was for the curves to look from above as they were sketched,
+   even though they are being mapped to the surface.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CurveProjectionType.ParallelToLevel">
+          <span class="selflink">
+           ParallelToLevel
+          </span>
+         </td>
+         <td>
+          The curves are projected to their target surface in a projection direction that is parallel to level.
+   The exact vector of projection also considers the endpoints of the curve being projected or endpoints in a loop of curves it belongs to (if any).
+   But the vector is always parallel to the level.
+   This is used to create curves on the building that retain a particular sketched shape based on elevation perspective,
+   regardless of target surface contours.
+   Sketching windows is an example where this is useful.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.CurveProjectionType.FollowSurfaceUV">
+          <span class="selflink">
+           FollowSurfaceUV
+          </span>
+         </td>
+         <td>
+          The curve is generated on to lie on the surface based on its endpoints/control points on the surface, its curve type, and depending on the surface type,
+   either projecting to the surface based on projecting tessellation points of the curve to the target surface,
+   or by interpreting the equation produced by the curve type and user defined control points in the surface uv.
+   In some ways, this is the most robust way to generate the curve on the surface,
+   but for some surface shapes, it can make it difficult to obtain the desired appearance from a particular perspective in the model.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

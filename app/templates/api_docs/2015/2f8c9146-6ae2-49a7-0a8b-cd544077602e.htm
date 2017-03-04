@@ -1,0 +1,207 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A flag to indicate the status of an ExternalResource load request.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="identifier">ExternalResourceLoadStatus</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Enumeration</span> <span class="identifier">ExternalResourceLoadStatus</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum class</span> <span class="identifier">ExternalResourceLoadStatus</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <div id="enumerationSection">
+     <h1 class="heading">
+      Members
+      <a name="membersToggle">
+      </a>
+     </h1>
+     <div class="section" id="membersSection" name="collapseableSection" style="">
+      <table class="members" frame="lhs" id="memberList">
+       <colgroup>
+        <col width="10%">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr>
+         <th class="nameColumn">
+          Member name
+         </th>
+         <th class="descriptionColumn">
+          Description
+         </th>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.ExternalResourceLoadStatus.Success">
+          <span class="selflink">
+           Success
+          </span>
+         </td>
+         <td>
+          The load operation was successful.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.ExternalResourceLoadStatus.Failure">
+          <span class="selflink">
+           Failure
+          </span>
+         </td>
+         <td>
+          The load operation failed.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.ExternalResourceLoadStatus.Uninitialized">
+          <span class="selflink">
+           Uninitialized
+          </span>
+         </td>
+         <td>
+          The load operation is in an incomplete state.
+   Revit will treat this result as a failure.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.ExternalResourceLoadStatus.ResourceAlreadyCurrent">
+          <span class="selflink">
+           ResourceAlreadyCurrent
+          </span>
+         </td>
+         <td>
+          The current version of the resource is already loaded into Revit so no changes were made to the model.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.ExternalResourceLoadStatus.CannotFindServer">
+          <span class="selflink">
+           CannotFindServer
+          </span>
+         </td>
+         <td>
+          The server identified by the ExternalResourceReference could not be found, and may not be registered.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.ExternalResourceLoadStatus.ServerThrewException">
+          <span class="selflink">
+           ServerThrewException
+          </span>
+         </td>
+         <td>
+          The server identified by the ExternalResourceReference threw an exception while attempting to load a resource.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This flag is returned by the LoadResource method of the IExternalResourceServer
+   class to inform callers whether the load operation succeeded, or encountered
+   an error.
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

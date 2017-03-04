@@ -1,0 +1,180 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="d0c5bb12-7cf7-35e0-fc72-51e491c56bc2.htm">
+       ElectricalSetting Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Remove the wire material type from project.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="212a1314-7843-2c6c-3322-363127e4059f.htm">
+      Autodesk.Revit.DB.Electrical
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">RemoveWireMaterialType</span>(
+	<a href="3d05ec79-0289-c6d1-2a13-7e6b07241afd.htm">WireMaterialType</a> <span class="parameter">materialType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">RemoveWireMaterialType</span> ( _
+	<span class="parameter">materialType</span> <span class="keyword">As</span> <a href="3d05ec79-0289-c6d1-2a13-7e6b07241afd.htm">WireMaterialType</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">RemoveWireMaterialType</span>(
+	<a href="3d05ec79-0289-c6d1-2a13-7e6b07241afd.htm">WireMaterialType</a>^ <span class="parameter">materialType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="materialType">
+       <dt>
+        <span class="parameter">
+         materialType
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="3d05ec79-0289-c6d1-2a13-7e6b07241afd.htm">
+         Autodesk.Revit.DB.Electrical
+         WireMaterialType
+        </a>
+        <br/>
+        The wire material type to be removed.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Wire material type can be removed only if it is not currently assigned to any wire type, 
+and the last one wire material type can't be removed, otherwise an exception will be thrown.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="d0c5bb12-7cf7-35e0-fc72-51e491c56bc2.htm">
+       ElectricalSetting Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="212a1314-7843-2c6c-3322-363127e4059f.htm">
+       Autodesk.Revit.DB.Electrical Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

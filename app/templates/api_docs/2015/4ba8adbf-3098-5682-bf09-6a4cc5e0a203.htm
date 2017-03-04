@@ -1,0 +1,274 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="32fe1ec6-ddb3-feac-f18c-8683b054f639.htm">
+       RebarConstraintsManager Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Sets the RebarConstraint as preferred constraint target for the specified RebarConstrainedHandle.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetPreferredConstraintForHandle</span>(
+	<a href="08b4c4a3-3bb9-0801-9cc8-cd5420a306d9.htm">RebarConstrainedHandle</a> <span class="parameter">handle</span>,
+	<a href="748823c8-f059-68c1-d7b5-7cfaba93a445.htm">RebarConstraint</a> <span class="parameter">constraint</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetPreferredConstraintForHandle</span> ( _
+	<span class="parameter">handle</span> <span class="keyword">As</span> <a href="08b4c4a3-3bb9-0801-9cc8-cd5420a306d9.htm">RebarConstrainedHandle</a>, _
+	<span class="parameter">constraint</span> <span class="keyword">As</span> <a href="748823c8-f059-68c1-d7b5-7cfaba93a445.htm">RebarConstraint</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetPreferredConstraintForHandle</span>(
+	<a href="08b4c4a3-3bb9-0801-9cc8-cd5420a306d9.htm">RebarConstrainedHandle</a>^ <span class="parameter">handle</span>, 
+	<a href="748823c8-f059-68c1-d7b5-7cfaba93a445.htm">RebarConstraint</a>^ <span class="parameter">constraint</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="handle">
+       <dt>
+        <span class="parameter">
+         handle
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="08b4c4a3-3bb9-0801-9cc8-cd5420a306d9.htm">
+         Autodesk.Revit.DB.Structure
+         RebarConstrainedHandle
+        </a>
+        <br/>
+        The RebarConstrainedHandle to which the new RebarConstraint is to be applied.
+       </dd>
+      </dl>
+      <dl paramname="constraint">
+       <dt>
+        <span class="parameter">
+         constraint
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="748823c8-f059-68c1-d7b5-7cfaba93a445.htm">
+         Autodesk.Revit.DB.Structure
+         RebarConstraint
+        </a>
+        <br/>
+        The new RebarConstraint to be applied to the RebarConstrainedHandle.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      The RebarConstraint should be one of the candidate RebarConstraints returned by
+   getConstraintCandidatesForHandle.
+     </p>
+     <p>
+      In general, the caller should assume that the 'set' operation can fail, as some
+   of the candidates may be legal targets for the handle, but may cause the rebar
+   to flex into an insoluble shape.
+     </p>
+     <p>
+      Once a preferred constraint has been successfully assigned to a handle, the
+   user can still drag the handle, and the Rebar can generally be flexed in much
+   the same way as it could before (preferred constraints do not have the same
+   effect as Revit locked dimensions).  However, the rebar's behavior will change
+   in subtle ways.
+     </p>
+     <p>
+      A handle with a FixedDistanceToHostFace preferred constraint will allow the
+   constraint's offset distance to change as the user moves the handle.  However,
+   in subsequent model updates, the handle will continue to follow the preferred
+   constraint target, even if other legitimate constraint targets are closer to
+   the handle.  One can think of this behavior as equivalent to unlocking a
+   locked dimension, moving one of dimension references, and then re-locking the
+   dimension - all in one step.
+     </p>
+     <p>
+      When a handle with a ToCover or ToOtherRebar preferred constraint is dragged by
+   the user, it will snap back to its constraint target, unless it is dragged
+   beyond tolerance distance.  In that case, it will select a new constraint using
+   default logic, but will continue to treat the "broken" constraint as preferred,
+   and will snap back to the preferred target again, if it is dragged to within
+   tolerance distance.
+     </p>
+     <p>
+      If, during a model update, the rebar determines that a preferred constraint
+   target no longer exists, or has been modified so that it is no longer a legal
+   candidate for the handle, then the rebar will remove the preferred status of
+   that target and will assign a new constraint to the handle using the default
+   logic.
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          constraint is no longer valid.
+   -or-
+   handle is no longer valid.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          The RebarConstraintsManager does not manage a valid Rebar element.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="32fe1ec6-ddb3-feac-f18c-8683b054f639.htm">
+       RebarConstraintsManager Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

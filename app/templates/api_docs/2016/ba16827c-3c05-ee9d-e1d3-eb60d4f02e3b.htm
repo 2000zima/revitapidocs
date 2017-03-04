@@ -1,0 +1,202 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="9c7fdd8b-a899-7ba1-2a0f-ecc5e8fe85db.htm">
+       DirectShapeType Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Sets the shape of this object to the one accumulated in the supplied Builder object.
+   If the new shape is identical to the old one, the old shape will be kept.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2016
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetShape</span>(
+	<a href="66c1678c-2e01-e0de-1386-5a0e1eb3ccff.htm">ShapeBuilder</a> <span class="parameter">pBuilder</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetShape</span> ( _
+	<span class="parameter">pBuilder</span> <span class="keyword">As</span> <a href="66c1678c-2e01-e0de-1386-5a0e1eb3ccff.htm">ShapeBuilder</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetShape</span>(
+	<a href="66c1678c-2e01-e0de-1386-5a0e1eb3ccff.htm">ShapeBuilder</a>^ <span class="parameter">pBuilder</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="pBuilder">
+       <dt>
+        <span class="parameter">
+         pBuilder
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="66c1678c-2e01-e0de-1386-5a0e1eb3ccff.htm">
+         Autodesk.Revit.DB
+         ShapeBuilder
+        </a>
+        <br/>
+        A ShapeBuilder object that was used to successfully build geometry to store in this DirectShapeType. The built shape will be
+   transferred to the DirectShapeType, and the ShapeBuilder object will be reset.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This function will bypass extra geometry validation because the built geometry has already been validated by the ShapeBuilder.
+   It is therefore slightly more efficient than the SetShape() routine that accepts GeometryObjects directly as input.
+   Supplying a ViewShapeBuilder object as argument will cause the view-specific shape of this DirectShapeType to be updated.
+   Supplying other ShapeBuilder types will update the model shape.
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="9c7fdd8b-a899-7ba1-2a0f-ecc5e8fe85db.htm">
+       DirectShapeType Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="a2008089-b24d-a663-c1a7-6c8d877ef4ce.htm">
+       SetShape Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

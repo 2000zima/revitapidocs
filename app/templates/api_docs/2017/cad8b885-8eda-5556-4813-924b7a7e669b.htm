@@ -1,0 +1,301 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="128dd879-fea8-5d7b-1eb2-d64f87753990.htm">
+       UnitUtils Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Converts a value from one display unit to another, such as square feet to square meters.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="identifier">Convert</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">value</span>,
+	<a href="7d3d3306-a4c2-c577-0aeb-cca42d6cfd2f.htm">DisplayUnitType</a> <span class="parameter">currentDisplayUnit</span>,
+	<a href="7d3d3306-a4c2-c577-0aeb-cca42d6cfd2f.htm">DisplayUnitType</a> <span class="parameter">desiredDisplayUnit</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">Convert</span> ( _
+	<span class="parameter">value</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a>, _
+	<span class="parameter">currentDisplayUnit</span> <span class="keyword">As</span> <a href="7d3d3306-a4c2-c577-0aeb-cca42d6cfd2f.htm">DisplayUnitType</a>, _
+	<span class="parameter">desiredDisplayUnit</span> <span class="keyword">As</span> <a href="7d3d3306-a4c2-c577-0aeb-cca42d6cfd2f.htm">DisplayUnitType</a> _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="identifier">Convert</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">value</span>, 
+	<a href="7d3d3306-a4c2-c577-0aeb-cca42d6cfd2f.htm">DisplayUnitType</a> <span class="parameter">currentDisplayUnit</span>, 
+	<a href="7d3d3306-a4c2-c577-0aeb-cca42d6cfd2f.htm">DisplayUnitType</a> <span class="parameter">desiredDisplayUnit</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="value">
+       <dt>
+        <span class="parameter">
+         value
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         System
+         Double
+        </a>
+        <br/>
+        The value to convert.
+       </dd>
+      </dl>
+      <dl paramname="currentDisplayUnit">
+       <dt>
+        <span class="parameter">
+         currentDisplayUnit
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="7d3d3306-a4c2-c577-0aeb-cca42d6cfd2f.htm">
+         Autodesk.Revit.DB
+         DisplayUnitType
+        </a>
+        <br/>
+        The current display unit.
+       </dd>
+      </dl>
+      <dl paramname="desiredDisplayUnit">
+       <dt>
+        <span class="parameter">
+         desiredDisplayUnit
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="7d3d3306-a4c2-c577-0aeb-cca42d6cfd2f.htm">
+         Autodesk.Revit.DB
+         DisplayUnitType
+        </a>
+        <br/>
+        The desired display unit.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The converted value.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">void</span> SetTopOffset(Wall wall, <span class="highlight-keyword">double</span> dOffsetInches)
+{
+    <span class="highlight-comment">// convert user-defined offset value to feet from inches prior to setting</span>
+    <span class="highlight-keyword">double</span> dOffsetFeet = UnitUtils.Convert(dOffsetInches, 
+                                            DisplayUnitType.DUT_DECIMAL_INCHES, 
+                                            DisplayUnitType.DUT_DECIMAL_FEET);
+
+    Parameter paramTopOffset = wall.get_Parameter(BuiltInParameter.WALL_TOP_OFFSET);
+    paramTopOffset.Set(dOffsetFeet);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> SetTopOffset(wall <span class="highlight-keyword">As</span> Wall, dOffsetInches <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span>)
+   <span class="highlight-comment">' convert user-defined offset value to feet from inches prior to setting</span>
+   <span class="highlight-keyword">Dim</span> dOffsetFeet <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = UnitUtils.Convert(dOffsetInches, DisplayUnitType.DUT_DECIMAL_INCHES, DisplayUnitType.DUT_DECIMAL_FEET)
+
+   <span class="highlight-keyword">Dim</span> paramTopOffset <span class="highlight-keyword">As</span> Parameter = wall.Parameter(BuiltInParameter.WALL_TOP_OFFSET)
+   paramTopOffset.[<span class="highlight-keyword">Set</span>](dOffsetFeet)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The given value for value is not finite
+   -or-
+   currentDisplayUnit is an invalid display unit.  See UnitUtils.IsValidDisplayUnit(DisplayUnitType) and UnitUtils.GetValidDisplayUnits().
+   -or-
+   desiredDisplayUnit is an invalid display unit.  See UnitUtils.IsValidDisplayUnit(DisplayUnitType) and UnitUtils.GetValidDisplayUnits().
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="05972c68-fa6d-3a83-d720-ad84fbc4780f.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentsInconsistentException
+          </a>
+         </td>
+         <td>
+          currentDisplayUnit and desiredDisplayUnit have different dimensions.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="128dd879-fea8-5d7b-1eb2-d64f87753990.htm">
+       UnitUtils Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

@@ -1,0 +1,240 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+       Document Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Updates the elements in the Revit document to reflect all changes.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">Regenerate</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">Regenerate</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">Regenerate</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Use this method to force update to the document after a group of changes. Note that when a transaction is committed 
+there is an automatic call to regenerate the document.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code>FamilyInstance instance = doc.Create.NewFamilyInstance(<span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">15</span>, <span class="highlight-number">20</span>, <span class="highlight-number">0</span>), familySymbol, StructuralType.NonStructural);
+FamilyInstance instance2 = doc.Create.NewFamilyInstance(<span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">25</span>, <span class="highlight-number">30</span>, <span class="highlight-number">0</span>), familySymbol, StructuralType.NonStructural);
+<span class="highlight-comment">// faster to create multiple instances without calling Regenerate after each one</span>
+
+LocationPoint point = instance.Location <span class="highlight-keyword">as</span> LocationPoint;
+<span class="highlight-comment">// this data is incorrect because the new geometry has not yet been regenerated</span>
+
+doc.Regenerate();
+point = instance.Location <span class="highlight-keyword">as</span> LocationPoint;
+<span class="highlight-comment">// now it is correct</span></code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Dim</span> instance <span class="highlight-keyword">As</span> FamilyInstance = doc.Create.NewFamilyInstance(<span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">15</span>, <span class="highlight-number">20</span>, <span class="highlight-number">0</span>), familySymbol, StructuralType.NonStructural)
+<span class="highlight-keyword">Dim</span> instance2 <span class="highlight-keyword">As</span> FamilyInstance = doc.Create.NewFamilyInstance(<span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">25</span>, <span class="highlight-number">30</span>, <span class="highlight-number">0</span>), familySymbol, StructuralType.NonStructural)
+<span class="highlight-comment">' faster to create multiple instances without calling Regenerate after each one</span>
+
+
+<span class="highlight-keyword">Dim</span> point <span class="highlight-keyword">As</span> LocationPoint = <span class="highlight-keyword">TryCast</span>(instance.Location, LocationPoint)
+<span class="highlight-comment">' this data is incorrect because the new geometry has not yet been regenerated</span>
+
+
+doc.Regenerate()
+point = <span class="highlight-keyword">TryCast</span>(instance.Location, LocationPoint)
+<span class="highlight-comment">' now it is correct</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="787bb389-74c2-5ce7-cdd6-32211209ded2.htm">
+           Autodesk.Revit.Exceptions
+           RegenerationFailedException
+          </a>
+         </td>
+         <td>
+          Thrown when the operation fails.
+          <ul>
+           <li>
+            If regeneration fails, there is posted error of severity DocumentCorruption that will be delivered to the end user 
+at the end of transaction explaining what specifically has happened.
+           </li>
+           <li>
+            If regeneration has failed, document is corrupted and even reading from it is illegal.
+           </li>
+           <li>
+            Code that called regeneration and got this exception should not catch and ignore it - instead, it should do nothing 
+but internal cleanup and return control to the owner of currently active transaction/subtransaction, which must be aborted.
+           </li>
+          </ul>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Modification of the document is forbidden.  Typically, 
+this is because there is no open transaction;  consult documentation for Document.IsModified for other possible causes.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

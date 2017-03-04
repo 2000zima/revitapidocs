@@ -1,0 +1,293 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="8c656a67-d41d-c5e5-f75a-554173dfcdd9.htm">
+       AnalyticalModelSurface Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Retrieves Analytical Model Loops with respect to the loopType.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a>&gt; <span class="identifier">GetLoops</span>(
+	<a href="e19a91b9-b428-11a1-61a7-55296df56c2e.htm">AnalyticalLoopType</a> <span class="parameter">loopType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">GetLoops</span> ( _
+	<span class="parameter">loopType</span> <span class="keyword">As</span> <a href="e19a91b9-b428-11a1-61a7-55296df56c2e.htm">AnalyticalLoopType</a> _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a>)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a>^&gt;^ <span class="identifier">GetLoops</span>(
+	<a href="e19a91b9-b428-11a1-61a7-55296df56c2e.htm">AnalyticalLoopType</a> <span class="parameter">loopType</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="loopType">
+       <dt>
+        <span class="parameter">
+         loopType
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="e19a91b9-b428-11a1-61a7-55296df56c2e.htm">
+         Autodesk.Revit.DB.Structure
+         AnalyticalLoopType
+        </a>
+        <br/>
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     Loops that satisfy loopType criteria are returned.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     For multiple concentric loops, only the outermost loop will be considered External. All other loops will be considered Internal.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// retrieve and iterate current selected element</span>
+UIDocument uidoc = commandData.Application.ActiveUIDocument;
+ICollection&lt;ElementId&gt; selectedIds = uidoc.Selection.GetElementIds();
+Document document = uidoc.Document;
+<span class="highlight-keyword">foreach</span> (ElementId id <span class="highlight-keyword">in</span> selectedIds)
+{
+    Element e = document.GetElement(id);
+    Wall aWall = e <span class="highlight-keyword">as</span> Wall;
+    <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != aWall)
+    {
+        <span class="highlight-comment">// get AnalyticalModelSurface from Structural Wall</span>
+        AnalyticalModelSurface modelWall = aWall.GetAnalyticalModel() <span class="highlight-keyword">as</span> AnalyticalModelSurface;
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> == modelWall)
+        {
+            <span class="highlight-comment">// Architecture wall doesn't have analytical model</span>
+            <span class="highlight-keyword">continue</span>;
+        }
+
+        <span class="highlight-comment">// get wall curves</span>
+        StringBuilder wallString = <span class="highlight-keyword">new</span> StringBuilder();
+        wallString.AppendLine(<span class="highlight-literal">"Wall curves:"</span>);
+        IList&lt;CurveLoop&gt; wallCurveLoops = modelWall.GetLoops(AnalyticalLoopType.External);
+        <span class="highlight-keyword">foreach</span> (CurveLoop curveloop <span class="highlight-keyword">in</span> wallCurveLoops)
+        {
+            CurveLoopIterator itr = curveloop.GetCurveLoopIterator();
+            itr.Reset();
+            <span class="highlight-keyword">while</span> (itr.MoveNext())
+            {
+                Curve wallCurve = itr.Current;
+                wallString.AppendLine(String.Format(<span class="highlight-literal">"{0}, {1}"</span>, wallCurve.GetEndPoint(<span class="highlight-number">0</span>).ToString(), wallCurve.GetEndPoint(<span class="highlight-number">1</span>).ToString()));
+            }
+        }
+
+         TaskDialog.Show(<span class="highlight-literal">"Wall Analytical Model"</span>, wallString.ToString());
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' retrieve and iterate current selected element</span>
+<span class="highlight-keyword">Dim</span> uidoc <span class="highlight-keyword">As</span> UIDocument = commandData.Application.ActiveUIDocument
+<span class="highlight-keyword">Dim</span> selectedIds <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> ElementId) = uidoc.Selection.GetElementIds()
+<span class="highlight-keyword">Dim</span> document <span class="highlight-keyword">As</span> Document = uidoc.Document
+<span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> id <span class="highlight-keyword">As</span> ElementId <span class="highlight-keyword">In</span> selectedIds
+    <span class="highlight-keyword">Dim</span> e <span class="highlight-keyword">As</span> Element = document.GetElement(id)
+    <span class="highlight-keyword">Dim</span> aWall <span class="highlight-keyword">As</span> Wall = <span class="highlight-keyword">TryCast</span>(e, Wall)
+    <span class="highlight-keyword">If</span> aWall <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-comment">' get AnalyticalModelSurface from Structural Wall</span>
+        <span class="highlight-keyword">Dim</span> modelWall <span class="highlight-keyword">As</span> AnalyticalModelSurface = <span class="highlight-keyword">TryCast</span>(aWall.GetAnalyticalModel(), AnalyticalModelSurface)
+        <span class="highlight-keyword">If</span> modelWall <span class="highlight-keyword">Is</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+            <span class="highlight-comment">' Architecture wall doesn't have analytical model</span>
+            <span class="highlight-keyword">Continue</span> <span class="highlight-keyword">For</span>
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+        <span class="highlight-comment">' get wall curves</span>
+        <span class="highlight-keyword">Dim</span> wallString <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> StringBuilder()
+        wallString.AppendLine(<span class="highlight-literal">"Wall curves:"</span>)
+        <span class="highlight-keyword">Dim</span> wallCurveLoops <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> CurveLoop) = modelWall.GetLoops(AnalyticalLoopType.External)
+        <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> curveloop <span class="highlight-keyword">As</span> CurveLoop <span class="highlight-keyword">In</span> wallCurveLoops
+            <span class="highlight-keyword">Dim</span> itr <span class="highlight-keyword">As</span> CurveLoopIterator = curveloop.GetCurveLoopIterator()
+            itr.Reset()
+            <span class="highlight-keyword">While</span> itr.MoveNext()
+                <span class="highlight-keyword">Dim</span> wallCurve <span class="highlight-keyword">As</span> Curve = itr.Current
+                wallString.AppendLine([<span class="highlight-keyword">String</span>].Format(<span class="highlight-literal">"{0}, {1}"</span>, wallCurve.GetEndPoint(<span class="highlight-number">0</span>).ToString(), wallCurve.GetEndPoint(<span class="highlight-number">1</span>).ToString()))
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">While</span>
+        <span class="highlight-keyword">Next</span>
+
+        TaskDialog.Show(<span class="highlight-literal">"Wall Analytical Model"</span>, wallString.ToString())
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="8c656a67-d41d-c5e5-f75a-554173dfcdd9.htm">
+       AnalyticalModelSurface Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

@@ -1,0 +1,227 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+       Element Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Attempts to find a parameter on the element which has the given name.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="333ff41b-e6a7-d959-60bf-c3bfae495581.htm">Parameter</a> <span class="identifier">LookupParameter</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a> <span class="parameter">name</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">LookupParameter</span> ( _
+	<span class="parameter">name</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a> _
+) <span class="keyword">As</span> <a href="333ff41b-e6a7-d959-60bf-c3bfae495581.htm">Parameter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="333ff41b-e6a7-d959-60bf-c3bfae495581.htm">Parameter</a>^ <span class="identifier">LookupParameter</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^ <span class="parameter">name</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="name">
+       <dt>
+        <span class="parameter">
+         name
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         System
+         String
+        </a>
+        <br/>
+        The name of the parameter to be retrieved.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The matching parameter. This return may be
+     <span class="keyword">
+     </span>
+     <span class="nu">
+      a null reference (
+      <span class="keyword">
+       Nothing
+      </span>
+      in Visual Basic)
+     </span>
+     if there is no matching parameter. If there are multiple matching parameters the first one found is returned.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This method will attempt to find a parameter on this Element whose name matches the input. The possible results include:
+     <ul>
+      <li>
+       A single matching parameter is found: it will be returned.
+      </li>
+      <li>
+       No matching parameter is found:
+       <span class="keyword">
+       </span>
+       <span class="nu">
+        a null reference (
+        <span class="keyword">
+         Nothing
+        </span>
+        in Visual Basic)
+       </span>
+       is returned.
+      </li>
+      <li>
+       Multiple matching parameters exist. In this situation the first one encountered will be returned. This match is determined at random and may change in the future.
+      </li>
+     </ul>
+     <p>
+      Multiple matches of parameters with the same name can occur because shared parameters or project parameters can be bound to an element category even if there is a built-in parameter with the same name already.
+     </p>
+     <p>
+      If this method is used to find built-in parameters the code will not be portable to other languages of Revit (because built-in parameter names are translated, and this method matches the translation).
+     </p>
+     <p>
+      For the reasons above this method should be used sparingly and only when you have a reasonable expectation that only one parameter exists with the given name, and when portability across multiple languages is not a requirement.
+     </p>
+     <p>
+      Safer approaches include:
+     </p>
+     <ul>
+      <li>
+       <a href="0cf342ef-c64f-b0b7-cbec-da8f3428a7dc.htm">
+        GetParameters(String)
+       </a>
+       to get all the matches with the given name.
+      </li>
+      <li>
+       <span class="nolink">
+        get_Parameter(Guid)
+       </span>
+       to get a shared parameter by stored guid.
+      </li>
+      <li>
+       <span class="nolink">
+        get_Parameter(BuiltInParameter)
+       </span>
+       to find a built-in parameter in a language-independent way.
+      </li>
+     </ul>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+       Element Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

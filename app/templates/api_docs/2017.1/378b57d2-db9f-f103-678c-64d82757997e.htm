@@ -1,0 +1,322 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="68b4818a-d737-be1e-0347-ebe305fe3b70.htm">
+       InstanceVoidCutUtils Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Add a cut to an element using the unattached voids inside a cutting instance.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.1090.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="identifier">AddInstanceVoidCut</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">document</span>,
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> <span class="parameter">element</span>,
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> <span class="parameter">cuttingInstance</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Sub</span> <span class="identifier">AddInstanceVoidCut</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">element</span> <span class="keyword">As</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>, _
+	<span class="parameter">cuttingInstance</span> <span class="keyword">As</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <span class="keyword">void</span> <span class="identifier">AddInstanceVoidCut</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">document</span>, 
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>^ <span class="parameter">element</span>, 
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>^ <span class="parameter">cuttingInstance</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        The document containing the two elements
+       </dd>
+      </dl>
+      <dl paramname="element">
+       <dt>
+        <span class="parameter">
+         element
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+         Autodesk.Revit.DB
+         Element
+        </a>
+        <br/>
+        The element to be cut
+       </dd>
+      </dl>
+      <dl paramname="cuttingInstance">
+       <dt>
+        <span class="parameter">
+         cuttingInstance
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+         Autodesk.Revit.DB
+         Element
+        </a>
+        <br/>
+        The cutting family instance
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// Cut a beam with 3 instances of a void-cutting family</span>
+<span class="highlight-comment">// The Family Parameter "Cut with Voids When Loaded" must be true for the cutting family</span>
+<span class="highlight-keyword">void</span> CutBeamWithFamilyVoid(Autodesk.Revit.DB.Document doc, FamilyInstance beam, FamilySymbol cuttingSymbol)
+{
+    LocationCurve lc = beam.Location <span class="highlight-keyword">as</span> LocationCurve;
+    Curve beamCurve = lc.Curve;
+
+    <span class="highlight-keyword">for</span> (<span class="highlight-keyword">int</span> i = <span class="highlight-number">1</span>; i &lt;= <span class="highlight-number">3</span>; i++)
+    {
+        XYZ beamLocation = beamCurve.Evaluate(i * <span class="highlight-number">0.25</span>, <span class="highlight-keyword">true</span>); <span class="highlight-comment">// position on the beam for this cutting instance</span>
+        beamLocation = beamLocation - XYZ.BasisZ; <span class="highlight-comment">// adjust for top-aligned curve</span>
+
+        Level level = doc.GetElement(beam.LevelId) <span class="highlight-keyword">as</span> Level;
+        FamilyInstance cuttingInstance = doc.Create.NewFamilyInstance(beamLocation, cuttingSymbol, level, StructuralType.NonStructural);
+        InstanceVoidCutUtils.AddInstanceVoidCut(doc, beam, cuttingInstance);
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' Cut a beam with 3 instances of a void-cutting family</span>
+<span class="highlight-comment">' The Family Parameter "Cut with Voids When Loaded" must be true for the cutting family</span>
+<span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> CutBeamWithFamilyVoid(doc <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Document, beam <span class="highlight-keyword">As</span> FamilyInstance, cuttingSymbol <span class="highlight-keyword">As</span> FamilySymbol)
+    <span class="highlight-keyword">Dim</span> lc <span class="highlight-keyword">As</span> LocationCurve = <span class="highlight-keyword">TryCast</span>(beam.Location, LocationCurve)
+    <span class="highlight-keyword">Dim</span> beamCurve <span class="highlight-keyword">As</span> Curve = lc.Curve
+
+    <span class="highlight-keyword">For</span> i <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> = <span class="highlight-number">1</span> <span class="highlight-keyword">To</span> <span class="highlight-number">3</span>
+        <span class="highlight-keyword">Dim</span> beamLocation <span class="highlight-keyword">As</span> XYZ = beamCurve.Evaluate(i * <span class="highlight-number">0.25</span>, <span class="highlight-keyword">True</span>)
+        <span class="highlight-comment">' position on the beam for this cutting instance</span>
+        beamLocation = beamLocation - XYZ.BasisZ
+        <span class="highlight-comment">' adjust for top-aligned curve</span>
+        <span class="highlight-keyword">Dim</span> level <span class="highlight-keyword">As</span> Level = <span class="highlight-keyword">TryCast</span>(doc.GetElement(beam.LevelId), Level)
+        <span class="highlight-keyword">Dim</span> cuttingInstance <span class="highlight-keyword">As</span> FamilyInstance = doc.Create.NewFamilyInstance(beamLocation, cuttingSymbol, level, StructuralType.NonStructural)
+        InstanceVoidCutUtils.AddInstanceVoidCut(doc, beam, cuttingInstance)
+    <span class="highlight-keyword">Next</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The element cannot be cut with a void instance.
+   -or-
+   The element is not a family instance with an unattached void that can cut.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="c5b911f6-1e8f-2cd4-6965-286f41221fe0.htm">
+           Autodesk.Revit.Exceptions
+           ForbiddenForDynamicUpdateException
+          </a>
+         </td>
+         <td>
+          This method may not be called during dynamic update.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Failed to cut element with the instances
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="68b4818a-d737-be1e-0347-ebe305fe3b70.htm">
+       InstanceVoidCutUtils Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

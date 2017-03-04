@@ -5,8 +5,9 @@ import re
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
-from app.db import db_json
-from app.utils import Timer, search_db, process_query
+from app.utils.db import db_json
+from app.utils.db_utils import search_db, process_query
+from app.utils.misc import Timer
 
 
 @Timer.time_function('TINY---------')
@@ -25,7 +26,6 @@ results = []
 for i in range(50):
     t = Timer()
     bench_search(href, 'href')       # 0.0003 - W key
-    # bench_search(title, 'title')
     r = t.stop()
     results.append(r)
 
@@ -49,6 +49,5 @@ for i in range(50):
 
 avg = sum(results)/len(results)
 print('START TITLE BENCHMARK-----------------')
-print('AVG: >>> ' + str(avg))
-# 0.039
+print('AVG: >>> ' + str(avg))  # 0.039 - wall class
 print('END TITLE BENCHMARK-----------------')

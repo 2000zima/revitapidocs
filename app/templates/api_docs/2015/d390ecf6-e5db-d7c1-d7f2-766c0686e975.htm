@@ -1,0 +1,268 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="d86d3c89-67bc-e063-6435-be095ea68d1d.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Represents the category or subcategory to which an element belongs.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">Category</span> : <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">APIObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">Category</span> _
+	<span class="keyword">Inherits</span> <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">APIObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">Category</span> : <span class="keyword">public</span> <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">APIObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Categories are an import tool within Revit for identifying the inferred type of an
+element, such as anything in the Walls category should be considered as a wall. The API
+exposes access to the built in categories within Revit via the Document.Settings.Categories
+property.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code>Element selectedElement = <span class="highlight-keyword">null</span>;
+<span class="highlight-keyword">foreach</span> (ElementId id <span class="highlight-keyword">in</span> uidoc.Selection.GetElementIds())
+{
+    selectedElement = document.GetElement(id);
+    <span class="highlight-keyword">break</span>;  <span class="highlight-comment">// just get one selected element</span>
+}
+
+<span class="highlight-comment">// Get the category instance from the Category property</span>
+Category category = selectedElement.Category;
+
+BuiltInCategory enumCategory = (BuiltInCategory)category.Id.IntegerValue;
+
+<span class="highlight-comment">// Format the prompt string, which contains the category information</span>
+String prompt = <span class="highlight-literal">"The category information of the selected element is: "</span>;
+prompt += <span class="highlight-literal">"\n\tName:\t"</span> + category.Name;   <span class="highlight-comment">// Name information</span>
+
+prompt += <span class="highlight-literal">"\n\tId:\t"</span> + enumCategory.ToString();    <span class="highlight-comment">// Id information</span>
+prompt += <span class="highlight-literal">"\n\tParent:\t"</span>;
+<span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> == category.Parent)
+{
+    prompt += <span class="highlight-literal">"No Parent Category"</span>;   <span class="highlight-comment">// Parent information, it may be null</span>
+}
+<span class="highlight-keyword">else</span>
+{
+    prompt += category.Parent.Name;
+}
+
+prompt += <span class="highlight-literal">"\n\tSubCategories:"</span>; <span class="highlight-comment">// SubCategories information, </span>
+CategoryNameMap subCategories = category.SubCategories;
+<span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> == subCategories || <span class="highlight-number">0</span> == subCategories.Size) <span class="highlight-comment">// It may be null or has no item in it</span>
+{
+    prompt += <span class="highlight-literal">"No SubCategories;"</span>;
+}
+<span class="highlight-keyword">else</span>
+{
+    <span class="highlight-keyword">foreach</span> (Category ii <span class="highlight-keyword">in</span> subCategories)
+    {
+        prompt += <span class="highlight-literal">"\n\t\t"</span> + ii.Name;
+    }
+}
+
+<span class="highlight-comment">// Give the user some information</span>
+TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,prompt);</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Dim</span> selectedElement <span class="highlight-keyword">As</span> Element = <span class="highlight-keyword">Nothing</span>
+<span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> id <span class="highlight-keyword">As</span> ElementId <span class="highlight-keyword">In</span> uidoc.Selection.GetElementIds()
+    selectedElement = document.GetElement(id)
+    <span class="highlight-comment">' just get one selected element</span>
+    <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">For</span>
+<span class="highlight-keyword">Next</span>
+
+<span class="highlight-comment">' Get the category instance from the Category property</span>
+<span class="highlight-keyword">Dim</span> category <span class="highlight-keyword">As</span> Category = selectedElement.Category
+
+<span class="highlight-keyword">Dim</span> enumCategory <span class="highlight-keyword">As</span> BuiltInCategory = <span class="highlight-keyword">DirectCast</span>(category.Id.IntegerValue, BuiltInCategory)
+
+<span class="highlight-comment">' Format the prompt string, which contains the category information</span>
+<span class="highlight-keyword">Dim</span> prompt <span class="highlight-keyword">As</span> [<span class="highlight-keyword">String</span>] = <span class="highlight-literal">"The category information of the selected element is: "</span>
+prompt += vbLf &amp; vbTab &amp; <span class="highlight-literal">"Name:"</span> &amp; vbTab + category.Name
+<span class="highlight-comment">' Name information</span>
+prompt += vbLf &amp; vbTab &amp; <span class="highlight-literal">"Id:"</span> &amp; vbTab &amp; enumCategory.ToString()
+<span class="highlight-comment">' Id information</span>
+prompt += vbLf &amp; vbTab &amp; <span class="highlight-literal">"Parent:"</span> &amp; vbTab
+<span class="highlight-keyword">If</span> category.Parent <span class="highlight-keyword">Is</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+    <span class="highlight-comment">' Parent information, it may be null</span>
+    prompt += <span class="highlight-literal">"No Parent Category"</span>
+<span class="highlight-keyword">Else</span>
+    prompt += category.Parent.Name
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+prompt += vbLf &amp; vbTab &amp; <span class="highlight-literal">"SubCategories:"</span>
+<span class="highlight-comment">' SubCategories information, </span>
+<span class="highlight-keyword">Dim</span> subCategories <span class="highlight-keyword">As</span> CategoryNameMap = category.SubCategories
+<span class="highlight-keyword">If</span> subCategories <span class="highlight-keyword">Is</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">OrElse</span> <span class="highlight-number">0</span> = subCategories.Size <span class="highlight-keyword">Then</span>
+    <span class="highlight-comment">' It may be null or has no item in it</span>
+    prompt += <span class="highlight-literal">"No SubCategories;"</span>
+<span class="highlight-keyword">Else</span>
+    <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> ii <span class="highlight-keyword">As</span> Category <span class="highlight-keyword">In</span> subCategories
+        prompt += vbLf &amp; vbTab &amp; vbTab + ii.Name
+    <span class="highlight-keyword">Next</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+<span class="highlight-comment">' Give the user some information</span>
+TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, prompt)</code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">
+      Autodesk.Revit.DB
+      APIObject
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      Category
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="d86d3c89-67bc-e063-6435-be095ea68d1d.htm">
+       Category Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

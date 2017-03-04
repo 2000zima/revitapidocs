@@ -1,0 +1,288 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="af258367-f0c5-e4d3-f863-1733d7bf6b30.htm">
+       RebarCoupler Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new instance of a Rebar Coupler element within the project.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="af258367-f0c5-e4d3-f863-1733d7bf6b30.htm">RebarCoupler</a> <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">doc</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">typeId</span>,
+	<a href="887493aa-8de4-c68e-d246-9ecb849ae641.htm">ReinforcementData</a> <span class="parameter">pFirstData</span>,
+	<a href="887493aa-8de4-c68e-d246-9ecb849ae641.htm">ReinforcementData</a> <span class="parameter">pSecondData</span>,
+	<span class="keyword">out</span> <a href="36b8947f-6ee1-8f70-f2fc-ab52dd1afd90.htm">RebarCouplerError</a> <span class="parameter">error</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">Create</span> ( _
+	<span class="parameter">doc</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">typeId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">pFirstData</span> <span class="keyword">As</span> <a href="887493aa-8de4-c68e-d246-9ecb849ae641.htm">ReinforcementData</a>, _
+	<span class="parameter">pSecondData</span> <span class="keyword">As</span> <a href="887493aa-8de4-c68e-d246-9ecb849ae641.htm">ReinforcementData</a>, _
+	&lt;<a href="http://msdn2.microsoft.com/en-us/library/k8189tfc" target="_blank">OutAttribute</a>&gt; <span class="keyword">ByRef</span> <span class="parameter">error</span> <span class="keyword">As</span> <a href="36b8947f-6ee1-8f70-f2fc-ab52dd1afd90.htm">RebarCouplerError</a> _
+) <span class="keyword">As</span> <a href="af258367-f0c5-e4d3-f863-1733d7bf6b30.htm">RebarCoupler</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="af258367-f0c5-e4d3-f863-1733d7bf6b30.htm">RebarCoupler</a>^ <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">doc</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">typeId</span>, 
+	<a href="887493aa-8de4-c68e-d246-9ecb849ae641.htm">ReinforcementData</a>^ <span class="parameter">pFirstData</span>, 
+	<a href="887493aa-8de4-c68e-d246-9ecb849ae641.htm">ReinforcementData</a>^ <span class="parameter">pSecondData</span>, 
+	[<a href="http://msdn2.microsoft.com/en-us/library/k8189tfc" target="_blank">OutAttribute</a>] <a href="36b8947f-6ee1-8f70-f2fc-ab52dd1afd90.htm">RebarCouplerError</a>% <span class="parameter">error</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="doc">
+       <dt>
+        <span class="parameter">
+         doc
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        A document.
+       </dd>
+      </dl>
+      <dl paramname="typeId">
+       <dt>
+        <span class="parameter">
+         typeId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        type id for coupler
+       </dd>
+      </dl>
+      <dl paramname="pFirstData">
+       <dt>
+        <span class="parameter">
+         pFirstData
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="887493aa-8de4-c68e-d246-9ecb849ae641.htm">
+         Autodesk.Revit.DB.Structure
+         ReinforcementData
+        </a>
+        <br/>
+        information about the first reinforcement to be coupled
+       </dd>
+      </dl>
+      <dl paramname="pSecondData">
+       <dt>
+        <span class="parameter">
+         pSecondData
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="887493aa-8de4-c68e-d246-9ecb849ae641.htm">
+         Autodesk.Revit.DB.Structure
+         ReinforcementData
+        </a>
+        <br/>
+        information about the second reinforcement to be coupled; for the default value, coupler is placed on one reinforcement
+       </dd>
+      </dl>
+      <dl paramname="error">
+       <dt>
+        <span class="parameter">
+         error
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="36b8947f-6ee1-8f70-f2fc-ab52dd1afd90.htm">
+         Autodesk.Revit.DB.Structure
+         RebarCouplerError
+        </a>
+        <span class="cpp">
+         %
+        </span>
+        <br/>
+        will be ValidationSuccesfully(0) if ok, otherwise the failure reason
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The newly created Rebar Coupler instance, or
+     <span class="keyword">
+     </span>
+     <span class="nu">
+      a null reference (
+      <span class="keyword">
+       Nothing
+      </span>
+      in Visual Basic)
+     </span>
+     if the operation fails.
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="af258367-f0c5-e4d3-f863-1733d7bf6b30.htm">
+       RebarCoupler Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

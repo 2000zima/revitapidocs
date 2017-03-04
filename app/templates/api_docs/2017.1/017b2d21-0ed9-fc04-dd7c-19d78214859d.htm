@@ -1,0 +1,360 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="b0e53a4a-84ad-abb4-358d-9797870f101b.htm">
+       GlobalParameter Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Set a dimension to drive the value of this parameter.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.1090.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2016 Subscription Update
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetDrivingDimension</span>(
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">dimensionId</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetDrivingDimension</span> ( _
+	<span class="parameter">dimensionId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetDrivingDimension</span>(
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">dimensionId</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="dimensionId">
+       <dt>
+        <span class="parameter">
+         dimensionId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        Id of a dimension element.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This method is a combined action of two steps: a) Making the parameter reporting if
+   it is not yet, and b) Labeling the given dimension with it. Because of that, the
+   parameter must be eligible for reporting - i.e must be of certain types, and must
+   not be used to label more than one dimensions yet.
+     </p>
+     <p>
+      In case this parameter is already driven by another dimension, the other
+   dimension will be unlabeled first before the given one is labeled. It is because
+   a reporting parameter can only label one dimension at a time (i.e. it can be
+   driven by one dimension only.)
+     </p>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// Make a global parameter to be driven by the value of a dimension.</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-comment">/// &lt;param name="document"&gt;Revit project document containing the global parameter and dimension elements.&lt;/param&gt;</span>
+<span class="highlight-comment">/// &lt;param name="gpid"&gt;ElementId of a global parameter.&lt;/param&gt;</span>
+<span class="highlight-comment">/// &lt;param name="dimid"&gt;ElementId of a dimension element.&lt;/param&gt;</span>
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">bool</span> AssignDrivingDimension(Document document, ElementId gpid, ElementId dimid)
+{
+    <span class="highlight-comment">// we expect to find the global parameter in the document</span>
+    GlobalParameter gp = document.GetElement(gpid) <span class="highlight-keyword">as</span> GlobalParameter;
+    <span class="highlight-keyword">if</span> (gp == <span class="highlight-keyword">null</span>)
+        <span class="highlight-keyword">return</span> <span class="highlight-keyword">false</span>;
+
+    <span class="highlight-comment">// we expect to find the given dimension in the document</span>
+    Dimension dim = document.GetElement(dimid) <span class="highlight-keyword">as</span> Dimension;
+    <span class="highlight-keyword">if</span> (dim == <span class="highlight-keyword">null</span>)
+        <span class="highlight-keyword">return</span> <span class="highlight-keyword">false</span>;
+
+    <span class="highlight-comment">// not every global parameter can label</span>
+    <span class="highlight-comment">// and not every dimension can be labeled</span>
+    <span class="highlight-keyword">if</span> (!gp.CanLabelDimension(dimid))
+        <span class="highlight-keyword">return</span> <span class="highlight-keyword">false</span>;
+
+    <span class="highlight-comment">// we need a transaction to modify the model</span>
+    <span class="highlight-keyword">using</span> (Transaction trans = <span class="highlight-keyword">new</span> Transaction(document,<span class="highlight-literal">"Assign a driving dimension"</span>))
+    {
+        trans.Start();
+
+        <span class="highlight-comment">// we cannot assign a driving dimension to a global</span>
+        <span class="highlight-comment">// parameter that is already used to label other dimensions</span>
+        ISet&lt;ElementId&gt; dimset = gp.GetLabeledDimensions();
+        <span class="highlight-keyword">foreach</span> (ElementId elemid <span class="highlight-keyword">in</span> dimset)
+        {
+            gp.UnlabelDimension(elemid);
+        }
+
+        <span class="highlight-comment">// with the GP free of all previously labels (if there were any)</span>
+        gp.SetDrivingDimension(dimid);
+
+        <span class="highlight-comment">// we should be able to commit, but we test the result anyway</span>
+        <span class="highlight-keyword">if</span> (trans.Commit() != TransactionStatus.Committed)
+            <span class="highlight-keyword">return</span> <span class="highlight-keyword">false</span>;
+    }
+
+    <span class="highlight-keyword">return</span> <span class="highlight-keyword">true</span>;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' &lt;summary&gt;</span>
+<span class="highlight-comment">' Make a global parameter to be driven by the value of a dimension.</span>
+<span class="highlight-comment">' &lt;/summary&gt;</span>
+<span class="highlight-comment">' &lt;param name="document"&gt;Revit project document containing the global parameter and dimension elements.&lt;/param&gt;</span>
+<span class="highlight-comment">' &lt;param name="gpid"&gt;ElementId of a global parameter.&lt;/param&gt;</span>
+<span class="highlight-comment">' &lt;param name="dimid"&gt;ElementId of a dimension element.&lt;/param&gt;</span>
+<span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> AssignDrivingDimension(document <span class="highlight-keyword">As</span> Document, gpid <span class="highlight-keyword">As</span> ElementId, dimid <span class="highlight-keyword">As</span> ElementId) <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span>
+    <span class="highlight-comment">' we expect to find the global parameter in the document</span>
+    <span class="highlight-keyword">Dim</span> gp <span class="highlight-keyword">As</span> GlobalParameter = <span class="highlight-keyword">TryCast</span>(document.GetElement(gpid), GlobalParameter)
+    <span class="highlight-keyword">If</span> gp <span class="highlight-keyword">Is</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Return</span> <span class="highlight-keyword">False</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-comment">' we expect to find the given dimension in the document</span>
+    <span class="highlight-keyword">Dim</span> [<span class="highlight-keyword">dim</span>] <span class="highlight-keyword">As</span> Dimension = <span class="highlight-keyword">TryCast</span>(document.GetElement(dimid), Dimension)
+    <span class="highlight-keyword">If</span> [<span class="highlight-keyword">dim</span>] <span class="highlight-keyword">Is</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Return</span> <span class="highlight-keyword">False</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-comment">' not every global parameter can label</span>
+    <span class="highlight-comment">' and not every dimension can be labeled</span>
+    <span class="highlight-keyword">If</span> <span class="highlight-keyword">Not</span> gp.CanLabelDimension(dimid) <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Return</span> <span class="highlight-keyword">False</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-comment">' we need a transaction to modify the model</span>
+    <span class="highlight-keyword">Using</span> trans <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> Transaction(document, <span class="highlight-literal">"Assign a driving dimension"</span>)
+        trans.Start()
+
+        <span class="highlight-comment">' we cannot assign a driving dimension to a global</span>
+        <span class="highlight-comment">' parameter that is already used to label other dimensions</span>
+        <span class="highlight-keyword">Dim</span> dimset <span class="highlight-keyword">As</span> ISet(<span class="highlight-keyword">Of</span> ElementId) = gp.GetLabeledDimensions()
+        <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> elemid <span class="highlight-keyword">As</span> ElementId <span class="highlight-keyword">In</span> dimset
+            gp.UnlabelDimension(elemid)
+        <span class="highlight-keyword">Next</span>
+
+        <span class="highlight-comment">' with the GP free of all previously labels (if there were any)</span>
+        gp.SetDrivingDimension(dimid)
+
+        <span class="highlight-comment">' we should be able to commit, but we test the result anyway</span>
+        <span class="highlight-keyword">If</span> trans.Commit() &lt;&gt; TransactionStatus.Committed <span class="highlight-keyword">Then</span>
+            <span class="highlight-keyword">Return</span> <span class="highlight-keyword">False</span>
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Using</span>
+
+    <span class="highlight-keyword">Return</span> <span class="highlight-keyword">True</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Given element Id is not of a valid dimension element.
+   -or-
+   Dimension with the Id of dimensionId cannot be labeled by this global parameter.
+   Possible causes include the dimension cannot be labeled at all, or it is a dimension
+   of other than Linear or Angular type, or the Dimension object does not have the
+   appropriate labeling parameter, or the dimension has more than one segment and the parameter
+   is reporting.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          This is a formula-driven parameter. As such it does not allow the current operation.
+   -or-
+   This non-reporting global parameter has already labeled other dimension segments (more then 1).
+   It cannot, therefore, be made reporting and dimension-driven before un-labeling all
+   the dependent dimensions first.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="b0e53a4a-84ad-abb4-358d-9797870f101b.htm">
+       GlobalParameter Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

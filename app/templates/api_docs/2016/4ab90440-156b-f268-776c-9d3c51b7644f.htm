@@ -1,0 +1,281 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new uniform hosted area load with polygonal shape within the project.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>("This method is obsolete in Revit 2016. Use AreaLoad.Create() instead.")]
+<span class="keyword">public</span> <a href="5dc205a9-cafd-911b-6a56-26f2e8bfcdc1.htm">AreaLoad</a> <span class="identifier">NewAreaLoad</span>(
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> <span class="parameter">host</span>,
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">force</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">isReaction</span>,
+	<a href="eb4b548c-059a-d0d7-2431-8203c29dfebd.htm">AreaLoadType</a> <span class="parameter">symbol</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>&lt;<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>("This method is obsolete in Revit 2016. Use AreaLoad.Create() instead.")&gt; _
+<span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewAreaLoad</span> ( _
+	<span class="parameter">host</span> <span class="keyword">As</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>, _
+	<span class="parameter">force</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>, _
+	<span class="parameter">isReaction</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a>, _
+	<span class="parameter">symbol</span> <span class="keyword">As</span> <a href="eb4b548c-059a-d0d7-2431-8203c29dfebd.htm">AreaLoadType</a> _
+) <span class="keyword">As</span> <a href="5dc205a9-cafd-911b-6a56-26f2e8bfcdc1.htm">AreaLoad</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>(L"This method is obsolete in Revit 2016. Use AreaLoad.Create() instead.")]
+<span class="keyword">public</span>:
+<a href="5dc205a9-cafd-911b-6a56-26f2e8bfcdc1.htm">AreaLoad</a>^ <span class="identifier">NewAreaLoad</span>(
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>^ <span class="parameter">host</span>, 
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">force</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">isReaction</span>, 
+	<a href="eb4b548c-059a-d0d7-2431-8203c29dfebd.htm">AreaLoadType</a>^ <span class="parameter">symbol</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="host">
+       <dt>
+        <span class="parameter">
+         host
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+         Autodesk.Revit.DB
+         Element
+        </a>
+        <br/>
+        The host element (Floor or Wall) of the AreaLoad application.
+       </dd>
+      </dl>
+      <dl paramname="force">
+       <dt>
+        <span class="parameter">
+         force
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        The 3d area force applied to the first reference point.
+       </dd>
+      </dl>
+      <dl paramname="isReaction">
+       <dt>
+        <span class="parameter">
+         isReaction
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">
+         System
+         Boolean
+        </a>
+        <br/>
+        Specifies if the load is a reaction load. The load cannot be modified if isReaction=True.
+       </dd>
+      </dl>
+      <dl paramname="symbol">
+       <dt>
+        <span class="parameter">
+         symbol
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="eb4b548c-059a-d0d7-2431-8203c29dfebd.htm">
+         Autodesk.Revit.DB.Structure
+         AreaLoadType
+        </a>
+        <br/>
+        The symbol of the AreaLoad.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If successful, NewAreaLoad returns an object for the newly created AreaLoad.
+     <span class="keyword">
+     </span>
+     <span class="nu">
+      a null reference (
+      <span class="keyword">
+       Nothing
+      </span>
+      in Visual Basic)
+     </span>
+     is returned
+if the operation fails.
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          If the product is not Revit Structure.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the host does not exist in the given document.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown if the area load symbol does not exist in the given document.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="c0729559-ba92-5705-2a75-87390584c795.htm">
+       NewAreaLoad Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

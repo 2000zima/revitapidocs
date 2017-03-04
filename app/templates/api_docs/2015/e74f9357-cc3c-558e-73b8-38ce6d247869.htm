@@ -1,0 +1,246 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="83e2f92a-2820-8c34-c6bf-4685a68f59cf.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     This class is used to create Schemas in the Extensible Storage framework.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="79486a74-376c-9555-c873-45d5a750f051.htm">
+      Autodesk.Revit.DB.ExtensibleStorage
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">SchemaBuilder</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">SchemaBuilder</span> _
+	<span class="keyword">Implements</span> <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">SchemaBuilder</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Named parameter idiom: Methods that set up the Schema return a reference to the builder so
+   you can invoke multiple methods in a chain
+   (e.g., builder.setReadAccessLevel(...).setWriteAccessLevel(...)).
+   Methods that add fields return a FieldBuilder instead.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// Create a data structure, attach it to a wall, populate it with data, and retrieve the data back from the wall</span>
+<span class="highlight-keyword">void</span> StoreDataInWall(Wall wall, XYZ dataToStore)
+{
+    <span class="highlight-keyword">using</span> (Transaction createSchemaAndStoreData = <span class="highlight-keyword">new</span> Transaction(wall.Document, <span class="highlight-literal">"tCreateAndStore"</span>))
+    {
+       createSchemaAndStoreData.Start();
+       SchemaBuilder schemaBuilder = <span class="highlight-keyword">new</span> SchemaBuilder(<span class="highlight-keyword">new</span> Guid(<span class="highlight-literal">"720080CB-DA99-40DC-9415-E53F280AA1F0"</span>));
+       schemaBuilder.SetReadAccessLevel(AccessLevel.Public); <span class="highlight-comment">// allow anyone to read the object</span>
+       schemaBuilder.SetWriteAccessLevel(AccessLevel.Vendor); <span class="highlight-comment">// restrict writing to this vendor only</span>
+       schemaBuilder.SetVendorId(<span class="highlight-literal">"ADSK"</span>); <span class="highlight-comment">// required because of restricted write-access</span>
+       schemaBuilder.SetSchemaName(<span class="highlight-literal">"WireSpliceLocation"</span>);
+       FieldBuilder fieldBuilder = schemaBuilder.AddSimpleField(<span class="highlight-literal">"WireSpliceLocation"</span>, <span class="highlight-keyword">typeof</span>(XYZ)); <span class="highlight-comment">// create a field to store an XYZ</span>
+       fieldBuilder.SetUnitType(UnitType.UT_Length);
+       fieldBuilder.SetDocumentation(<span class="highlight-literal">"A stored location value representing a wiring splice in a wall."</span>);
+
+       Schema schema = schemaBuilder.Finish(); <span class="highlight-comment">// register the Schema object</span>
+       Entity entity = <span class="highlight-keyword">new</span> Entity(schema); <span class="highlight-comment">// create an entity (object) for this schema (class)</span>
+       Field fieldSpliceLocation = schema.GetField(<span class="highlight-literal">"WireSpliceLocation"</span>); <span class="highlight-comment">// get the field from the schema</span>
+       entity.Set&lt;XYZ&gt;(fieldSpliceLocation, dataToStore, DisplayUnitType.DUT_METERS); <span class="highlight-comment">// set the value for this entity</span>
+
+       wall.SetEntity(entity); <span class="highlight-comment">// store the entity in the element</span>
+
+       <span class="highlight-comment">// get the data back from the wall</span>
+       Entity retrievedEntity = wall.GetEntity(schema);
+       XYZ retrievedData = retrievedEntity.Get&lt;XYZ&gt;(schema.GetField(<span class="highlight-literal">"WireSpliceLocation"</span>), DisplayUnitType.DUT_METERS);
+       createSchemaAndStoreData.Commit();  
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' Create a data structure, attach it to a wall, populate it with data, and retrieve the data back from the wall</span>
+<span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> StoreDataInWall(wall <span class="highlight-keyword">As</span> Wall, dataToStore <span class="highlight-keyword">As</span> XYZ)
+    <span class="highlight-keyword">Using</span> createSchemaAndStoreData <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> Transaction(wall.Document, <span class="highlight-literal">"tCreateAndStore"</span>)
+        createSchemaAndStoreData.Start()
+        <span class="highlight-keyword">Dim</span> schemaBuilder <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> SchemaBuilder(<span class="highlight-keyword">New</span> Guid(<span class="highlight-literal">"720080CB-DA99-40DC-9415-E53F280AA1F0"</span>))
+        schemaBuilder.SetReadAccessLevel(AccessLevel.[<span class="highlight-keyword">Public</span>])
+        <span class="highlight-comment">' allow anyone to read the object</span>
+        schemaBuilder.SetWriteAccessLevel(AccessLevel.Vendor)
+        <span class="highlight-comment">' restrict writing to this vendor only</span>
+        schemaBuilder.SetVendorId(<span class="highlight-literal">"ADSK"</span>)
+        <span class="highlight-comment">' required because of restricted write-access</span>
+        schemaBuilder.SetSchemaName(<span class="highlight-literal">"WireSpliceLocation"</span>)
+        <span class="highlight-keyword">Dim</span> fieldBuilder <span class="highlight-keyword">As</span> FieldBuilder = schemaBuilder.AddSimpleField(<span class="highlight-literal">"WireSpliceLocation"</span>, <span class="highlight-keyword">GetType</span>(XYZ))
+        <span class="highlight-comment">' create a field to store an XYZ</span>
+        fieldBuilder.SetUnitType(UnitType.UT_Length)
+        fieldBuilder.SetDocumentation(<span class="highlight-literal">"A stored location value representing a wiring splice in a wall."</span>)
+
+        <span class="highlight-keyword">Dim</span> schema <span class="highlight-keyword">As</span> Schema = schemaBuilder.Finish()
+        <span class="highlight-comment">' register the Schema object</span>
+        <span class="highlight-keyword">Dim</span> entity <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> Entity(schema)
+        <span class="highlight-comment">' create an entity (object) for this schema (class)</span>
+        <span class="highlight-keyword">Dim</span> fieldSpliceLocation <span class="highlight-keyword">As</span> Field = schema.GetField(<span class="highlight-literal">"WireSpliceLocation"</span>)
+        <span class="highlight-comment">' get the field from the schema</span>
+        entity.[<span class="highlight-keyword">Set</span>](<span class="highlight-keyword">Of</span> XYZ)(fieldSpliceLocation, dataToStore, DisplayUnitType.DUT_METERS)
+        <span class="highlight-comment">' set the value for this entity</span>
+        wall.SetEntity(entity)
+        <span class="highlight-comment">' store the entity in the element</span>
+        <span class="highlight-comment">' get the data back from the wall</span>
+        <span class="highlight-keyword">Dim</span> retrievedEntity <span class="highlight-keyword">As</span> Entity = wall.GetEntity(schema)
+        <span class="highlight-keyword">Dim</span> retrievedData <span class="highlight-keyword">As</span> XYZ = retrievedEntity.[<span class="highlight-keyword">Get</span>](<span class="highlight-keyword">Of</span> XYZ)(schema.GetField(<span class="highlight-literal">"WireSpliceLocation"</span>), DisplayUnitType.DUT_METERS)
+        createSchemaAndStoreData.Commit()
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Using</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.ExtensibleStorage
+      SchemaBuilder
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="83e2f92a-2820-8c34-c6bf-4685a68f59cf.htm">
+       SchemaBuilder Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="79486a74-376c-9555-c873-45d5a750f051.htm">
+       Autodesk.Revit.DB.ExtensibleStorage Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

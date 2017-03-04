@@ -1,0 +1,213 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="3f710983-5a4d-d515-a633-12b06a419b30.htm">
+       RevitLinkOptions Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Gets the set of worksets to open when creating the link.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="eefef6f4-0892-4bb5-8840-5e99aebc65c9.htm">WorksetConfiguration</a> <span class="identifier">GetWorksetConfiguration</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">GetWorksetConfiguration</span> <span class="keyword">As</span> <a href="eefef6f4-0892-4bb5-8840-5e99aebc65c9.htm">WorksetConfiguration</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="eefef6f4-0892-4bb5-8840-5e99aebc65c9.htm">WorksetConfiguration</a>^ <span class="identifier">GetWorksetConfiguration</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">bool</span> CreateRevitLinkWithOneWorksetOpen(Document doc, <span class="highlight-keyword">string</span> pathName, <span class="highlight-keyword">string</span> worksetName)
+{
+    FilePath path = <span class="highlight-keyword">new</span> FilePath(pathName);
+    RevitLinkOptions options = <span class="highlight-keyword">new</span> RevitLinkOptions(<span class="highlight-keyword">true</span>);
+
+    <span class="highlight-comment">// Get info on all the user worksets in the project prior to opening</span>
+    IList&lt;WorksetPreview&gt; worksets = WorksharingUtils.GetUserWorksetInfo(path);
+    IList&lt;WorksetId&gt; worksetIds = <span class="highlight-keyword">new</span> List&lt;WorksetId&gt;();
+    <span class="highlight-comment">// Find worksetName</span>
+    <span class="highlight-keyword">foreach</span> (WorksetPreview worksetPrev <span class="highlight-keyword">in</span> worksets)
+    {
+        <span class="highlight-keyword">if</span> (worksetPrev.Name.CompareTo(worksetName) == <span class="highlight-number">0</span>)
+        {
+            worksetIds.Add(worksetPrev.Id);
+            <span class="highlight-keyword">break</span>;
+        }
+    }
+
+    <span class="highlight-comment">// close all worksets but the one specified</span>
+    WorksetConfiguration worksetConfig = <span class="highlight-keyword">new</span> WorksetConfiguration(WorksetConfigurationOption.CloseAllWorksets);
+    <span class="highlight-keyword">if</span> (worksetIds.Count &gt; <span class="highlight-number">0</span>)
+    {
+        worksetConfig.Open(worksetIds);
+    }
+    options.SetWorksetConfiguration(worksetConfig);
+
+    RevitLinkLoadResult result = RevitLinkType.Create(doc, path, options);
+    RevitLinkType type = doc.GetElement(result.ElementId) <span class="highlight-keyword">as</span> RevitLinkType;
+    <span class="highlight-keyword">return</span> (result.LoadResult == RevitLinkLoadResultType.LinkLoaded);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> CreateRevitLinkWithOneWorksetOpen(doc <span class="highlight-keyword">As</span> Document, pathName <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span>, worksetName <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span>) <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span>
+    <span class="highlight-keyword">Dim</span> path <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilePath(pathName)
+    <span class="highlight-keyword">Dim</span> options <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> RevitLinkOptions(<span class="highlight-keyword">True</span>)
+
+    <span class="highlight-comment">' Get info on all the user worksets in the project prior to opening</span>
+    <span class="highlight-keyword">Dim</span> worksets <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> WorksetPreview) = WorksharingUtils.GetUserWorksetInfo(path)
+    <span class="highlight-keyword">Dim</span> worksetIds <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> WorksetId) = <span class="highlight-keyword">New</span> List(<span class="highlight-keyword">Of</span> WorksetId)()
+    <span class="highlight-comment">' Find worksetName</span>
+    <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> worksetPrev <span class="highlight-keyword">As</span> WorksetPreview <span class="highlight-keyword">In</span> worksets
+        <span class="highlight-keyword">If</span> worksetPrev.Name.CompareTo(worksetName) = <span class="highlight-number">0</span> <span class="highlight-keyword">Then</span>
+            worksetIds.Add(worksetPrev.Id)
+            <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">For</span>
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">Next</span>
+
+    <span class="highlight-comment">' close all worksets but the one specified</span>
+    <span class="highlight-keyword">Dim</span> worksetConfig <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> WorksetConfiguration(WorksetConfigurationOption.CloseAllWorksets)
+    <span class="highlight-keyword">If</span> worksetIds.Count &gt; <span class="highlight-number">0</span> <span class="highlight-keyword">Then</span>
+        worksetConfig.Open(worksetIds)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    options.SetWorksetConfiguration(worksetConfig)
+
+    <span class="highlight-keyword">Dim</span> result <span class="highlight-keyword">As</span> RevitLinkLoadResult = RevitLinkType.Create(doc, path, options)
+    <span class="highlight-keyword">Dim</span> type <span class="highlight-keyword">As</span> RevitLinkType = <span class="highlight-keyword">TryCast</span>(doc.GetElement(result.ElementId), RevitLinkType)
+    <span class="highlight-keyword">Return</span> (result.LoadResult = RevitLinkLoadResultType.LinkLoaded)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="3f710983-5a4d-d515-a633-12b06a419b30.htm">
+       RevitLinkOptions Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

@@ -1,0 +1,232 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="dc1a081e-8dab-565f-145d-a429098d353c.htm">
+       CompoundStructure Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Completely resets this CompoundStructure and applies a new set of layers.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetLayers</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="faece83a-6d49-41b0-2713-fe6cfaa5a3b5.htm">CompoundStructureLayer</a>&gt; <span class="parameter">layers</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetLayers</span> ( _
+	<span class="parameter">layers</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="faece83a-6d49-41b0-2713-fe6cfaa5a3b5.htm">CompoundStructureLayer</a>) _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetLayers</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="faece83a-6d49-41b0-2713-fe6cfaa5a3b5.htm">CompoundStructureLayer</a>^&gt;^ <span class="parameter">layers</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="layers">
+       <dt>
+        <span class="parameter">
+         layers
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="faece83a-6d49-41b0-2713-fe6cfaa5a3b5.htm">
+         CompoundStructureLayer
+        </a>
+        <br/>
+        The layers to be set.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This function will replace all existing layers with the contents of the input.  This provides a full
+   reset for the CompoundStructure. Therefore:
+     <ul>
+      <li>
+       All layers will be marked as Core layers, and any settings related to Shell layers (such as
+       <a href="db2884a9-bd2a-e7be-eb95-d8dd5e74ee59.htm">
+        GetFirstCoreLayerIndex
+       </a>
+       ,
+       <a href="4e32008c-8d6a-5368-a4d9-4e3e103bce9d.htm">
+        GetLastCoreLayerIndex
+       </a>
+       or
+       <a href="33a4b0ce-7694-bf4f-81a0-a8b66fa3cade.htm">
+        GetCoreBoundaryLayerIndex(ShellLayerType)
+       </a>
+       ) will be modified accordingly.
+      </li>
+      <li>
+       Because all layers will be set as Core layers, the value of LayerCapFlag will be ignored (and set to true) automatically.
+      </li>
+      <li>
+       The
+       <a href="e93ce781-df22-cc64-7ad8-70a0d6bc7707.htm">
+        VariableLayerIndex
+       </a>
+       will be unset.
+      </li>
+      <li>
+       The
+       <a href="cf4d771e-6ed2-ec6a-d32d-647fb5b649b3.htm">
+        StructuralMaterialIndex
+       </a>
+       will be unset.
+      </li>
+      <li>
+       The compound structure will be set to be
+       <a href="7f06ea80-ba2f-aecb-be51-cb463769ae1b.htm">
+        vertically homogeneous
+       </a>
+       .
+      </li>
+     </ul>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="dc1a081e-8dab-565f-145d-a429098d353c.htm">
+       CompoundStructure Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

@@ -1,0 +1,210 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="7afa9e0c-a245-f215-77fa-9201f25dc6ad.htm">
+       IDataConversionMonitor Interface
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     The default implementation ignores input and always returns true. The using app should override the behavior as necessary.
+   Some examples of overridden behavior are
+   1.	Someone is developing a classic Revit add-on that imports STEP AP 203 solids. She will implement a log object such that
+   a) At each imported face (logMessage() called with LogMessage::FaceCreated as first argument) the log object will update
+   count of imported faces and call an application-specific progress indicator where appropriate
+   b) If the app gets a cancel request between the calls to logMessage(), the next call will return  false.
+   The Import API will then cancel the conversion and clean up the intermediate data.
+   2.	Someone is implementing a web service to convert IFC files to RVT. As a part of that service UI, the user would like
+   to cancel the conversion on the first error in order to avoid being charged for storage/processor time.
+   The implementation of logMessage() in that case would be different: the cancellation request would be based on severity of the error.
+   The app would probably want to keep a detailed count of entities converted.
+   3.	Someone is implementing an IFC importer. Each API call is fast enough that cancelation/progress requests are handled by the application.
+   Problems with data should be reported to the user, but the conversion should go on regardless. The app collects its own conversion statistics.
+   The app developer implements logMessage() to accumulate reported errors and appends the formatted results to her conversion report.
+   The overloaded logMessage() always returns true, since all cancellations are handled by the app.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2016
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">ProcessMessage</span>(
+	<a href="f8f4737f-8c74-7c67-4669-ddddd2ccde1d.htm">DataExchangeMessageId</a> <span class="parameter">messageId</span>,
+	<a href="58faa4d4-5f07-500e-e6e4-477c4449a0cd.htm">DataExchangeMessageSeverity</a> <span class="parameter">messageSeverity</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a>&gt; <span class="parameter">entityIds</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Function</span> <span class="identifier">ProcessMessage</span> ( _
+	<span class="parameter">messageId</span> <span class="keyword">As</span> <a href="f8f4737f-8c74-7c67-4669-ddddd2ccde1d.htm">DataExchangeMessageId</a>, _
+	<span class="parameter">messageSeverity</span> <span class="keyword">As</span> <a href="58faa4d4-5f07-500e-e6e4-477c4449a0cd.htm">DataExchangeMessageSeverity</a>, _
+	<span class="parameter">entityIds</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>) _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">ProcessMessage</span>(
+	<a href="f8f4737f-8c74-7c67-4669-ddddd2ccde1d.htm">DataExchangeMessageId</a> <span class="parameter">messageId</span>, 
+	<a href="58faa4d4-5f07-500e-e6e4-477c4449a0cd.htm">DataExchangeMessageSeverity</a> <span class="parameter">messageSeverity</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^&gt;^ <span class="parameter">entityIds</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="messageId">
+       <dt>
+        <span class="parameter">
+         messageId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="f8f4737f-8c74-7c67-4669-ddddd2ccde1d.htm">
+         Autodesk.Revit.DB
+         DataExchangeMessageId
+        </a>
+        <br/>
+        Indicates a specific event during data conversion.
+       </dd>
+      </dl>
+      <dl paramname="messageSeverity">
+       <dt>
+        <span class="parameter">
+         messageSeverity
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="58faa4d4-5f07-500e-e6e4-477c4449a0cd.htm">
+         Autodesk.Revit.DB
+         DataExchangeMessageSeverity
+        </a>
+        <br/>
+        Indicates a severity of the event.
+       </dd>
+      </dl>
+      <dl paramname="entityIds">
+       <dt>
+        <span class="parameter">
+         entityIds
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         String
+        </a>
+        <br/>
+        Input objects affected by the reported event.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If the function returns true, the import API will continue conversion. Otherwise, it will be cancelled and all intermediate data reset.
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="7afa9e0c-a245-f215-77fa-9201f25dc6ad.htm">
+       IDataConversionMonitor Interface
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

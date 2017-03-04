@@ -1,0 +1,203 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="58bd199f-5114-67de-011b-d054a1a4c4d9.htm">
+       FabricationPartRouteEnd Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Create fabrication routing end from centreline point on straight element.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="49e74a25-7ea1-efa6-548a-a3c3d0655e43.htm">
+      Autodesk.Revit.DB.Fabrication
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="58bd199f-5114-67de-011b-d054a1a4c4d9.htm">FabricationPartRouteEnd</a> <span class="identifier">CreateFromCenterline</span>(
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> <span class="parameter">element</span>,
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">ptAt</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">CreateFromCenterline</span> ( _
+	<span class="parameter">element</span> <span class="keyword">As</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>, _
+	<span class="parameter">ptAt</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> _
+) <span class="keyword">As</span> <a href="58bd199f-5114-67de-011b-d054a1a4c4d9.htm">FabricationPartRouteEnd</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="58bd199f-5114-67de-011b-d054a1a4c4d9.htm">FabricationPartRouteEnd</a>^ <span class="identifier">CreateFromCenterline</span>(
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>^ <span class="parameter">element</span>, 
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">ptAt</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="element">
+       <dt>
+        <span class="parameter">
+         element
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+         Autodesk.Revit.DB
+         Element
+        </a>
+        <br/>
+        The straight element that the centerline is on.
+       </dd>
+      </dl>
+      <dl paramname="ptAt">
+       <dt>
+        <span class="parameter">
+         ptAt
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        A point along the straight element where the fitting to be cut in should be positioned.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="58bd199f-5114-67de-011b-d054a1a4c4d9.htm">
+       FabricationPartRouteEnd Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="49e74a25-7ea1-efa6-548a-a3c3d0655e43.htm">
+       Autodesk.Revit.DB.Fabrication Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

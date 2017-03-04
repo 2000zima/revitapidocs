@@ -1,0 +1,74 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/"><img alt="Revit API Docs Logo" src="{{ url_for('static', filename="img/logos/nav-logo-simple.svg") }}"></a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+      <ul class="nav navbar-nav" id="nav-main">
+
+        <!-- Missing is added only if available in is defined, and year not in it -->
+        <!-- Non active buttons will switch to equivalent resource of that year. Active button will take to root of that year -->
+        {% macro nav_button(btn_year) -%}
+        <li>
+        <a  class="{{ 'active' if active_year == btn_year }}
+            {% if entry and entry.get('years') %}
+            {% set status = entry['years'][btn_year]|default('missing') %}
+            {{ status }}
+            {% endif %}"
+            href="/{{btn_year}}/{% if btn_year != active_year %}{{ active_href if active_href is not none }}{% endif %}"
+            data-toggle="tooltip"
+            data-placement="bottom"
+            data-name={{btn_year}}
+            title="{{ status }}"
+            {# title="{{ status if status != 'exists' }}" #}
+            >
+            {{btn_year}}
+        </a></li>
+        {%- endmacro %}
+        <!-- <li class="{{ 'active' if active_year == btn_year }} {% if available_in %} {{ 'missing' if btn_year not in available_in }} {%endif%}"><a href="/{{btn_year}}/{% if btn_year != active_year %}{{ active_href if active_href is not none }}{% endif %}">{{btn_year}}</a></li> -->
+
+        {{ nav_button('2015') }}
+        {{ nav_button('2016') }}
+        {{ nav_button('2017') }}
+        {{ nav_button('2017.1') }}
+        <!-- <li class="{{ 'active' if year == '2015' }} {{ 'missing' if '2015' not in available_in }}"><a href="/2015/{{ active_href if active_href is not none }}">2015</a></li> -->
+        <li class="{{ 'active' if 'python' in request.path }}"><a href="{{ url_for('python')}}"  data-name="Python">Python</a></li>
+      </ul>
+
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown" id="language-dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+              <span id="language-active"></span><span> </span><span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu">
+              <li><a class="language-selector" href="#">All</a></li>
+              <li class="divider"></li>
+              <li><a class="language-selector" href="#">C#</a></li>
+              <li><a class="language-selector" href="#">VB</a></li>
+              <li><a class="language-selector" href="#">C++</a></li>
+              <li><a class="language-selector" href="#">Python <span class="small">[BETA]</span></a></li>
+            </ul>
+        </li>
+
+
+        <li><a target="_blank" href="http://twitter.com/intent/tweet?text=Check out&url=http://RevitAPIdocs.com&hashtags=revitapi&via=gtalarico&"><img src="{{ url_for('static', filename="img/social/social-twitter-navbar.svg") }}" alt="Tweet" /></a></li>
+        {% if not config.PRODUCTION %}
+        <li><a href="https://github.com/gtalarico/revitapidocs/issues">[BETA]</a></li>
+        {% endif %}
+      </ul>
+
+
+    </div> <!-- /.navbar-collapse -->
+  </div> <!-- /.container-fluid -->
+</nav>

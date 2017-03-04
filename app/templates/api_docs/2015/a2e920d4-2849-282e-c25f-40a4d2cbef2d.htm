@@ -1,0 +1,275 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="295b48c8-0571-ad5c-eead-baea84a6787c.htm">
+       UIDocument Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Requests an asynchronous change of the active view in the currently active document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">RequestViewChange</span>(
+	<a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a> <span class="parameter">view</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">RequestViewChange</span> ( _
+	<span class="parameter">view</span> <span class="keyword">As</span> <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">RequestViewChange</span>(
+	<a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a>^ <span class="parameter">view</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="view">
+       <dt>
+        <span class="parameter">
+         view
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">
+         Autodesk.Revit.DB
+         View
+        </a>
+        <br/>
+        The View.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This method requests to change the active view by posting a message asynchronously. 
+   Unlike setting the
+      <a href="b6adb74b-39af-9213-c37b-f54db76b75a3.htm">
+       ActiveView
+      </a>
+      property, 
+   this will not make the change in active view immediately. Instead the request will be posted 
+   to occur when control returns to Revit from the API context. This method is permitted to change 
+   the active view from the Idling event or an ExternalEvent callback.
+     </p>
+     <p>
+      The active view cannot be changed when:
+     </p>
+     <ul>
+      <li>
+       There is an open transaction in the currently active document.
+      </li>
+      <li>
+       <a href="af884262-3ba2-b0a0-d7ef-f0a49c1bf1bc.htm">
+        IsModifiable
+       </a>
+       is true.
+      </li>
+      <li>
+       <a href="7e813a1b-9163-2509-f280-82572598432b.htm">
+        IsReadOnly
+       </a>
+       is true.
+      </li>
+      <li>
+       ViewActivating, ViewActivated, or any pre-event (such as DocumentSaving) is being handled.
+      </li>
+     </ul>
+     <p>
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          If the 'view' argument is NULL.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          <ul>
+           <li>
+            If the given view is not a valid view of the document; -or-
+           </li>
+           <li>
+            If the given view is a template view; -or-
+           </li>
+           <li>
+            If the given view is an internal view.
+           </li>
+          </ul>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          <ul>
+           <li>
+            If the given view is not from the currently active document; -or-
+           </li>
+           <li>
+            If the active document is currently modifiable (i.e. with an active transaction); -or-
+           </li>
+           <li>
+            If the active document is currently in read-only state; -or-
+           </li>
+           <li>
+            During either ViewActivating or ViewActivated event; -or-
+           </li>
+           <li>
+            During any pre-action kind of event, such as DocumentSaving, etc.
+           </li>
+          </ul>
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="295b48c8-0571-ad5c-eead-baea84a6787c.htm">
+       UIDocument Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

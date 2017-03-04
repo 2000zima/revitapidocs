@@ -1,0 +1,217 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="19519a63-d89e-c7d3-466b-712bee7be9b6.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A two-dimensional rectangle, parallel to the coordinate axes.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">BoundingBoxUV</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">BoundingBoxUV</span> _
+	<span class="keyword">Implements</span> <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">BoundingBoxUV</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code>Document doc = application.ActiveUIDocument.Document;
+FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(doc);
+ICollection&lt;Element&gt; collection = collector.OfClass(<span class="highlight-keyword">typeof</span>(Autodesk.Revit.DB.View)).ToElements();
+<span class="highlight-keyword">foreach</span> (Element element <span class="highlight-keyword">in</span> collection)
+
+{
+    Autodesk.Revit.DB.View view = element <span class="highlight-keyword">as</span> Autodesk.Revit.DB.View;
+    <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != view)
+    {
+        <span class="highlight-keyword">string</span> messageInfo = <span class="highlight-literal">"BoundingBoxUV : "</span>;
+        messageInfo += <span class="highlight-literal">"\nView name : "</span> + view.Name;
+        BoundingBoxUV boundingBox = view.Outline;
+        <span class="highlight-comment">// Get max bounding box</span>
+        UV max = boundingBox.Max;
+        messageInfo += <span class="highlight-literal">"\nMax boundingbox : ("</span> + max.U + <span class="highlight-literal">","</span> + max.V + <span class="highlight-literal">")"</span>;
+        <span class="highlight-comment">// Get min bounding box</span>
+        UV min = boundingBox.Min;
+        messageInfo += <span class="highlight-literal">"\nMin boundingbox : ("</span> + min.U + <span class="highlight-literal">","</span> + min.V + <span class="highlight-literal">")"</span>;
+        <span class="highlight-comment">// Get bounds,</span>
+        <span class="highlight-comment">// Use 0 for Min and 1 for Max</span>
+        UV bound = boundingBox.get_Bounds(<span class="highlight-number">0</span>);
+        messageInfo += <span class="highlight-literal">"\nBoundingbox bounds : ("</span> + bound.U + <span class="highlight-literal">","</span> + bound.V + <span class="highlight-literal">")"</span>;
+        TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,messageInfo);
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Dim</span> doc <span class="highlight-keyword">As</span> Document = application.ActiveUIDocument.Document
+<span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(doc)
+<span class="highlight-keyword">Dim</span> collection <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> Element) = collector.OfClass(<span class="highlight-keyword">GetType</span>(Autodesk.Revit.DB.View)).ToElements()
+<span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> element <span class="highlight-keyword">As</span> Element <span class="highlight-keyword">In</span> collection
+
+    <span class="highlight-keyword">Dim</span> view <span class="highlight-keyword">As</span> Autodesk.Revit.DB.View = <span class="highlight-keyword">TryCast</span>(element, Autodesk.Revit.DB.View)
+    <span class="highlight-keyword">If</span> view <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Dim</span> messageInfo <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"BoundingBoxUV : "</span>
+        messageInfo += vbLf &amp; <span class="highlight-literal">"View name : "</span> + view.Name
+        <span class="highlight-keyword">Dim</span> boundingBox <span class="highlight-keyword">As</span> BoundingBoxUV = view.Outline
+        <span class="highlight-comment">' Get max bounding box</span>
+        <span class="highlight-keyword">Dim</span> max <span class="highlight-keyword">As</span> UV = boundingBox.Max
+        messageInfo += (vbLf &amp; <span class="highlight-literal">"Max boundingbox : ("</span> + max.U &amp; <span class="highlight-literal">","</span>) + max.V &amp; <span class="highlight-literal">")"</span>
+        <span class="highlight-comment">' Get min bounding box</span>
+        <span class="highlight-keyword">Dim</span> min <span class="highlight-keyword">As</span> UV = boundingBox.Min
+        messageInfo += (vbLf &amp; <span class="highlight-literal">"Min boundingbox : ("</span> + min.U &amp; <span class="highlight-literal">","</span>) + min.V &amp; <span class="highlight-literal">")"</span>
+        <span class="highlight-comment">' Get bounds,</span>
+        <span class="highlight-comment">' Use 0 for Min and 1 for Max</span>
+        <span class="highlight-keyword">Dim</span> bound <span class="highlight-keyword">As</span> UV = boundingBox.Bounds(<span class="highlight-number">0</span>)
+        messageInfo += (vbLf &amp; <span class="highlight-literal">"Boundingbox bounds : ("</span> + bound.U &amp; <span class="highlight-literal">","</span>) + bound.V &amp; <span class="highlight-literal">")"</span>
+        TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, messageInfo)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">Next</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      BoundingBoxUV
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="19519a63-d89e-c7d3-466b-712bee7be9b6.htm">
+       BoundingBoxUV Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

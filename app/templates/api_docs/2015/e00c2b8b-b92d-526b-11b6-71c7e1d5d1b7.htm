@@ -1,0 +1,299 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="f51d019d-6ff3-692b-d1d2-b497cab564de.htm">
+       Family Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Retrieves or sets a Category object that represents the category or sub category in which the elements
+( this family could generate ) reside.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a> <span class="identifier">FamilyCategory</span> { <span class="keyword">get</span>; <span class="keyword">set</span>; }</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Property</span> <span class="identifier">FamilyCategory</span> <span class="keyword">As</span> <a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a>
+	<span class="keyword">Get</span>
+	<span class="keyword">Set</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">property</span> <a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a>^ <span class="identifier">FamilyCategory</span> {
+	<a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a>^ <span class="keyword">get</span> ();
+	<span class="keyword">void</span> <span class="keyword">set</span> (<a href="d390ecf6-e5db-d7c1-d7f2-766c0686e975.htm">Category</a>^ <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     All category objects can be retrieved from the application by using the Categories property
+of the Application.Settings object.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> GetBeamAndColumnSymbols(Document document)
+{
+    FamilySymbolSet columnTypes = <span class="highlight-keyword">new</span> FamilySymbolSet();
+    FamilySymbolSet framingTypes = <span class="highlight-keyword">new</span> FamilySymbolSet();
+    FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(document);
+    ICollection&lt;Element&gt; elements = collector.OfClass(<span class="highlight-keyword">typeof</span>(Family)).ToElements();
+
+    <span class="highlight-keyword">foreach</span>(Element element <span class="highlight-keyword">in</span> elements)
+    {
+        Family family = element <span class="highlight-keyword">as</span> Family;
+        Category category = family.FamilyCategory;
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != category)
+        {
+            ISet&lt;ElementId&gt; familySymbolIds = family.GetFamilySymbolIds();
+            <span class="highlight-keyword">if</span> ((<span class="highlight-keyword">int</span>)BuiltInCategory.OST_StructuralColumns == category.Id.IntegerValue)
+            {
+                <span class="highlight-keyword">foreach</span> (ElementId id <span class="highlight-keyword">in</span> familySymbolIds)
+                {
+                    FamilySymbol symbol = family.Document.GetElement(id) <span class="highlight-keyword">as</span> FamilySymbol;
+                    columnTypes.Insert(symbol);
+                }
+            }
+            <span class="highlight-keyword">else</span> <span class="highlight-keyword">if</span> ((<span class="highlight-keyword">int</span>)BuiltInCategory.OST_StructuralFraming == category.Id.IntegerValue)
+            {
+                <span class="highlight-keyword">foreach</span> (ElementId id <span class="highlight-keyword">in</span> familySymbolIds)
+                {
+                    FamilySymbol symbol = family.Document.GetElement(id) <span class="highlight-keyword">as</span> FamilySymbol;
+                    framingTypes.Insert(symbol);
+                }
+            }
+        }
+    }
+
+    <span class="highlight-keyword">string</span> message = <span class="highlight-literal">"Column Types: "</span>;
+    FamilySymbolSetIterator fsItor = columnTypes.ForwardIterator();
+    fsItor.Reset();
+    <span class="highlight-keyword">while</span> (fsItor.MoveNext())
+    {
+        FamilySymbol familySybmol = fsItor.Current <span class="highlight-keyword">as</span> FamilySymbol;
+        message += <span class="highlight-literal">"\n"</span> + familySybmol.Name;
+    }
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,message);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> GetBeamAndColumnSymbols(document <span class="highlight-keyword">As</span> Document)
+    <span class="highlight-keyword">Dim</span> columnTypes <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FamilySymbolSet()
+    <span class="highlight-keyword">Dim</span> framingTypes <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FamilySymbolSet()
+    <span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(document)
+    <span class="highlight-keyword">Dim</span> elements <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> Element) = collector.OfClass(<span class="highlight-keyword">GetType</span>(Family)).ToElements()
+
+    <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> element <span class="highlight-keyword">As</span> Element <span class="highlight-keyword">In</span> elements
+        <span class="highlight-keyword">Dim</span> family <span class="highlight-keyword">As</span> Family = <span class="highlight-keyword">TryCast</span>(element, Family)
+        <span class="highlight-keyword">Dim</span> category <span class="highlight-keyword">As</span> Category = family.FamilyCategory
+        <span class="highlight-keyword">If</span> category <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+            <span class="highlight-keyword">Dim</span> familySymbolIds <span class="highlight-keyword">As</span> ISet(<span class="highlight-keyword">Of</span> ElementId) = family.GetFamilySymbolIds()
+            <span class="highlight-keyword">If</span> <span class="highlight-keyword">CInt</span>(BuiltInCategory.OST_StructuralColumns) = category.Id.IntegerValue <span class="highlight-keyword">Then</span>
+                <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> id <span class="highlight-keyword">As</span> ElementId <span class="highlight-keyword">In</span> familySymbolIds
+                    <span class="highlight-keyword">Dim</span> symbol <span class="highlight-keyword">As</span> FamilySymbol = <span class="highlight-keyword">TryCast</span>(family.Document.GetElement(id), FamilySymbol)
+                    columnTypes.Insert(symbol)
+                <span class="highlight-keyword">Next</span>
+            <span class="highlight-keyword">ElseIf</span> <span class="highlight-keyword">CInt</span>(BuiltInCategory.OST_StructuralFraming) = category.Id.IntegerValue <span class="highlight-keyword">Then</span>
+                <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> id <span class="highlight-keyword">As</span> ElementId <span class="highlight-keyword">In</span> familySymbolIds
+                    <span class="highlight-keyword">Dim</span> symbol <span class="highlight-keyword">As</span> FamilySymbol = <span class="highlight-keyword">TryCast</span>(family.Document.GetElement(id), FamilySymbol)
+                    framingTypes.Insert(symbol)
+                <span class="highlight-keyword">Next</span>
+            <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">Next</span>
+
+    <span class="highlight-keyword">Dim</span> message <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"Column Types: "</span>
+    <span class="highlight-keyword">Dim</span> fsItor <span class="highlight-keyword">As</span> FamilySymbolSetIterator = columnTypes.ForwardIterator()
+    fsItor.Reset()
+    <span class="highlight-keyword">While</span> fsItor.MoveNext()
+        <span class="highlight-keyword">Dim</span> familySybmol <span class="highlight-keyword">As</span> FamilySymbol = <span class="highlight-keyword">TryCast</span>(fsItor.Current, FamilySymbol)
+        message += vbLf + familySybmol.Name
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">While</span>
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, message)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown when the input category cannot be assigned to this family.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown when the input category is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="f51d019d-6ff3-692b-d1d2-b497cab564de.htm">
+       Family Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

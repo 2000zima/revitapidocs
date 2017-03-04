@@ -1,0 +1,241 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="850475b4-01d3-8247-4515-e53ab1e73e65.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     An interface that should be implemented to provide the implementation for a Revit add-in External Command.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">interface</span> <span class="identifier">IExternalCommand</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Interface</span> <span class="identifier">IExternalCommand</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">interface class</span> <span class="identifier">IExternalCommand</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     To add an external command to Autodesk Revit the developer should implement an object
+that supports the IExternalCommand interface.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> Autodesk.Revit.UI.Result Execute(ExternalCommandData commandData,
+    <span class="highlight-keyword">ref</span> <span class="highlight-keyword">string</span> message, ElementSet elements)
+{
+    <span class="highlight-keyword">try</span>
+    {
+        Document doc = commandData.Application.ActiveUIDocument.Document;
+        UIDocument uidoc = commandData.Application.ActiveUIDocument;
+        <span class="highlight-comment">// Delete selected elements</span>
+
+        ICollection&lt;Autodesk.Revit.DB.ElementId&gt; ids =
+            doc.Delete(uidoc.Selection.GetElementIds());
+
+        TaskDialog taskDialog = <span class="highlight-keyword">new</span> TaskDialog(<span class="highlight-literal">"Revit"</span>); 
+        taskDialog.MainContent = 
+           (<span class="highlight-literal">"Click Yes to return Succeeded. Selected members will be deleted.\n"</span> +
+           <span class="highlight-literal">"Click No to return Failed.  Selected members will not be deleted.\n"</span> +
+           <span class="highlight-literal">"Click Cancel to return Cancelled.  Selected members will not be deleted."</span>);
+        TaskDialogCommonButtons buttons = TaskDialogCommonButtons.Yes | 
+            TaskDialogCommonButtons.No | TaskDialogCommonButtons.Cancel;
+        taskDialog.CommonButtons = buttons;
+        TaskDialogResult taskDialogResult = taskDialog.Show();
+
+        <span class="highlight-keyword">if</span> (taskDialogResult == TaskDialogResult.Yes)
+        {
+            <span class="highlight-keyword">return</span> Autodesk.Revit.UI.Result.Succeeded;
+        }
+        <span class="highlight-keyword">else</span> <span class="highlight-keyword">if</span> (taskDialogResult == TaskDialogResult.No)
+        {
+            ICollection&lt;ElementId&gt; selectedElementIds = uidoc.Selection.GetElementIds();
+            <span class="highlight-keyword">foreach</span> (ElementId id <span class="highlight-keyword">in</span> selectedElementIds)
+            {
+                elements.Insert( doc.GetElement(id) );
+            }
+            message = <span class="highlight-literal">"Failed to delete selection."</span>;
+            <span class="highlight-keyword">return</span> Autodesk.Revit.UI.Result.Failed;
+        }
+        <span class="highlight-keyword">else</span>
+        {
+            <span class="highlight-keyword">return</span> Autodesk.Revit.UI.Result.Cancelled;
+        }
+    }
+    <span class="highlight-keyword">catch</span>
+    {
+        message = <span class="highlight-literal">"Unexpected Exception thrown."</span>;
+        <span class="highlight-keyword">return</span> Autodesk.Revit.UI.Result.Failed;
+    }
+
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> Execute(commandData <span class="highlight-keyword">As</span> ExternalCommandData, <span class="highlight-keyword">ByRef</span> message <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span>, elements <span class="highlight-keyword">As</span> ElementSet) <span class="highlight-keyword">As</span> Autodesk.Revit.UI.Result <span class="highlight-keyword">Implements</span> IExternalCommand.Execute
+    <span class="highlight-keyword">Try</span>
+        <span class="highlight-keyword">Dim</span> doc <span class="highlight-keyword">As</span> Document = commandData.Application.ActiveUIDocument.Document
+        <span class="highlight-keyword">Dim</span> uidoc <span class="highlight-keyword">As</span> UIDocument = commandData.Application.ActiveUIDocument
+        <span class="highlight-comment">' Delete selected elements</span>
+
+
+        <span class="highlight-keyword">Dim</span> ids <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> Autodesk.Revit.DB.ElementId) = doc.Delete(uidoc.Selection.GetElementIds())
+
+        <span class="highlight-keyword">Dim</span> taskDialog <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> TaskDialog(<span class="highlight-literal">"Revit"</span>)
+        taskDialog.MainContent = (<span class="highlight-literal">"Click Yes to return Succeeded. Selected members will be deleted."</span> &amp; vbLf &amp; <span class="highlight-literal">"Click No to return Failed.  Selected members will not be deleted."</span> &amp; vbLf &amp; <span class="highlight-literal">"Click Cancel to return Cancelled.  Selected members will not be deleted."</span>)
+        <span class="highlight-keyword">Dim</span> buttons <span class="highlight-keyword">As</span> TaskDialogCommonButtons = TaskDialogCommonButtons.Yes <span class="highlight-keyword">Or</span> TaskDialogCommonButtons.No <span class="highlight-keyword">Or</span> TaskDialogCommonButtons.Cancel
+        taskDialog.CommonButtons = buttons
+        <span class="highlight-keyword">Dim</span> taskDialogResult__1 <span class="highlight-keyword">As</span> TaskDialogResult = taskDialog.Show()
+
+        <span class="highlight-keyword">If</span> taskDialogResult__1 = TaskDialogResult.Yes <span class="highlight-keyword">Then</span>
+            <span class="highlight-keyword">Return</span> Autodesk.Revit.UI.Result.Succeeded
+        <span class="highlight-keyword">ElseIf</span> taskDialogResult__1 = TaskDialogResult.No <span class="highlight-keyword">Then</span>
+            <span class="highlight-keyword">Dim</span> selectedElementIds <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> ElementId) = uidoc.Selection.GetElementIds()
+            <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> id <span class="highlight-keyword">As</span> ElementId <span class="highlight-keyword">In</span> selectedElementIds
+                elements.Insert(doc.GetElement(id))
+            <span class="highlight-keyword">Next</span>
+            message = <span class="highlight-literal">"Failed to delete selection."</span>
+            <span class="highlight-keyword">Return</span> Autodesk.Revit.UI.Result.Failed
+        <span class="highlight-keyword">Else</span>
+            <span class="highlight-keyword">Return</span> Autodesk.Revit.UI.Result.Cancelled
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">Catch</span>
+        message = <span class="highlight-literal">"Unexpected Exception thrown."</span>
+        <span class="highlight-keyword">Return</span> Autodesk.Revit.UI.Result.Failed
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Try</span>
+
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="850475b4-01d3-8247-4515-e53ab1e73e65.htm">
+       IExternalCommand Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

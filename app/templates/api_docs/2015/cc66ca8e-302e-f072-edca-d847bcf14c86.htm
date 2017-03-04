@@ -1,0 +1,201 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+       Element Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Returns the identifier of this element's type.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="identifier">GetTypeId</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">GetTypeId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="identifier">GetTypeId</span>()</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The id of the element's type, or invalid element id if the element cannot have type assigned.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Some elements cannot have type assigned,
+   in which case this method returns invalid element id.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">void</span> GetStairType(Autodesk.Revit.DB.Document document)
+{
+   FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(document);
+   ICollection&lt;Element&gt; stairs = collector.OfClass(<span class="highlight-keyword">typeof</span>(FamilyInstance)).OfCategory(BuiltInCategory.OST_Stairs).ToElements();
+   <span class="highlight-keyword">foreach</span> (Element stair <span class="highlight-keyword">in</span> stairs)
+    {
+        <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> == stair.GetTypeId())
+        {
+            TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,<span class="highlight-literal">"No symbol found in stair element: "</span> + stair.Name);
+        }
+        <span class="highlight-keyword">else</span>
+        {
+            Element elemType = document.GetElement(stair.GetTypeId());
+            <span class="highlight-keyword">string</span> info = <span class="highlight-literal">"Stair type is: "</span> + elemType.Name;
+            TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,info);
+        }
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> GetStairType(document <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Document)
+    <span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(document)
+    <span class="highlight-keyword">Dim</span> stairs <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> Element) = collector.OfClass(<span class="highlight-keyword">GetType</span>(FamilyInstance)).OfCategory(BuiltInCategory.OST_Stairs).ToElements()
+    <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> stair <span class="highlight-keyword">As</span> Element <span class="highlight-keyword">In</span> stairs
+        <span class="highlight-keyword">If</span> stair.GetTypeId() <span class="highlight-keyword">Is</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+            TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, <span class="highlight-literal">"No symbol found in stair element: "</span> + stair.Name)
+        <span class="highlight-keyword">Else</span>
+            <span class="highlight-keyword">Dim</span> elemType <span class="highlight-keyword">As</span> Element = document.GetElement(stair.GetTypeId())
+            <span class="highlight-keyword">Dim</span> info <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"Stair type is: "</span> + elemType.Name
+            TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, info)
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">Next</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+       Element Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

@@ -1,0 +1,319 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Issues encountered while constructing meshes as fallbacks
+   for geometrical operations.
+    </div>
+    <div class="summary">
+     Issues, which can be encountered while building a mesh as a
+   fallback for geometrical operations.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="identifier">MeshFromGeometryOperationIssue</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Enumeration</span> <span class="identifier">MeshFromGeometryOperationIssue</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum class</span> <span class="identifier">MeshFromGeometryOperationIssue</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <div id="enumerationSection">
+     <h1 class="heading">
+      Members
+      <a name="membersToggle">
+      </a>
+     </h1>
+     <div class="section" id="membersSection" name="collapseableSection" style="">
+      <table class="members" frame="lhs" id="memberList">
+       <colgroup>
+        <col width="10%">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr>
+         <th class="nameColumn">
+          Member name
+         </th>
+         <th class="descriptionColumn">
+          Description
+         </th>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.AllFine">
+          <span class="selflink">
+           AllFine
+          </span>
+         </td>
+         <td>
+          No issues were encountered. Issues of this type should not
+   be present in MeshFromGeometryOperationResult.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.NoUsableCurveLoopsInInput">
+          <span class="selflink">
+           NoUsableCurveLoopsInInput
+          </span>
+         </td>
+         <td>
+          While one or more curve loops were expected as one of the input
+   parameters while building a mesh, no loops containing curves were
+   provided.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.MissingCurveLoopsInInput">
+          <span class="selflink">
+           MissingCurveLoopsInInput
+          </span>
+         </td>
+         <td>
+          While several curve loops were expected as one of the input
+   parameters while building a mesh, some of them were not provided.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.EmptyCurveLoopsInInput">
+          <span class="selflink">
+           EmptyCurveLoopsInInput
+          </span>
+         </td>
+         <td>
+          Among curve loops expected as input parameters while building
+   a mesh, some are empty.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.CurveLoopsWithoutCurvesInInput">
+          <span class="selflink">
+           CurveLoopsWithoutCurvesInInput
+          </span>
+         </td>
+         <td>
+          Among curve loops expected as input parameters while building
+   a mesh, some are not empty, but do not have any curves.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.NonPlanarProfileLoop">
+          <span class="selflink">
+           NonPlanarProfileLoop
+          </span>
+         </td>
+         <td>
+          Among curve loops expected as input parameters while building
+   a mesh, some are not planar.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.InputCurveLoopProblemWithFallback">
+          <span class="selflink">
+           InputCurveLoopProblemWithFallback
+          </span>
+         </td>
+         <td>
+          An unidentified problem with an input curve loop. A fallback
+   is attempted.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.InputCurveLoopWrongOpenFlag">
+          <span class="selflink">
+           InputCurveLoopWrongOpenFlag
+          </span>
+         </td>
+         <td>
+          An input curve has incorrect open flag.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.NonContinuousInputCurveLoop">
+          <span class="selflink">
+           NonContinuousInputCurveLoop
+          </span>
+         </td>
+         <td>
+          A non-continuous input curve loop. Either wrong curve flips
+   or genuine gaps.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.MissingCurvesInInputLoop">
+          <span class="selflink">
+           MissingCurvesInInputLoop
+          </span>
+         </td>
+         <td>
+          An input curve loop has missing curves.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.InternalUtilityError">
+          <span class="selflink">
+           InternalUtilityError
+          </span>
+         </td>
+         <td>
+          An internal Revit problem. Issues of this type should not
+   normally be present in MeshFromGeometryOperationResult.
+   Please notify Autodesk support if encountered.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.InternalMissingError">
+          <span class="selflink">
+           InternalMissingError
+          </span>
+         </td>
+         <td>
+          An internal Revit problem. Issues of this type should not be
+   present in TessellatedShapeBuilderResult. Please notify
+   Autodesk support if encountered.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.InternalError">
+          <span class="selflink">
+           InternalError
+          </span>
+         </td>
+         <td>
+          An internal Revit problem. Issues of this type should not
+   normally be present in MeshFromGeometryOperationResult.
+   Please notify Autodesk support if encountered.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.NotSetYet">
+          <span class="selflink">
+           NotSetYet
+          </span>
+         </td>
+         <td>
+          An issue has not been set yet.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.MeshFromGeometryOperationIssue.NumberOfIssueTypes">
+          <span class="selflink">
+           NumberOfIssueTypes
+          </span>
+         </td>
+         <td>
+          Not a code of some issue, but the number of known types of issues.
+   Issues of this type should not be
+   present in TessellatedShapeBuilderResult. Please notify
+   Autodesk support if encountered
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

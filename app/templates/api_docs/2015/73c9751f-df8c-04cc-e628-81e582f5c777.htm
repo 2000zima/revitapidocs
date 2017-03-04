@@ -1,0 +1,202 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new opening in a beam, brace and column.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="720de864-9f4e-c606-c7f4-2e7a0b2da46f.htm">Opening</a> <span class="identifier">NewOpening</span>(
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> <span class="parameter">famInstElement</span>,
+	<a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a> <span class="parameter">profile</span>,
+	<a href="900d9088-2ea5-1953-3b01-0c9cc141825a.htm">eRefFace</a> <span class="parameter">iFace</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewOpening</span> ( _
+	<span class="parameter">famInstElement</span> <span class="keyword">As</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>, _
+	<span class="parameter">profile</span> <span class="keyword">As</span> <a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a>, _
+	<span class="parameter">iFace</span> <span class="keyword">As</span> <a href="900d9088-2ea5-1953-3b01-0c9cc141825a.htm">eRefFace</a> _
+) <span class="keyword">As</span> <a href="720de864-9f4e-c606-c7f4-2e7a0b2da46f.htm">Opening</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="720de864-9f4e-c606-c7f4-2e7a0b2da46f.htm">Opening</a>^ <span class="identifier">NewOpening</span>(
+	<a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>^ <span class="parameter">famInstElement</span>, 
+	<a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">CurveArray</a>^ <span class="parameter">profile</span>, 
+	<a href="900d9088-2ea5-1953-3b01-0c9cc141825a.htm">eRefFace</a> <span class="parameter">iFace</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="famInstElement">
+       <dt>
+        <span class="parameter">
+         famInstElement
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+         Autodesk.Revit.DB
+         Element
+        </a>
+        <br/>
+        host element of the opening, can be a beam, brace and column.
+       </dd>
+      </dl>
+      <dl paramname="profile">
+       <dt>
+        <span class="parameter">
+         profile
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="55103aad-38fd-45d2-6bf7-67a5203e99f3.htm">
+         Autodesk.Revit.DB
+         CurveArray
+        </a>
+        <br/>
+        profile of the opening.
+       </dd>
+      </dl>
+      <dl paramname="iFace">
+       <dt>
+        <span class="parameter">
+         iFace
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="900d9088-2ea5-1953-3b01-0c9cc141825a.htm">
+         Autodesk.Revit.Creation
+         eRefFace
+        </a>
+        <br/>
+        face on which opening is based on.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If successful, an Opening object is returned.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This method forms opening on a beam, brace and column.
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ab1718f9-45fb-b3d3-827e-32ff81cf929c.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="60e2eb94-618e-9f1a-4fbd-ca5dfc394e16.htm">
+       NewOpening Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

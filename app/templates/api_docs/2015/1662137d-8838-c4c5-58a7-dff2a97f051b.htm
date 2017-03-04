@@ -1,0 +1,208 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="d89ab493-1472-70b0-3296-b8c629ef6a26.htm">
+       RevitLinkLoadResult Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Searches this LinkLoadResult and all nested LinkLoadResults for the
+   load operation results of a specified ExternalResourceReference.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="d89ab493-1472-70b0-3296-b8c629ef6a26.htm">RevitLinkLoadResult</a> <span class="identifier">GetLinkLoadResult</span>(
+	<a href="ffad9c15-8fc9-fbfd-f328-101533f4cf74.htm">ExternalResourceReference</a> <span class="parameter">matchExtResRef</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">GetLinkLoadResult</span> ( _
+	<span class="parameter">matchExtResRef</span> <span class="keyword">As</span> <a href="ffad9c15-8fc9-fbfd-f328-101533f4cf74.htm">ExternalResourceReference</a> _
+) <span class="keyword">As</span> <a href="d89ab493-1472-70b0-3296-b8c629ef6a26.htm">RevitLinkLoadResult</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="d89ab493-1472-70b0-3296-b8c629ef6a26.htm">RevitLinkLoadResult</a>^ <span class="identifier">GetLinkLoadResult</span>(
+	<a href="ffad9c15-8fc9-fbfd-f328-101533f4cf74.htm">ExternalResourceReference</a>^ <span class="parameter">matchExtResRef</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="matchExtResRef">
+       <dt>
+        <span class="parameter">
+         matchExtResRef
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="ffad9c15-8fc9-fbfd-f328-101533f4cf74.htm">
+         Autodesk.Revit.DB
+         ExternalResourceReference
+        </a>
+        <br/>
+        An ExternalResourceReference whose LinkLoadResults are contained in this object.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     A LinkLoadResult object with the load results for the specified ExternalResourceReference.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      In the case where there are multiple matches, then the LinkLoadResult closest
+   to the top-level link will be returned.  For example, if you are searching for C,
+   starting with a top-level link, A, which links B and C, while B also links C directly,
+   then the load results for C as a direct sub-link of A will be returned.  It is expected
+   that the LinkLoadResults for all instances of C in the nested load result tree will be
+   the same.  However, if you need to inspect each individual result, the LinkLoadResult
+   class does provide methods to navigate the tree.
+     </p>
+     <p>
+      NULL is returned if a match for the ExternalResourceReference cannot be found.
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="d89ab493-1472-70b0-3296-b8c629ef6a26.htm">
+       RevitLinkLoadResult Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

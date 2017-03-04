@@ -1,0 +1,258 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ffad9c15-8fc9-fbfd-f328-101533f4cf74.htm">
+       ExternalResourceReference Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new ExternalResourceReference from the given data.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="identifier">ExternalResourceReference</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a> <span class="parameter">serverId</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/s4ys34ea" target="_blank">IDictionary</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a>, <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a>&gt; <span class="parameter">referenceInformation</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a> <span class="parameter">version</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a> <span class="parameter">inSessionPath</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">New</span> ( _
+	<span class="parameter">serverId</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a>, _
+	<span class="parameter">referenceInformation</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/s4ys34ea" target="_blank">IDictionary</a>(<span class="keyword">Of</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>, <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>), _
+	<span class="parameter">version</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>, _
+	<span class="parameter">inSessionPath</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="identifier">ExternalResourceReference</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">Guid</a> <span class="parameter">serverId</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/s4ys34ea" target="_blank">IDictionary</a>&lt;<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^, <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^&gt;^ <span class="parameter">referenceInformation</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^ <span class="parameter">version</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^ <span class="parameter">inSessionPath</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="serverId">
+       <dt>
+        <span class="parameter">
+         serverId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/cey1zx63" target="_blank">
+         System
+         Guid
+        </a>
+        <br/>
+        The id of the server associated with this
+   ExternalResourceReference. The server must implement
+   IExternalResourceServer.
+       </dd>
+      </dl>
+      <dl paramname="referenceInformation">
+       <dt>
+        <span class="parameter">
+         referenceInformation
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/s4ys34ea" target="_blank">
+         System.Collections.Generic
+         IDictionary
+        </a>
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         String
+        </a>
+        ,
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         String
+        </a>
+        <br/>
+        The (String, String) map containing reference or lookup information that will
+   be stored in Revit.
+       </dd>
+      </dl>
+      <dl paramname="version">
+       <dt>
+        <span class="parameter">
+         version
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         System
+         String
+        </a>
+        <br/>
+        The version of the external data.
+       </dd>
+      </dl>
+      <dl paramname="inSessionPath">
+       <dt>
+        <span class="parameter">
+         inSessionPath
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         System
+         String
+        </a>
+        <br/>
+        The path that identifies a resource in server. ExternalResourceServer must provide this path which should not contain the server name.
+   Revit internally will construct and store the full display path which includes the server name plus this path at the time a resource
+   is loaded into the model for use if the server is missing.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ffad9c15-8fc9-fbfd-f328-101533f4cf74.htm">
+       ExternalResourceReference Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="fcf2e0f4-a46f-d468-d1d0-7f2b9ee28aae.htm">
+       ExternalResourceReference Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

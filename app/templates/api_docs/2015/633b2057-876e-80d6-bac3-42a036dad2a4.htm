@@ -1,0 +1,396 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="6c5c1bd2-8456-5ec9-c53e-0bd3f604ad06.htm">
+       BeamSystem Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new BeamSystem with specified profile curves.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="6c5c1bd2-8456-5ec9-c53e-0bd3f604ad06.htm">BeamSystem</a> <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">document</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>&gt; <span class="parameter">profile</span>,
+	<a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a> <span class="parameter">level</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">curveIndexForDirection</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">is3d</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">Create</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">profile</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>), _
+	<span class="parameter">level</span> <span class="keyword">As</span> <a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a>, _
+	<span class="parameter">curveIndexForDirection</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">Integer</a>, _
+	<span class="parameter">is3d</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a> _
+) <span class="keyword">As</span> <a href="6c5c1bd2-8456-5ec9-c53e-0bd3f604ad06.htm">BeamSystem</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="6c5c1bd2-8456-5ec9-c53e-0bd3f604ad06.htm">BeamSystem</a>^ <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">document</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>^&gt;^ <span class="parameter">profile</span>, 
+	<a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">Level</a>^ <span class="parameter">level</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">curveIndexForDirection</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="parameter">is3d</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        The document in which the new BeamSystem is created.
+       </dd>
+      </dl>
+      <dl paramname="profile">
+       <dt>
+        <span class="parameter">
+         profile
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">
+         Curve
+        </a>
+        <br/>
+        The profile of the BeamSystem.
+       </dd>
+      </dl>
+      <dl paramname="level">
+       <dt>
+        <span class="parameter">
+         level
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="577e5d4e-a558-118c-9dea-3b810b061775.htm">
+         Autodesk.Revit.DB
+         Level
+        </a>
+        <br/>
+        The level on which the BeamSystem is to be created.
+   The work-plane of the BeamSystem will be the sketch plane associated with the Level.
+   If there is no current sketch plane associated with the level yet, we will create a default one.
+       </dd>
+      </dl>
+      <dl paramname="curveIndexForDirection">
+       <dt>
+        <span class="parameter">
+         curveIndexForDirection
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">
+         System
+         Int32
+        </a>
+        <br/>
+        Index of the curve in the profile to be used as direction.
+   '0' means the direction to use the first curve in profile.
+   The curve from the profile to be used as direction must be a Line.
+       </dd>
+      </dl>
+      <dl paramname="is3d">
+       <dt>
+        <span class="parameter">
+         is3d
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">
+         System
+         Boolean
+        </a>
+        <br/>
+        Whether the BeamSystem is 3D. If the BeamSystem is 3D, the sketchPlane must be a level, otherwise an exception will be thrown.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If successful, a new BeamSystem object will be returned.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// Build a profile for the beam system creation</span>
+XYZ first = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>);
+XYZ second = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">40</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>);
+XYZ third = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">40</span>, <span class="highlight-number">25</span>, <span class="highlight-number">0</span>);
+XYZ fourth = <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">25</span>, <span class="highlight-number">0</span>);
+List&lt;Curve&gt; profile = <span class="highlight-keyword">new</span> List&lt;Curve&gt;();
+profile.Add(Line.CreateBound(first, second));
+profile.Add(Line.CreateBound(second, third));
+profile.Add(Line.CreateBound(third, fourth));
+profile.Add(Line.CreateBound(fourth, first));
+
+<span class="highlight-comment">// Create a beam system</span>
+BeamSystem beamSystem = BeamSystem.Create(document, profile, level, <span class="highlight-number">0</span>, <span class="highlight-keyword">false</span>);
+<span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != beamSystem)
+{
+    <span class="highlight-comment">// Change some properties, such as elevation</span>
+    Parameter elevationPara = beamSystem.get_Parameter(BuiltInParameter.INSTANCE_ELEVATION_PARAM);
+    <span class="highlight-keyword">if</span> (<span class="highlight-keyword">null</span> != elevationPara)
+    {
+        elevationPara.Set(<span class="highlight-number">10.0</span>);
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' Build a profile for the beam system creation</span>
+<span class="highlight-keyword">Dim</span> first <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>)
+<span class="highlight-keyword">Dim</span> second <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">40</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>)
+<span class="highlight-keyword">Dim</span> third <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">40</span>, <span class="highlight-number">25</span>, <span class="highlight-number">0</span>)
+<span class="highlight-keyword">Dim</span> fourth <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">25</span>, <span class="highlight-number">0</span>)
+<span class="highlight-keyword">Dim</span> profile <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> List(<span class="highlight-keyword">Of</span> Curve)()
+profile.Add(Line.CreateBound(first, second))
+profile.Add(Line.CreateBound(second, third))
+profile.Add(Line.CreateBound(third, fourth))
+profile.Add(Line.CreateBound(fourth, first))
+
+<span class="highlight-comment">' Create a beam system</span>
+<span class="highlight-keyword">Dim</span> beamSystem__1 <span class="highlight-keyword">As</span> BeamSystem = BeamSystem.Create(document, profile, level, <span class="highlight-number">0</span>, <span class="highlight-keyword">False</span>)
+<span class="highlight-keyword">If</span> beamSystem__1 <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+    <span class="highlight-comment">' Change some properties, such as elevation</span>
+    <span class="highlight-keyword">Dim</span> elevationPara <span class="highlight-keyword">As</span> Parameter = beamSystem__1.Parameter(BuiltInParameter.INSTANCE_ELEVATION_PARAM)
+    <span class="highlight-keyword">If</span> elevationPara <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        elevationPara.[<span class="highlight-keyword">Set</span>](<span class="highlight-number">10.0</span>)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The input profile contains at least one helical curve and is not supported for this operation.
+   -or-
+   The curve index must be valid and the curve to be used as direction must be a Line.
+   -or-
+   The input level does not have associated plan view.
+   -or-
+   The plan view associated with the input level is not valid.
+   -or-
+   Can not get valid sketch plane from the input level.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="53205486-5917-7c33-8e67-e362106ddc97.htm">
+           Autodesk.Revit.Exceptions
+           ModificationForbiddenException
+          </a>
+         </td>
+         <td>
+          The document is in failure mode: an operation has failed,
+   and Revit requires the user to either cancel the operation
+   or fix the problem (usually by deleting certain elements).
+   -or-
+   The document is being loaded, or is in the midst of another
+   sensitive process.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="8f025460-c283-ea99-aa8a-5a36e11528f4.htm">
+           Autodesk.Revit.Exceptions
+           ModificationOutsideTransactionException
+          </a>
+         </td>
+         <td>
+          The document has no open transaction.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="6c5c1bd2-8456-5ec9-c53e-0bd3f604ad06.htm">
+       BeamSystem Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="38e7211c-d61b-01fb-7c66-0fca146684a2.htm">
+       Create Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

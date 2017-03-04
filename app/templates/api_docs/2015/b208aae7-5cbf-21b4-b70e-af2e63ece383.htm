@@ -1,0 +1,180 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="51ca80e2-3e5f-7dd2-9d95-f210950c72ae.htm">
+       UIApplication Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Subscribe to the ViewActivated event to be notified immediately after Revit has finished activating a view of a document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2010
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> event <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="3c54cedc-bdbd-fb2c-2250-cb7387a5c3d4.htm">ViewActivatedEventArgs</a>&gt; <span class="identifier">ViewActivated</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> Event <span class="identifier">ViewActivated</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>(<span class="keyword">Of</span> <a href="3c54cedc-bdbd-fb2c-2250-cb7387a5c3d4.htm">ViewActivatedEventArgs</a>)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+ <span class="keyword">event</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="3c54cedc-bdbd-fb2c-2250-cb7387a5c3d4.htm">ViewActivatedEventArgs</a>^&gt;^ <span class="identifier">ViewActivated</span> {
+	<span class="keyword">void</span> <span class="keyword">add</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="3c54cedc-bdbd-fb2c-2250-cb7387a5c3d4.htm">ViewActivatedEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+	<span class="keyword">void</span> <span class="keyword">remove</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="3c54cedc-bdbd-fb2c-2250-cb7387a5c3d4.htm">ViewActivatedEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This event is raised immediately after Revit has finished activating a view of the document.
+   It is raised even when view activating failed or was cancelled (during ViewActivating event).
+     </p>
+     <p>
+      Check the 'Status' field in event's argument to see whether the action itself was successful or not.
+     </p>
+     <p>
+      This event is not cancellable, for the process of view activating has already been finished.
+     </p>
+     <p>
+      The document may be modified during this event.
+     </p>
+     <p>
+      The following API functions are not available for the current document during this event:
+     </p>
+     <ul>
+      <li>
+       <a href="da2f27b9-7255-4950-82a2-86e1432ff9f0.htm">
+        Close
+       </a>
+       and similar overloads.
+      </li>
+      <li>
+       <a href="8dec13b6-71f4-45d2-74e3-b109153721b5.htm">
+        Save
+       </a>
+       and similar overloads.
+      </li>
+      <li>
+       <a href="25c44d4a-b220-5898-b28c-a2cf6a8a8673.htm">
+        SaveAs(String)
+       </a>
+       and similar overloads.
+      </li>
+     </ul>
+     <p>
+     </p>
+     <p>
+      Exception
+      <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+       InvalidOperationException
+      </a>
+      will be thrown if any of the above methods is called during this event.
+     </p>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="51ca80e2-3e5f-7dd2-9d95-f210950c72ae.htm">
+       UIApplication Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

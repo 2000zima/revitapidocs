@@ -8,8 +8,7 @@ from flask_s3 import FlaskS3
 from flask_debugtoolbar import DebugToolbarExtension
 
 from app.assets import css_assets, js_assets
-from app.assets import css_chm, js_chm
-from app.logger import logger
+from app.utils.logger import logger
 
 # Config
 app = Flask(__name__)
@@ -33,11 +32,8 @@ if bool(int(os.getenv('CACHE_CLEAR', 0))):
 
 # ASSETS
 assets = Environment(app)
-assets.debug = bool(int(os.getenv('ASSETS_DEBUG', False)))
 assets.register('css_assets', css_assets)
 assets.register('js_assets', js_assets)
-assets.register('css_chm', css_chm)
-assets.register('js_chm', js_chm)
 logger.debug('ASSETS DEBUG: {}'.format(assets.debug))
 
 logger.debug('FLASK S3 ACTIVE: {}'.format(app.config['FLASKS3_ACTIVE']))

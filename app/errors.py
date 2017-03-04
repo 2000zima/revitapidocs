@@ -1,6 +1,6 @@
 from flask import render_template, request
 from app import app
-from app.logger import logger
+from app.utils.logger import logger
 
 
 @app.errorhandler(503)

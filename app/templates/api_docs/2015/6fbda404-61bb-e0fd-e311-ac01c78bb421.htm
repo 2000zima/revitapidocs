@@ -1,0 +1,228 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="13cd8e7c-acc8-af6e-0ae6-a9b77fcd913c.htm">
+       FieldBuilder Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Sets the type of units for the field.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="79486a74-376c-9555-c873-45d5a750f051.htm">
+      Autodesk.Revit.DB.ExtensibleStorage
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2012
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="13cd8e7c-acc8-af6e-0ae6-a9b77fcd913c.htm">FieldBuilder</a> <span class="identifier">SetUnitType</span>(
+	<a href="4155880c-f243-3456-fbb8-542c8f8ad692.htm">UnitType</a> <span class="parameter">units</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">SetUnitType</span> ( _
+	<span class="parameter">units</span> <span class="keyword">As</span> <a href="4155880c-f243-3456-fbb8-542c8f8ad692.htm">UnitType</a> _
+) <span class="keyword">As</span> <a href="13cd8e7c-acc8-af6e-0ae6-a9b77fcd913c.htm">FieldBuilder</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="13cd8e7c-acc8-af6e-0ae6-a9b77fcd913c.htm">FieldBuilder</a>^ <span class="identifier">SetUnitType</span>(
+	<a href="4155880c-f243-3456-fbb8-542c8f8ad692.htm">UnitType</a> <span class="parameter">units</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="units">
+       <dt>
+        <span class="parameter">
+         units
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="4155880c-f243-3456-fbb8-542c8f8ad692.htm">
+         Autodesk.Revit.DB
+         UnitType
+        </a>
+        <br/>
+        Units type value to be set
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The FieldBuilder object may be used to add more details to the field.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      All floating-point fields (float, double, XYZ, UV and containers of these values)
+   will be internally stored in the metric system. You must specify the unit type (length,
+   temperature, etc.) via this method for such fields. Conversely, all other field types may not have
+   units.  Do not call this method on those fields.
+     </p>
+     <p>
+      The dimension of the field (3 for XYZ, 2 for UV, arbitrary for array) extends the power
+   of the unit type by allowing you to represent vectors of values of specific units. Each
+   component will be converted independently. Using vectors to represent multiple
+   independent values will work efficiently, but make sure the documentation is adequate.
+     </p>
+     <p>
+      The Get and Set methods will need you to specify the units in which your program works,
+   as a DisplayUnitType. These units must be compatible with the UnitType. Revit will
+   convert the stored values from/to the units you specify.
+     </p>
+     <p>
+      Use UT_Custom and DUT_CUSTOM to explicitly disable conversions for a field.
+     </p>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          The SchemaBuilder has already finished building the Schema.
+   -or-
+   The field type does not utilize unit conversions.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="13cd8e7c-acc8-af6e-0ae6-a9b77fcd913c.htm">
+       FieldBuilder Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="79486a74-376c-9555-c873-45d5a750f051.htm">
+       Autodesk.Revit.DB.ExtensibleStorage Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

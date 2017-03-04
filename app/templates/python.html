@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "_base.html" %}
 
 {% block header %}
     <title>Revit API Docs - Python</title>
@@ -12,13 +12,13 @@
 <p class="small">The code below should work with <a href="https://github.com/architecture-building-systems/revitpythonshell">RevitPythonShell</a>
 and <a href="https://github.com/eirannejad/pyRevit">pyRevit</a>, but can be also be used within Dynamo with minor tweaks.</p>
 <p class="small">For a more comprehensive set of examples of Python interacting with the Revit API, check out the <a href="https://github.com/eirannejad/pyRevit">pyRevit Repository</a>,
+<a href="http://revitpythonwrapper.readthedocs.io">RevitPythonWrapper</a>,
 <a href="https://daren-thomas.gitbooks.io/scripting-autodesk-revit-with-revitpythonshell/content/deploying_rpsaddins/what_is_a_rpsaddin.html">Revit Python Shell Git Book</a>,
 or some of the links in the <a href="/">main page.</a></p>
 <p class="small">Code is hosted on <a href="https://gist.github.com/gtalarico/">gist.github.com</a>.</p>
 
 <br />
-<!-- <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Share</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
-<!-- <a href="http://twitter.com/intent/tweet?text=Check out &url=http://www.RevitAPIdocs.com/python/&hashtags=revitapi"><img src="{{ url_for('static', filename="img/tweet-bw.png") }}" alt="Tweet" /></a> -->
+
     {% if 'error' in gists_categories.keys() %}
     <div class="panel panel-danger margin-top ">
       <div class="panel-heading">Damn</div>
@@ -38,21 +38,21 @@ or some of the links in the <a href="/">main page.</a></p>
             <h4>{{ category }}</h4>
             <hr />
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-                    {% set cat_loop = loop.index %}
-                    {% for gist in gists|sort(attribute='name') %}
-                      <div class="panel panel-default" id="{{ gist.id }}">
-                        <div class="panel-heading" role="button" id="heading{{cat_loop}}-{{loop.index}}"  data-toggle="collapse" data-parent="#accordion" href="#collapse{{cat_loop}}-{{loop.index}}" aria-expanded="true" aria-controls="collapse{{cat_loop}}-{{loop.index}}">
-                          <h5 class="panel-title">
-                              {{ gist.name }}
-                          </h5>
-                        </div>
-                        <div id="collapse{{cat_loop}}-{{loop.index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{cat_loop}}-{{loop.index}}">
-                          <div class="panel-body gist-panel">
-                            <script src="{{gist.url}}"></script>
-                          </div>
-                        </div>
+            {% set cat_loop = loop.index %}
+                {% for gist in gists|sort(attribute='name') %}
+                  <div class="panel panel-default" id="{{ gist.id }}">
+                    <div class="panel-heading" role="button" id="heading{{cat_loop}}-{{loop.index}}"  data-toggle="collapse" data-parent="#accordion" href="#collapse{{cat_loop}}-{{loop.index}}" aria-expanded="true" aria-controls="collapse{{cat_loop}}-{{loop.index}}">
+                      <h5 class="panel-title">
+                          {{ gist.name }}
+                      </h5>
+                    </div>
+                    <div id="collapse{{cat_loop}}-{{loop.index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{cat_loop}}-{{loop.index}}">
+                      <div class="panel-body gist-panel">
+                        <script src="{{gist.url}}"></script>
                       </div>
-                {% endfor %}
+                    </div>
+                  </div>
+            {% endfor %}
             </div>
         </div>
         {% endfor %}
@@ -63,26 +63,14 @@ or some of the links in the <a href="/">main page.</a></p>
     {#
     <div class="row"> <!--  ROW -->
         <div class="col-sm-12 col-md-6 col-lg-6">
-            <!-- START API-PYTHON ADSENSE -->
-            <div id="adsense-responsive">
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- RevitAPIDocs-API-Responsive -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-2370986191740757"
-                     data-ad-slot="6712583026"
-                     data-ad-format="auto"></ins>
-                <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-                </script>
-            </div>
+        {% include 'components/__adsense.hmlt' %}
         </div>
     </div>
     #}
     <!-- END ADSENSE -->
 
     <!-- DISQUS -->
-    {% include 'disqus.html' %}
+    {% include 'components/__disqus.html' %}
     <!-- DISQUS -->
 </div>
 
@@ -91,12 +79,18 @@ or some of the links in the <a href="/">main page.</a></p>
 {% block script %}
 <script>
 
+//////////////////////////////////////////////////////////////
+// Send Panel Click to Google Analytics, and create URL state
+//////////////////////////////////////////////////////////////
 $('.panel-heading').on('click', function(event){
     var gist_id = $(this).parent().attr('id')
     ga('send', 'pageview', '/python/#' + gist_id);
     history.pushState(null, null, '#' + gist_id);
 })
 
+//////////////////////////////////////////////////////////////
+// Restore Panel from URL State
+//////////////////////////////////////////////////////////////
 function check_panel_url(){
   var panelId = getUrlState() // Returns anything after a # sign
   if(panelId) {

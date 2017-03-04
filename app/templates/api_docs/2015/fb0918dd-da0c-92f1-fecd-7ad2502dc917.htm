@@ -1,0 +1,251 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="8c656a67-d41d-c5e5-f75a-554173dfcdd9.htm">
+       AnalyticalModelSurface Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Set new analytical model geometry (newLoops) for analytical surface elements such as floors and slabs.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">SetLoops</span>(
+	<a href="e19a91b9-b428-11a1-61a7-55296df56c2e.htm">AnalyticalLoopType</a> <span class="parameter">loopType</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a>&gt; <span class="parameter">newLoops</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">SetLoops</span> ( _
+	<span class="parameter">loopType</span> <span class="keyword">As</span> <a href="e19a91b9-b428-11a1-61a7-55296df56c2e.htm">AnalyticalLoopType</a>, _
+	<span class="parameter">newLoops</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a>) _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">SetLoops</span>(
+	<a href="e19a91b9-b428-11a1-61a7-55296df56c2e.htm">AnalyticalLoopType</a> <span class="parameter">loopType</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a>^&gt;^ <span class="parameter">newLoops</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="loopType">
+       <dt>
+        <span class="parameter">
+         loopType
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="e19a91b9-b428-11a1-61a7-55296df56c2e.htm">
+         Autodesk.Revit.DB.Structure
+         AnalyticalLoopType
+        </a>
+        <br/>
+        Determine what kind of loops will be set. Rest of loops remain unchanged.
+       </dd>
+      </dl>
+      <dl paramname="newLoops">
+       <dt>
+        <span class="parameter">
+         newLoops
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">
+         CurveLoop
+        </a>
+        <br/>
+        New analytical geometry for analytical surface elements.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     False if setting the new location failed for one or more curves. True if setting new location succeeded for all curves.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Analytical surface will be automatically generated from provided newLoops.
+   Number of newLoops and number of curves in each newloop have to correspond to loops number with the same loopType in element.
+   To verify number of loops and their type use getLoops method.
+   Currently you can not set arbitrary shape for analytical walls. For walls false will be returned.
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown when number of newLoops is different from number of current loops considering loopType.
+   -or-
+   Thrown when number of curves in each loop in newLoop don't correspond to number of curves in current loop.
+   -or-
+   Thrown when type of curves in newLoop differ from number of curves in current loop (eg. line changed to arc).
+   -or-
+   Thrown when length of any curve in newLoops is invalid.
+   -or-
+   Thrown when new loops intersect themselves or intersect with loops already set in analytical model.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="8c656a67-d41d-c5e5-f75a-554173dfcdd9.htm">
+       AnalyticalModelSurface Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

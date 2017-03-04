@@ -1,0 +1,182 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="75b9525d-3b8d-70d8-55de-a193b9eb5e76.htm">
+       IFCTransformSetter Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="b823fafb-1ba1-896b-4097-142c2817ce74.htm">
+      Autodesk.Revit.DB.IFC
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIIFC
+     </span>
+     (in RevitAPIIFC.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="58dd01c8-b3fc-7142-e4f3-c524079a282d.htm">Transform</a> <span class="identifier">InitializeFromBoundingBox</span>(
+	<a href="c8697b81-e080-9202-14d3-ec883f951521.htm">ExporterIFC</a> <span class="parameter">exporterIFC</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="e0f15010-0e19-6216-e2f0-ab7978145daa.htm">GeometryObject</a>&gt; <span class="parameter">geometryList</span>,
+	<a href="9447a335-6861-0533-6896-e6ff1fd41761.htm">IFCExtrusionCreationData</a> <span class="parameter">exportBodyParams</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">InitializeFromBoundingBox</span> ( _
+	<span class="parameter">exporterIFC</span> <span class="keyword">As</span> <a href="c8697b81-e080-9202-14d3-ec883f951521.htm">ExporterIFC</a>, _
+	<span class="parameter">geometryList</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>(<span class="keyword">Of</span> <a href="e0f15010-0e19-6216-e2f0-ab7978145daa.htm">GeometryObject</a>), _
+	<span class="parameter">exportBodyParams</span> <span class="keyword">As</span> <a href="9447a335-6861-0533-6896-e6ff1fd41761.htm">IFCExtrusionCreationData</a> _
+) <span class="keyword">As</span> <a href="58dd01c8-b3fc-7142-e4f3-c524079a282d.htm">Transform</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="58dd01c8-b3fc-7142-e4f3-c524079a282d.htm">Transform</a>^ <span class="identifier">InitializeFromBoundingBox</span>(
+	<a href="c8697b81-e080-9202-14d3-ec883f951521.htm">ExporterIFC</a>^ <span class="parameter">exporterIFC</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">IList</a>&lt;<a href="e0f15010-0e19-6216-e2f0-ab7978145daa.htm">GeometryObject</a>^&gt;^ <span class="parameter">geometryList</span>, 
+	<a href="9447a335-6861-0533-6896-e6ff1fd41761.htm">IFCExtrusionCreationData</a>^ <span class="parameter">exportBodyParams</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="exporterIFC">
+       <dt>
+        <span class="parameter">
+         exporterIFC
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c8697b81-e080-9202-14d3-ec883f951521.htm">
+         Autodesk.Revit.DB.IFC
+         ExporterIFC
+        </a>
+        <br/>
+       </dd>
+      </dl>
+      <dl paramname="geometryList">
+       <dt>
+        <span class="parameter">
+         geometryList
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/5y536ey6" target="_blank">
+         System.Collections.Generic
+         IList
+        </a>
+        <a href="e0f15010-0e19-6216-e2f0-ab7978145daa.htm">
+         GeometryObject
+        </a>
+        <br/>
+       </dd>
+      </dl>
+      <dl paramname="exportBodyParams">
+       <dt>
+        <span class="parameter">
+         exportBodyParams
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="9447a335-6861-0533-6896-e6ff1fd41761.htm">
+         Autodesk.Revit.DB.IFC
+         IFCExtrusionCreationData
+        </a>
+        <br/>
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="75b9525d-3b8d-70d8-55de-a193b9eb5e76.htm">
+       IFCTransformSetter Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="b823fafb-1ba1-896b-4097-142c2817ce74.htm">
+       Autodesk.Revit.DB.IFC Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

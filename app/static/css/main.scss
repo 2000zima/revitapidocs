@@ -27,31 +27,40 @@ hr {
   // padding-right: 60px;
 }
 
+ul.breadcrumb {
+  text-transform: none;
+  font-size: 11px;
+}
+
+.tooltip {
+  text-transform: capitalize;
+}
 
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   width: 75%;
+  }
 
-  h4 {
-    line-height: 21px;
-    margin-bottom: 0;
-    }
-
-  h5 {
-    line-height: 18px;
-    margin-bottom: 0;
-    }
+.strong {
+  font-weight: 600
 }
 
 .alert {
   z-index: 1200;
   position: absolute;
-  top: 70px;
+  top: 65px;
   right: 40px;
   width: 200px;
   border: 0;
+  line-height: 22px;
+  cursor: default;
+
+  &.alert-info {
+    background-color: $brand-primary;
+  }
+
 
   @include mobile {
     left: 10%;
@@ -99,7 +108,8 @@ hr {
 
 .navbar-default .navbar-nav > {
 
-  li>a {
+  li > a {
+
     @include transition(all .20s ease-in-out);
     padding-top: 13px;
     padding-bottom: 11px;
@@ -107,32 +117,55 @@ hr {
     text-align: center;
     color: $gray-light-lighter;
     border-bottom: $nav-bar-border-width solid $brand-nav-gray;
-  }
 
-  li > a:hover,
-  li.active > a,
-  li.missing > a:hover {
-    color: #fff;
-    border-bottom: $nav-bar-border-width solid $brand-primary;
-    background-color: #222;
-  }
-
-  li.missing > a {
-    border-bottom: $nav-bar-border-width solid darken($brand-danger,25%);
-  }
-
-  li.active.missing > a {
-    border-bottom: $nav-bar-border-width solid $brand-danger;
-    background-color: #222;
-  }
-
-  // Border Removed on Mobile Menu
-  @include mobile {
-    li > a {
-      border-bottom: $nav-bar-border-width solid $brand-nav-gray !important;
+    &.active {
+      background-color: #1c1c1c;
+      border-bottom-color: $brand-primary;
     }
+
+    &.active:hover{
+      border-bottom-color: $brand-primary;
+    }
+
+    &:hover,
+    &.missing:hover,
+    &.updated:hover, {
+      background-color: #202020;
+      color: #fff;
+    }
+
+    &.unchanged:not(.active) {
+      border-bottom-color: lighten(#222, 15%);
+    }
+
+    &.missing {
+      border-bottom-color: darken($brand-danger,20%);
+    }
+    &.active.missing, &.missing:hover {
+      border-bottom-color: $brand-danger !important;
+    }
+    &.updated {
+      border-bottom-color: darken($brand-warning,15%);
+    }
+    &.active.updated, &.updated:hover {
+      border-bottom-color: $brand-warning;
+    }
+
+    &.exists {
+      border-bottom-color: darken($brand-primary,20%);
+    }
+    &.active.exists, &.exists:hover {
+      border-bottom-color: $brand-primary;
+    }
+
+    // Border Removed on Mobile Menu
+    @include mobile {
+      a {
+        border-bottom-color: $brand-nav-gray !important;
+        }
+      }
   }
-}
+ }
 
 
 ////////////////////////////////////////
@@ -164,13 +197,47 @@ hr {
   }
 }
 
+
+#content-with-sidebar {
+  padding: $padding-large-vertical $padding-large-horizontal;
+
+  h4 {
+    @extend .truncate;
+    line-height: 22px;
+    margin-bottom: 0;
+    }
+
+  h5 {
+    @extend .truncate;
+    line-height: 18px;
+    margin-bottom: 0;
+    }
+
+  @include desktop {
+    position: absolute;
+    width: 70%;
+    top: $nav-bar-height;
+    bottom: $footer-height;
+    right: 0;
+    // overflow-y: auto;
+    overflow-y: scroll; // Mod for Adsense width fix
+    }
+
+  @include mobile {
+    position: relative;
+    overflow-x: auto;
+    margin-bottom: 20px;
+
+  }
+}
+
 #sidebar {
   background-color: $gray-lighter;
 
 
   @include desktop {
     position: absolute;
-    width: 35%;
+    width: 30%;
     top: $nav-bar-height;
     bottom: $footer-height;
     left: 0;
@@ -187,24 +254,9 @@ hr {
     position: relative;
     padding: 12px;
     border-bottom: 1px solid #ddd;
-  }
 
-
-  @include desktop {
-    .bottom-shadow {
-      @include box-shadow(0 3px 35px 0 rgba(0,0,0,0.25));
-      @include transition(box-shadow 150ms ease-in-out, padding-bottom 150ms ease-in-out);
-      border-bottom: 1px solid #ccc;
-      padding-bottom: 10px;
-    }
-
-
-    .no-bottom-shadow {
-      @include box-shadow(0 0 0 0 rgba(0,0,0,0.0));
-      @include transition(box-shadow 150ms ease-in-out, padding-bottom 150ms ease-in-out);
-      background-color: $gray-lighter !important;
-      border-bottom: 0 solid $gray-lighter;
-      padding-bottom: 8px;
+    #menu-loading {
+      display: none;
     }
   }
 
@@ -217,6 +269,20 @@ hr {
     position: relative;
     margin:0px;
     background-color: $gray-lighter;
+    border-bottom: 0 solid $gray-lighter;
+
+    @include box-shadow(0 0 0 0 rgba(0,0,0,0.0));
+    @include transition(box-shadow 200ms ease-in-out, padding-bottom 200ms ease-out);
+
+    @include desktop {
+      &.bottom-shadow {
+        @include transition(box-shadow 200ms ease-in-out, padding-bottom 200ms ease-out);
+        @include box-shadow(0 3px 35px 0 rgba(0,0,0,0.25));
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 2-px;
+        background-color: lighten($gray-lighter, 1%);
+      }
+    }
 
     @include desktop {
       padding: $padding-large-horizontal;
@@ -227,30 +293,6 @@ hr {
   }
 
 
-}
-
-
-#main-sidebar {
-  // Hides Sidebar while loading
-  opacity: 0;
-  padding: $padding-large-vertical $padding-large-horizontal;
-
-  @include desktop {
-    position: absolute;
-    width: 65%;
-    top: $nav-bar-height;
-    bottom: $footer-height;
-    right: 0;
-    // overflow-y: auto;
-    overflow-y: scroll; // Mod for Adsense width fix
-    }
-
-  @include mobile {
-    position: relative;
-    overflow-x: auto;
-    margin-bottom: 20px;
-
-  }
 }
 
 #disqus {
@@ -292,7 +334,7 @@ hr {
 ////////////////////////////////////////
 // my footer is used because footer is used by chm css style
 
-#myfooter {
+footer {
   position: fixed;
   width: 100%;
   bottom: 0;
@@ -335,22 +377,22 @@ hr {
      }
 
     .modal-dialog{
-    @include transition(all 0.2s ease-in-out);
+      @include transition(all 0.2s ease-in-out);
 
-    // Slide dialog down
-    margin-top: 60px;
-    overflow-y: initial !important;
+      // Slide dialog down
+      margin-top: 60px;
+      overflow-y: initial !important;
 
-    @include desktop{
-      width: 700px;
-    }
-    @include large-desktop{
-      width: 900px;
-    }
+      @include desktop{
+        width: 700px;
+      }
+      @include large-desktop{
+        width: 900px;
+      }
 
-    @include mobile {
-      margin: 25px;
-    }
+      @include mobile {
+        margin: 25px;
+      }
     }
 
     .modal-header{
@@ -361,20 +403,15 @@ hr {
     line-height: $font-size-small;
     font-size: $font-size-small;
     padding: $padding-large-vertical $padding-large-horizontal;
-    text-align: center;
-    }
+    text-align: center;    }
 
    .result-entry:not(:last-child){
     border-bottom: 1px solid #ddd;
     margin-bottom: 18px;
     }
 
-    .result-exact-match > h5{
+    h5.result-exact-match{
     font-weight: 600;
-    }
-    .result-exact-match{
-    // border-bottom-width: 1px !important;
-    // border-color: $brand-primary !important;
     }
 
     h5 {
@@ -405,11 +442,32 @@ hr {
     }
 
     #result-filter-list {
-    min-height: 25px;
-    padding-left: 5px;
-    padding-top: 8px;
-    line-height: 20px;
-    vertical-align: middle;
+      margin-top: 16px;
+      margin-bottom: 12px;
+      padding-left: 1px;
+      // vertical-align: middle;
+      // line-height: 20px;
+      // min-height: 25px;
+    }
+
+    #result-filter-list>input {
+      float: right;
+      text-align: right;
+      display: inline;
+      // margin-right: 15px;
+      width: 25%;
+      min-width: 125px;
+      height: 35px;
+      font-size: $font-size-small;
+      @include mobile {
+      width: 100%;
+      }
+
+    }
+
+    #result-info {
+      float: left;
+      text-align: left;
     }
 
     .member-of {
@@ -419,6 +477,10 @@ hr {
     .year {
       line-height: 18px;
       float: right;
+
+      .missing{
+        color: $brand-danger
+      }
 
       @include mobile {
       display:none;
@@ -535,7 +597,7 @@ border:0px !important;
 ////////////////////////////////////////
 
 
-#direct-search {
+div#direct-search {
 
   @extend .col-centered;
   @include transition(all 0.75s ease-in-out);
@@ -562,9 +624,13 @@ border:0px !important;
   img {
     @include transition(all 0.75s ease-in-out);
 
+    #index-logo {
+
+    }
+
     @include desktop{
       margin-bottom: 65px;
-      max-height: 70px;
+      height: 80px;
     }
     @include mobile{
       margin-bottom: 30px;
@@ -577,6 +643,8 @@ border:0px !important;
 }
 
 #contribute {
+  display: none;
+
   img {
   height: 35px;
   opacity: 0.90;

@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "_base.html" %}
 
 {% block header %}
 <title>Revit API Docs</title>
@@ -6,29 +6,29 @@
 
 {% block content %}
 <div id="content-full-width">
-    <h4>{{ year }} | Resource Not Available for the Active API Year</h4>
+    <h4>{{ active_year }} | Resource Not Available for the Active API Year</h4>
     <hr />
     <div class="well">
-      <p><span class="text-muted">Title</span></br>{{ schema.title }}</p>
+      <p><span class="text-muted">Title</span></br>{{ entry.title }}</p>
       <br/>
-      <p><span class="text-muted">Guid</span></br>{{ schema.href }}</p>
+      <p><span class="text-muted">Guid</span></br>{{ entry.href }}</p>
       <br/>
-      {% if schema.description %}
-      <p><span class="text-muted">Description</span></br>{{ schema.description }}</p>
+      {% if entry.description %}
+      <p><span class="text-muted">Description</span></br>{{ entry.description }}</p>
       <br/>
       {% endif %}
       <p><span class="text-muted">Resource Only Available for</span></p>
-      {% for year in available_in %}
+      {% for year in entry['years'].keys()|sort %}
       <a class="btn btn-primary" href="/{{year}}/{{active_href}}">{{year}}</a>
       {% endfor %}
       <br/>
     </div>
 
       <br/>
-      <a class="btn btn-default" href="/{{year}}/">CONTINUE TO {{ year }}</a>
+      <a class="btn btn-default" href="/{{active_year}}/">CONTINUE TO {{ active_year }}</a>
       <!-- <h4><a href="/{{year}}/{{active_href}}">Continue to {{ year }} API</a></h4> -->
 
-    {# include 'disqus.html' #}
+    {# include '__disqus.html' #}
 
 </div>
 

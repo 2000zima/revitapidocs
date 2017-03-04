@@ -1,0 +1,246 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Fabrication part stretch/fill result.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="49e74a25-7ea1-efa6-548a-a3c3d0655e43.htm">
+      Autodesk.Revit.DB.Fabrication
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="identifier">FabricationPartFitResult</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Enumeration</span> <span class="identifier">FabricationPartFitResult</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">enum class</span> <span class="identifier">FabricationPartFitResult</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <div id="enumerationSection">
+     <h1 class="heading">
+      Members
+      <a name="membersToggle">
+      </a>
+     </h1>
+     <div class="section" id="membersSection" name="collapseableSection" style="">
+      <table class="members" frame="lhs" id="memberList">
+       <colgroup>
+        <col width="10%">
+        </col>
+       </colgroup>
+       <tbody>
+        <tr>
+         <th class="nameColumn">
+          Member name
+         </th>
+         <th class="descriptionColumn">
+          Description
+         </th>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Fabrication.FabricationPartFitResult.Success">
+          <span class="selflink">
+           Success
+          </span>
+         </td>
+         <td>
+          Operation was successful.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Fabrication.FabricationPartFitResult.IncompatibleGeometry">
+          <span class="selflink">
+           IncompatibleGeometry
+          </span>
+         </td>
+         <td>
+          Failed because the part didn't have the dimensions required to meet the geometry requirements.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Fabrication.FabricationPartFitResult.MisalignedEnds">
+          <span class="selflink">
+           MisalignedEnds
+          </span>
+         </td>
+         <td>
+          Failed due to misalignment of fitting ends.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Fabrication.FabricationPartFitResult.DimensionLocked">
+          <span class="selflink">
+           DimensionLocked
+          </span>
+         </td>
+         <td>
+          Failed due to not being able to change a locked or product listed dimension.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Fabrication.FabricationPartFitResult.BadDimensions">
+          <span class="selflink">
+           BadDimensions
+          </span>
+         </td>
+         <td>
+          Failed due to the required dimension values not being valid to fabricate.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Fabrication.FabricationPartFitResult.ShapeMismatch">
+          <span class="selflink">
+           ShapeMismatch
+          </span>
+         </td>
+         <td>
+          Failed due to shape mismatch of fitting ends.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Fabrication.FabricationPartFitResult.SizeMismatch">
+          <span class="selflink">
+           SizeMismatch
+          </span>
+         </td>
+         <td>
+          Failed due to size mismatch of fitting ends.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Fabrication.FabricationPartFitResult.IncompatibleConnection">
+          <span class="selflink">
+           IncompatibleConnection
+          </span>
+         </td>
+         <td>
+          Failed due to connectors being incompatible and no couplings found to resolve it.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Fabrication.FabricationPartFitResult.OffsetRequired">
+          <span class="selflink">
+           OffsetRequired
+          </span>
+         </td>
+         <td>
+          Failed due to additional offset dimensions or fittings being required that weren't available.
+         </td>
+        </tr>
+        <tr>
+         <td target="F:Autodesk.Revit.DB.Fabrication.FabricationPartFitResult.Unsupported">
+          <span class="selflink">
+           Unsupported
+          </span>
+         </td>
+         <td>
+          Failed due to unsupported routing path.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="49e74a25-7ea1-efa6-548a-a3c3d0655e43.htm">
+       Autodesk.Revit.DB.Fabrication Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

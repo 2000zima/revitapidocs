@@ -1,0 +1,168 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="56d06b4e-8695-9343-6b74-ae9ff9e27152.htm">
+       Members
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     An instance of another element (symbol), specially positioned by this
+element.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">GeometryInstance</span> : <a href="e0f15010-0e19-6216-e2f0-ab7978145daa.htm">GeometryObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">GeometryInstance</span> _
+	<span class="keyword">Inherits</span> <a href="e0f15010-0e19-6216-e2f0-ab7978145daa.htm">GeometryObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">GeometryInstance</span> : <span class="keyword">public</span> <a href="e0f15010-0e19-6216-e2f0-ab7978145daa.htm">GeometryObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     A GeometryInstance represents a set of geometry stored by Revit in a default configuration, and then transformed 
+into the proper location as a result of the properties of the element.  The most common situation where 
+GeometryInstances are encountered is in Family instances.  Revit uses GeometryInstances to allow it to store a 
+single copy of the geometry for a given family and reuse it in multiple instances.
+
+Note that not all Family instances will include GeometryInstances.  When Revit needs to make a unique copy of the 
+family geometry for a given instance (because of the effect of local joins, intersections, and other factors 
+related to the instance placement) no GeometryInstance will be encountered; instead the Solid geometry will be found
+at the top level of the hierarchy.
+
+A GeometryInstance offers the ability to read its geometry through the GetSymbolGeometry() and 
+GetInstanceGeometry() methods.  These methods return another Autodesk.Revit.DB.GeometryElement 
+which can be parsed just like the first level return.
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">
+      Autodesk.Revit.DB
+      APIObject
+     </a>
+     <br/>
+     <a href="e0f15010-0e19-6216-e2f0-ab7978145daa.htm">
+      Autodesk.Revit.DB
+      GeometryObject
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      GeometryInstance
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="56d06b4e-8695-9343-6b74-ae9ff9e27152.htm">
+       GeometryInstance Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

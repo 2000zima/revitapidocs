@@ -1,0 +1,266 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">
+       Curve Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new curve that is an offset of the existing curve.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2015
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a> <span class="identifier">CreateOffset</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">offsetDist</span>,
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> <span class="parameter">referenceVector</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">CreateOffset</span> ( _
+	<span class="parameter">offsetDist</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">Double</a>, _
+	<span class="parameter">referenceVector</span> <span class="keyword">As</span> <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a> _
+) <span class="keyword">As</span> <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">Curve</a>^ <span class="identifier">CreateOffset</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">double</a> <span class="parameter">offsetDist</span>, 
+	<a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">XYZ</a>^ <span class="parameter">referenceVector</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="offsetDist">
+       <dt>
+        <span class="parameter">
+         offsetDist
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/643eft0t" target="_blank">
+         System
+         Double
+        </a>
+        <br/>
+        The signed distance that controls the offset.
+       </dd>
+      </dl>
+      <dl paramname="referenceVector">
+       <dt>
+        <span class="parameter">
+         referenceVector
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="c2fd995c-95c0-58fb-f5de-f3246cbc5600.htm">
+         Autodesk.Revit.DB
+         XYZ
+        </a>
+        <br/>
+        A reference vector to define the offset direction.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The new curve.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The offset curve is obtained by moving the points of the given curve by a certain distance (not necessarily the input distance)
+to the right relative to the reference vector. If the distance is negative, then the offset will be actually on the left side.
+The precise role played by the reference vector depends on the curve type in an inconsistent way, 
+as specified in detail below. We plan to update this function to have a more consistent and understandable behavior.
+     <p>
+      For Line, HermiteSpline, NurbSpline and Cylindrical Helix, the right direction
+       is along the cross product of the tangent at that point and the reference vector. 
+       In other words, the "right" side of the curve at a given point on the curve is defined with the reference vector
+       being thought of as the upward direction and curve tangent being thought of as the forward direction,
+       as if you are walking along the curve with your body aligned to the reference vector.
+     </p>
+     <p>
+      For Arc and Ellipse, the right direction is defined relative to the axis of the arc or ellipse
+       in conjunction with the reference vector. If the dot product of the reference vector with the axis is positive,
+       then the right direction is along the cross product of the curve tangent the axis. 
+       If the dot product is negetive, then it is in the other way.
+       If the dot product is zero, then it is an input error.
+     </p>
+     More details of the behavior depending on the type of curve:
+   Line:
+   For a Line, a vecPerp is computed as the cross product of the line direction and the reference vector.
+   The offset is obtained by moving the line by the given distance along the direction of the vecPerp.
+   Note:  vecPerp can be zero vector if the reference vector is parallel to the line direction.
+         In that case, the offset is simply a copy of the given line. No error is reported.
+   Arc:
+   For an Arc, the offset is done in the plane of the arc. 
+   The resulting offset is another arc in the same plane as the given arc and with the same center. 
+   The radius is increased or decreased by the offset distance depending on the offset is to the right or left.
+   The reference vector is used to determine if the offset is to be done to the right or left of the arc, 
+   based on the dot product of the reference vector with the axis (normal vector) of the arc.
+   If the dot product is positive then the offset is to the right relative to the axis of the arc; if not, it is to the left. 
+   If the dot product is zero, that is, reference vector is perpendicular to the axis, the function will return NULL and report an error.
+   Ellipse:
+   An Ellipse is also a planar curve like the Arc. The offset is done in the plane of the ellipse. 
+   Note that the offset of an ellipse is not an ellipse in general. It will be approximated by a Hermite spline curve.
+   The offset curve is obtained by offsetting the points of the ellipse, by the given offset distance, to the
+   right or left relative to the axis (normal vector) of the ellipse.
+   The reference vector is used to determine if the offset is to be done to the right or left of the ellipse, 
+   based on the dot product of the reference vector with the axis of the ellipse.
+   If the dot product is positive then the offset is to the right relative to the axis of the ellipse; if not, it is to the left. 
+   If the dot product is zero, that is, reference vector is perpendicular to the axis, the function will return NULL and report an error.
+   HermiteSpline, NurbSpline and Cylindrical Helix:
+   A Hermite or Nurbs spline curve can be planar or non-planar; a cylindrical helix is non-planar. 
+   For these three types of curves, the offset is computed in a general way as follows:
+   Let P be a point on the given curve and let T be the unit tangent vector at P, assuming that the derivative 
+   of the curve at P is not zero. The offset vector at P is the cross product of T and the reference vector.
+   Then the offset point Q corresponding to P is computed as:
+      Q = P + (offset distance) * (offset vector at P).
+   The offset depends on the magnitude as well as the direction of the reference vector.
+   If the magnitude of the reference vector is not one, then the actual distance moved will not be the given offset distance.
+   NOTE: If the curve is a planar Hermite or Nurbs spline curve, the offset curve may not lie on the same plane – 
+   unlike the case of arc and ellipse.
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Cannot create the offset of the curve.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="400cc9b6-9ff7-de85-6fd8-c20002209d25.htm">
+       Curve Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

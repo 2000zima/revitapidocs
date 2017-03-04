@@ -1,0 +1,319 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="4638c568-a118-1d57-ceed-a57595202644.htm">
+       UIControlledApplication Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Subscribe to the DialogBoxShowing event to be notified when Revit is just about to show a dialog box or a message box.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2010
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> event <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="8b6b969f-45d2-5b90-ca6d-593348ddf8d4.htm">DialogBoxShowingEventArgs</a>&gt; <span class="identifier">DialogBoxShowing</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> Event <span class="identifier">DialogBoxShowing</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>(<span class="keyword">Of</span> <a href="8b6b969f-45d2-5b90-ca6d-593348ddf8d4.htm">DialogBoxShowingEventArgs</a>)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+ <span class="keyword">event</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="8b6b969f-45d2-5b90-ca6d-593348ddf8d4.htm">DialogBoxShowingEventArgs</a>^&gt;^ <span class="identifier">DialogBoxShowing</span> {
+	<span class="keyword">void</span> <span class="keyword">add</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="8b6b969f-45d2-5b90-ca6d-593348ddf8d4.htm">DialogBoxShowingEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+	<span class="keyword">void</span> <span class="keyword">remove</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="8b6b969f-45d2-5b90-ca6d-593348ddf8d4.htm">DialogBoxShowingEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This event is raised when Revit is just about to show a dialog box or a message box.
+     </p>
+     <p>
+      Event is not cancellable. The 'Cancellable' property of event's argument is always False.
+     </p>
+     <p>
+      Depending on the type of the dialog that is being shown, the event's argument's type varies as follows:
+   When it is a dialog box, the event's argument is an object of
+      <a href="8b6b969f-45d2-5b90-ca6d-593348ddf8d4.htm">
+       DialogBoxShowingEventArgs
+      </a>
+      .
+   When it is a message box, the event's argument is an object of
+      <a href="aa1b432c-e9b9-b528-aa3b-60514aaea2a3.htm">
+       MessageBoxShowingEventArgs
+      </a>
+      ,which is subclass of DialogBoxShowingEventArgs.
+   When it is a task dialog, the event's argument is an object of
+      <a href="96cc0900-708b-5a2c-8d07-b2596ec20700.htm">
+       TaskDialogShowingEventArgs
+      </a>
+      ,which is subclass of DialogBoxShowingEventArgs.
+     </p>
+     <p>
+      No document may be modified during this event.
+     </p>
+     <p>
+      The following API functions are not available for the current document during this event:
+     </p>
+     <ul>
+      <li>
+       <a href="da2f27b9-7255-4950-82a2-86e1432ff9f0.htm">
+        Close
+       </a>
+       and similar overloads.
+      </li>
+      <li>
+       <a href="8dec13b6-71f4-45d2-74e3-b109153721b5.htm">
+        Save
+       </a>
+       and similar overloads.
+      </li>
+      <li>
+       <a href="25c44d4a-b220-5898-b28c-a2cf6a8a8673.htm">
+        SaveAs(String)
+       </a>
+       and similar overloads.
+      </li>
+     </ul>
+     <p>
+     </p>
+     <p>
+      Exception
+      <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+       InvalidOperationException
+      </a>
+      will be thrown if any of the above methods is called during this event.
+     </p>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">class</span> Application_DialogBoxShowing : IExternalApplication
+{
+    <span class="highlight-comment">// Implement the OnStartup method to register events when Revit starts.</span>
+    <span class="highlight-keyword">public</span> Result OnStartup(UIControlledApplication application)
+    {
+        <span class="highlight-comment">// Register related events</span>
+        application.DialogBoxShowing += 
+            <span class="highlight-keyword">new</span> EventHandler&lt;Autodesk.Revit.UI.Events.DialogBoxShowingEventArgs&gt;(AppDialogShowing);
+        <span class="highlight-keyword">return</span> Result.Succeeded;
+    }
+
+    <span class="highlight-comment">// Implement this method to unregister the subscribed events when Revit exits.</span>
+    <span class="highlight-keyword">public</span> Result OnShutdown(UIControlledApplication application)
+    {
+        <span class="highlight-comment">// unregister events</span>
+        application.DialogBoxShowing -= 
+            <span class="highlight-keyword">new</span> EventHandler&lt;Autodesk.Revit.UI.Events.DialogBoxShowingEventArgs&gt;(AppDialogShowing);
+        <span class="highlight-keyword">return</span> Result.Succeeded;
+    }
+
+    <span class="highlight-comment">// The DialogBoxShowing event handler, which allow you to </span>
+    <span class="highlight-comment">// do some work before the dialog shows</span>
+    <span class="highlight-keyword">void</span> AppDialogShowing(<span class="highlight-keyword">object</span> sender, DialogBoxShowingEventArgs args)
+    {
+        <span class="highlight-comment">// Get the help id of the showing dialog</span>
+        <span class="highlight-keyword">int</span> dialogId = args.HelpId;
+
+        <span class="highlight-comment">// Format the prompt information string</span>
+        String promptInfo = <span class="highlight-literal">"A Revit dialog will be opened.\n"</span>;
+        promptInfo += <span class="highlight-literal">"The help id of this dialog is "</span> + dialogId.ToString() + <span class="highlight-literal">"\n"</span>;
+        promptInfo += <span class="highlight-literal">"If you don't want the dialog to open, please press cancel button"</span>;
+
+        <span class="highlight-comment">// Show the prompt message, and allow the user to close the dialog directly.</span>
+        TaskDialog taskDialog = <span class="highlight-keyword">new</span> TaskDialog(<span class="highlight-literal">"Revit"</span>);
+        taskDialog.MainContent = promptInfo;
+        TaskDialogCommonButtons buttons = TaskDialogCommonButtons.Ok | 
+                                            TaskDialogCommonButtons.Cancel;
+        taskDialog.CommonButtons = buttons;
+        TaskDialogResult result = taskDialog.Show();
+        <span class="highlight-keyword">if</span> (TaskDialogResult.Cancel == result)
+        {
+            <span class="highlight-comment">// Do not show the Revit dialog</span>
+            args.OverrideResult(<span class="highlight-number">1</span>);
+        }
+        <span class="highlight-keyword">else</span>
+        {
+            <span class="highlight-comment">// Continue to show the Revit dialog</span>
+            args.OverrideResult(<span class="highlight-number">0</span>);
+        }
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Class</span> Application_DialogBoxShowing
+    <span class="highlight-keyword">Implements</span> IExternalApplication
+    <span class="highlight-comment">' Implement the OnStartup method to register events when Revit starts.</span>
+    <span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> OnStartup(application <span class="highlight-keyword">As</span> UIControlledApplication) <span class="highlight-keyword">As</span> Autodesk.Revit.UI.Result <span class="highlight-keyword">Implements</span> IExternalApplication.OnStartup
+        <span class="highlight-comment">' Register related events</span>
+        <span class="highlight-keyword">AddHandler</span> application.DialogBoxShowing, <span class="highlight-keyword">AddressOf</span> AppDialogShowing
+        <span class="highlight-keyword">Return</span> Result.Succeeded
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span>
+
+    <span class="highlight-comment">' Implement this method to unregister the subscribed events when Revit exits.</span>
+    <span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> OnShutdown(application <span class="highlight-keyword">As</span> UIControlledApplication) <span class="highlight-keyword">As</span> Autodesk.Revit.UI.Result <span class="highlight-keyword">Implements</span> IExternalApplication.OnShutdown
+        <span class="highlight-comment">' unregister events</span>
+        <span class="highlight-keyword">RemoveHandler</span> application.DialogBoxShowing, <span class="highlight-keyword">AddressOf</span> AppDialogShowing
+        <span class="highlight-keyword">Return</span> Result.Succeeded
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span>
+
+    <span class="highlight-comment">' The DialogBoxShowing event handler, which allow you to </span>
+    <span class="highlight-comment">' do some work before the dialog shows</span>
+    <span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> AppDialogShowing(sender <span class="highlight-keyword">As</span> <span class="highlight-keyword">Object</span>, args <span class="highlight-keyword">As</span> DialogBoxShowingEventArgs)
+        <span class="highlight-comment">' Get the help id of the showing dialog</span>
+        <span class="highlight-keyword">Dim</span> dialogId <span class="highlight-keyword">As</span> <span class="highlight-keyword">Integer</span> = args.HelpId
+
+        <span class="highlight-comment">' Format the prompt information string</span>
+        <span class="highlight-keyword">Dim</span> promptInfo <span class="highlight-keyword">As</span> [<span class="highlight-keyword">String</span>] = <span class="highlight-literal">"A Revit dialog will be opened."</span> &amp; vbLf
+        promptInfo += <span class="highlight-literal">"The help id of this dialog is "</span> &amp; dialogId.ToString() &amp; vbLf
+        promptInfo += <span class="highlight-literal">"If you don't want the dialog to open, please press cancel button"</span>
+
+        <span class="highlight-comment">' Show the prompt message, and allow the user to close the dialog directly.</span>
+        <span class="highlight-keyword">Dim</span> taskDialog <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> TaskDialog(<span class="highlight-literal">"Revit"</span>)
+        taskDialog.MainContent = promptInfo
+        <span class="highlight-keyword">Dim</span> buttons <span class="highlight-keyword">As</span> TaskDialogCommonButtons = TaskDialogCommonButtons.Ok <span class="highlight-keyword">Or</span> TaskDialogCommonButtons.Cancel
+        taskDialog.CommonButtons = buttons
+        <span class="highlight-keyword">Dim</span> result <span class="highlight-keyword">As</span> TaskDialogResult = taskDialog.Show()
+        <span class="highlight-keyword">If</span> TaskDialogResult.Cancel = result <span class="highlight-keyword">Then</span>
+            <span class="highlight-comment">' Do not show the Revit dialog</span>
+            args.OverrideResult(<span class="highlight-number">1</span>)
+        <span class="highlight-keyword">Else</span>
+            <span class="highlight-comment">' Continue to show the Revit dialog</span>
+            args.OverrideResult(<span class="highlight-number">0</span>)
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Class</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="4638c568-a118-1d57-ceed-a57595202644.htm">
+       UIControlledApplication Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

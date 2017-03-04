@@ -1,59 +1,59 @@
-{% extends "base.html" %}
+{% extends "_base.html" %}
 
 {% block header %}
+<!-- START INDEX HEADER BLOCK -->
 <title>Revit API Docs</title>
+<!-- END INDEX HEADER BLOCK -->
 {% endblock %}
 
+
 {% block content %}
+<!-- START INDEX CONTENT BLOCK -->
 <div id="content-full-width">
 
   <div class="row">
-      </br>
-      <div class="col-xs-11 col-sm-7 col-md-6 col-lg-5 col-centered">
+  </br>
+  <div class="col-xs-11 col-sm-7 col-md-6 col-lg-5 col-centered">
 
-        <!-- MARGING ADDED -->
-        <div id="direct-search"  style="margin-bottom:0px">
-            <img class="center-block" id="index-logo" alt="Revit API Docs Logo" height="70px" src="{{ url_for('static', filename="img/logos/logo-title.svg") }}"/>
-            <form>
-              <div class="form-group">
-                <label class="control-label text-danger">&nbsp;</label>
-                <div class="input-group">
-                  <input type="text" class="form-control" id="direct-search-input" placeholder="" aria-label="..." autocomplete="off">
-                  <div class="input-group-btn">
+    <!-- SEARCH DIV -->
+    <div id="direct-search">
+        <img class="center-block" id="index-logo" alt="Revit API Docs Logo" src="{{ url_for('static', filename="img/logos/logo-main.svg") }}"/>
+        <form>
+          <div class="form-group">
+            <label class="control-label text-danger">&nbsp;</label>
+            <div class="input-group">
+              <input type="text" class="form-control" id="search-box" placeholder="" aria-label="..." autocomplete="off">
+              <div class="input-group-btn">
 
-                    <button id="direct-search-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="UNDEFINED" aria-haspopup="true" aria-expanded="false">
-                      <span id="dropdown-label">YEAR</span>&nbsp;<span class="caret"></span>
-                    </button>
-                    <button id="direct-search-go" class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
-                    <ul class="dropdown-menu dropdown-menu-right">
-                      <li class="text-center"><a>2017</a></li>
-                      <li class="text-center"><a>2016</a></li>
-                      <li class="text-center"><a>2015</a></li>
-                    </ul>
-                  </div>
-                </div>
+                <button id="direct-search-year" type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" value="2017.1" aria-haspopup="true" aria-expanded="false">
+                  <span id="dropdown-label">2017.1</span>&nbsp;<span class="caret"></span>
+                </button>
+                <button id="direct-search-go" class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal" data-target="#searchModal"><span class="glyphicon glyphicon-search"></span></button>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="text-center"><a>2017.1</a></li>
+                  <li class="text-center"><a>2017</a></li>
+                  <li class="text-center"><a>2016</a></li>
+                  <li class="text-center"><a>2015</a></li>
+                </ul>
               </div>
-            </form>
-
-            <p class="text-muted text-center small">Web-based, searchbable, and extensible Revit API documentation.<br/>
-                <!-- <p class="text-muted small">This website was created to improve access to the API documentation</br> by providing a web-based, searchable interface.</p> -->
-                For more information about the API visit the<a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
-                Autodesk Developer Network</a>.</p>
-
-            <div class="text-center text-muted well" class="col-centered" style="margin: auto; margin-top: 30px; max-width:500px; margin-bottom:30px">
-            Feeling Frisky? Checkout the upcoming <a href="http://beta.revitapidocs.com/">Beta Version</a>
-            </br>
-            <span style="margin-top:40px;" class="small text-muted">Please help make the website better by reporting bugs on project's
-            <a href="https://github.com/gtalarico/revitapidocs/milestone/7">Github Page</a></span>
             </div>
-        </div>  <!-- SEARCH DIV -->
+          </div>
+        </form>
+
+        <p class="text-muted text-center small">Web-based, searchbable, and extensible Revit API documentation.<br/>
+            For more information about the API visit the<a href="http://usa.autodesk.com/adsk/servlet/index?siteID=123112&id=2484975">
+            Autodesk Developer Network</a>.</p>
+    </div>
+    <!-- SEARCH DIV -->
 
 
-        </div> <!-- COLUMN -->
+    </div> <!-- COLUMN -->
 
   </div>  <!-- ROW -->
   <h4 class="text-center"><a href="#contribute" id="toggle-contribute">Contribute</a></h4>
   <!-- <p class="text-muted small text-center">Help improve Revit API docs</p> -->
+
+  <!-- ROW -->
   <div class="row">
     <div class="col-xs-11 col-sm-11 col-md-9 col-lg-9 col-centered text-center" id="contribute">
       <hr />
@@ -67,17 +67,17 @@
           <p class="small">Help extend documentation<br/>
             with your solutions and relevant links<br/>
             using the built in commenting platform.</p>
-        <!--<p class="small">You can <strike>keep track of the activity</strike> see all the comments I have posted on the <a href="https://disqus.com/home/forums/revit-api-docs/">Disqus community</a></p>-->
       </div>
+
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-        <div class="margin-top visible-xs"></div>
-        <a href="https://github.com/gtalarico/revitapidocs/issues">
-          <img alt="Github Logo" src="{{ url_for('static', filename='img/social/social_github.svg')}}"/>
-        </a>
-        <h5>Github</h5>
-        <p class="small">Suggest ideas and report issues.</p>
-        <!-- <a class="github-button" href="https://github.com/gtalarico/revitapidocs/issues" aria-label="Issue gtalarico/revitapidocs on GitHub">Issues</a> -->
+          <div class="margin-top visible-xs"></div>
+          <a href="https://github.com/gtalarico/revitapidocs/issues">
+            <img alt="Github Logo" src="{{ url_for('static', filename='img/social/social_github.svg')}}"/>
+          </a>
+          <h5>Github</h5>
+          <p class="small">Suggest ideas and report issues.</p>
       </div>
+
       <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
         <div class="margin-top visible-xs"></div>
         <a target="_blank" href="http://twitter.com/intent/tweet?text=Check out&url=http://RevitAPIdocs.com&hashtags=revitapi&">
@@ -85,13 +85,12 @@
         </a>
         <h5>Twitter</h5>
         <p class="small"><a target="_blank" href="http://twitter.com/intent/tweet?text=Check out&url=http://RevitAPIdocs.com&hashtags=revitapi&">Share</a> or <a href="http://twitter.com/intent/tweet?text=%20%40gtalarico"> hello</a>.</p>
-        <!-- <a href="http://twitter.com/intent/tweet?text=Check out &url=http://www.RevitAPIdocs.com&hashtags=revitapi"><img src="{{ url_for('static', filename="img/tweet-bw.png") }}" alt="Tweet" /></a> -->
-        <!-- <a href="http://twitter.com/intent/tweet?text=%20%40gtalarico"><img src="{{ url_for('static', filename="img/tweet_at_gtalarico-bw.png") }}" alt="Tweet" /></a> -->
-        <!-- <a href="https://twitter.com/share" class="twitter-share-button" data-show-count="false">Share</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
-        <!-- <a href="https://twitter.com/intent/tweet?screen_name=gtalarico" class="twitter-mention-button" data-show-count="false">Tweet to @gtalarico</a><script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script> -->
       </div>
+
     </div>
   </div>
+  <!-- ROW -->
+
   <br/>
   <br/>
   <h4 class="margin-top text-center"><a href="#other-resources" id="toggle-other-resources">Other Resources</a></h4>
@@ -156,125 +155,16 @@
   #}
   <!-- ADSENSE CODE -->
 
-</div>  <!-- END CONTENT FULL WIDTH -->
+</div>
+<!-- START INDEX CONTENT BLOCK -->
+{% endblock %}
 
-    {# {% include 'disqus.html' %} #}
+{% block script %}
+<script>
 
+var $searchBoxInput = $('#search-box')
+var CONSTRUCTOR_KEY = '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}'
+ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_KEY, 5)
 
-  <!-- Place this tag in your head or just before your close body tag. -->
-  <script async defer src="https://buttons.github.io/buttons.js"></script>
-
-  {% endblock %}
-
-  {% block script %}
-  <script>
-
-
-
-  $(document).ready(function(e){
-
-    // Set Input
-    $('#direct-search-input').delay(1500).fadeIn(function() {
-      $(this).focus();
-    });
-
-    // Typying Animation
-    // Conditional Statement makes it so animation only runs the first time
-    if (localStorage && !localStorage.getItem('revitapidocs_year')){
-        $(function(){
-          $("#direct-search-input").typed({
-            strings: ["Wall Class", "Pushbutton", "Global Parameter",
-            "Idling Event", "Ribbon Item", "CreateBound", "ViewSchedule",
-            "ViewType", "Revit.UI", "ActiveDocument", "DocumentClass",
-            "BuiltinParameter", "Transaction Mode", "Element",
-            "ElementId"],
-            typeSpeed: 50,
-            startDelay: 2500,
-          });
-        });
-    }
-    else {
-        $('#direct-search-input').attr({'Placeholder':'Search Term'})
-    }
-
-    // Clear Animation
-    $('#direct-search-input').one('click', function(){
-      $('#direct-search-input').typed('stops')
-      $('#direct-search-input').val('')
-      $('#direct-search-input').attr({'Placeholder':'Search Term'})
-    })
-
-    $('#direct-search-input').on('click', function(){
-      $("#direct-search").find('.form-group').removeClass('has-error')
-      $("#direct-search").find('.control-label').html("&nbsp;")
-    })
-
-    // Get Stored year
-    if(localStorage && localStorage.getItem('revitapidocs_year')){
-      var year = localStorage.getItem('revitapidocs_year');
-      $('#direct-search-year').attr('value', year)
-      $('#dropdown-label').text(year)
-    };
-
-    // Click Dropdown
-    $('#direct-search li').on('mousedown', function(){
-      var year = $(this).text()
-      $('#dropdown-label').text(year)
-      $('#direct-search-year').attr('value', year)
-      $("#direct-search-year").removeClass('btn-danger')
-      $("#direct-search").find('.form-group').removeClass('has-error')
-      $("#direct-search").find('.control-label').html("&nbsp;")
-
-      if (localStorage) {
-        localStorage.setItem('revitapidocs_year', year);
-      }
-    })
-
-    // AUTOCOMPLETE
-    $.getScript("//cnstrc.com/js/ac.js", function() {
-      $('#direct-search-input').on('click', function() {
-          $('#direct-search-input').constructorAutocomplete({
-            key: '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}',
-            boostRecentSearches : true,
-            maxResults : 6,
-            triggerSubmitOnSelect: true
-            });
-      });
-    });
-
-    function search(query, year){
-      var searchUrl = '/' + year + '/?query=' + query + '#searchModal'
-      window.location.href = searchUrl;
-    }
-
-    // $('#direct-search-go').on('click', function(){})
-    $("#direct-search").submit(function(e) {
-      e.preventDefault() // Keeps page from submitting and reloading
-      var year = $('#direct-search-year').attr('value')
-      var query = $('#direct-search-input').val()
-      console.log(year)
-      if (year === 'UNDEFINED'){
-        $("#direct-search").find('.form-group').addClass('has-error')
-        $("#direct-search").find('.control-label').text('Select a year')
-        $("#direct-search-year").addClass('btn-danger')
-      }
-      else if (query.length<2) {
-        $("#direct-search").find('.form-group').addClass('has-error')
-        $("#direct-search").find('.control-label').text('Search term is too short')
-      }
-      else {
-        search(query, year)
-      }
-    });
-
-    $('#toggle-contribute').on('click', function(){
-      $('#contribute').slideToggle()
-    })
-    $('#toggle-other-resources').on('click', function(){
-      $('#other-resources').slideToggle()
-    })
-
-  });
-
-  </script>
-  {% endblock %}
+</script>
+{% endblock %}

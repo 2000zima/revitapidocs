@@ -1,0 +1,232 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="cba2c84a-22c0-e6e7-a99c-67656901853a.htm">
+       ItemFactoryBase Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new type of group.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="ca54af3c-52d8-0aed-cd22-440ec2584b89.htm">Group</a> <span class="identifier">NewGroup</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>&gt; <span class="parameter">elementIds</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewGroup</span> ( _
+	<span class="parameter">elementIds</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>(<span class="keyword">Of</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>) _
+) <span class="keyword">As</span> <a href="ca54af3c-52d8-0aed-cd22-440ec2584b89.htm">Group</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="ca54af3c-52d8-0aed-cd22-440ec2584b89.htm">Group</a>^ <span class="identifier">NewGroup</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">ICollection</a>&lt;<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^&gt;^ <span class="parameter">elementIds</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="elementIds">
+       <dt>
+        <span class="parameter">
+         elementIds
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/92t2ye13" target="_blank">
+         System.Collections.Generic
+         ICollection
+        </a>
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         ElementId
+        </a>
+        <br/>
+        A set of elements which will be made into the new group.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     A new instance of a group containing the elements specified.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <ul>
+      <li>
+       The new group may contain more members than just the set input to this method.  Elements
+which are closely connected with the inputs (such as sketch and sketch plane) will also be added to
+the group.
+      </li>
+      <li>
+       Initially the group will have a generic name, such as Group 1. This can be changed by
+changing the name of the group type as follows:
+       <span class="code">
+        newGroup.GroupType.Name = newName
+       </span>
+       .
+      </li>
+      <li>
+       If a newly-created element is being added to a group, calling document.Regenerate() may be needed to avoid
+a warning visible in the UI that the group has changed outside group edit mode.
+      </li>
+     </ul>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code>Group group = <span class="highlight-keyword">null</span>;
+UIDocument uidoc = <span class="highlight-keyword">new</span> UIDocument(document);
+ICollection&lt;ElementId&gt; selectedIds = uidoc.Selection.GetElementIds();
+
+<span class="highlight-keyword">if</span> (selectedIds.Count &gt; <span class="highlight-number">0</span>)
+{
+    <span class="highlight-comment">// Group all selected elements</span>
+    group = document.Create.NewGroup(selectedIds);
+
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Dim</span> group <span class="highlight-keyword">As</span> Group = <span class="highlight-keyword">Nothing</span>
+<span class="highlight-keyword">Dim</span> uidoc <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> UIDocument(document)
+<span class="highlight-keyword">Dim</span> selectedIds <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> ElementId) = uidoc.Selection.GetElementIds()
+
+<span class="highlight-keyword">If</span> selectedIds.Count &gt; <span class="highlight-number">0</span> <span class="highlight-keyword">Then</span>
+    <span class="highlight-comment">' Group all selected elements</span>
+
+
+    group = document.Create.NewGroup(selectedIds)
+<span class="highlight-keyword">Else</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="cba2c84a-22c0-e6e7-a99c-67656901853a.htm">
+       ItemFactoryBase Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

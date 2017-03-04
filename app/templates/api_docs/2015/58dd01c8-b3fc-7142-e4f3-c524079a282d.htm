@@ -1,0 +1,213 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="4b4da773-425c-bfbc-228e-d0a658c68ab2.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A transformation of the affine 3-space.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">Transform</span> : <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">APIObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">Transform</span> _
+	<span class="keyword">Inherits</span> <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">APIObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">Transform</span> : <span class="keyword">public</span> <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">APIObject</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">static</span> XYZ TransformPoint(XYZ point, Transform transform)
+{
+    <span class="highlight-keyword">double</span> x = point.X;
+    <span class="highlight-keyword">double</span> y = point.Y;
+    <span class="highlight-keyword">double</span> z = point.Z;
+
+    <span class="highlight-comment">//transform basis of the old coordinate system in the new coordinate // system</span>
+    XYZ b0 = transform.get_Basis(<span class="highlight-number">0</span>);
+    XYZ b1 = transform.get_Basis(<span class="highlight-number">1</span>);
+    XYZ b2 = transform.get_Basis(<span class="highlight-number">2</span>);
+    XYZ origin = transform.Origin;
+
+    <span class="highlight-comment">//transform the origin of the old coordinate system in the new </span>
+    <span class="highlight-comment">//coordinate system</span>
+    <span class="highlight-keyword">double</span> xTemp = x * b0.X + y * b1.X + z * b2.X + origin.X;
+    <span class="highlight-keyword">double</span> yTemp = x * b0.Y + y * b1.Y + z * b2.Y + origin.Y;
+    <span class="highlight-keyword">double</span> zTemp = x * b0.Z + y * b1.Z + z * b2.Z + origin.Z;
+
+    <span class="highlight-keyword">return</span> <span class="highlight-keyword">new</span> XYZ(xTemp, yTemp, zTemp);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Shared</span> <span class="highlight-keyword">Function</span> TransformPoint(point <span class="highlight-keyword">As</span> XYZ, transform <span class="highlight-keyword">As</span> Transform) <span class="highlight-keyword">As</span> XYZ
+    <span class="highlight-keyword">Dim</span> x <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = point.X
+    <span class="highlight-keyword">Dim</span> y <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = point.Y
+    <span class="highlight-keyword">Dim</span> z <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = point.Z
+
+    <span class="highlight-comment">'transform basis of the old coordinate system in the new coordinate // system</span>
+    <span class="highlight-keyword">Dim</span> b0 <span class="highlight-keyword">As</span> XYZ = transform.Basis(<span class="highlight-number">0</span>)
+    <span class="highlight-keyword">Dim</span> b1 <span class="highlight-keyword">As</span> XYZ = transform.Basis(<span class="highlight-number">1</span>)
+    <span class="highlight-keyword">Dim</span> b2 <span class="highlight-keyword">As</span> XYZ = transform.Basis(<span class="highlight-number">2</span>)
+    <span class="highlight-keyword">Dim</span> origin <span class="highlight-keyword">As</span> XYZ = transform.Origin
+
+    <span class="highlight-comment">'transform the origin of the old coordinate system in the new </span>
+    <span class="highlight-comment">'coordinate system</span>
+    <span class="highlight-keyword">Dim</span> xTemp <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = x * b0.X + y * b1.X + z * b2.X + origin.X
+    <span class="highlight-keyword">Dim</span> yTemp <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = x * b0.Y + y * b1.Y + z * b2.Y + origin.Y
+    <span class="highlight-keyword">Dim</span> zTemp <span class="highlight-keyword">As</span> <span class="highlight-keyword">Double</span> = x * b0.Z + y * b1.Z + z * b2.Z + origin.Z
+
+    <span class="highlight-keyword">Return</span> <span class="highlight-keyword">New</span> XYZ(xTemp, yTemp, zTemp)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="beb86ef5-39ad-3f0d-0cd9-0c929387a2bb.htm">
+      Autodesk.Revit.DB
+      APIObject
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      Transform
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="4b4da773-425c-bfbc-228e-d0a658c68ab2.htm">
+       Transform Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

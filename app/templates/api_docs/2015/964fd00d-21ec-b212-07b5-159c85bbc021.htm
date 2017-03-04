@@ -1,0 +1,218 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="e457fc9b-7de8-ddb3-1550-f94f82cdb807.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A filter used to match families that have the given structural material type.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">FamilyStructuralMaterialTypeFilter</span> : <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">ElementSlowFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">FamilyStructuralMaterialTypeFilter</span> _
+	<span class="keyword">Inherits</span> <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">ElementSlowFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">FamilyStructuralMaterialTypeFilter</span> : <span class="keyword">public</span> <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">ElementSlowFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This filter is a slow filter, but it uses a quick filter to eliminate non-candidate elements
+   before the elements are obtained and expanded. Therefore this filter does not have to be
+   paired with another quick filter to minimize the number of Elements that are expanded.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// Use FamilyStructuralMaterialType filter to find families whose material type is Wood</span>
+FamilyStructuralMaterialTypeFilter filter = <span class="highlight-keyword">new</span> FamilyStructuralMaterialTypeFilter(StructuralMaterialType.Wood);
+
+<span class="highlight-comment">// Apply the filter to the elements in the active document</span>
+FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(document);
+ICollection&lt;Element&gt; woodFamiles = collector.WherePasses(filter).ToElements();
+
+<span class="highlight-comment">// Find families are not Wood: Use inverted filter to match families</span>
+FamilyStructuralMaterialTypeFilter notWoodFilter =
+    <span class="highlight-keyword">new</span> FamilyStructuralMaterialTypeFilter(StructuralMaterialType.Wood, <span class="highlight-keyword">true</span>); <span class="highlight-comment">// inverted filter</span>
+collector = <span class="highlight-keyword">new</span> FilteredElementCollector(document);
+ICollection&lt;Element&gt; notWoodFamilies = collector.WherePasses(notWoodFilter).ToElements();</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' Use FamilyStructuralMaterialType filter to find families whose material type is Wood</span>
+<span class="highlight-keyword">Dim</span> filter <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FamilyStructuralMaterialTypeFilter(StructuralMaterialType.Wood)
+
+<span class="highlight-comment">' Apply the filter to the elements in the active document</span>
+<span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(document)
+<span class="highlight-keyword">Dim</span> woodFamiles <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> Element) = collector.WherePasses(filter).ToElements()
+
+<span class="highlight-comment">' Find families are not Wood: Use inverted filter to match families</span>
+<span class="highlight-keyword">Dim</span> notWoodFilter <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FamilyStructuralMaterialTypeFilter(StructuralMaterialType.Wood, <span class="highlight-keyword">True</span>)
+<span class="highlight-comment">' inverted filter</span>
+collector = <span class="highlight-keyword">New</span> FilteredElementCollector(document)
+<span class="highlight-keyword">Dim</span> notWoodFamilies <span class="highlight-keyword">As</span> ICollection(<span class="highlight-keyword">Of</span> Element) = collector.WherePasses(notWoodFilter).ToElements()</code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="b8b46cbf-9ecc-0745-ec53-c3c3b6510113.htm">
+      Autodesk.Revit.DB
+      ElementFilter
+     </a>
+     <br/>
+     <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">
+      Autodesk.Revit.DB
+      ElementSlowFilter
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.Structure
+      FamilyStructuralMaterialTypeFilter
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="e457fc9b-7de8-ddb3-1550-f94f82cdb807.htm">
+       FamilyStructuralMaterialTypeFilter Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

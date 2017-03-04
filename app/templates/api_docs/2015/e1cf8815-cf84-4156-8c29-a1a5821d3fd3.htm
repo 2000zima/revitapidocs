@@ -1,0 +1,197 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="ac732a43-fd23-0554-7fb8-9a082879b39d.htm">
+       IControllableDropHandler Interface
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Implement this method to inform Revit whether the drop event can be executed onto the given view.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">CanExecute</span>(
+	<a href="295b48c8-0571-ad5c-eead-baea84a6787c.htm">UIDocument</a> <span class="parameter">document</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">Object</a> <span class="parameter">data</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">dropViewId</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Function</span> <span class="identifier">CanExecute</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="295b48c8-0571-ad5c-eead-baea84a6787c.htm">UIDocument</a>, _
+	<span class="parameter">data</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">Object</a>, _
+	<span class="parameter">dropViewId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">CanExecute</span>(
+	<a href="295b48c8-0571-ad5c-eead-baea84a6787c.htm">UIDocument</a>^ <span class="parameter">document</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">Object</a>^ <span class="parameter">data</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">dropViewId</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="295b48c8-0571-ad5c-eead-baea84a6787c.htm">
+         Autodesk.Revit.UI
+         UIDocument
+        </a>
+        <br/>
+        The document on which the data was dropped.
+       </dd>
+      </dl>
+      <dl paramname="data">
+       <dt>
+        <span class="parameter">
+         data
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+         System
+         Object
+        </a>
+        <br/>
+        The data.
+       </dd>
+      </dl>
+      <dl paramname="dropViewId">
+       <dt>
+        <span class="parameter">
+         dropViewId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        The view upon which the user will drop.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     Return true to activate the target view and execute the drop. 
+Return false to cancel the activation and the drop execution.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Document modifications are not permitted from this callback.
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="ac732a43-fd23-0554-7fb8-9a082879b39d.htm">
+       IControllableDropHandler Interface
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

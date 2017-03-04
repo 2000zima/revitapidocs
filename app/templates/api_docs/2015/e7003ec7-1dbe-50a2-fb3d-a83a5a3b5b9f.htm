@@ -1,0 +1,249 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="3d4b050d-6f7a-1d67-c3c5-0fce92d5b25d.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Represents a reference plane of Autodesk Revit.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">ReferencePlane</span> : <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">ReferencePlane</span> _
+	<span class="keyword">Inherits</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">ReferencePlane</span> : <span class="keyword">public</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">private</span> <span class="highlight-keyword">void</span> Getinfo_ReferencePlane(ReferencePlane refPlane)
+{
+    <span class="highlight-keyword">string</span> message = <span class="highlight-literal">"Reference Plane: "</span>;
+    <span class="highlight-comment">//get the bubble end of the reference plane</span>
+    XYZ bubbleEnd = refPlane.BubbleEnd;
+    message += <span class="highlight-literal">"\nBubble end: ("</span> + bubbleEnd.X + <span class="highlight-literal">", "</span>
+                       + bubbleEnd.Y + <span class="highlight-literal">", "</span> + bubbleEnd.Z + <span class="highlight-literal">")"</span>;
+
+    <span class="highlight-comment">//get the direction of the reference plane</span>
+    XYZ direction = refPlane.Direction;
+    message += <span class="highlight-literal">"\nDirection: ("</span> + direction.X + <span class="highlight-literal">", "</span>
+                    + direction.Y + <span class="highlight-literal">", "</span> + direction.Z + <span class="highlight-literal">")"</span>;
+
+    <span class="highlight-comment">//get the freeEnd of the reference plane</span>
+    XYZ freeEnd = refPlane.FreeEnd;
+    message += <span class="highlight-literal">"\nFree End: ("</span> + freeEnd.X + <span class="highlight-literal">", "</span>
+                    + freeEnd.Y + <span class="highlight-literal">", "</span> + freeEnd.Z + <span class="highlight-literal">")"</span>;
+
+    <span class="highlight-comment">//get the name of the reference plane</span>
+    message += <span class="highlight-literal">"\nName: "</span> + refPlane.Name;
+
+    <span class="highlight-comment">//get the normal vector of the reference plane</span>
+    XYZ normal = refPlane.Normal;
+    message += <span class="highlight-literal">"\nNormal vector: ("</span> + normal.X + <span class="highlight-literal">", "</span>
+                    + normal.Y + <span class="highlight-literal">", "</span> + normal.Z + <span class="highlight-literal">")"</span>;
+
+    <span class="highlight-comment">//get the geometry plane to which the reference plane assigned </span>
+    Autodesk.Revit.DB.Plane plane = refPlane.Plane;
+    message += <span class="highlight-literal">"\norigin of the plane: ("</span> + plane.Origin.X + <span class="highlight-literal">", "</span>
+                    + plane.Origin.Y + <span class="highlight-literal">", "</span> + plane.Origin.Z + <span class="highlight-literal">")"</span>;
+
+    message += <span class="highlight-literal">"\nnormal of the plane: ("</span> + plane.Normal.X + <span class="highlight-literal">", "</span>
+                    + plane.Normal.Y + <span class="highlight-literal">", "</span> + plane.Normal.Z + <span class="highlight-literal">")"</span>;
+
+    message += <span class="highlight-literal">"\nXvec of the plane: ("</span> + plane.XVec.X + <span class="highlight-literal">", "</span>
+                    + plane.XVec.Y + <span class="highlight-literal">", "</span> + plane.XVec.Z + <span class="highlight-literal">")"</span>;
+
+    message += <span class="highlight-literal">"\nYvec of the plane: ("</span> + plane.YVec.X + <span class="highlight-literal">", "</span>
+                    + plane.YVec.Y + <span class="highlight-literal">", "</span> + plane.YVec.Z + <span class="highlight-literal">")"</span>;
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,message);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Sub</span> Getinfo_ReferencePlane(refPlane <span class="highlight-keyword">As</span> ReferencePlane)
+    <span class="highlight-keyword">Dim</span> message <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"Reference Plane: "</span>
+    <span class="highlight-comment">'get the bubble end of the reference plane</span>
+    <span class="highlight-keyword">Dim</span> bubbleEnd <span class="highlight-keyword">As</span> XYZ = refPlane.BubbleEnd
+    message += ((vbLf &amp; <span class="highlight-literal">"Bubble end: ("</span> + bubbleEnd.X &amp; <span class="highlight-literal">", "</span>) + bubbleEnd.Y &amp; <span class="highlight-literal">", "</span>) + bubbleEnd.Z &amp; <span class="highlight-literal">")"</span>
+
+    <span class="highlight-comment">'get the direction of the reference plane</span>
+    <span class="highlight-keyword">Dim</span> direction <span class="highlight-keyword">As</span> XYZ = refPlane.Direction
+    message += ((vbLf &amp; <span class="highlight-literal">"Direction: ("</span> + direction.X &amp; <span class="highlight-literal">", "</span>) + direction.Y &amp; <span class="highlight-literal">", "</span>) + direction.Z &amp; <span class="highlight-literal">")"</span>
+
+    <span class="highlight-comment">'get the freeEnd of the reference plane</span>
+    <span class="highlight-keyword">Dim</span> freeEnd <span class="highlight-keyword">As</span> XYZ = refPlane.FreeEnd
+    message += ((vbLf &amp; <span class="highlight-literal">"Free End: ("</span> + freeEnd.X &amp; <span class="highlight-literal">", "</span>) + freeEnd.Y &amp; <span class="highlight-literal">", "</span>) + freeEnd.Z &amp; <span class="highlight-literal">")"</span>
+
+    <span class="highlight-comment">'get the name of the reference plane</span>
+    message += vbLf &amp; <span class="highlight-literal">"Name: "</span> &amp; Convert.ToString(refPlane.Name)
+
+    <span class="highlight-comment">'get the normal vector of the reference plane</span>
+    <span class="highlight-keyword">Dim</span> normal <span class="highlight-keyword">As</span> XYZ = refPlane.Normal
+    message += ((vbLf &amp; <span class="highlight-literal">"Normal vector: ("</span> + normal.X &amp; <span class="highlight-literal">", "</span>) + normal.Y &amp; <span class="highlight-literal">", "</span>) + normal.Z &amp; <span class="highlight-literal">")"</span>
+
+    <span class="highlight-comment">'get the geometry plane to which the reference plane assigned </span>
+    <span class="highlight-keyword">Dim</span> plane <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Plane = refPlane.Plane
+    message += ((vbLf &amp; <span class="highlight-literal">"origin of the plane: ("</span> + plane.Origin.X &amp; <span class="highlight-literal">", "</span>) + plane.Origin.Y &amp; <span class="highlight-literal">", "</span>) + plane.Origin.Z &amp; <span class="highlight-literal">")"</span>
+
+    message += ((vbLf &amp; <span class="highlight-literal">"normal of the plane: ("</span> + plane.Normal.X &amp; <span class="highlight-literal">", "</span>) + plane.Normal.Y &amp; <span class="highlight-literal">", "</span>) + plane.Normal.Z &amp; <span class="highlight-literal">")"</span>
+
+    message += ((vbLf &amp; <span class="highlight-literal">"Xvec of the plane: ("</span> + plane.XVec.X &amp; <span class="highlight-literal">", "</span>) + plane.XVec.Y &amp; <span class="highlight-literal">", "</span>) + plane.XVec.Z &amp; <span class="highlight-literal">")"</span>
+
+    message += ((vbLf &amp; <span class="highlight-literal">"Yvec of the plane: ("</span> + plane.YVec.X &amp; <span class="highlight-literal">", "</span>) + plane.YVec.Y &amp; <span class="highlight-literal">", "</span>) + plane.YVec.Z &amp; <span class="highlight-literal">")"</span>
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, message)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+      Autodesk.Revit.DB
+      Element
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      ReferencePlane
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="3d4b050d-6f7a-1d67-c3c5-0fce92d5b25d.htm">
+       ReferencePlane Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

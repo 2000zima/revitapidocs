@@ -1,0 +1,255 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="8c24b5f4-c86e-9d2f-07bb-fdff4161246c.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     An object that represents a force applied across an area.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 17.0.0.0 (17.0.484.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">BoundaryConditions</span> : <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">BoundaryConditions</span> _
+	<span class="keyword">Inherits</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">BoundaryConditions</span> : <span class="keyword">public</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> GetInfo_BoundaryConditions(BoundaryConditions boundaryConditions)
+{
+    <span class="highlight-keyword">string</span> message = <span class="highlight-literal">"BoundaryConditions : "</span>;
+
+    boundaryConditions.GetBoundaryConditionsType();
+    <span class="highlight-keyword">switch</span> (boundaryConditions.GetBoundaryConditionsType())
+    {
+        <span class="highlight-keyword">case</span> BoundaryConditionsType.Point:
+            XYZ point = boundaryConditions.Point;
+            message += <span class="highlight-literal">"\nThis BoundaryConditions is a Point Boundary Conditions."</span>;
+            message += <span class="highlight-literal">"\nLocation point: ("</span> + point.X + <span class="highlight-literal">", "</span>
+                        + point.Y + <span class="highlight-literal">", "</span> + point.Z + <span class="highlight-literal">")"</span>;
+            <span class="highlight-keyword">break</span>;
+        <span class="highlight-keyword">case</span> BoundaryConditionsType.Line:
+            message += <span class="highlight-literal">"\nThis BoundaryConditions is a Line Boundary Conditions."</span>;
+            Curve curve = boundaryConditions.GetCurve();
+            <span class="highlight-comment">// Get curve start point</span>
+            message += <span class="highlight-literal">"\nLocation Line: start point: ("</span> + curve.GetEndPoint(<span class="highlight-number">0</span>).X + <span class="highlight-literal">", "</span>
+                    + curve.GetEndPoint(<span class="highlight-number">0</span>).Y + <span class="highlight-literal">", "</span> + curve.GetEndPoint(<span class="highlight-number">0</span>).Z + <span class="highlight-literal">")"</span>;
+            <span class="highlight-comment">// Get curve end point</span>
+            message += <span class="highlight-literal">";  end point:("</span> + curve.GetEndPoint(<span class="highlight-number">1</span>).X + <span class="highlight-literal">", "</span>
+                    + curve.GetEndPoint(<span class="highlight-number">1</span>).Y + <span class="highlight-literal">", "</span> + curve.GetEndPoint(<span class="highlight-number">1</span>).Z + <span class="highlight-literal">")"</span>;
+            <span class="highlight-keyword">break</span>;
+        <span class="highlight-keyword">case</span> BoundaryConditionsType.Area:
+            message += <span class="highlight-literal">"\nThis BoundaryConditions is an Area Boundary Conditions."</span>;
+            IList&lt;CurveLoop&gt; loops = boundaryConditions.GetLoops();
+            <span class="highlight-keyword">foreach</span> (CurveLoop curveLoop <span class="highlight-keyword">in</span> loops)
+            {
+                <span class="highlight-keyword">foreach</span> (Curve areaCurve <span class="highlight-keyword">in</span> curveLoop)
+                {
+                    <span class="highlight-comment">// Get curve start point</span>
+                    message += <span class="highlight-literal">"\nCurve start point:("</span> + areaCurve.GetEndPoint(<span class="highlight-number">0</span>).X + <span class="highlight-literal">", "</span>
+                            + areaCurve.GetEndPoint(<span class="highlight-number">0</span>).Y + <span class="highlight-literal">", "</span> + areaCurve.GetEndPoint(<span class="highlight-number">0</span>).Z + <span class="highlight-literal">")"</span>;
+                    <span class="highlight-comment">// Get curve end point</span>
+                    message += <span class="highlight-literal">"; Curve end point:("</span> + areaCurve.GetEndPoint(<span class="highlight-number">1</span>).X + <span class="highlight-literal">", "</span>
+                            + areaCurve.GetEndPoint(<span class="highlight-number">1</span>).Y + <span class="highlight-literal">", "</span> + areaCurve.GetEndPoint(<span class="highlight-number">1</span>).Z + <span class="highlight-literal">")"</span>;
+                }
+            }
+            <span class="highlight-keyword">break</span>;
+        <span class="highlight-keyword">default</span>:
+            <span class="highlight-keyword">break</span>;
+    }
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,message);
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> GetInfo_BoundaryConditions(boundaryConditions <span class="highlight-keyword">As</span> BoundaryConditions)
+    <span class="highlight-keyword">Dim</span> message <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"BoundaryConditions : "</span>
+
+    boundaryConditions.GetBoundaryConditionsType()
+    <span class="highlight-keyword">Select</span> <span class="highlight-keyword">Case</span> boundaryConditions.GetBoundaryConditionsType()
+        <span class="highlight-keyword">Case</span> BoundaryConditionsType.Point
+            <span class="highlight-keyword">Dim</span> point <span class="highlight-keyword">As</span> XYZ = boundaryConditions.Point
+            message += vbLf &amp; <span class="highlight-literal">"This BoundaryConditions is a Point Boundary Conditions."</span>
+            message += vbLf &amp; <span class="highlight-literal">"Location point: ("</span> + point.X + <span class="highlight-literal">", "</span> + point.Y + <span class="highlight-literal">", "</span> + point.Z + <span class="highlight-literal">")"</span>
+            <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">Select</span>
+        <span class="highlight-keyword">Case</span> BoundaryConditionsType.Line
+            message += vbLf &amp; <span class="highlight-literal">"This BoundaryConditions is a Line Boundary Conditions."</span>
+            <span class="highlight-keyword">Dim</span> curve <span class="highlight-keyword">As</span> Curve = boundaryConditions.GetCurve()
+            <span class="highlight-comment">' Get curve start point</span>
+            message += vbLf &amp; <span class="highlight-literal">"Location Line: start point: ("</span> + curve.GetEndPoint(<span class="highlight-number">0</span>).X + <span class="highlight-literal">", "</span> + curve.GetEndPoint(<span class="highlight-number">0</span>).Y + <span class="highlight-literal">", "</span> + curve.GetEndPoint(<span class="highlight-number">0</span>).Z + <span class="highlight-literal">")"</span>
+            <span class="highlight-comment">' Get curve end point</span>
+            message += <span class="highlight-literal">";  end point:("</span> + curve.GetEndPoint(<span class="highlight-number">1</span>).X + <span class="highlight-literal">", "</span> + curve.GetEndPoint(<span class="highlight-number">1</span>).Y + <span class="highlight-literal">", "</span> + curve.GetEndPoint(<span class="highlight-number">1</span>).Z + <span class="highlight-literal">")"</span>
+            <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">Select</span>
+        <span class="highlight-keyword">Case</span> BoundaryConditionsType.Area
+            message += vbLf &amp; <span class="highlight-literal">"This BoundaryConditions is an Area Boundary Conditions."</span>
+            <span class="highlight-keyword">Dim</span> loops <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> CurveLoop) = boundaryConditions.GetLoops()
+            <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> curveLoop <span class="highlight-keyword">As</span> CurveLoop <span class="highlight-keyword">In</span> loops
+                <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> areaCurve <span class="highlight-keyword">As</span> Curve <span class="highlight-keyword">In</span> curveLoop
+                    <span class="highlight-comment">' Get curve start point</span>
+                    message += vbLf &amp; <span class="highlight-literal">"Curve start point:("</span> + areaCurve.GetEndPoint(<span class="highlight-number">0</span>).X + <span class="highlight-literal">", "</span> + areaCurve.GetEndPoint(<span class="highlight-number">0</span>).Y + <span class="highlight-literal">", "</span> + areaCurve.GetEndPoint(<span class="highlight-number">0</span>).Z + <span class="highlight-literal">")"</span>
+                    <span class="highlight-comment">' Get curve end point</span>
+                    message += <span class="highlight-literal">"; Curve end point:("</span> + areaCurve.GetEndPoint(<span class="highlight-number">1</span>).X + <span class="highlight-literal">", "</span> + areaCurve.GetEndPoint(<span class="highlight-number">1</span>).Y + <span class="highlight-literal">", "</span> + areaCurve.GetEndPoint(<span class="highlight-number">1</span>).Z + <span class="highlight-literal">")"</span>
+                <span class="highlight-keyword">Next</span>
+            <span class="highlight-keyword">Next</span>
+            <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">Select</span>
+        <span class="highlight-keyword">Case</span> <span class="highlight-keyword">Else</span>
+            <span class="highlight-keyword">Exit</span> <span class="highlight-keyword">Select</span>
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Select</span>
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, message)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+      Autodesk.Revit.DB
+      Element
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.Structure
+      BoundaryConditions
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="8c24b5f4-c86e-9d2f-07bb-fdff4161246c.htm">
+       BoundaryConditions Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

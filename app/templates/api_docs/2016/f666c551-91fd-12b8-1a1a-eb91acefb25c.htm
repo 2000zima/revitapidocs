@@ -1,0 +1,391 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="1f420619-ab30-942a-e5b6-028b7ff3889f.htm">
+       FabricSheet Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new instance of a single bent Fabric Sheet element within the project.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 16.0.0.0 (16.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2016
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="1f420619-ab30-942a-e5b6-028b7ff3889f.htm">FabricSheet</a> <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">document</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">concreteHostElementId</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">fabricSheetTypeId</span>,
+	<a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a> <span class="parameter">bendProfile</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">Create</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">concreteHostElementId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">fabricSheetTypeId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">bendProfile</span> <span class="keyword">As</span> <a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a> _
+) <span class="keyword">As</span> <a href="1f420619-ab30-942a-e5b6-028b7ff3889f.htm">FabricSheet</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="1f420619-ab30-942a-e5b6-028b7ff3889f.htm">FabricSheet</a>^ <span class="identifier">Create</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">document</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">concreteHostElementId</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">fabricSheetTypeId</span>, 
+	<a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">CurveLoop</a>^ <span class="parameter">bendProfile</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        The document in which the fabric sheet is to be created.
+       </dd>
+      </dl>
+      <dl paramname="concreteHostElementId">
+       <dt>
+        <span class="parameter">
+         concreteHostElementId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        The element that will host the FabricSheet.
+   The host can be a Structural Floor, Structural Wall, Structural Slab, Structural Floor Edge, Structural Slab Edge,
+   Structural Column, Beam and Brace.
+   Also, host can be a
+        <span class="nolink">
+         [!:Autodesk::Revit::DB::Part]
+        </span>
+        created from a structural layer of Structural Floor, Structural Wall or Structural Slab.
+       </dd>
+      </dl>
+      <dl paramname="fabricSheetTypeId">
+       <dt>
+        <span class="parameter">
+         fabricSheetTypeId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        The id of the FabricSheetType.
+       </dd>
+      </dl>
+      <dl paramname="bendProfile">
+       <dt>
+        <span class="parameter">
+         bendProfile
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="84824924-cb89-9e20-de6e-3461f429dfd6.htm">
+         Autodesk.Revit.DB
+         CurveLoop
+        </a>
+        <br/>
+        A profile that defines the bending shape of the fabric sheet.
+   The profile can be provided without fillets (eg. for U shape, only three lines not three lines and two arcs),
+   if so, then fillets (two arcs) will be automatically generated basing on the Bend Diameter parameter defined in the Fabric Wire system family.
+   If the provided profile has no corners (has a tangent defined at each point except the ends), no fillets will be generated.
+   The provided profile defines the center-curve of a wire.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The instance of the newly created bent fabric sheet.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">private</span> FabricSheet CreateBentFabricSheet(Document document, Element wall)
+{
+    RebarHostData rebarHostData = RebarHostData.GetRebarHostData(wall);
+    <span class="highlight-keyword">if</span> (rebarHostData == <span class="highlight-keyword">null</span>)
+        <span class="highlight-keyword">return</span> <span class="highlight-keyword">null</span>;
+
+    CurveLoop bendingProfile = <span class="highlight-keyword">new</span> CurveLoop();
+    Line line1 = Line.CreateBound(<span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">2</span>, <span class="highlight-number">0.8</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">6</span>, <span class="highlight-number">0.8</span>, <span class="highlight-number">0</span>));
+    Line line2 = Line.CreateBound(<span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">6</span>, <span class="highlight-number">-0.8</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">4</span>, <span class="highlight-number">-2</span>, <span class="highlight-number">0</span>));
+    Arc arc = Arc.Create(line1.GetEndPoint(<span class="highlight-number">1</span>), line2.GetEndPoint(<span class="highlight-number">0</span>), <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">7</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>));
+    bendingProfile.Append(line1);
+    bendingProfile.Append(arc);
+    bendingProfile.Append(line2);
+
+    ElementId fabricSheetTypeId = document.GetDefaultElementTypeId(ElementTypeGroup.FabricSheetType);
+    FabricSheet bentFabricSheet = FabricSheet.Create(document, wall.Id, fabricSheetTypeId, bendingProfile);
+    <span class="highlight-comment">// Regeneration is required before setting any property to object that was created in the same transaction.</span>
+    document.Regenerate();
+
+    bentFabricSheet.BentFabricBendDirection = BentFabricBendDirection.Major;
+
+    AnalyticalModelSurface ams = wall.GetAnalyticalModel() <span class="highlight-keyword">as</span> AnalyticalModelSurface;
+    bentFabricSheet.PlaceInHost(wall, ams.GetLocalCoordinateSystem());
+
+    <span class="highlight-comment">// Give the user some information</span>
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, <span class="highlight-keyword">string</span>.Format(<span class="highlight-literal">"Bent Fabric Sheet ID='{0}' created successfully."</span>, bentFabricSheet.Id.IntegerValue));
+
+    <span class="highlight-keyword">return</span> bentFabricSheet;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> CreateBentFabricSheet(document <span class="highlight-keyword">As</span> Document, wall <span class="highlight-keyword">As</span> Element) <span class="highlight-keyword">As</span> FabricSheet
+   <span class="highlight-keyword">Dim</span> rebarHostData <span class="highlight-keyword">As</span> RebarHostData = rebarHostData.GetRebarHostData(wall)
+   <span class="highlight-keyword">If</span> rebarHostData <span class="highlight-keyword">Is</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+      <span class="highlight-keyword">Throw</span> <span class="highlight-keyword">New</span> Exception(<span class="highlight-literal">"Create new load combination failed."</span>)
+   <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+   <span class="highlight-keyword">Dim</span> bendingProfile <span class="highlight-keyword">As</span> CurveLoop = <span class="highlight-keyword">New</span> CurveLoop()
+   <span class="highlight-keyword">Dim</span> line1 <span class="highlight-keyword">As</span> Line = Line.CreateBound(<span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">2</span>, <span class="highlight-number">0.8</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">6</span>, <span class="highlight-number">0.8</span>, <span class="highlight-number">0</span>))
+   <span class="highlight-keyword">Dim</span> line2 <span class="highlight-keyword">As</span> Line = Line.CreateBound(<span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">6</span>, <span class="highlight-number">-0.8</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">4</span>, <span class="highlight-number">-2</span>, <span class="highlight-number">0</span>))
+   <span class="highlight-keyword">Dim</span> arc <span class="highlight-keyword">As</span> Arc = arc.Create(line1.GetEndPoint(<span class="highlight-number">1</span>), line2.GetEndPoint(<span class="highlight-number">0</span>), <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">7</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>))
+   bendingProfile.Append(line1)
+   bendingProfile.Append(arc)
+   bendingProfile.Append(line2)
+
+   <span class="highlight-keyword">Dim</span> fabricSheetTypeId <span class="highlight-keyword">As</span> ElementId = document.GetDefaultElementTypeId(ElementTypeGroup.FabricSheetType)
+   <span class="highlight-keyword">Dim</span> bentFabricSheet <span class="highlight-keyword">As</span> FabricSheet = FabricSheet.Create(document, wall.Id, fabricSheetTypeId, bendingProfile)
+   <span class="highlight-comment">' Regeneration is required before setting any property to object that was created in the same transaction.</span>
+   document.Regenerate()
+
+   bentFabricSheet.BentFabricBendDirection = BentFabricBendDirection.Major
+
+   <span class="highlight-keyword">Dim</span> ams <span class="highlight-keyword">As</span> AnalyticalModelSurface = <span class="highlight-keyword">TryCast</span>(wall.GetAnalyticalModel(), AnalyticalModelSurface)
+   bentFabricSheet.PlaceInHost(wall, ams.GetLocalCoordinateSystem())
+
+   <span class="highlight-comment">' Give the user some information</span>
+   TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, <span class="highlight-keyword">String</span>.Format(<span class="highlight-comment">"Bent Fabric Sheet ID='{0}' created successfully."</span>, bentFabricSheet.Id.IntegerValue))
+
+   <span class="highlight-keyword">Return</span> bentFabricSheet
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          concreteHostElementId is not a valid ElementId for the host Fabric Sheet.
+   -or-
+   fabricSheetTypeId should refer to an FabricSheetType element.
+   -or-
+   Thrown when bend profile contains an overlap or intersecting segments.
+   -or-
+   Thrown when bend profile is empty.
+   -or-
+   Thrown when bend profile contains an empty loop.
+   -or-
+   Thrown when bend profile contains multiple loops.
+   -or-
+   Thrown when bend profile contains a closed loop.
+   -or-
+   Thrown when bend profile contains arcs that are not distracted by a line.
+   -or-
+   Thrown when bend profile contains too short segments, so fillet can't be added.
+   -or-
+   Thrown when the provided profile cannot be used as a bending shape for this fabric sheet.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="3693dcdf-67fb-0128-3be8-cad150e9498e.htm">
+           Autodesk.Revit.Exceptions
+           DisabledDisciplineException
+          </a>
+         </td>
+         <td>
+          None of the following disciplines is enabled: Structural.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="1f420619-ab30-942a-e5b6-028b7ff3889f.htm">
+       FabricSheet Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="2f2eb2a7-5327-0d3e-972b-741a85ef96c8.htm">
+       Create Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

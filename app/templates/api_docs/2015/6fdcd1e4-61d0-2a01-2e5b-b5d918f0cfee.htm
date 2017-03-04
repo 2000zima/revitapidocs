@@ -1,0 +1,338 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="cd7d7579-1058-e8ca-d55a-c3a914843667.htm">
+       ConnectorElement Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Create a new pipe ConnectorElement.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2013
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">static</span> <a href="cd7d7579-1058-e8ca-d55a-c3a914843667.htm">ConnectorElement</a> <span class="identifier">CreatePipeConnector</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">document</span>,
+	<a href="24165d09-9267-54b7-3e32-6405d1343c2e.htm">PipeSystemType</a> <span class="parameter">pipeSystemType</span>,
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a> <span class="parameter">planarFace</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Shared</span> <span class="keyword">Function</span> <span class="identifier">CreatePipeConnector</span> ( _
+	<span class="parameter">document</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">pipeSystemType</span> <span class="keyword">As</span> <a href="24165d09-9267-54b7-3e32-6405d1343c2e.htm">PipeSystemType</a>, _
+	<span class="parameter">planarFace</span> <span class="keyword">As</span> <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a> _
+) <span class="keyword">As</span> <a href="cd7d7579-1058-e8ca-d55a-c3a914843667.htm">ConnectorElement</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">static</span> <a href="cd7d7579-1058-e8ca-d55a-c3a914843667.htm">ConnectorElement</a>^ <span class="identifier">CreatePipeConnector</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">document</span>, 
+	<a href="24165d09-9267-54b7-3e32-6405d1343c2e.htm">PipeSystemType</a> <span class="parameter">pipeSystemType</span>, 
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a>^ <span class="parameter">planarFace</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="document">
+       <dt>
+        <span class="parameter">
+         document
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        The document to add the connector to.
+       </dd>
+      </dl>
+      <dl paramname="pipeSystemType">
+       <dt>
+        <span class="parameter">
+         pipeSystemType
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="24165d09-9267-54b7-3e32-6405d1343c2e.htm">
+         Autodesk.Revit.DB.Plumbing
+         PipeSystemType
+        </a>
+        <br/>
+        The PipeSystemType of the connector.
+       </dd>
+      </dl>
+      <dl paramname="planarFace">
+       <dt>
+        <span class="parameter">
+         planarFace
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">
+         Autodesk.Revit.DB
+         Reference
+        </a>
+        <br/>
+        The planar face to place the connector on.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     The pipe ConnectorElement.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     Regenerates the document.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="VisualBasic" id="cbc_1" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> CreatePipeConnectors(uiDocument <span class="highlight-keyword">As</span> UIDocument, extrusion <span class="highlight-keyword">As</span> Extrusion)
+    <span class="highlight-comment">' get the faces of the extrusion</span>
+    <span class="highlight-keyword">Dim</span> geoOptions <span class="highlight-keyword">As</span> Options = uiDocument.Document.Application.Create.NewGeometryOptions()
+    geoOptions.View = uiDocument.Document.ActiveView
+    geoOptions.ComputeReferences = <span class="highlight-keyword">True</span>
+
+    <span class="highlight-keyword">Dim</span> planarFaces <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> List(<span class="highlight-keyword">Of</span> PlanarFace)()
+    <span class="highlight-keyword">Dim</span> geoElement <span class="highlight-keyword">As</span> Autodesk.Revit.DB.GeometryElement = extrusion.Geometry(geoOptions)
+    <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> geoObject <span class="highlight-keyword">As</span> GeometryObject <span class="highlight-keyword">In</span> geoElement
+        <span class="highlight-keyword">Dim</span> geoSolid <span class="highlight-keyword">As</span> Solid = <span class="highlight-keyword">TryCast</span>(geoObject, Solid)
+        <span class="highlight-keyword">If</span> geoSolid <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+            <span class="highlight-keyword">For</span> <span class="highlight-keyword">Each</span> geoFace <span class="highlight-keyword">As</span> Face <span class="highlight-keyword">In</span> geoSolid.Faces
+                <span class="highlight-keyword">If</span> <span class="highlight-keyword">TypeOf</span> geoFace <span class="highlight-keyword">Is</span> PlanarFace <span class="highlight-keyword">Then</span>
+                    planarFaces.Add(<span class="highlight-keyword">TryCast</span>(geoFace, PlanarFace))
+                <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+            <span class="highlight-keyword">Next</span>
+        <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-keyword">Next</span>
+
+    <span class="highlight-keyword">If</span> planarFaces.Count &gt; <span class="highlight-number">1</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-comment">' Create the Supply Hydronic pipe connector</span>
+        <span class="highlight-comment">'PipeConnector connSupply = </span>
+        <span class="highlight-comment">'    uiDocument.Document.FamilyCreate.NewPipeConnector(planarFaces[0].Reference, </span>
+        <span class="highlight-comment">'                                           PipeSystemType.SupplyHydronic);</span>
+        <span class="highlight-keyword">Dim</span> connSupply <span class="highlight-keyword">As</span> ConnectorElement = ConnectorElement.CreatePipeConnector(uiDocument.Document, PipeSystemType.SupplyHydronic, planarFaces(<span class="highlight-number">0</span>).Reference)
+        <span class="highlight-keyword">Dim</span> param <span class="highlight-keyword">As</span> Parameter = connSupply.Parameter(BuiltInParameter.CONNECTOR_RADIUS)
+        param.[<span class="highlight-keyword">Set</span>](<span class="highlight-number">1.0</span>)
+        <span class="highlight-comment">' 1' radius</span>
+        param = connSupply.Parameter(BuiltInParameter.RBS_PIPE_FLOW_DIRECTION_PARAM)
+        param.[<span class="highlight-keyword">Set</span>](<span class="highlight-number">2</span>)
+
+        <span class="highlight-comment">' Create the Return Hydronic pipe connector</span>
+        <span class="highlight-comment">'PipeConnector connReturn =</span>
+        <span class="highlight-comment">'    uiDocument.Document.FamilyCreate.NewPipeConnector(planarFaces[1].Reference,</span>
+        <span class="highlight-comment">'                                           PipeSystemType.ReturnHydronic);</span>
+        <span class="highlight-keyword">Dim</span> connReturn <span class="highlight-keyword">As</span> ConnectorElement = ConnectorElement.CreatePipeConnector(uiDocument.Document, PipeSystemType.ReturnHydronic, planarFaces(<span class="highlight-number">1</span>).Reference)
+        param = connReturn.Parameter(BuiltInParameter.CONNECTOR_RADIUS)
+        param.[<span class="highlight-keyword">Set</span>](<span class="highlight-number">0.5</span>)
+        <span class="highlight-comment">' 6" radius</span>
+        param = connReturn.Parameter(BuiltInParameter.RBS_PIPE_FLOW_DIRECTION_PARAM)
+        param.[<span class="highlight-keyword">Set</span>](<span class="highlight-number">1</span>)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The reference is not a planar face.
+   -or-
+   document is not a family document.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Connector creation is not allowed in this family.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="cd7d7579-1058-e8ca-d55a-c3a914843667.htm">
+       ConnectorElement Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="c6188202-bd11-204d-de6e-afa1c6799d50.htm">
+       CreatePipeConnector Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

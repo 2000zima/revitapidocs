@@ -1,0 +1,270 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+       Document Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Imports an image (a bitmap) into the document.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">Import</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a> <span class="parameter">file</span>,
+	<a href="0d92888c-aa24-5d7e-c7f9-a7bdf24e5581.htm">ImageImportOptions</a> <span class="parameter">options</span>,
+	<a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a> <span class="parameter">view</span>,
+	<span class="keyword">out</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> <span class="parameter">element</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">Import</span> ( _
+	<span class="parameter">file</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>, _
+	<span class="parameter">options</span> <span class="keyword">As</span> <a href="0d92888c-aa24-5d7e-c7f9-a7bdf24e5581.htm">ImageImportOptions</a>, _
+	<span class="parameter">view</span> <span class="keyword">As</span> <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a>, _
+	&lt;<a href="http://msdn2.microsoft.com/en-us/library/k8189tfc" target="_blank">OutAttribute</a>&gt; <span class="keyword">ByRef</span> <span class="parameter">element</span> <span class="keyword">As</span> <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a> _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">Import</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^ <span class="parameter">file</span>, 
+	<a href="0d92888c-aa24-5d7e-c7f9-a7bdf24e5581.htm">ImageImportOptions</a>^ <span class="parameter">options</span>, 
+	<a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a>^ <span class="parameter">view</span>, 
+	[<a href="http://msdn2.microsoft.com/en-us/library/k8189tfc" target="_blank">OutAttribute</a>] <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">Element</a>^% <span class="parameter">element</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="file">
+       <dt>
+        <span class="parameter">
+         file
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         System
+         String
+        </a>
+        <br/>
+        Full path of the file to import. File must exist.
+       </dd>
+      </dl>
+      <dl paramname="options">
+       <dt>
+        <span class="parameter">
+         options
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="0d92888c-aa24-5d7e-c7f9-a7bdf24e5581.htm">
+         Autodesk.Revit.DB
+         ImageImportOptions
+        </a>
+        <br/>
+        Various options applicable to an image.
+If
+        <span class="keyword">
+        </span>
+        <span class="nu">
+         a null reference (
+         <span class="keyword">
+          Nothing
+         </span>
+         in Visual Basic)
+        </span>
+        , all options will be set to their respective default values.
+       </dd>
+      </dl>
+      <dl paramname="view">
+       <dt>
+        <span class="parameter">
+         view
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">
+         Autodesk.Revit.DB
+         View
+        </a>
+        <br/>
+        The view into which the image is going to be imported.
+       </dd>
+      </dl>
+      <dl paramname="element">
+       <dt>
+        <span class="parameter">
+         element
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+         Autodesk.Revit.DB
+         Element
+        </a>
+        <span class="cpp">
+         %
+        </span>
+        <br/>
+        The imported instance after a successful import.
+  It could be used for further manipulating of that instance.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     True if successful, otherwise False.
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown if view is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+       Document Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="05c3dbe2-fe7e-c293-761d-b11f356a011b.htm">
+       Import Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

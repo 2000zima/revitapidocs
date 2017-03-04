@@ -1,0 +1,205 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="21d27e68-a9c4-8e69-f0ea-39c4c8b38e42.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     A filter used to match areas.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">AreaFilter</span> : <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">ElementSlowFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">AreaFilter</span> _
+	<span class="keyword">Inherits</span> <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">ElementSlowFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">AreaFilter</span> : <span class="keyword">public</span> <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">ElementSlowFilter</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     This filter is a slow filter, but it uses a quick filter to eliminate non-candidate elements
+   before the elements are obtained and expanded. Therefore this filter does not have to be
+   paired with another quick filter to minimize the number of Elements that are expanded.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// Use a AreaFilter to find all area elements in the document. It is necessary to use the AreaFilter, </span>
+<span class="highlight-comment">// and not an ElementClassFilter or the shortcut method OfClass() because the area class is not </span>
+<span class="highlight-comment">// supported by those methods.</span>
+AreaFilter filter = <span class="highlight-keyword">new</span> AreaFilter();
+
+<span class="highlight-comment">// Apply the filter to the elements in the active document</span>
+FilteredElementCollector collector = <span class="highlight-keyword">new</span> FilteredElementCollector(document);
+IList&lt;Element&gt; areas = collector.WherePasses(filter).ToElements();</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' Use a AreaFilter to find all area elements in the document. It is necessary to use the AreaFilter, </span>
+<span class="highlight-comment">' and not an ElementClassFilter or the shortcut method OfClass() because the area class is not </span>
+<span class="highlight-comment">' supported by those methods.</span>
+<span class="highlight-keyword">Dim</span> filter <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> AreaFilter()
+
+<span class="highlight-comment">' Apply the filter to the elements in the active document</span>
+<span class="highlight-keyword">Dim</span> collector <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> FilteredElementCollector(document)
+<span class="highlight-keyword">Dim</span> areas <span class="highlight-keyword">As</span> IList(<span class="highlight-keyword">Of</span> Element) = collector.WherePasses(filter).ToElements()</code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="b8b46cbf-9ecc-0745-ec53-c3c3b6510113.htm">
+      Autodesk.Revit.DB
+      ElementFilter
+     </a>
+     <br/>
+     <a href="e06b1e14-dd8d-8137-74ac-8ac4929eee85.htm">
+      Autodesk.Revit.DB
+      ElementSlowFilter
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      AreaFilter
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="21d27e68-a9c4-8e69-f0ea-39c4c8b38e42.htm">
+       AreaFilter Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

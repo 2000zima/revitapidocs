@@ -1,0 +1,146 @@
+{% extends "_base.html" %}
+
+<!-- Rendered tempaltes must include header() macro#} -->
+
+{% block header %}
+<!-- HEADER CONTENTS FROM API.HTML -->
+<title>{{ entry.title | default('Revit API Docs') }}</title>
+<!-- HEADER CONTENTS FROM API.HTML -->
+{% endblock %}
+
+{% block content %}
+<!-- START  API HTML -->
+
+    {% include 'components/__modalsearch.html' %}
+
+    <!-- START SIDEBAR -->
+    <nav id="sidebar" class="col-sm-12 col-md-5 col-lg-2">
+
+        <!-- SIDEBAR SEARCH -->
+        <div id="sidebar-search">
+          <form>
+            <div class="form-group">
+              <div class="input-group input-group-sm">
+                <input type="text" class="form-control" id="search-box" placeholder="Search Term" autocomplete="off" autofocus/>
+                <span class="input-group-btn">
+                  <button class="btn btn-primary" id="btn-search" type="submit" data-toggle="modal"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!-- SIDEBAR SEARCH -->
+
+        <!-- START BOOTSTRAP TREEVIEW -->
+        <span id="menu-loading" class="small text-muted">
+        </span>
+        <div id="treeview">
+        </div>
+        <!-- END BOOTSTRAP TREEVIEW -->
+
+    </nav>
+    <!-- END SIDEBAR -->
+
+    <!-- START MAIN -->
+    <div class="col-sm-12 col-md-6 col-lg-10" id="content-with-sidebar">
+
+        <header class="row">
+            <div class="col-sm-12 col-md-12 col-lg-12">
+                <ul class="breadcrumb">
+                    <li>&nbsp;</li>
+                </ul>
+                <script id="breadcrumb-template" type="text/x-handlebars-template">{% raw %}
+                    <li><a href="{{entry.member_of_href}}">{{ entry.member_of }}</a></li>
+                     <span class="pull-right">
+                     {{ actual_year }} | <a href="https://github.com/gtalarico/revitapidocs/edit/dev/new_html_parser/app/templates/{{content_path}}">Edit</a>
+                     </span>{% endraw %}
+                </script>
+            </div>
+        </header>
+
+        <h4 id="api-title" class="truncate"> {{ entry.title if entry else 'Documentation' }} </h4>
+        <hr/>
+
+        <!-- START MAIN CONTENT -->
+        <article id="api-content-wrapper">
+        {% include '%s' % content_path %}
+        </article>
+        <!-- END MAIN CONTENT -->
+
+        <!-- API ADSENSE -->
+        {# {% include 'components/__adsense.html' %}  #}
+        <!-- END ADSENSE -->
+
+        <!-- START DISQUS -->
+        {% if active_href %}
+            {# {% include 'components/__disqus.html' with context %} #}
+        {% endif %}
+        <!-- END DISQUS -->
+    </div>
+    <!-- END MAIN -->
+
+<!-- END API HTML -->
+
+{% raw %}
+<!-- MOVE THIS SOMEWHERE ELSE -->
+<script id="code-template" type="text/x-handlebars-template">
+<span codelanguage="{{language}}" id="cbc_1" x-lang="{{language}}">
+<div class="highlight-title">
+Python
+</div>
+<div class="code">
+<pre><code><span class="highlight-comment"><em># Mentions of <strong>{{query}}</strong>
+{{#each results}}
+<a href="{{html_url}}">{{path}}</a> : <a href="{{repository.owner.html_url}}">{{repository.full_name}}</a>
+{{/each}}
+</code></pre>
+</div>
+</span>
+</script>
+{% endraw %}
+
+{% endblock %}
+
+{% block script %}
+<!-- START API SCRIPT  -->
+<script>
+
+var loadingSpan = '<img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp;Loading'
+$('#menu-loading').html(loadingSpan)
+
+var templateData = { entry: {{entry|tojson|safe }},
+                     content_path: "{{content_path|safe}}",
+                     active_href : "{{active_href}}",
+                     actual_year : "{{actual_year|default('')}}",
+                     active_year : "{{active_year}}",
+}
+
+var CONSTRUCTOR_KEY = '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}'
+
+$(document).ready(function() {
+
+    ajaxHelper.loadContent(templateData, true)
+
+    var urlParams = urlHelper.getParams()
+    if (urlParams.query) {
+        submitSearch(urlParams.query)
+    }
+
+    if (urlParams.enumeration) {
+        var target = $('span.selflink').filter(function() {return $(this).text().trim() === urlParams.enumeration} )
+        if (target) {
+            target.closest('tr').addClass('selected-enumeration')
+            scrollHelper($('#content-with-sidebar'), target, false, 100)
+        }
+    }
+    if (urlParams.section) {
+        var anchor = $('a[name="' + urlParams.section + '"]')
+        var parent = $('#content-with-sidebar')
+        scrollHelper(parent, anchor, true, 200)
+    }
+});
+
+</script>
+
+
+{% endblock %}

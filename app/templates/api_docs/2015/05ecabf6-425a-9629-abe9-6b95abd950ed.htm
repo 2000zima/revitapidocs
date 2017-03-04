@@ -1,0 +1,222 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="b4466cf0-0fa0-1f67-d442-fdf0fb073fc9.htm">
+       AnalyticalModel Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Retrieves Analytical Model projection information for a specific direction.
+   in direction:  direction in which the Analytical Model may be projected.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2011
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>("This method is deprecated in Revit 2015. Analytical Projection has been divided into Projection and Extension. Use one of AnalyticalModelStick.GetProjectionY(), AnalyticalModelStick.GetProjectionZ() methods or AnalyticalModelColumn.BaseExtension, AnalyticalModelColumn.TopExtension, AnalyticalModelSurface.ProjectionZ, AnalyticalModelSurface.BottomExtension, AnalyticalModelSurface.TopExtension properties instead.")]
+<span class="keyword">public</span> <a href="7b5de664-1e5e-8097-e5f6-a6d063f23612.htm">AnalyticalProjectionType</a> <span class="identifier">GetAnalyticalProjectionType</span>(
+	<a href="b8d93e4d-3543-637d-5a9d-affa1bced099.htm">AnalyticalElementSelector</a> <span class="parameter">selector</span>,
+	<a href="28165f4a-7863-07e2-7b95-c2bcbbae1872.htm">AnalyticalDirection</a> <span class="parameter">direction</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>&lt;<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>("This method is deprecated in Revit 2015. Analytical Projection has been divided into Projection and Extension. Use one of AnalyticalModelStick.GetProjectionY(), AnalyticalModelStick.GetProjectionZ() methods or AnalyticalModelColumn.BaseExtension, AnalyticalModelColumn.TopExtension, AnalyticalModelSurface.ProjectionZ, AnalyticalModelSurface.BottomExtension, AnalyticalModelSurface.TopExtension properties instead.")&gt; _
+<span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">GetAnalyticalProjectionType</span> ( _
+	<span class="parameter">selector</span> <span class="keyword">As</span> <a href="b8d93e4d-3543-637d-5a9d-affa1bced099.htm">AnalyticalElementSelector</a>, _
+	<span class="parameter">direction</span> <span class="keyword">As</span> <a href="28165f4a-7863-07e2-7b95-c2bcbbae1872.htm">AnalyticalDirection</a> _
+) <span class="keyword">As</span> <a href="7b5de664-1e5e-8097-e5f6-a6d063f23612.htm">AnalyticalProjectionType</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code>[<a href="http://msdn2.microsoft.com/en-us/library/fwz0y5c2" target="_blank">ObsoleteAttribute</a>(L"This method is deprecated in Revit 2015. Analytical Projection has been divided into Projection and Extension. Use one of AnalyticalModelStick.GetProjectionY(), AnalyticalModelStick.GetProjectionZ() methods or AnalyticalModelColumn.BaseExtension, AnalyticalModelColumn.TopExtension, AnalyticalModelSurface.ProjectionZ, AnalyticalModelSurface.BottomExtension, AnalyticalModelSurface.TopExtension properties instead.")]
+<span class="keyword">public</span>:
+<a href="7b5de664-1e5e-8097-e5f6-a6d063f23612.htm">AnalyticalProjectionType</a> <span class="identifier">GetAnalyticalProjectionType</span>(
+	<a href="b8d93e4d-3543-637d-5a9d-affa1bced099.htm">AnalyticalElementSelector</a> <span class="parameter">selector</span>, 
+	<a href="28165f4a-7863-07e2-7b95-c2bcbbae1872.htm">AnalyticalDirection</a> <span class="parameter">direction</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="selector">
+       <dt>
+        <span class="parameter">
+         selector
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="b8d93e4d-3543-637d-5a9d-affa1bced099.htm">
+         Autodesk.Revit.DB.Structure
+         AnalyticalElementSelector
+        </a>
+        <br/>
+        End of the analytical model.
+       </dd>
+      </dl>
+      <dl paramname="direction">
+       <dt>
+        <span class="parameter">
+         direction
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="28165f4a-7863-07e2-7b95-c2bcbbae1872.htm">
+         Autodesk.Revit.DB.Structure
+         AnalyticalDirection
+        </a>
+        <br/>
+        Direction of the analytical model.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     Indicates if the projection is a preset value, or refers to a Datum Plane.
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          direction is invalid for analytical model
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="60f148c9-ece0-a6bb-4e12-bb4a9c8c8a24.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentOutOfRangeException
+          </a>
+         </td>
+         <td>
+          A value passed for an enumeration argument is not a member of that enumeration
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="b4466cf0-0fa0-1f67-d442-fdf0fb073fc9.htm">
+       AnalyticalModel Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

@@ -1,0 +1,388 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="a7622967-1381-c17f-ed04-1ebe40da0440.htm">
+       FamilyItemFactory Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Creates a new arc length dimension object using the default dimension type.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+      Autodesk.Revit.Creation
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 2015.0.0.0 (2015.0.0.0)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <a href="210f88be-e3c5-26a4-7dd8-3296f6725cce.htm">Dimension</a> <span class="identifier">NewArcLengthDimension</span>(
+	<a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a> <span class="parameter">view</span>,
+	<a href="1f5f541e-9335-aef3-0e75-59eed9ae2221.htm">Arc</a> <span class="parameter">arc</span>,
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a> <span class="parameter">arcRef</span>,
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a> <span class="parameter">firstRef</span>,
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a> <span class="parameter">secondRef</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Function</span> <span class="identifier">NewArcLengthDimension</span> ( _
+	<span class="parameter">view</span> <span class="keyword">As</span> <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a>, _
+	<span class="parameter">arc</span> <span class="keyword">As</span> <a href="1f5f541e-9335-aef3-0e75-59eed9ae2221.htm">Arc</a>, _
+	<span class="parameter">arcRef</span> <span class="keyword">As</span> <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a>, _
+	<span class="parameter">firstRef</span> <span class="keyword">As</span> <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a>, _
+	<span class="parameter">secondRef</span> <span class="keyword">As</span> <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a> _
+) <span class="keyword">As</span> <a href="210f88be-e3c5-26a4-7dd8-3296f6725cce.htm">Dimension</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<a href="210f88be-e3c5-26a4-7dd8-3296f6725cce.htm">Dimension</a>^ <span class="identifier">NewArcLengthDimension</span>(
+	<a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">View</a>^ <span class="parameter">view</span>, 
+	<a href="1f5f541e-9335-aef3-0e75-59eed9ae2221.htm">Arc</a>^ <span class="parameter">arc</span>, 
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a>^ <span class="parameter">arcRef</span>, 
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a>^ <span class="parameter">firstRef</span>, 
+	<a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">Reference</a>^ <span class="parameter">secondRef</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="view">
+       <dt>
+        <span class="parameter">
+         view
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="fb92a4e7-f3a7-ef14-e631-342179b18de9.htm">
+         Autodesk.Revit.DB
+         View
+        </a>
+        <br/>
+        The view in which the dimension is to be visible.
+       </dd>
+      </dl>
+      <dl paramname="arc">
+       <dt>
+        <span class="parameter">
+         arc
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="1f5f541e-9335-aef3-0e75-59eed9ae2221.htm">
+         Autodesk.Revit.DB
+         Arc
+        </a>
+        <br/>
+        The extension arc of the dimension.
+       </dd>
+      </dl>
+      <dl paramname="arcRef">
+       <dt>
+        <span class="parameter">
+         arcRef
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">
+         Autodesk.Revit.DB
+         Reference
+        </a>
+        <br/>
+        Geometric reference of the arc to which the dimension is to be bound.
+This reference must be parallel to the extension arc.
+       </dd>
+      </dl>
+      <dl paramname="firstRef">
+       <dt>
+        <span class="parameter">
+         firstRef
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">
+         Autodesk.Revit.DB
+         Reference
+        </a>
+        <br/>
+        The first geometric reference to which the dimension is to be bound. 
+This reference must intersect the arcRef reference.
+       </dd>
+      </dl>
+      <dl paramname="secondRef">
+       <dt>
+        <span class="parameter">
+         secondRef
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="d28155ae-817b-1f31-9c3f-c9c6a28acc0d.htm">
+         Autodesk.Revit.DB
+         Reference
+        </a>
+        <br/>
+        The second geometric reference to which the dimension is to be bound. 
+This reference must intersect the arcRef reference.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     If creation was successful the new arc length dimension is returned, 
+otherwise an exception with failure information will be thrown.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     The currently user set default style is used for the created dimension.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> Dimension CreateArcDimension(Document document, SketchPlane sketchPlane)
+{
+    Autodesk.Revit.Creation.Application appCreate = document.Application.Create;
+    Line gLine1 = Line.CreateBound(<span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">2</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>));
+    Line gLine2 = Line.CreateBound(<span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">2</span>, <span class="highlight-number">4</span>, <span class="highlight-number">0</span>));
+    Arc arctoDim = Arc.Create(<span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">1</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">-1</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">3</span>, <span class="highlight-number">0</span>));
+    Arc arcofDim = Arc.Create(<span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">3</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">1</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">new</span> XYZ(<span class="highlight-number">0.8</span>, <span class="highlight-number">2.8</span>, <span class="highlight-number">0</span>));
+
+    Autodesk.Revit.Creation.FamilyItemFactory creationFamily = document.FamilyCreate;
+    ModelCurve modelCurve1 = creationFamily.NewModelCurve(gLine1, sketchPlane);
+    ModelCurve modelCurve2 = creationFamily.NewModelCurve(gLine2, sketchPlane);
+    ModelCurve modelCurve3 = creationFamily.NewModelCurve(arctoDim, sketchPlane);
+    <span class="highlight-comment">//get their reference</span>
+    Reference ref1 = modelCurve1.GeometryCurve.Reference;
+    Reference ref2 = modelCurve2.GeometryCurve.Reference;
+    Reference arcRef = modelCurve3.GeometryCurve.Reference;
+
+    Dimension newArcDim = creationFamily.NewArcLengthDimension(document.ActiveView, arcofDim, arcRef, ref1, ref2);
+    <span class="highlight-keyword">if</span> (newArcDim == <span class="highlight-keyword">null</span>)
+    {
+        <span class="highlight-keyword">throw</span> <span class="highlight-keyword">new</span> Exception(<span class="highlight-literal">"Failed to create new arc length dimension."</span>);
+    }
+
+    <span class="highlight-keyword">return</span> newArcDim;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> CreateArcDimension(document <span class="highlight-keyword">As</span> Document, sketchPlane <span class="highlight-keyword">As</span> SketchPlane) <span class="highlight-keyword">As</span> Dimension
+    <span class="highlight-keyword">Dim</span> appCreate <span class="highlight-keyword">As</span> Autodesk.Revit.Creation.Application = document.Application.Create
+    <span class="highlight-keyword">Dim</span> gLine1 <span class="highlight-keyword">As</span> Line = Line.CreateBound(<span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">2</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>))
+    <span class="highlight-keyword">Dim</span> gLine2 <span class="highlight-keyword">As</span> Line = Line.CreateBound(<span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">2</span>, <span class="highlight-number">4</span>, <span class="highlight-number">0</span>))
+    <span class="highlight-keyword">Dim</span> arctoDim <span class="highlight-keyword">As</span> Arc = Arc.Create(<span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">1</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">-1</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">3</span>, <span class="highlight-number">0</span>))
+    <span class="highlight-keyword">Dim</span> arcofDim <span class="highlight-keyword">As</span> Arc = Arc.Create(<span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0</span>, <span class="highlight-number">3</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">1</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>), <span class="highlight-keyword">New</span> XYZ(<span class="highlight-number">0.8</span>, <span class="highlight-number">2.8</span>, <span class="highlight-number">0</span>))
+
+    <span class="highlight-keyword">Dim</span> creationFamily <span class="highlight-keyword">As</span> Autodesk.Revit.Creation.FamilyItemFactory = document.FamilyCreate
+    <span class="highlight-keyword">Dim</span> modelCurve1 <span class="highlight-keyword">As</span> ModelCurve = creationFamily.NewModelCurve(gLine1, sketchPlane)
+    <span class="highlight-keyword">Dim</span> modelCurve2 <span class="highlight-keyword">As</span> ModelCurve = creationFamily.NewModelCurve(gLine2, sketchPlane)
+    <span class="highlight-keyword">Dim</span> modelCurve3 <span class="highlight-keyword">As</span> ModelCurve = creationFamily.NewModelCurve(arctoDim, sketchPlane)
+    <span class="highlight-comment">'get their reference</span>
+    <span class="highlight-keyword">Dim</span> ref1 <span class="highlight-keyword">As</span> Reference = modelCurve1.GeometryCurve.Reference
+    <span class="highlight-keyword">Dim</span> ref2 <span class="highlight-keyword">As</span> Reference = modelCurve2.GeometryCurve.Reference
+    <span class="highlight-keyword">Dim</span> arcRef <span class="highlight-keyword">As</span> Reference = modelCurve3.GeometryCurve.Reference
+
+    <span class="highlight-keyword">Dim</span> newArcDim <span class="highlight-keyword">As</span> Dimension = creationFamily.NewArcLengthDimension(document.ActiveView, arcofDim, arcRef, ref1, ref2)
+    <span class="highlight-keyword">If</span> newArcDim <span class="highlight-keyword">Is</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-keyword">Throw</span> <span class="highlight-keyword">New</span> Exception(<span class="highlight-literal">"Failed to create new arc length dimension."</span>)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+
+    <span class="highlight-keyword">Return</span> newArcDim
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          Thrown when any input argument is
+          <span class="keyword">
+          </span>
+          <span class="nu">
+           a null reference (
+           <span class="keyword">
+            Nothing
+           </span>
+           in Visual Basic)
+          </span>
+          .
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Thrown when the argument arcRef/ref1/ref2 is invalid.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="9e715f03-3884-e539-4dd6-8d7545733adc.htm">
+           Autodesk.Revit.Exceptions
+           InvalidOperationException
+          </a>
+         </td>
+         <td>
+          Thrown when the creation failed.
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="a7622967-1381-c17f-ed04-1ebe40da0440.htm">
+       FamilyItemFactory Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="50f0d023-395e-259c-3569-28772831ce13.htm">
+       NewArcLengthDimension Overload
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="ded320da-058a-4edd-0418-0582389559a7.htm">
+       Autodesk.Revit.Creation Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>
