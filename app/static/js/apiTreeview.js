@@ -134,21 +134,19 @@ function findNodeIdByHref ($treeview, href, startIndex=0, maxLookup=null) {
 // logic is tightly integrated with treevie
 // $(document).on('click', '.node-treeview a', function(e){
 $(document).on('click', '.node-treeview a, #api-content a', function(e){
-    // return
+    // return // Disables Ajax Loading
 
     var contenHref = $(this).attr('href')
     var hrefPattern = new RegExp('[A-Za-z0-9]{8}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{4}-[A-Za-z0-9]{12}.htm')
 
-    // TODO: Optimize if it's not in -10 to next 20, reload page
-
-
-    // SPECIAL CASE: IS ANCHOR
+    // SPECIAL CASE: Does not match pattern, check if it's anchor
     if (!contenHref.match(hrefPattern)) {
         if (contenHref.indexOf('#') != -1) {
             // Contains #,
             contenHref = contenHref.replace('#','')
             var target = $('a[name="' + contenHref + '"]')
-            scrollHelper($('#content-with-sidebar'), target, true)
+            var parent = (IS_WITH_SIDEBAR) ? $('#content-with-sidebar') : $('body');
+            scrollHelper(parent, target, true)
             urlHelper.updateParam('section', contenHref)
             e.preventDefault()
             return
@@ -159,8 +157,6 @@ $(document).on('click', '.node-treeview a, #api-content a', function(e){
             return
         }
     }
-    // SPECIAL CASE: NEWS
-
     var ajaxContent = $.getJSON( contenHref + '?ajax' , function(json) {
         ajaxHelper.loadContent(json, false)
         ajaxHelper.updateYearNavStatus(json)

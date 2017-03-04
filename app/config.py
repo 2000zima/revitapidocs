@@ -34,6 +34,7 @@ class Config(object):
 
 
 class Production(Config):
+    FLASK_CONFIG = 'Production'
     PRODUCTION = True
     ASSETS_DEBUG = bool(int(os.getenv('ASSETS_DEBUG', False)))
     FLASKS3_ACTIVE = FLASK_ASSETS_USE_S3 = bool(int(os.getenv('FLASKS3_ACTIVE', True)))
@@ -43,6 +44,7 @@ class Production(Config):
 
 
 class Staging(Config):
+    FLASK_CONFIG = 'Staging'
     STAGING = True
     CACHE_CLEAR = bool(int(os.getenv('CACHE_CLEAR', 0)))
     ASSETS_DEBUG = bool(int(os.getenv('ASSETS_DEBUG', False)))
@@ -52,6 +54,7 @@ class Staging(Config):
     SECRET_KEY = os.environ['SECRET_KEY']
 
 class Development(Config):
+    FLASK_CONFIG = 'Development'
     CACHE_CLEAR = True
     DEBUG = True
     SECRET_KEY = 'SuperSecretKey'

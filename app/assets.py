@@ -18,9 +18,9 @@ css_assets = Bundle(scss,
                     )
 
 js_assets = Bundle(
-                #    'js/jquery.min.js',
-                #    'js/jquery.cookie.js',
-                #    'js/bootstrap.js',
+                #    'js/jquery.min.js',    #  loaded by CDN
+                #    'js/jquery.cookie.js', #  loaded by CDN
+                #    'js/bootstrap.js',     #  loaded by CDN
                    'js/typed.js',
                    'js/handlebars-v4.0.5.js',
                    'js/treeview.js',
@@ -32,7 +32,7 @@ js_assets = Bundle(
                    'js/apiSearch.js',
                    'js/navHelper.js',
                    'js/index.js',
-                   'js/apiInsights.js',
+                #    'js/apiInsights.js',
 
                    filters='rjsmin',
                    output='packed/packed.js'

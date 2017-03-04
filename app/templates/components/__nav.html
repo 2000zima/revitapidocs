@@ -46,6 +46,9 @@
 
 
       <ul class="nav navbar-nav navbar-right">
+        {% if not config.PRODUCTION %}
+        <li><a href="">[ {{config.FLASK_CONFIG}} ]</a></li>
+        {% endif %}
 
         <li class="dropdown" id="language-dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
@@ -57,15 +60,12 @@
               <li><a class="language-selector" href="#">C#</a></li>
               <li><a class="language-selector" href="#">VB</a></li>
               <li><a class="language-selector" href="#">C++</a></li>
-              <li><a class="language-selector" href="#">Python <span class="small">[BETA]</span></a></li>
+              <!-- <li><a class="language-selector" href="#">Python <span class="small">[BETA]</span></a></li> -->
             </ul>
         </li>
 
-
+        <!-- <li><a target="_blank" href="http://github.com/gtalarico/revitapidocs"><img src="{{ url_for('static', filename="img/social/social-github-navbar.svg") }}" alt="Github" /></a></li> -->
         <li><a target="_blank" href="http://twitter.com/intent/tweet?text=Check out&url=http://RevitAPIdocs.com&hashtags=revitapi&via=gtalarico&"><img src="{{ url_for('static', filename="img/social/social-twitter-navbar.svg") }}" alt="Tweet" /></a></li>
-        {% if not config.PRODUCTION %}
-        <li><a href="https://github.com/gtalarico/revitapidocs/issues">[BETA]</a></li>
-        {% endif %}
       </ul>
 
 

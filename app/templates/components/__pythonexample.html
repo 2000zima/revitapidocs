@@ -1,0 +1,17 @@
+{% raw %}
+<!-- MOVE THIS SOMEWHERE ELSE -->
+<script id="code-template" type="text/x-handlebars-template">
+<span codelanguage="{{language}}" id="cbc_1" x-lang="{{language}}">
+<div class="highlight-title">
+Python
+</div>
+<div class="code">
+<pre><code><span class="highlight-comment"><em># Mentions of <strong>{{query}}</strong>
+{{#each results}}
+<a href="{{html_url}}">{{path}}</a> : <a href="{{repository.owner.html_url}}">{{repository.full_name}}</a>
+{{/each}}
+</code></pre>
+</div>
+</span>
+</script>
+{% endraw %}

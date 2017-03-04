@@ -127,10 +127,9 @@ ul.breadcrumb {
       border-bottom-color: $brand-primary;
     }
 
-    &:hover,
-    &.missing:hover,
-    &.updated:hover, {
+    &:hover, {
       background-color: #202020;
+      border-bottom-color: #202020;
       color: #fff;
     }
 

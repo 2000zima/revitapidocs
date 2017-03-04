@@ -6,24 +6,23 @@ $(document).ready(function() {
     var query = templateData['entry']['short_title']
     var url = "/api/insights?query=" + query
 
-    var results
+    var response
     var ajaxInsights = $.getJSON(url, function(json) {
-        results  = json
+        response  = json
         console.log('Examples present. Getting Python example...')
     })
 
     ajaxInsights.done(function() {
-        addInsight(results, query)
+        addInsight(response, query)
     })
 
 
 });
 
-function addInsight(results, query) {
-    var match = { 'results' : results,
+function addInsight(response, query) {
+    var match = { 'results' : response['results'],
+                  'url': response['url'],
                   'query': query }
-                 //  'href': items[0]['html_url'],
-                 //  'repo': items[0]['repository']['name'] + ':' + items[0]['repository']['owner']['login']
 
     var source  = $("#code-template").html();
     var template = Handlebars.compile(source);
