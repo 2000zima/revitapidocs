@@ -145,8 +145,7 @@ $(document).on('click', '.node-treeview a, #api-content a', function(e){
             // Contains #,
             contenHref = contenHref.replace('#','')
             var target = $('a[name="' + contenHref + '"]')
-            var parent = (IS_WITH_SIDEBAR) ? $('#content-with-sidebar') : $('body');
-            scrollHelper(parent, target, true)
+            scrollHelper(SCROLL_ELEMENT, target, true)
             urlHelper.updateParam('section', contenHref)
             e.preventDefault()
             return

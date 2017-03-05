@@ -118,53 +118,56 @@ ul.breadcrumb {
     color: $gray-light-lighter;
     border-bottom: $nav-bar-border-width solid $brand-nav-gray;
 
-    &.active {
-      background-color: #1c1c1c;
-      border-bottom-color: $brand-primary;
-    }
-
-    &.active:hover{
-      border-bottom-color: $brand-primary;
-    }
-
-    &:hover, {
-      background-color: #202020;
-      border-bottom-color: #202020;
-      color: #fff;
-    }
-
-    &.unchanged:not(.active) {
-      border-bottom-color: lighten(#222, 15%);
-    }
-
-    &.missing {
-      border-bottom-color: darken($brand-danger,20%);
-    }
-    &.active.missing, &.missing:hover {
-      border-bottom-color: $brand-danger !important;
-    }
-    &.updated {
-      border-bottom-color: darken($brand-warning,15%);
-    }
-    &.active.updated, &.updated:hover {
-      border-bottom-color: $brand-warning;
-    }
-
-    &.exists {
-      border-bottom-color: darken($brand-primary,20%);
-    }
-    &.active.exists, &.exists:hover {
-      border-bottom-color: $brand-primary;
-    }
 
     // Border Removed on Mobile Menu
     @include mobile {
-      a {
         border-bottom-color: $brand-nav-gray !important;
-        }
+    }
+
+    @include desktop {
+      &.active {
+        background-color: #1c1c1c;
+        border-bottom-color: $brand-primary;
       }
+
+      &.active:hover{
+        border-bottom-color: $brand-primary;
+      }
+
+      &:hover, {
+        background-color: #202020;
+        border-bottom-color: #202020;
+        color: #fff;
+      }
+
+      &.unchanged:not(.active) {
+        border-bottom-color: lighten(#222, 15%);
+      }
+
+      &.missing {
+        border-bottom-color: darken($brand-danger,20%);
+      }
+      &.active.missing, &.missing:hover {
+        border-bottom-color: $brand-danger !important;
+      }
+      &.updated {
+        border-bottom-color: darken($brand-warning,15%);
+      }
+      &.active.updated, &.updated:hover {
+        border-bottom-color: $brand-warning;
+      }
+
+      &.exists {
+        border-bottom-color: darken($brand-primary,20%);
+      }
+      &.active.exists, &.exists:hover {
+        border-bottom-color: $brand-primary;
+      }
+
+    }
   }
- }
+
+}
 
 
 ////////////////////////////////////////

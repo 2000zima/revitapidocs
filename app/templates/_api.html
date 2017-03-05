@@ -120,7 +120,7 @@ $(document).ready(function() {
         var target = $('span.selflink').filter(function() {return $(this).text().trim() === urlParams.enumeration} )
         if (target) {
             target.closest('tr').addClass('selected-enumeration')
-            scrollHelper($('#content-with-sidebar'), target, false, 100)
+            scrollHelper(SCROLL_ELEMENT, target, false, 100)
         }
     }
     if (urlParams.section) {
@@ -128,8 +128,7 @@ $(document).ready(function() {
         if (anchor.length == 0) {
             anchor = $('#' + urlParams.section)
         }
-        var parent = $('#content-with-sidebar')
-        scrollHelper(parent, anchor, true, 200)
+        scrollHelper(SCROLL_ELEMENT, anchor, true, 200)
     }
 });
 

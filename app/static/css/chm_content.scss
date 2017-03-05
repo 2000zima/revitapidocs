@@ -152,6 +152,11 @@ article#api-content {
   }
 
   span.highlight-copycode {
+
+    @include mobile {
+      display: none;
+    }
+
     float: right;
     opacity: .75;
     &:hover {

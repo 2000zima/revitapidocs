@@ -10,8 +10,10 @@ var activeHref = window.location.pathname.match(activeHrefPattern)
 activeHref = (activeHref) ? activeHref[1] : null
 
 var IS_MOBILE = ( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent));
-var IS_SMALL_SCREEN = ($(window).width() < 768);
-var IS_WITH_SIDEBAR = !IS_MOBILE && ! IS_SMALL_SCREEN
+var IS_SMALL_SCREEN = function() {return ($(window).width() < 768);}()
+var IS_WITH_SIDEBAR = function() {return !IS_MOBILE && ! IS_SMALL_SCREEN;}()
+
+var SCROLL_ELEMENT = function() { return IS_WITH_SIDEBAR ? $('#content-with-sidebar') : $('body');}()
 
 $(window).resize(function(){
     // Keps Variables Updated
