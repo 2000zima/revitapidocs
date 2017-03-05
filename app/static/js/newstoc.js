@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
 
-    $('#api-news').prepend('<nav id="toc" class="well"><span class="text-muted">Summary</span></br></br></nav>')
+    $('#api-news').prepend('<nav id="toc" class="well"><span class="text-muted">Summary</span></br></nav>')
 
     htmlTableOfContents();
 } );
