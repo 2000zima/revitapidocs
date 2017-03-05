@@ -85,7 +85,7 @@ def api_whats_new(year):
     template = '_api.html'
     entry = {'member_of': "Revit API {}".format(year),
              'member_of_href': '/{}'.format(year),
-             'title': 'API Changes'.format(year),
+             'title': 'API Changes {}'.format(year),
              'description': 'API Changes for the {} API'.format(year),
              }
     content_path = '{}/{}/{}.htm'.format(API_DOCS_NAME, 'news', year)

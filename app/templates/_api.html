@@ -89,6 +89,10 @@
 
 {% block script %}
 <!-- START API SCRIPT  -->
+{% if 'news' in request.path %}
+<script src="{{ url_for('static', filename="js/newstoc.js") }}"></script>
+{% endif %}
+
 <script>
 
 var loadingSpan = '<img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp;Loading'
@@ -121,6 +125,9 @@ $(document).ready(function() {
     }
     if (urlParams.section) {
         var anchor = $('a[name="' + urlParams.section + '"]')
+        if (anchor.length == 0) {
+            anchor = $('#' + urlParams.section)
+        }
         var parent = $('#content-with-sidebar')
         scrollHelper(parent, anchor, true, 200)
     }

@@ -136,7 +136,9 @@ function bindToModalElements(){
 
     // ON MODAL CLOSE
     $('.modal').on('hidden.bs.modal', function (event) {
-        urlHelper.setToYear(activeYear)
+        // urlHelper.setToYear(activeYear)
+        urlHelper.updateParam('query', undefined)
+        urlHelper.updateParam('filter', undefined)
         $('#search-box').focus()
     });
 
