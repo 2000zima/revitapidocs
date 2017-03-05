@@ -100,9 +100,10 @@ def prioritize_match(results=None, raw_query=None, field=None):
     result is pushed up to top of list
     """
     try:
-        pattern = re.compile(raw_query, re.IGNORECASE)
+        exact_query = '^{query}$'.format(query=raw_query)
+        pattern = re.compile(exact_query, re.IGNORECASE)
     except Exception as errmsg:
-        logger.error('prioritize: Could not compile raw_query: {}'.format(raw_query))
+        logger.error('prioritize: Could not compile raw_query: {}'.format(exact_query))
         return results
     prioritized_results = []
     for member in results:
@@ -111,4 +112,5 @@ def prioritize_match(results=None, raw_query=None, field=None):
             logger.debug('Priority Match Found: {}'.format(pattern))
         else:
             prioritized_results.append(member)
+    # import pdb; pdb.set_trace()
     return prioritized_results
