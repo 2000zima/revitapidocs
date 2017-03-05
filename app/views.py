@@ -184,8 +184,8 @@ def add_header(response):
 
 
 # This handles the static files form the .CHM content
-# @cache.cached(timeout=86400)
-# @app.route('/favicon.ico', methods=["GET"])
-# def chm_static_redirect(filename=None):
-    # path = '/static' + request.path
-#     return redirect(path, 301)
+@cache.cached(timeout=86400)
+@app.route('/favicon.ico', methods=["GET"])
+def chm_static_redirect(filename=None):
+    path = '/static' + request.path
+    return redirect(path, 301)
