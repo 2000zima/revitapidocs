@@ -30,7 +30,8 @@ API_DOCS_NAME = app.config['API_DOCS_NAME']
 @app.route('/index.html', methods=['GET'])
 def index():
     title = 'Revit API Docs'
-    return render_template('index.html', title=title)
+    message = os.getenv('MESSAGE')
+    return render_template('index.html', title=title, message=message)
 
 
 @cache.cached(timeout=600)

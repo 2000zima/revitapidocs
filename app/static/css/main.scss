@@ -604,9 +604,8 @@ div#direct-search {
   @extend .col-centered;
   @include transition(all 0.75s ease-in-out);
 
-
   margin-top: 65px;
-  margin-bottom: 85px;
+  margin-bottom: 60px;
   max-width: 600px;
 
   @include mobile {
@@ -638,8 +637,12 @@ div#direct-search {
       margin-bottom: 30px;
     }
   }
-
 }
+
+#message.well {
+  margin-bottom: 35px;
+}
+
 #other-resources{
   display: none;
 }

@@ -21,7 +21,7 @@ class Config(object):
     FLASKS3_USE_CACHE_CONTROL = True
     FLASKS3_HEADERS = {'Cache-Control': 'max-age={}'.format(SEND_FILE_MAX_AGE_DEFAULT)}
 
-    FLASKS3_ONLY_MODIFIED = True
+    FLASKS3_ONLY_MODIFIED = False
     FLASKS3_GZIP = True
 
     AWS_ACCESS_KEY_ID = os.getenv('AWS_ACCESS_KEY_ID')
