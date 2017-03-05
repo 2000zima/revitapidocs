@@ -20,10 +20,10 @@ def static_from_root():
 def year_sitemap(year):
     """Generate sitemap.xml """
     pages = ['http://www.revitapidocs.com/{year}/'.format(year=year)]
-    templates = os.path.join('app', 'templates', str(year))
+    templates = os.path.join('app', 'templates', 'api_docs', str(year))
     for filename in os.listdir(templates):
         url = 'http://www.revitapidocs.com/{year}/{filename}'.format(year=year,
-                                                            filename=filename)
+                                                             filename=filename)
         pages.append(url)
 
     sitemap_xml = render_template('sitemap_template.xml', pages=pages, priority=0.5)
