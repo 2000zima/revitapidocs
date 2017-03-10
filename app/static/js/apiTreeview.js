@@ -5,7 +5,8 @@ $(document).ready(function() {
     // ////////////////////////////
     if (!IS_MOBILE && activeYear){
         // Load Menue, Desktop Only
-        var ajaxNamespaceJson = $.getJSON("namespace.json", function(json) {
+        var ajaxNamespaceJson = $.getJSON(namespaceJson, function(json) {
+        // var ajaxNamespaceJson = $.getJSON("namespace.json", function(json) {
             var namespace_json = JSON.stringify(json)
             buildTreeView(namespace_json)
         });

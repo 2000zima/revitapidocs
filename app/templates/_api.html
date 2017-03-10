@@ -98,12 +98,15 @@
 var loadingSpan = '<img src="{{ url_for('static', filename="img/loader.gif") }}">&nbsp;Loading'
 $('#menu-loading').html(loadingSpan)
 
+var namespaceJson = "{{ url_for('static', filename='json/namespace/' + active_year + '_min.json') }}"
+
 var templateData = { entry: {{entry|tojson|safe }},
                      content_path: "{{content_path|safe}}",
                      active_href : "{{active_href}}",
                      actual_year : "{{actual_year|default('')}}",
                      active_year : "{{active_year}}",
 }
+
 
 var CONSTRUCTOR_KEY = '{{config.CONSTRUCTOR_IO_AUTOCOMPLETE_KEY}}'
 
