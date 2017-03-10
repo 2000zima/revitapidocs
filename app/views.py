@@ -113,7 +113,7 @@ def search_api(year):
     raw_query = request.args.get('query')
 
     if not raw_query or raw_query == '0':
-        return jsonify({'error': 'Invalid Query Param', 'query': raw_query, 'total_results':0})
+        return jsonify({'error': 'Invalid Query Param', 'results':[], 'query': raw_query, 'total_results':0})
 
     final_query = process_query(raw_query)
     final_query_pat = re.compile(final_query, re.IGNORECASE)
@@ -123,7 +123,7 @@ def search_api(year):
     results = search_db(pattern=final_query_pat, field='title')
 
     if not results:
-        return jsonify({'error': 'No Results', 'target_year': year, 'query': raw_query})
+        return jsonify({'error': 'No Results', 'results':[], 'target_year': year, 'query': raw_query})
 
     sorted_results = sorted(results, key=lambda k: k['title'])
     prioritized_results = prioritize_match(results=sorted_results, raw_query=raw_query, field='title')
