@@ -1,1 +1,1 @@
-web: gunicorn app:app --worker-class gevent --preload --log-file -
+web: gunicorn app:app --worker-class sync --preload --log-file -
