@@ -9,6 +9,14 @@ $(document).ready(function() {
         submitSearch(query)
     });
 
+    $("#searchModal").on('shown.bs.modal', function(){
+        var urlParams = urlHelper.getParams()
+        if (urlParams.filter) { filterResults(urlParams.filter) }
+        if (urlParams.scroll) {
+            scrollHelper($(".modal-body"), urlParams.scroll, false, 0)
+        }
+    })
+
 });
 
 function submitSearch(query) {
@@ -45,12 +53,6 @@ function buildResults(rawResultsJson, query) {
     $('.alert').hide();
     $('#searchModal').modal('show');
 
-    var urlParams = urlHelper.getParams()
-    if (urlParams.filter) { filterResults(urlParams.filter) }
-    if (urlParams.scroll) {
-        scrollHelper($('.modal-body'), urlParams.scroll, false, 0)
-    }
-
     // SHOW TRUNCATED WARNING
     var maxResults = resultsJson['max_results']
     var totalResults = resultsJson['total_results']
@@ -63,6 +65,7 @@ function buildResults(rawResultsJson, query) {
 };
 
 function processResults(resultsJson) {
+
     for (i=0; i<resultsJson['results'].length; i++) {
         var entry = resultsJson['results'][i]
         if (entry['tag'] == "Enumeration Member") {
@@ -135,10 +138,11 @@ function bindToModalElements(){
     })
 
     // ON MODAL CLOSE
-    $('.modal').on('hidden.bs.modal', function (event) {
+    $('#searchModal').on('hidden.bs.modal', function (event) {
         // urlHelper.setToYear(activeYear)
         urlHelper.updateParam('query', undefined)
         urlHelper.updateParam('filter', undefined)
+        urlHelper.updateParam('scroll', undefined)
         $('#search-box').focus()
     });
 

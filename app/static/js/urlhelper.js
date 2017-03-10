@@ -63,7 +63,9 @@ var urlHelper = new function() {
           var re = new RegExp("([?&])" + key + "=.*?(&|#|$)", "i");
           if( value === undefined ) {
           	if (uri.match(re)) {
-        		return uri.replace(re, '$1$2');
+                uri = uri.replace(re, '$1$2');
+                // uri = uri.replace(re, '');
+        		return uri
         	} else {
         		return uri;
         	}

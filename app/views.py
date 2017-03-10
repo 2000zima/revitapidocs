@@ -106,8 +106,8 @@ def ajax_namespace_get(year):
     # else:
     #     abort(404)
 
-
 @app.route('/<string:year>/search', methods=['GET'])
+@Timer.time_function('Search')
 def search_api(year):
     MAX_RESULTS = 300
     raw_query = request.args.get('query')
