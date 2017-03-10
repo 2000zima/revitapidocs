@@ -140,6 +140,7 @@ function bindToModalElements(){
     // ON MODAL CLOSE
     $('#searchModal').on('hidden.bs.modal', function (event) {
         // urlHelper.setToYear(activeYear)
+        // urlHelper.pushUrl(activeHref)
         urlHelper.updateParam('query', undefined)
         urlHelper.updateParam('filter', undefined)
         urlHelper.updateParam('scroll', undefined)
