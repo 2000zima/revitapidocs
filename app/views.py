@@ -99,12 +99,10 @@ def api_whats_new(year):
 @cache.cached(timeout=3600)  # 1 Hour
 @app.route('/<string:year>/namespace.json', methods=['GET'])
 def ajax_namespace_get(year):
-    raise NotImplemented("Namespace json is on S3")
-    # namespace_json_year = namespace_jsons.get(year)
-    # if namespace_json_year:
-    #     return jsonify(namespace_json_year)
-    # else:
-    #     abort(404)
+    namespace_url = url_for('static', filename='json/namespace/{year}_min.json'.format(year=year))
+    logger.warning('namespace json view called: {}'.format(namespace_url))
+    return redirect(namespace_url)
+
 
 @app.route('/<string:year>/search', methods=['GET'])
 @Timer.time_function('Search')
