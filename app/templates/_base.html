@@ -108,20 +108,9 @@
         <!-- END JS WEBASSETS -->
 
         {# Google Analytics Script #}
-        <!-- PRODUCTION:VAR {{config.PRODUCTION}} -->
-        {% if config.PRODUCTION %}
-            <!-- BASE: START GOOGLE ANALYTICS - HIDDEN WHEN DEBUG -->
-            {% include 'components/__analytics.html' %}
-            <script>console.log('GA Loaded')</script>
-            <!-- BASE: END GOOGLE ANALYTICS -->
-        {% else %}
-            <script>var ga = function(send, pageview, pattern){
-            console.log('GA Dummy func: ' + pattern)};
-            </script>
-            <!-- BASE: PRODUCTION IS NOT ON: GOOGLE ANALYTICS HIDDEN -->
-        {% endif %}
-
+        {% include 'components/__analytics.html' %}
         <!-- BASE: START CHILD SCRIPT BLOCK -->
+
         {% block script %}
             {# End of page script for child template: ie: menu script requiest context #}
         {% endblock %}

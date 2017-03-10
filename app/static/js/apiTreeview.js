@@ -160,6 +160,7 @@ $(document).on('click', '.node-treeview a, #api-content a', function(e){
         ajaxHelper.loadContent(json, false)
         ajaxHelper.updateYearNavStatus(json)
         urlHelper.pushUrl(contenHref)
+        ga('send', 'pageview', '/' + activeYear + '/' + contenHref);
     });
 
     if (!IS_MOBILE && !IS_SMALL_SCREEN) {
