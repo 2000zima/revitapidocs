@@ -19,11 +19,11 @@ logger.info('DB_INDEX.JSON loaded.')
 available_apis = app.config['AVAILABLE_APIS']
 namespace_jsons = {}
 
-for year in available_apis:
-    filename = 'namespace_{year}_min.json'.format(year=year)
-    fullpath = os.path.join(json_dir, filename)
-    with open(fullpath) as fp:
-        jdata = json.load(fp, object_hook=OrderedDict)
-    namespace_jsons[year] = jdata
-
-logger.info('Namespace Tree loaded.')
+# REMOVED: SAVED ON S3 requested directly through AJAX
+# for year in available_apis:
+#     filename = 'namespace_{year}_min.json'.format(year=year)
+#     fullpath = os.path.join(json_dir, filename)
+#     with open(fullpath) as fp:
+#         jdata = json.load(fp, object_hook=OrderedDict)
+#     namespace_jsons[year] = jdata
+# logger.info('Namespace Tree loaded.')
