@@ -24,7 +24,6 @@ js_assets = Bundle(
                    'js/typed.js',
                    'js/handlebars-v4.0.5.js',
                    'js/treeview.js',
-
                    'js/main.js',
                    'js/urlhelper.js',
                    'js/ajaxHelper.js',
