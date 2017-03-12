@@ -164,6 +164,10 @@ $(document).on('click', '.node-treeview a, #api-content a', function(e){
         filterLanguage()
         ga('send', 'pageview', '/' + activeYear + '/' + contenHref);
     });
+    ajaxContent.fail(function(e){
+        $("#content-with-sidebar").html(
+            '<span class="text-danger">Request Error.</span>')
+    })
 
     if (!IS_MOBILE && !IS_SMALL_SCREEN) {
         var $treeview = $('#treeview')
