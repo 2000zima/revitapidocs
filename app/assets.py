@@ -24,31 +24,19 @@ js_assets = Bundle(
                    'js/typed.js',
                    'js/navHelper.js',
                    'js/urlhelper.js',
+                   'js/ajaxHelper.js',
                    'js/main.js',
                    'js/index.js',
                    filters='rjsmin',
-                   output='packed/packed.js'
+                   output='packed/js_packed.js'
                   )
 
 js_api_assets = Bundle(
                    'js/handlebars-v4.0.5.js',
                    'js/treeview.js',
-                   'js/ajaxHelper.js',
                    'js/apiTreeview.js',
                    'js/apiSearch.js',
                 #    'js/apiInsights.js',
                    filters='rjsmin',
-                   output='packed/packed.js'
+                   output='packed/api_packed.js'
                   )
-
-# js_chm = Bundle('scripts/overrides.js',
-#                 # 'scripts/EventUtilities.js',
-#                 # 'scripts/SplitScreen.js',
-#                 # 'scripts/Dropdown.js',
-#                 # 'scripts/script_manifold.js',
-#                 # 'scripts/script_feedBack.js',
-#                 # 'scripts/CheckboxMenu.js',
-#                 # 'scripts/CommonUtilities.js',
-#                 filters='rjsmin',
-#                 output=join('packed/chm_packed.jss')
-#                 )
