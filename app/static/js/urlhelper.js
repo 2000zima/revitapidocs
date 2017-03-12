@@ -15,6 +15,16 @@ var urlHelper = new function() {
       }
   }
 
+  this.getState = function() {
+      var re = new RegExp('(?:#)([^#&?]+)')
+      return this.getUrl().match(re)
+  }
+
+  this.getStates = function() {
+      var re = new RegExp('(?:#)([^#&?]+)', 'g')
+      return this.getUrl().match(re)
+  }
+
   this.getParams = function() {
       // Returns all params in url as json object
       var uri = this.getUrlParams()

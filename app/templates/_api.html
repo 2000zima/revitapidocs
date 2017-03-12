@@ -89,9 +89,15 @@
 
 {% block script %}
 <!-- START API SCRIPT  -->
+
+{% assets "js_api_assets" %}
+<script src="{{ ASSET_URL }}"></script>
+{% endassets %}
+<!-- WHATS NEW SCRIPT -->
 {% if 'news' in request.path %}
 <script src="{{ url_for('static', filename="js/newstoc.js") }}"></script>
 {% endif %}
+
 
 <script>
 

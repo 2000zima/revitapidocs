@@ -92,10 +92,17 @@ $('.panel-heading').on('click', function(event){
 // Restore Panel from URL State
 //////////////////////////////////////////////////////////////
 function check_panel_url(){
-  var panelId = getUrlState() // Returns anything after a # sign
+
+  var state = urlHelper.getState()
+  if (state && state.length > 0) {
+      var panelId = state[0]
+  }
   if(panelId) {
       console.log('Has Panel:' + panelId)
-      $('#'+panelId).children('.panel-collapse').collapse('show')
+      var $panel = $(panelId).children('.panel-collapse')
+      $panel.collapse('show')
+      var $parent = $('#content-full-width')
+      scrollHelper($parent, $panel, true, 100)
   }
 };
 

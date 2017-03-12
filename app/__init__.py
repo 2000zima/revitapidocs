@@ -7,7 +7,7 @@ from flask_caching import Cache
 from flask_s3 import FlaskS3
 from flask_debugtoolbar import DebugToolbarExtension
 
-from app.assets import css_assets, js_assets
+from app.assets import css_assets, js_assets, js_api_assets
 from app.utils.logger import logger
 
 # Config
@@ -34,6 +34,7 @@ if bool(int(os.getenv('CACHE_CLEAR', 0))):
 assets = Environment(app)
 assets.register('css_assets', css_assets)
 assets.register('js_assets', js_assets)
+assets.register('js_api_assets', js_api_assets)
 logger.debug('ASSETS DEBUG: {}'.format(assets.debug))
 
 logger.debug('FLASK S3 ACTIVE: {}'.format(app.config['FLASKS3_ACTIVE']))

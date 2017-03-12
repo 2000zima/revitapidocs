@@ -18,21 +18,25 @@ css_assets = Bundle(scss,
                     )
 
 js_assets = Bundle(
-                #    'js/jquery.min.js',    #  loaded by CDN
+                #    'js/jquery.min.js',    #  loaded by CDN, use this when dev no internet
                 #    'js/jquery.cookie.js', #  loaded by CDN
                 #    'js/bootstrap.js',     #  loaded by CDN
                    'js/typed.js',
+                   'js/navHelper.js',
+                   'js/urlhelper.js',
+                   'js/main.js',
+                   'js/index.js',
+                   filters='rjsmin',
+                   output='packed/packed.js'
+                  )
+
+js_api_assets = Bundle(
                    'js/handlebars-v4.0.5.js',
                    'js/treeview.js',
-                   'js/main.js',
-                   'js/urlhelper.js',
                    'js/ajaxHelper.js',
                    'js/apiTreeview.js',
                    'js/apiSearch.js',
-                   'js/navHelper.js',
-                   'js/index.js',
                 #    'js/apiInsights.js',
-
                    filters='rjsmin',
                    output='packed/packed.js'
                   )
