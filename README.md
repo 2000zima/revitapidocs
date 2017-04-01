@@ -4,8 +4,10 @@ Online Revit API Documentation: 2015, 2016, 2017
 
 [www.RevitAPIdocs.com](http://www.revitapidocs.com)
 
-###### Google Custom Search Link
-https://cse.google.com/cse/publicurl?cx=014747897160299638528:fxtbgkrsxas
+##### Contribute
+
+* Help grow the Code Sample collection by becoming a contributor on [revitapidocs.code](https://github.com/gtalarico/revitapidocs.code)
+* Report Issues and suggest improvements
 
 ##### Credits
 ###### Server Side
@@ -23,6 +25,14 @@ https://cse.google.com/cse/publicurl?cx=014747897160299638528:fxtbgkrsxas
 
 ###### Front End
 * [Bootrap 3](http://getbootstrap.com/)
+* [Handlebars](http://handlebarsjs.com/)
+* [Hihglight.js](https://highlightjs.org/)
+* [typed.js](https://github.com/mattboldt/typed.js/)
+* [Bootstrap Treeview](https://github.com/jonmiles/bootstrap-treeview)
 * Autocomplete [Constructor.IO](https://www.constructor.io)
-* Node Navigation [Bootstrap Treeview](https://github.com/jonmiles/bootstrap-treeview)
 * Theme by [Bootswatch](http://bootswatch.com/)
+
+##### License
+[License](https://github.com/gtalarico/revitapidocs/blob/master/LICENSE.md)
+
+Copyright (c) 2016-2017 Gui Talarico

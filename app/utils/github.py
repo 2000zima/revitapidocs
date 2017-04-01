@@ -61,7 +61,7 @@ class GithubRepoWrapper:
 repo = GithubRepoWrapper()
 @cache.cached(timeout=21600, key_prefix='gists')  # 6 Hour
 def get_repo_data():
-    # repo.EnsureOnline()
+    #TODO: Clean this shit up
     folders = [f for f in repo.content if f.path.endswith('-code')]
     repo_json = {'folders': {}}
     errors = []
