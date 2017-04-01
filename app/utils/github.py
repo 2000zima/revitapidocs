@@ -81,8 +81,8 @@ def get_repo_data():
                 errors.append('Could not Parse: {}'.format(str(chunks)))
                 continue
             file_group, file_name = chunks
-            files_by_group[file_group][file_name] = {'name': file_name,
-                                                     'id': file_name.split('.')[0],
+            files_by_group[file_group][file_name] = {'name': file_name.split('.')[0],
+                                                     'id': file_name.replace('.','-'),
                                                      'data': file_data
                                                      }
 

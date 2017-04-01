@@ -56,8 +56,6 @@
 
                         {{#each folders}}
                         <div class="tab-pane fade {{#if @first}}active in{{/if}}" id="{{name}}">
-                          <p>id: {{name}}</p>
-
 
                             <div class="row"> <!--  ROW -->
                                 {{#each contents}}
@@ -65,7 +63,7 @@
                                     <br/>
                                     <h4>{{ @key }}</h4>
                                     <hr />
-                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="false">
+                                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
                                     {{#each this}}
                                           <div class="panel panel-default" id="{{ id }}">
                                             <div class="panel-heading" role="button" id="heading{{@../../index}}-{{@../index}}-{{@index}}"  data-toggle="collapse" data-parent="#accordion" href="#collapse{{@../../index}}-{{@../index}}-{{@index}}" aria-expanded="true" aria-controls="collapse{{@../../index}}-{{@../index}}-{{@index}}">
@@ -74,8 +72,8 @@
                                               </h5>
                                             </div>
                                             <div id="collapse{{@../../index}}-{{@../index}}-{{@index}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{@../../index}}-{{@../index}}-{{@index}}">
-                                              <div class="panel-body gist-panel">
-                                                {{ data.html_url }}
+                                              <div class="panel-body panel-code" data-url="{{ data.download_url }}">
+                                                  <pre><code class="{{../../name}}"></code></pre>
                                               </div>
                                             </div>
                                           </div>
@@ -108,7 +106,7 @@
     #}
     <!-- END ADSENSE -->
     <!-- DISQUS -->
-    {% include 'components/__disqus.html' %}
+    {# include 'components/__disqus.html' #}
     <!-- DISQUS -->
 
 </div>
@@ -123,36 +121,7 @@
 
 <script>
 
-//////////////////////////////////////////////////////////////
-// Send Panel Click to Google Analytics, and create URL state
-//////////////////////////////////////////////////////////////
-// $('.panel-heading').on('click', function(event){
-    // var gist_id = $(this).parent().attr('id')
-    // ga('send', 'pageview', '/python/#' + gist_id);
-    // history.pushState(null, null, '#' + gist_id);
-// })
-
-//////////////////////////////////////////////////////////////
-// Restore Panel from URL State
-//////////////////////////////////////////////////////////////
-// function check_panel_url(){
-//
-//   var state = urlHelper.getState()
-//   if (state && state.length > 0) {
-//       var panelId = state[0]
-//   }
-//   if(panelId) {
-//       console.log('Has Panel:' + panelId)
-//       var $panel = $(panelId).children('.panel-collapse')
-//       $panel.collapse('show')
-//       var $parent = $('#content-full-width')
-//       scrollHelper($parent, $panel, true, 100)
-//   }
-// };
-
-
 $(document).ready(function() {
-    // check_panel_url()
 
     var url = "/api/code"
 
@@ -163,13 +132,14 @@ $(document).ready(function() {
 
     ajaxCode.done(function() {
         injectCode(response)
+        bindPanelsClick()
+        restorePanelFromUrl()
     })
 
 
 });
 
 function injectCode(response) {
-    console.log(response)
 
     if (response.error) {
         var $githubError = $('#github-error')
@@ -181,6 +151,7 @@ function injectCode(response) {
 
 
     if (response.folders) {
+        console.log('Repo Data Acquired.')
         var source  = $("#repo-code-template").html();
         var template = Handlebars.compile(source);
         var html = template(response);
@@ -192,11 +163,70 @@ function injectCode(response) {
         $githubError.show()
         $githubError.find('span').html(response.error)
     }
-
-    // $('.alert').hide()
-
 }
 
+//////////////////////////////////////////////////////////////
+// Send Panel Click to Google Analytics, and create URL state
+//////////////////////////////////////////////////////////////
+function bindPanelsClick() {
+    loadCode()
+
+    $('.panel-heading').on('click', function(event){
+        var $this = $(this)
+        var panelId = $this.parent().attr('id')
+        var tabId = $this.parents('.tab-pane').attr('id')
+        ga('send', 'pageview', `code/#${tabId}_${panelId}`);
+        history.pushState(null, null, `#${tabId}_${panelId}`);
+
+        $('.panel-heading').parent(`:not([id='${panelId}'])`).find('.panel-collapse').collapse('hide')
+
+    })
+}
+
+function loadCode(){
+    $('.panel-code').each(function(key, panel) {
+
+        var codeUrl = $(panel).data('url')
+
+        var response
+        var ajaxCodeContent = $.get(codeUrl, function(json) {
+            response  = json
+            console.log('Data Acquired')
+        })
+
+        ajaxCodeContent.done(function() {
+            var $code = $(panel).find('code')
+            $code.html(response)
+            hljs.highlightBlock($code[0])
+        })
+
+    })
+}
+
+
+////////////////////////////////////////////////////////////
+// Restore Panel from URL State
+////////////////////////////////////////////////////////////
+function restorePanelFromUrl(){
+
+  var state = urlHelper.getState()
+  if (state && state.length > 0) {
+      var tabPanelId = state[0]
+  }
+  if(tabPanelId) {
+      console.log('Has Panel:' + tabPanelId)
+      var chunks = tabPanelId.split('_')
+      var tabId = `${chunks[0]}`
+      var panelId = `#${chunks[1]}`
+
+      $('.nav-tabs a[href="' + tabId + '"]').tab('show');
+
+      var $panel = $(panelId).children('.panel-collapse')
+      $panel.collapse('show')
+      var $parent = $('#content-full-width')
+      scrollHelper($parent, $panel, true, 100)
+  }
+};
 
 </script>
 {% endblock %}
