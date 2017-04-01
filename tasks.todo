@@ -1,21 +1,23 @@
-Taks:
-☐ OnClick for Section Toggles
-☐ Add New Header
-    ☐ Clean Breadcrumb
-    ☐ Edit On Github
-    ☐ Page year Data
+Code Sampels:
+☐ Allow External contributors on Code Sample Section
+
+Feature Taks:
+✔ Add New Header @done(2017-04-01 19:29)
+    ✔ Clean Breadcrumb @done(2017-04-01 19:29)
+    ✔ Edit On Github @done(2017-04-01 19:29)
+    ✔ Page year Data @done(2017-04-01 19:29)
     ☐ Insights Link
-☐ Clean up api.html
-    ☐ Clean URL/URI logic for page state
-    ☐ Clean and review scroll storage
-    ☐ Clean and review data passing between view.py and template
-☐ Check Diff Data Logic
+✔ Clean up api.html @done(2017-04-01 19:29)
+    ✔ Clean URL/URI logic for page state @done(2017-04-01 19:29)
+    ✔ Clean and review scroll storage @done(2017-04-01 19:29)
+    ✔ Clean and review data passing between view.py and template @done(2017-04-01 19:29)
+✔ Check Diff Data Logic @done(2017-04-01 19:29)
 
 Features:
 
 ✔ Parse Revit API 2017.1 @done(2017-02-20 04:13)
 ☐ Inisights
-☐ Edit on Github
+✔ Edit on Github @done(2017-04-01 19:29)
 ✔ Breadcrumbs @done(2017-02-21 03:36)
 
 Organization:
