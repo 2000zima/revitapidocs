@@ -16,7 +16,6 @@ from app.utils.db_utils import search_db
 from app.utils.db_utils import get_entry, get_best_entry_match
 from app.utils.db_utils import process_query, prioritize_match
 
-from app.utils.gists import get_gists
 from app.utils.github import get_repo_data
 from app.utils.misc import Timer
 from app.utils.logger import logger
@@ -144,18 +143,15 @@ def search_api(year):
 @app.route('/code/', methods=['GET'])
 @app.route('/code/<path:path>', methods=['GET'])
 def code(path=None):
-    # gists_by_categories = get_gists()
-    # d = OrderedDict(sorted(gists_by_categories.items()))
-    # import pdb; pdb.set_trace()
     entry = {'title': 'Revit API - Code Samples',
              'description': 'Code Samples Repository for the Revit API'}
     return render_template('code.html')
+
 
 @app.route('/api/code', methods=['GET'])
 def code_api():
     repo = get_repo_data()
     return jsonify(repo)
-
 
 
 @app.route('/api/insights', methods=['GET'])

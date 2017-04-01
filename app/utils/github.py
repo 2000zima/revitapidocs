@@ -66,6 +66,7 @@ def get_repo_data():
     repo_json = {'folders': {}}
     errors = []
     for folder in folders:
+        message_data = None
         files_by_group = defaultdict(dict)
         folder_name = folder.name
 
@@ -73,6 +74,10 @@ def get_repo_data():
 
             if file_data['name'].endswith('.name'):
                 folder_name = file_data['name'].replace('.name', '')
+                continue
+
+            if file_data['name'] == 'message.html':
+                message_data = file_data
                 continue
 
             chunks = file_data['name'].split('_')
@@ -88,13 +93,17 @@ def get_repo_data():
 
         folder_json = {'name': folder_name, 'contents': files_by_group }
         repo_json['folders'][folder.name] = folder_json
+        if message_data:
+            repo_json['folders'][folder.name]['message'] = message_data
 
     logger.info('Gettings Repo. Rate: {}/{}'.format(repo.remaining,
                                                     repo.limit))
-    if errors:
-        repo_json['error'] = errors
+    if hasattr(repo, 'error'):
+        errors.append(repo.error.data['message'])
 
     if not repo_json['folders']:
-        repo_json = {'error': [repo.error] }
-    # import pdb; pdb.set_trace()
+        errors.append('repository did not return valid data')
+
+    if errors:
+        repo_json['error'] = errors
     return repo_json
