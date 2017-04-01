@@ -22,6 +22,7 @@ js_assets = Bundle(
                 #    'js/jquery.cookie.js', #  loaded by CDN
                 #    'js/bootstrap.js',     #  loaded by CDN
                    'js/typed.js',
+                   'js/handlebars-v4.0.5.js',
                    'js/navHelper.js',
                    'js/urlhelper.js',
                    'js/ajaxHelper.js',
@@ -32,7 +33,6 @@ js_assets = Bundle(
                   )
 
 js_api_assets = Bundle(
-                   'js/handlebars-v4.0.5.js',
                    'js/treeview.js',
                    'js/apiTreeview.js',
                    'js/apiSearch.js',
