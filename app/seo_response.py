@@ -40,7 +40,8 @@ def sitemap():
              'http://www.revitapidocs.com/2015/',
              'http://www.revitapidocs.com/2016/',
              'http://www.revitapidocs.com/2017/',
-             'http://www.revitapidocs.com/python/',
+             'http://www.revitapidocs.com/2017.1/',
+             'http://www.revitapidocs.com/code/',
             ]
 
     sitemap_xml = render_template('sitemap_template.xml', pages=pages, priority=1.0)
