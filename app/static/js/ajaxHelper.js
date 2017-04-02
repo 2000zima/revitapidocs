@@ -39,7 +39,7 @@ var ajaxHelper = new function() {
         $('#nav-main a').each(function(index, navLiTag) {
             var $navLiTag = $(navLiTag)
             var title = $navLiTag.attr('data-name')
-            if (title != 'Code' && contentJson['entry']['years']) {
+            if (title != 'Code Samples' && contentJson['entry']['years']) {
                 // console.log('Adding: ' + $navLiTag.attr('title'))
                 var year = $(navLiTag).attr('data-name')
                 var status = years[year]
