@@ -36,7 +36,7 @@ var ajaxHelper = new function() {
     ///////////////////////////
     this.updateYearNavStatus = function(contentJson) {
         var years = contentJson['entry']['years']
-        $('#nav-main a').each(function(index, navLiTag) {
+        $('#nav-main a api-button').each(function(index, navLiTag) {
             var $navLiTag = $(navLiTag)
             var title = $navLiTag.attr('data-name')
             if (title != 'Code Samples' && contentJson['entry']['years']) {

@@ -23,7 +23,7 @@
             {% if entry and entry.get('years') %}
             {% set status = entry['years'][btn_year]|default('missing') %}
             {{ status }}
-            {% endif %}"
+            {% endif %} api-button"
             href="/{{btn_year}}/{% if btn_year != active_year %}{{ active_href if active_href is not none }}{% endif %}"
             data-toggle="tooltip"
             data-placement="bottom"
