@@ -49,7 +49,7 @@ $(document).ready(function(e){
       $('span#dropdown-label').text(year)
     }
     else{
-      localStorageHelper.set('revitapidocs_year', '2017.1');
+      localStorageHelper.set('revitapidocs_year', '2018');
     }
 
     // Select Item from dropdown

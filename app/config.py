@@ -28,7 +28,7 @@ class Config(object):
     AWS_SECRET_ACCESS_KEY = os.getenv('AWS_SECRET_ACCESS_KEY')
     JSONIFY_PRETTYPRINT_REGULAR = False
 
-    AVAILABLE_APIS = ['2015', '2016', '2017', '2017.1']
+    AVAILABLE_APIS = ['2015', '2016', '2017', '2017.1', '2018']
     API_DOCS_NAME = 'api_docs'
     API_DOCS_PATH = os.path.join(TEMPLATEDIR, API_DOCS_NAME)
 

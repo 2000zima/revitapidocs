@@ -41,6 +41,7 @@ def sitemap():
              'http://www.revitapidocs.com/2016/',
              'http://www.revitapidocs.com/2017/',
              'http://www.revitapidocs.com/2017.1/',
+             'http://www.revitapidocs.com/2018/',
              'http://www.revitapidocs.com/code/',
             ]
 

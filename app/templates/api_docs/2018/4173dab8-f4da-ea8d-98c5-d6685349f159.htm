@@ -1,0 +1,152 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="35859972-2407-3910-cb07-bbb337e307e6.htm">
+       ControlledApplication Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Subscribe to the LinkedResourceOpened event to be notified immediately after Revit has finished opening a linked resource.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="91957e18-2935-006c-83ab-3b5b9dbb5928.htm">
+      Autodesk.Revit.ApplicationServices
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 18.0.0.0 (18.0.0.420)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2018
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> event <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="4d82ed63-8fd2-71a9-52e8-4695ab299b1b.htm">LinkedResourceOpenedEventArgs</a>&gt; <span class="identifier">LinkedResourceOpened</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> Event <span class="identifier">LinkedResourceOpened</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>(<span class="keyword">Of</span> <a href="4d82ed63-8fd2-71a9-52e8-4695ab299b1b.htm">LinkedResourceOpenedEventArgs</a>)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+ <span class="keyword">event</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="4d82ed63-8fd2-71a9-52e8-4695ab299b1b.htm">LinkedResourceOpenedEventArgs</a>^&gt;^ <span class="identifier">LinkedResourceOpened</span> {
+	<span class="keyword">void</span> <span class="keyword">add</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="4d82ed63-8fd2-71a9-52e8-4695ab299b1b.htm">LinkedResourceOpenedEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+	<span class="keyword">void</span> <span class="keyword">remove</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="4d82ed63-8fd2-71a9-52e8-4695ab299b1b.htm">LinkedResourceOpenedEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This event is raised immediately after Revit has finished opening a linked resource.
+   Only supports linked resources for following types : Revit; IFC; CAD(dwg, dxf, dgn, sat); Topography;
+   It is raised even when a linked resource opening failed.
+   The LinkedResourceOpened events would not raised if there are no update on linked CAD, IFC resources.
+     </p>
+     <p>
+      Check the 'Status' field in event's argument to see whether the action itself was successful or not.
+     </p>
+     <p>
+      Another
+      <a href="54d34744-25e2-4e7b-87ef-695aa00fe899.htm">
+       LinkedResourceOpening
+      </a>
+      event will be raised when Revit is just about to
+   open a linked resource.
+     </p>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="35859972-2407-3910-cb07-bbb337e307e6.htm">
+       ControlledApplication Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="91957e18-2935-006c-83ab-3b5b9dbb5928.htm">
+       Autodesk.Revit.ApplicationServices Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

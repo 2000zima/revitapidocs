@@ -1,0 +1,171 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="3e845cad-eca0-ccb3-785b-48a32a9f2677.htm">
+       IRebarUpdateServer Interface
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     This function is supposed to trim or extend curves that were obtained from calling GenerateCurves(). Also in this function can be set new constraints for start and end handles.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+      Autodesk.Revit.DB.Structure
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 18.0.0.0 (18.0.0.420)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2018
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">TrimExtendCurves</span>(
+	<a href="980b816d-dc7e-7550-3e37-61482516b5ab.htm">RebarTrimExtendData</a> <span class="parameter">trimExtendData</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Function</span> <span class="identifier">TrimExtendCurves</span> ( _
+	<span class="parameter">trimExtendData</span> <span class="keyword">As</span> <a href="980b816d-dc7e-7550-3e37-61482516b5ab.htm">RebarTrimExtendData</a> _
+) <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">Boolean</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="http://msdn2.microsoft.com/en-us/library/a28wyd50" target="_blank">bool</a> <span class="identifier">TrimExtendCurves</span>(
+	<a href="980b816d-dc7e-7550-3e37-61482516b5ab.htm">RebarTrimExtendData</a>^ <span class="parameter">trimExtendData</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="trimExtendData">
+       <dt>
+        <span class="parameter">
+         trimExtendData
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="980b816d-dc7e-7550-3e37-61482516b5ab.htm">
+         Autodesk.Revit.DB.Structure
+         RebarTrimExtendData
+        </a>
+        <br/>
+        Use the members of this class to access the inputs and define any trim/extend actions to be taken for bars in the free form rebar.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     Returns true if the trim/extend was successful, false otherwise.
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This function is called in the regeneration context when at least one data in trimExtendData parameter was changed. It is called immediately after GenerateCurves() and only if GenerateCurves() returns true.
+     </p>
+     <p>
+      If new constraints were created for start or end handle, a new regeneration will take place and the new constraints will become the rebar's actual constraints.
+     </p>
+     <p>
+      If new curves will be added by calling TrimExtendData.AddBarGeometry(), the existing curves in Rebar element will be replaced with these curves. It will not add curves to the existing ones.
+     </p>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="3e845cad-eca0-ccb3-785b-48a32a9f2677.htm">
+       IRebarUpdateServer Interface
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="d586b341-f687-9d90-e96d-255806b7d4fc.htm">
+       Autodesk.Revit.DB.Structure Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

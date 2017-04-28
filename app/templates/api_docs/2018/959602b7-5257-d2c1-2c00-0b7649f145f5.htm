@@ -1,0 +1,276 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="7d0dc6df-db0e-6a07-3b42-8dde1bedb3c1.htm">
+       IExportContext Interface
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     This method marks the beginning of a 3D view to be exported.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 18.0.0.0 (18.0.0.420)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="39f98799-628b-8d65-765c-ca86949ce7ed.htm">RenderNodeAction</a> <span class="identifier">OnViewBegin</span>(
+	<a href="7cadfd9b-70df-5235-038f-a0535eee6f28.htm">ViewNode</a> <span class="parameter">node</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Function</span> <span class="identifier">OnViewBegin</span> ( _
+	<span class="parameter">node</span> <span class="keyword">As</span> <a href="7cadfd9b-70df-5235-038f-a0535eee6f28.htm">ViewNode</a> _
+) <span class="keyword">As</span> <a href="39f98799-628b-8d65-765c-ca86949ce7ed.htm">RenderNodeAction</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><a href="39f98799-628b-8d65-765c-ca86949ce7ed.htm">RenderNodeAction</a> <span class="identifier">OnViewBegin</span>(
+	<a href="7cadfd9b-70df-5235-038f-a0535eee6f28.htm">ViewNode</a>^ <span class="parameter">node</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="node">
+       <dt>
+        <span class="parameter">
+         node
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="7cadfd9b-70df-5235-038f-a0535eee6f28.htm">
+         Autodesk.Revit.DB
+         ViewNode
+        </a>
+        <br/>
+        Geometry node associated with the view.
+       </dd>
+      </dl>
+     </div>
+     <h4 class="subHeading">
+      Return Value
+     </h4>
+     Return RenderNodeAction.Skip if you wish to skip exporting this view,
+   or return RenderNodeAction.Proceed otherwise.
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// This method marks the start of processing a view (a 3D view)</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-keyword">public</span> RenderNodeAction OnViewBegin(ViewNode node)
+{
+   <span class="highlight-comment">// If we did not do so before we invoked the custom export</span>
+   <span class="highlight-comment">// we can get information about the view from the supplied view node,</span>
+   <span class="highlight-comment">// That includes : rendering settings, sun settings, camera data, etc.</span>
+
+   <span class="highlight-comment">// Get the view information from the node.</span>
+   View3D theView = m_document.GetElement(node.ViewId) <span class="highlight-keyword">as</span> View3D;
+   <span class="highlight-keyword">string</span> viewName = theView.ViewName;
+
+   <span class="highlight-comment">// Get the view's Orientation information.</span>
+   ViewOrientation3D theOrientation = theView.GetOrientation();
+
+   <span class="highlight-comment">// Get the view's camera information, such as whether is a perspective view.</span>
+   CameraInfo camera = node.GetCameraInfo();
+   <span class="highlight-keyword">bool</span> isPerspective = camera.IsPespective;
+
+   <span class="highlight-comment">// Get the view's render setting information, such as background style.</span>
+   RenderingSettings renderSettings = theView.GetRenderingSettings();
+   BackgroundStyle bkStyle = renderSettings.BackgroundStyle;
+
+   <span class="highlight-comment">// Get the view's sun related information</span>
+   SunAndShadowSettings sun = theView.SunAndShadowSettings;
+
+   <span class="highlight-comment">// We can also determine whether we need to process instance of light objects (OnLight)</span>
+   <span class="highlight-keyword">bool</span> needToExportLight =
+      (renderSettings.LightingSource != LightingSource.ExteriorSun) &amp;&amp;
+      (renderSettings.LightingSource != LightingSource.InteriorSun);
+
+   <span class="highlight-comment">// We can either skip this view or proceed with rendering it</span>
+   <span class="highlight-keyword">return</span> RenderNodeAction.Proceed;
+}
+
+<span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// This method marks the end of processing a view (a 3D view)</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> OnViewEnd(ElementId elementId)
+{
+   <span class="highlight-comment">// elementId it indicates which view has just been exported</span>
+
+   <span class="highlight-comment">// Note: This method is invoked even for a view that was skipped.</span>
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">' &lt;summary&gt;</span>
+<span class="highlight-comment">' This method marks the start of processing a view (a 3D view)</span>
+<span class="highlight-comment">' &lt;/summary&gt;</span>
+<span class="highlight-keyword">Public</span> <span class="highlight-keyword">Function</span> OnViewBegin(node <span class="highlight-keyword">As</span> ViewNode) <span class="highlight-keyword">As</span> RenderNodeAction <span class="highlight-keyword">Implements</span> IExportContext.OnViewBegin
+    <span class="highlight-comment">' If we did not do so before we invoked the custom export</span>
+    <span class="highlight-comment">' we can get information about the view from the supplied view node,</span>
+    <span class="highlight-comment">' That includes : rendering settings, sun settings, camera data, etc.</span>
+
+
+    <span class="highlight-comment">' Get the view information from the node.</span>
+    <span class="highlight-keyword">Dim</span> theView <span class="highlight-keyword">As</span> View3D = <span class="highlight-keyword">TryCast</span>(m_document.GetElement(node.ViewId), View3D)
+    <span class="highlight-keyword">Dim</span> viewName <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = theView.ViewName
+
+    <span class="highlight-comment">' Get the view's Orientation information.</span>
+    <span class="highlight-keyword">Dim</span> theOrientation <span class="highlight-keyword">As</span> ViewOrientation3D = theView.GetOrientation()
+
+    <span class="highlight-comment">' Get the view's camera information, such as whether is a perspective view.</span>
+    <span class="highlight-keyword">Dim</span> camera <span class="highlight-keyword">As</span> CameraInfo = node.GetCameraInfo()
+    <span class="highlight-keyword">Dim</span> isPerspective <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span> = camera.IsPespective
+
+    <span class="highlight-comment">' Get the view's render setting information, such as background style.</span>
+    <span class="highlight-keyword">Dim</span> renderSettings <span class="highlight-keyword">As</span> RenderingSettings = theView.GetRenderingSettings()
+    <span class="highlight-keyword">Dim</span> bkStyle <span class="highlight-keyword">As</span> BackgroundStyle = renderSettings.BackgroundStyle
+
+    <span class="highlight-comment">' Get the view's sun related information</span>
+    <span class="highlight-keyword">Dim</span> sun <span class="highlight-keyword">As</span> SunAndShadowSettings = theView.SunAndShadowSettings
+
+    <span class="highlight-comment">' We can also determine whether we need to process instance of light objects (OnLight)</span>
+    <span class="highlight-keyword">Dim</span> needToExportLight <span class="highlight-keyword">As</span> <span class="highlight-keyword">Boolean</span> = (renderSettings.LightingSource &lt;&gt; LightingSource.ExteriorSun) <span class="highlight-keyword">AndAlso</span> (renderSettings.LightingSource &lt;&gt; LightingSource.InteriorSun)
+
+    <span class="highlight-comment">' We can either skip this view or proceed with rendering it</span>
+    <span class="highlight-keyword">Return</span> RenderNodeAction.Proceed
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span>
+
+<span class="highlight-comment">' &lt;summary&gt;</span>
+<span class="highlight-comment">' This method marks the end of processing a view (a 3D view)</span>
+<span class="highlight-comment">' &lt;/summary&gt;</span>
+<span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> OnViewEnd(elementId <span class="highlight-keyword">As</span> ElementId) <span class="highlight-keyword">Implements</span> IExportContext.OnViewEnd
+    <span class="highlight-comment">' elementId it indicates which view has just been exported</span>
+
+
+    <span class="highlight-comment">' Note: This method is invoked even for a view that was skipped.</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="7d0dc6df-db0e-6a07-3b42-8dde1bedb3c1.htm">
+       IExportContext Interface
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>
