@@ -180,7 +180,8 @@ Handlebars.registerHelper('joinyears', function(options) {
     if (yearsArr.indexOf(options.data.root['target_year']) == -1) {
         var cls = 'missing'
     }
-    return '<span class="'+cls+'">' + yearsArr.join(' / ') + '</span>'
+
+    return '<span class="'+cls+'">' + yearsArr.sort().join(' / ') + '</span>'
 });
 
 Handlebars.registerHelper('exactMatch', function(options) {
