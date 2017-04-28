@@ -119,6 +119,7 @@ if arguments['bootstrap']:
 if arguments['merge']:
     timer = Timer()
 
+    # out_2015 will be used to "crawl" all years. 2015 will be replaced by Merged
     out_sample = arguments['<out-2015>']
     db_index_merged = merge(out_sample)
 
