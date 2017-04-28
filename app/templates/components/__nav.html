@@ -19,11 +19,11 @@
         <!-- Non active buttons will switch to equivalent resource of that year. Active button will take to root of that year -->
         {% macro nav_button(btn_year) -%}
         <li>
-        <a  class="{{ 'active' if active_year == btn_year }}
+        <a  class="api-button {{ 'active' if active_year == btn_year }}
             {% if entry and entry.get('years') %}
             {% set status = entry['years'][btn_year]|default('missing') %}
             {{ status }}
-            {% endif %} api-button"
+            {% endif %}"
             href="/{{btn_year}}/{% if btn_year != active_year %}{{ active_href if active_href is not none }}{% endif %}"
             data-toggle="tooltip"
             data-placement="bottom"

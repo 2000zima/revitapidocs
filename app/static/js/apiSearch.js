@@ -175,7 +175,7 @@ Handlebars.registerHelper('joinyears', function(options) {
         yearsArr.push(year)
     }
 
-    if (yearsArr.length === 4){ return 'All years' }
+    if (yearsArr.length === 5){ return 'All years' }
     var cls
     if (yearsArr.indexOf(options.data.root['target_year']) == -1) {
         var cls = 'missing'

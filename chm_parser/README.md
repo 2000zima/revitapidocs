@@ -53,7 +53,17 @@ python -m chm_parser parse_news 2017 chm_parser\data\in_2017\WhatsNew.htm --outp
 python -m chm_parser parse_news 2017.1 chm_parser\data\in_2017.1\WhatsNew.htm --output=chm_parser\data &&
 python -m chm_parser parse_news 2018 chm_parser\data\in_2018\WhatsNew.htm --output=chm_parser\data`
 
-# UPload
+# Upload (Autocomplete)
+
+
+# Add Years:
+* `config.py` AVAILABLE_YEARS
+* `seo_response.py` list
+* `index.js` (prefered year)
+* `__nav.html` (new button)
+* `index.html` (landing page years)
+* `apiSearch.js` (increment number = "All Years")
+
 
 
 # Folder Structure
