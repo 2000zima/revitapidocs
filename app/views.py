@@ -83,6 +83,9 @@ def content_year_file(year, filename):
 
 @app.route('/<string:year>/news', methods=["GET"])
 def api_whats_new(year):
+    if year not in AVAILABLE_YEARS or not entry:
+        abort(404)  # File was not found
+
     template = '_api.html'
     entry = {'member_of': "Revit API {}".format(year),
              'member_of_href': '/{}'.format(year),
