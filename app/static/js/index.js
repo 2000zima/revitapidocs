@@ -66,7 +66,7 @@ $(document).ready(function(e){
     })
 
     function search(query, year){
-      var searchUrl = '/' + year + '/?query=' + query + '#searchModal'
+      var searchUrl = '/' + year + '/?query=' + query
       window.location.href = searchUrl;
     }
 
