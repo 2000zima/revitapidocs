@@ -21,6 +21,9 @@ def upload(filepath):
     unique_names = {}
     for n, i in enumerate(jdata.values()):
         title = i['title']
+        if len(title) >= 250:
+            print('Skipping - Title too long: {}'.format(title))
+            continue
 
         if title in unique_names:
             continue
@@ -84,3 +87,4 @@ def upload(filepath):
     if errors:
         print('Errors: {}'.format(len(errors)))
         print(errors)
+        import pdb; pdb.set_trace()
