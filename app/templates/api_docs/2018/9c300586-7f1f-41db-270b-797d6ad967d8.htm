@@ -1,0 +1,186 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="402d0836-1f62-8762-5c60-83e34ea06520.htm">
+       Members
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     The base class for DirectContext3D index streams, which are used to write vertex indices into buffers.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="f4ba10f0-55ea-5344-173b-688405391794.htm">
+      Autodesk.Revit.DB.DirectContext3D
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 18.0.0.0 (18.0.0.420)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">IndexStream</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">IndexStream</span> _
+	<span class="keyword">Implements</span> <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">IndexStream</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      There is a corresponding stream type for each type of primitive (point, line, or triangle).
+   The process of putting vertex indices into a buffer involves using a stream-buffer pair as follows
+   (see Autodesk::Revit::DB::DirectContext3D::IndexBuffer).
+     </p>
+     <ol>
+      <li>
+       Map the index buffer.
+      </li>
+      <li>
+       Get a stream for the appropriate primitive type from the buffer.
+      </li>
+      <li>
+       Add sequences of indices corresponding to primitives of the same type to the stream. The indices will be written into the buffer that was used to create the stream.
+      </li>
+      <li>
+       Unmap the buffer.
+      </li>
+     </ol>
+     <p>
+      Alternatively to using streams, it is possible to write data into a buffer using a handle to its mapped memory.
+     </p>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.DirectContext3D
+      IndexStream
+     </span>
+     <br/>
+     <a href="bc5f0c34-05dc-1957-13bd-f1199e12ba97.htm">
+      Autodesk.Revit.DB.DirectContext3D
+      IndexStreamLine
+     </a>
+     <br/>
+     <a href="b2ab0423-2e31-d5a2-ef70-197ca1bf9687.htm">
+      Autodesk.Revit.DB.DirectContext3D
+      IndexStreamPoint
+     </a>
+     <br/>
+     <a href="eb2d6eca-ee09-b69b-fb7c-c84a030cc580.htm">
+      Autodesk.Revit.DB.DirectContext3D
+      IndexStreamTriangle
+     </a>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="402d0836-1f62-8762-5c60-83e34ea06520.htm">
+       IndexStream Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="f4ba10f0-55ea-5344-173b-688405391794.htm">
+       Autodesk.Revit.DB.DirectContext3D Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

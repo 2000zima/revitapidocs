@@ -1,0 +1,233 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="8bef65c6-70bc-1a10-a9a4-47c8ec2cd842.htm">
+       DirectContext3DHandleOverrides Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Assigns override settings associated with a DirectContext3D handle instance or type.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="f4ba10f0-55ea-5344-173b-688405391794.htm">
+      Autodesk.Revit.DB.DirectContext3D
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 18.0.0.0 (18.0.0.420)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2018
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">SetDirectContext3DHandleSettings</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a> <span class="parameter">aDoc</span>,
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a> <span class="parameter">elementId</span>,
+	<a href="cc9d7b07-a4d9-8570-9ed8-c953e241c0d6.htm">DirectContext3DHandleSettings</a> <span class="parameter">newSettings</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">SetDirectContext3DHandleSettings</span> ( _
+	<span class="parameter">aDoc</span> <span class="keyword">As</span> <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>, _
+	<span class="parameter">elementId</span> <span class="keyword">As</span> <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>, _
+	<span class="parameter">newSettings</span> <span class="keyword">As</span> <a href="cc9d7b07-a4d9-8570-9ed8-c953e241c0d6.htm">DirectContext3DHandleSettings</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">SetDirectContext3DHandleSettings</span>(
+	<a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">Document</a>^ <span class="parameter">aDoc</span>, 
+	<a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">ElementId</a>^ <span class="parameter">elementId</span>, 
+	<a href="cc9d7b07-a4d9-8570-9ed8-c953e241c0d6.htm">DirectContext3DHandleSettings</a>^ <span class="parameter">newSettings</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="aDoc">
+       <dt>
+        <span class="parameter">
+         aDoc
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="db03274b-a107-aa32-9034-f3e0df4bb1ec.htm">
+         Autodesk.Revit.DB
+         Document
+        </a>
+        <br/>
+        Document where elementId resides.
+       </dd>
+      </dl>
+      <dl paramname="elementId">
+       <dt>
+        <span class="parameter">
+         elementId
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="44f3f7b1-3229-3404-93c9-dc5e70337dd6.htm">
+         Autodesk.Revit.DB
+         ElementId
+        </a>
+        <br/>
+        Id of the element to be overridden.
+       </dd>
+      </dl>
+      <dl paramname="newSettings">
+       <dt>
+        <span class="parameter">
+         newSettings
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="cc9d7b07-a4d9-8570-9ed8-c953e241c0d6.htm">
+         Autodesk.Revit.DB.DirectContext3D
+         DirectContext3DHandleSettings
+        </a>
+        <br/>
+        The override settings to be assigned to the handle element.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          The ElementId elementId is not a valid DirectContext3D handle instance or type.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="8bef65c6-70bc-1a10-a9a4-47c8ec2cd842.htm">
+       DirectContext3DHandleOverrides Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="f4ba10f0-55ea-5344-173b-688405391794.htm">
+       Autodesk.Revit.DB.DirectContext3D Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

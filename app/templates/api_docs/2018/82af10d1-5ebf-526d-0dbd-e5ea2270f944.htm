@@ -1,0 +1,144 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="4638c568-a118-1d57-ceed-a57595202644.htm">
+       UIControlledApplication Class
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Subscribe to the TransferredProjectStandards event to be notified after the scope of a Transfer Project Standards operation has been finalized.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 18.0.0.0 (18.0.0.420)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017.2
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> event <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="e7e40805-bd07-4e96-ab10-0ed0fe6b3bfc.htm">TransferredProjectStandardsEventArgs</a>&gt; <span class="identifier">TransferredProjectStandards</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> Event <span class="identifier">TransferredProjectStandards</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>(<span class="keyword">Of</span> <a href="e7e40805-bd07-4e96-ab10-0ed0fe6b3bfc.htm">TransferredProjectStandardsEventArgs</a>)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+ <span class="keyword">event</span> <a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="e7e40805-bd07-4e96-ab10-0ed0fe6b3bfc.htm">TransferredProjectStandardsEventArgs</a>^&gt;^ <span class="identifier">TransferredProjectStandards</span> {
+	<span class="keyword">void</span> <span class="keyword">add</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="e7e40805-bd07-4e96-ab10-0ed0fe6b3bfc.htm">TransferredProjectStandardsEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+	<span class="keyword">void</span> <span class="keyword">remove</span> (<a href="http://msdn2.microsoft.com/en-us/library/db0etb8x" target="_blank">EventHandler</a>&lt;<a href="e7e40805-bd07-4e96-ab10-0ed0fe6b3bfc.htm">TransferredProjectStandardsEventArgs</a>^&gt;^ <span class="parameter">value</span>);
+}</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      This event is raised just after the native Revit items have been transferred, but before the transaction has been committed.
+   An add-in that registered external items in
+      <a href="a7326050-7532-df52-a54a-8acd66a2a8a3.htm">
+       TransferringProjectStandards
+      </a>
+      should subscribe to this event to carry out the transfer of any items that it registered if the user enabled those items for transfer.
+   During the scope of this event, modification is permitted to the target document and modification is not permitted to the source document.
+     </p>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="4638c568-a118-1d57-ceed-a57595202644.htm">
+       UIControlledApplication Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

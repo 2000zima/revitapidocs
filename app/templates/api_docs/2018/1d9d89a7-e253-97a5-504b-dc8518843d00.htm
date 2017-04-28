@@ -1,0 +1,161 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="0165b9be-4760-1fab-2343-1ca8af63148f.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Interface that the Revit UI will call, if present, to construct the FrameworkElement
+   for the pane.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 18.0.0.0 (18.0.0.420)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2018
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">interface</span> <span class="identifier">IFrameworkElementCreator</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Interface</span> <span class="identifier">IFrameworkElementCreator</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">interface class</span> <span class="identifier">IFrameworkElementCreator</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// </span>
+<span class="highlight-comment">// Class implementing the interface used in Revit to </span>
+<span class="highlight-comment">// on demand create the pane UI.</span>
+<span class="highlight-comment">// </span>
+<span class="highlight-keyword">internal</span> <span class="highlight-keyword">class</span> BrowserCreator : IFrameworkElementCreator
+{
+   <span class="highlight-comment">// </span>
+   <span class="highlight-comment">// Implement the creation call back by returning a</span>
+   <span class="highlight-comment">// new WebBrowser each time the callback is triggered. </span>
+   <span class="highlight-comment">// </span>
+   <span class="highlight-keyword">public</span> FrameworkElement CreateFrameworkElement()
+   {
+      <span class="highlight-keyword">return</span> <span class="highlight-keyword">new</span> WebBrowser();
+   }
+}</code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="0165b9be-4760-1fab-2343-1ca8af63148f.htm">
+       IFrameworkElementCreator Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

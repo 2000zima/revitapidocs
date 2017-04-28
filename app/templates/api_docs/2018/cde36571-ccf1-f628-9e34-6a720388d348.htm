@@ -1,0 +1,173 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="796abfe0-d73a-ddc6-650e-bcd5d3959f62.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Interface that the Revit UI will call during initialization of the user interface to gather information about add-in dockable pane windows.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+      Autodesk.Revit.UI
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPIUI
+     </span>
+     (in RevitAPIUI.dll) Version: 18.0.0.0 (18.0.0.420)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">interface</span> <span class="identifier">IDockablePaneProvider</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Interface</span> <span class="identifier">IDockablePaneProvider</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">interface class</span> <span class="identifier">IDockablePaneProvider</span></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-comment">// </span>
+<span class="highlight-comment">// Provider class called by Revit to provide information about the pane</span>
+<span class="highlight-comment">// to embed.</span>
+<span class="highlight-comment">// </span>
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">class</span> PaneProvider : IDockablePaneProvider
+{
+   <span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> SetupDockablePane(DockablePaneProviderData data)
+   {
+      <span class="highlight-comment">// </span>
+      <span class="highlight-comment">// SetupDockablePane is called to collect the properties for your pane</span>
+      <span class="highlight-comment">// including the WPF FrameworkElement used for your pane.</span>
+      <span class="highlight-comment">// </span>
+      <span class="highlight-comment">// You have 2 choices when specifying the UI. </span>
+
+      <span class="highlight-comment">// The typical example is to create your element as part of this setup and pass it back as the "FrameworkElement" </span>
+      <span class="highlight-comment">// property of the provider Data. Most any container control will work, but we</span>
+      <span class="highlight-comment">// we generally suggest using a descendant of the Page class:</span>
+      data.FrameworkElement = <span class="highlight-keyword">new</span> Page();
+
+      <span class="highlight-comment">// </span>
+      <span class="highlight-comment">// A more advanced mechanism is to provided a callback that creates the UI element on demand</span>
+      <span class="highlight-comment">// each time the containing view is created. Generally, this approach is needed for UI Elements</span>
+      <span class="highlight-comment">// that CANNOT be cached/reused due to some underlying dependancies. A good example of this</span>
+      <span class="highlight-comment">// is the WebBrowser control that embeds a browser window, that itself is not reusable:</span>
+      data.FrameworkElement = <span class="highlight-keyword">null</span>;  <span class="highlight-comment">// Set Cached element to null as we are specifying a creator. </span>
+      data.FrameworkElementCreator = <span class="highlight-keyword">new</span> BrowserCreator(); <span class="highlight-comment">// set a creator to call back into. </span>
+   }
+}</code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="796abfe0-d73a-ddc6-650e-bcd5d3959f62.htm">
+       IDockablePaneProvider Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="e86fd90a-8957-02a6-da7f-ced248966e3e.htm">
+       Autodesk.Revit.UI Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

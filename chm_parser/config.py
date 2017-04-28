@@ -13,7 +13,7 @@ DEFAULT_NAMESPACE_JSON = 'namespace_{year}.json'
 STATIC_ASSET_EXPRESSION = '{{{{ url_for("static", filename="img/chm/icons/{0}") }}}}'
 TEST_CSS_PATH = '../static/packed.css'
 
-YEARS = ['2015', '2016','2017', '2017.1']
+YEARS = ['2015', '2016','2017', '2017.1', '2018']
 
 # This will be used to try to match agains title, and it's used for filtering
 # Entries on search result

@@ -1,0 +1,256 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="be00b425-1fe5-23a2-fea6-f3a2976f4402.htm">
+       Members
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Represents a single grid line within Autodesk Revit.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 18.0.0.0 (18.0.0.420)
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">Grid</span> : <a href="3e0a6725-ee40-c4d5-839f-b7720c1fe2af.htm">DatumPlane</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">Grid</span> _
+	<span class="keyword">Inherits</span> <a href="3e0a6725-ee40-c4d5-839f-b7720c1fe2af.htm">DatumPlane</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">Grid</span> : <span class="keyword">public</span> <a href="3e0a6725-ee40-c4d5-839f-b7720c1fe2af.htm">DatumPlane</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     A Grid is a DatumPlane, so it is actually a three dimensional surface. It can be either a plane parallel to
+   the project z-axis, or else a cylinder whose axis is parallel to the project z-xis.
+     <span class="nolink">
+      [!:Autodesk::Revit::DatumPlane]
+     </span>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">void</span> GetInfo_Grid(Grid grid)
+{
+    <span class="highlight-keyword">string</span> message = <span class="highlight-literal">"Grid : "</span>;
+
+    <span class="highlight-comment">// Show IsCurved property</span>
+    message += <span class="highlight-literal">"\nIf grid is Arc : "</span> + grid.IsCurved;
+
+    <span class="highlight-comment">// Show Curve information</span>
+    Autodesk.Revit.DB.Curve curve = grid.Curve;
+    <span class="highlight-keyword">if</span> (grid.IsCurved)
+    {
+        <span class="highlight-comment">// if the curve is an arc, give center and radius information</span>
+        Autodesk.Revit.DB.Arc arc = curve <span class="highlight-keyword">as</span> Autodesk.Revit.DB.Arc;
+        message += <span class="highlight-literal">"\nArc's radius: "</span> + arc.Radius;
+        message += <span class="highlight-literal">"\nArc's center:  ("</span> + XYZToString(arc.Center);
+    }
+    <span class="highlight-keyword">else</span>
+    {
+        <span class="highlight-comment">// if the curve is a line, give length information</span>
+        Autodesk.Revit.DB.Line line = curve <span class="highlight-keyword">as</span> Autodesk.Revit.DB.Line;
+        message += <span class="highlight-literal">"\nLine's Length: "</span> + line.Length;
+    }
+    <span class="highlight-comment">// Get curve start point</span>
+    message += <span class="highlight-literal">"\nStart point: "</span> + XYZToString(curve.GetEndPoint(<span class="highlight-number">0</span>));
+    <span class="highlight-comment">// Get curve end point</span>
+    message += <span class="highlight-literal">"; End point: "</span> + XYZToString(curve.GetEndPoint(<span class="highlight-number">0</span>));
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>,message);
+}
+
+<span class="highlight-comment">// output the point's three coordinates</span>
+<span class="highlight-keyword">string</span> XYZToString(XYZ point)
+{
+    <span class="highlight-keyword">return</span> <span class="highlight-literal">"("</span> + point.X + <span class="highlight-literal">", "</span> + point.Y + <span class="highlight-literal">", "</span> + point.Z + <span class="highlight-literal">")"</span>;
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Sub</span> GetInfo_Grid(grid <span class="highlight-keyword">As</span> Grid)
+    <span class="highlight-keyword">Dim</span> message <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span> = <span class="highlight-literal">"Grid : "</span>
+
+    <span class="highlight-comment">' Show IsCurved property</span>
+    message += vbLf &amp; <span class="highlight-literal">"If grid is Arc : "</span> &amp; Convert.ToString(grid.IsCurved)
+
+    <span class="highlight-comment">' Show Curve information</span>
+    <span class="highlight-keyword">Dim</span> curve <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Curve = grid.Curve
+    <span class="highlight-keyword">If</span> grid.IsCurved <span class="highlight-keyword">Then</span>
+        <span class="highlight-comment">' if the curve is an arc, give center and radius information</span>
+        <span class="highlight-keyword">Dim</span> arc <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Arc = <span class="highlight-keyword">TryCast</span>(curve, Autodesk.Revit.DB.Arc)
+        message += vbLf &amp; <span class="highlight-literal">"Arc's radius: "</span> + arc.Radius
+        message += vbLf &amp; <span class="highlight-literal">"Arc's center:  ("</span> &amp; XYZToString(arc.Center)
+    <span class="highlight-keyword">Else</span>
+        <span class="highlight-comment">' if the curve is a line, give length information</span>
+        <span class="highlight-keyword">Dim</span> line <span class="highlight-keyword">As</span> Autodesk.Revit.DB.Line = <span class="highlight-keyword">TryCast</span>(curve, Autodesk.Revit.DB.Line)
+        message += vbLf &amp; <span class="highlight-literal">"Line's Length: "</span> + line.Length
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+    <span class="highlight-comment">' Get curve start point</span>
+    message += vbLf &amp; <span class="highlight-literal">"Start point: "</span> &amp; XYZToString(curve.GetEndPoint(<span class="highlight-number">0</span>))
+    <span class="highlight-comment">' Get curve end point</span>
+    message += <span class="highlight-literal">"; End point: "</span> &amp; XYZToString(curve.GetEndPoint(<span class="highlight-number">0</span>))
+
+    TaskDialog.Show(<span class="highlight-literal">"Revit"</span>, message)
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span>
+
+<span class="highlight-comment">' output the point's three coordinates</span>
+<span class="highlight-keyword">Private</span> <span class="highlight-keyword">Function</span> XYZToString(point <span class="highlight-keyword">As</span> XYZ) <span class="highlight-keyword">As</span> <span class="highlight-keyword">String</span>
+    <span class="highlight-keyword">Return</span> <span class="highlight-literal">"("</span> &amp; Convert.ToString(point.X) &amp; <span class="highlight-literal">", "</span> &amp; Convert.ToString(point.Y) &amp; <span class="highlight-literal">", "</span> &amp; Convert.ToString(point.Z) &amp; <span class="highlight-literal">")"</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Function</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <a href="eb16114f-69ea-f4de-0d0d-f7388b105a16.htm">
+      Autodesk.Revit.DB
+      Element
+     </a>
+     <br/>
+     <a href="3e0a6725-ee40-c4d5-839f-b7720c1fe2af.htm">
+      Autodesk.Revit.DB
+      DatumPlane
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB
+      Grid
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="be00b425-1fe5-23a2-fea6-f3a2976f4402.htm">
+       Grid Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

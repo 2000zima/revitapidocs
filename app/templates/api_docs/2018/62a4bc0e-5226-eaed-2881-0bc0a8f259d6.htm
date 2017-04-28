@@ -1,0 +1,380 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="0dae24ba-5dcb-9a34-cccc-0cf8cc52bcd3.htm">
+       ViewSchedule Class
+      </a>
+      <a href="#exampleToggle" >
+       Example
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     Groups schedule header cells.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+      Autodesk.Revit.DB
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 18.0.0.0 (18.0.0.420)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2014
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">void</span> <span class="identifier">GroupHeaders</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">top</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">left</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">bottom</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">right</span>,
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">string</a> <span class="parameter">caption</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Sub</span> <span class="identifier">GroupHeaders</span> ( _
+	<span class="parameter">top</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">Integer</a>, _
+	<span class="parameter">left</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">Integer</a>, _
+	<span class="parameter">bottom</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">Integer</a>, _
+	<span class="parameter">right</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">Integer</a>, _
+	<span class="parameter">caption</span> <span class="keyword">As</span> <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a> _
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span>:
+<span class="keyword">void</span> <span class="identifier">GroupHeaders</span>(
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">top</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">left</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">bottom</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">int</a> <span class="parameter">right</span>, 
+	<a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">String</a>^ <span class="parameter">caption</span>
+)</code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+     <div id="parameters">
+      <h4 class="subHeading">
+       Parameters
+      </h4>
+      <dl paramname="top">
+       <dt>
+        <span class="parameter">
+         top
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">
+         System
+         Int32
+        </a>
+        <br/>
+        The index of the top row of the selected headers.
+       </dd>
+      </dl>
+      <dl paramname="left">
+       <dt>
+        <span class="parameter">
+         left
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">
+         System
+         Int32
+        </a>
+        <br/>
+        The index of the left column of the selected headers.
+       </dd>
+      </dl>
+      <dl paramname="bottom">
+       <dt>
+        <span class="parameter">
+         bottom
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">
+         System
+         Int32
+        </a>
+        <br/>
+        The index of the bottom row of the selected headers.
+       </dd>
+      </dl>
+      <dl paramname="right">
+       <dt>
+        <span class="parameter">
+         right
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/td2s409d" target="_blank">
+         System
+         Int32
+        </a>
+        <br/>
+        The index of the right column of the selected headers.
+       </dd>
+      </dl>
+      <dl paramname="caption">
+       <dt>
+        <span class="parameter">
+         caption
+        </span>
+       </dt>
+       <dd>
+        Type:
+        <a href="http://msdn2.microsoft.com/en-us/library/s1wwdcbf" target="_blank">
+         System
+         String
+        </a>
+        <br/>
+        The header caption.
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <h1 class="heading">
+     Examples
+     <a name="exampleToggle">
+     </a>
+    </h1>
+    <div class="section" id="exampleSection" name="collapseableSection" style="">
+     <span codelanguage="CSharp" id="cbc_1" x-lang="CSharp">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       C#
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">public</span> <span class="highlight-keyword">static</span> <span class="highlight-keyword">void</span> CreateSingleCategoryScheduleWithGroupedColumnHeaders(Document doc)
+{
+    <span class="highlight-keyword">using</span> (Transaction t = <span class="highlight-keyword">new</span> Transaction(doc, <span class="highlight-literal">"Create single-category with grouped column headers"</span>))
+    {
+        <span class="highlight-comment">// Build the schedule</span>
+        t.Start();
+        ViewSchedule vs = ViewSchedule.CreateSchedule(doc, <span class="highlight-keyword">new</span> ElementId(BuiltInCategory.OST_Windows));
+
+        AddRegularFieldToSchedule(vs, <span class="highlight-keyword">new</span> ElementId(BuiltInParameter.WINDOW_HEIGHT));
+        AddRegularFieldToSchedule(vs, <span class="highlight-keyword">new</span> ElementId(BuiltInParameter.WINDOW_WIDTH));
+        AddRegularFieldToSchedule(vs, <span class="highlight-keyword">new</span> ElementId(BuiltInParameter.ALL_MODEL_MARK));
+        AddRegularFieldToSchedule(vs, <span class="highlight-keyword">new</span> ElementId(BuiltInParameter.ALL_MODEL_COST));
+
+        doc.Regenerate();
+
+        <span class="highlight-comment">// Group the headers in the body section using ViewSchedule methods</span>
+        vs.GroupHeaders(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">1</span>, <span class="highlight-literal">"Size"</span>);
+        vs.GroupHeaders(<span class="highlight-number">0</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>, <span class="highlight-number">3</span>, <span class="highlight-literal">"Other"</span>);
+        vs.GroupHeaders(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">3</span>, <span class="highlight-literal">"All"</span>);
+
+        t.Commit();
+    }
+}
+
+<span class="highlight-comment">/// &lt;summary&gt;</span>
+<span class="highlight-comment">/// Adds a single parameter field to the schedule</span>
+<span class="highlight-comment">/// &lt;/summary&gt;</span>
+<span class="highlight-keyword">public</span> <span class="highlight-keyword">static</span> <span class="highlight-keyword">void</span> AddRegularFieldToSchedule(ViewSchedule schedule, ElementId paramId)
+{
+    ScheduleDefinition definition = schedule.Definition;
+
+    <span class="highlight-comment">// Find a matching SchedulableField</span>
+    SchedulableField schedulableField =
+        definition.GetSchedulableFields().FirstOrDefault&lt;SchedulableField&gt;(sf =&gt; sf.ParameterId == paramId);
+
+    <span class="highlight-keyword">if</span> (schedulableField != <span class="highlight-keyword">null</span>)
+    {
+        <span class="highlight-comment">// Add the found field</span>
+        definition.AddField(schedulableField);
+    }
+}</code></pre>
+      </div>
+     </span>
+     <span codelanguage="VisualBasic" id="cbc_2" x-lang="VisualBasic">
+      <div class="highlight-title">
+       <span class="highlight-copycode" tabindex="0">
+        <img src='{{ url_for("static", filename="img/chm/icons/CopyCode.gif") }}' style="margin-right: 5px;"/>
+        Copy
+       </span>
+       VB.NET
+      </div>
+      <div class="code">
+       <pre><code><span class="highlight-keyword">Public</span> <span class="highlight-keyword">Shared</span> <span class="highlight-keyword">Sub</span> CreateSingleCategoryScheduleWithGroupedColumnHeaders(doc <span class="highlight-keyword">As</span> Document)
+    <span class="highlight-keyword">Using</span> t <span class="highlight-keyword">As</span> <span class="highlight-keyword">New</span> Transaction(doc, <span class="highlight-literal">"Create single-category with grouped column headers"</span>)
+        <span class="highlight-comment">' Build the schedule</span>
+        t.Start()
+        <span class="highlight-keyword">Dim</span> vs <span class="highlight-keyword">As</span> ViewSchedule = ViewSchedule.CreateSchedule(doc, <span class="highlight-keyword">New</span> ElementId(BuiltInCategory.OST_Windows))
+
+        AddRegularFieldToSchedule(vs, <span class="highlight-keyword">New</span> ElementId(BuiltInParameter.WINDOW_HEIGHT))
+        AddRegularFieldToSchedule(vs, <span class="highlight-keyword">New</span> ElementId(BuiltInParameter.WINDOW_WIDTH))
+        AddRegularFieldToSchedule(vs, <span class="highlight-keyword">New</span> ElementId(BuiltInParameter.ALL_MODEL_MARK))
+        AddRegularFieldToSchedule(vs, <span class="highlight-keyword">New</span> ElementId(BuiltInParameter.ALL_MODEL_COST))
+
+        doc.Regenerate()
+
+        <span class="highlight-comment">' Group the headers in the body section using ViewSchedule methods</span>
+        vs.GroupHeaders(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">1</span>, <span class="highlight-literal">"Size"</span>)
+        vs.GroupHeaders(<span class="highlight-number">0</span>, <span class="highlight-number">2</span>, <span class="highlight-number">0</span>, <span class="highlight-number">3</span>, <span class="highlight-literal">"Other"</span>)
+        vs.GroupHeaders(<span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">0</span>, <span class="highlight-number">3</span>, <span class="highlight-literal">"All"</span>)
+
+        t.Commit()
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">Using</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span>
+
+<span class="highlight-comment">' &lt;summary&gt;</span>
+<span class="highlight-comment">' Adds a single parameter field to the schedule</span>
+<span class="highlight-comment">' &lt;/summary&gt;</span>
+<span class="highlight-keyword">Public</span> <span class="highlight-keyword">Shared</span> <span class="highlight-keyword">Sub</span> AddRegularFieldToSchedule(schedule <span class="highlight-keyword">As</span> ViewSchedule, paramId <span class="highlight-keyword">As</span> ElementId)
+    <span class="highlight-keyword">Dim</span> definition <span class="highlight-keyword">As</span> ScheduleDefinition = schedule.Definition
+
+    <span class="highlight-comment">' Find a matching SchedulableField</span>
+    <span class="highlight-keyword">Dim</span> schedulableField <span class="highlight-keyword">As</span> SchedulableField = definition.GetSchedulableFields().FirstOrDefault(<span class="highlight-keyword">Function</span>(sf) sf.ParameterId = paramId)
+
+    <span class="highlight-keyword">If</span> schedulableField <span class="highlight-keyword">IsNot</span> <span class="highlight-keyword">Nothing</span> <span class="highlight-keyword">Then</span>
+        <span class="highlight-comment">' Add the found field</span>
+        definition.AddField(schedulableField)
+    <span class="highlight-keyword">End</span> <span class="highlight-keyword">If</span>
+<span class="highlight-keyword">End</span> <span class="highlight-keyword">Sub</span></code></pre>
+      </div>
+     </span>
+    </div>
+    <h1 class="heading">
+     Exceptions
+     <a name="exceptionsToggle">
+     </a>
+    </h1>
+    <div class="section" id="exceptionsSection" name="collapseableSection" style="">
+     <div class="tableSection">
+      <table frame="lhs" width="100%">
+       <tbody>
+        <tr>
+         <th class="exceptionNameColumn">
+          Exception
+         </th>
+         <th class="exceptionConditionColumn">
+          Condition
+         </th>
+        </tr>
+        <tr>
+         <td>
+          <a href="2e6e4206-97a8-dd4b-df5d-4269f4bb6088.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentException
+          </a>
+         </td>
+         <td>
+          Headers could not be grouped.
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <a href="631e1424-60f4-929b-4e52-dda9dcd26316.htm">
+           Autodesk.Revit.Exceptions
+           ArgumentNullException
+          </a>
+         </td>
+         <td>
+          A non-optional argument was NULL
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="0dae24ba-5dcb-9a34-cccc-0cf8cc52bcd3.htm">
+       ViewSchedule Class
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="87546ba7-461b-c646-cbb1-2cb8f5bff8b2.htm">
+       Autodesk.Revit.DB Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

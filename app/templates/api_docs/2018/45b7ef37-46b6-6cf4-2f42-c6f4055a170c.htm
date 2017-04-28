@@ -1,0 +1,193 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="add918a7-3992-259e-518d-6583049a5e17.htm">
+       Members
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     An effect instance that controls the appearance of geometry.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="f4ba10f0-55ea-5344-173b-688405391794.htm">
+      Autodesk.Revit.DB.DirectContext3D
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 18.0.0.0 (18.0.0.420)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">EffectInstance</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">EffectInstance</span> _
+	<span class="keyword">Implements</span> <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">EffectInstance</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      Each effect instance should be used with geometry of a matching vertex format. Only a subset of effect instance
+   parameters is relevant to geometry of a particular vertex format.
+     </p>
+     <p>
+      If the vertex format does not specify vertex normals, the following parameters should be set:
+     </p>
+     <ol>
+      <li>
+       Color
+      </li>
+      <li>
+       Transparency
+      </li>
+     </ol>
+     <p>
+      If the vertex format specifies vertex normals, the following parameters should be set:
+     </p>
+     <ol>
+      <li>
+       AmbientColor
+      </li>
+      <li>
+       DiffuseColor
+      </li>
+      <li>
+       SpecularColor
+      </li>
+      <li>
+       Glossiness (specular exponent)
+      </li>
+      <li>
+       EmissiveColor
+      </li>
+      <li>
+       Transparency
+      </li>
+     </ol>
+     <p>
+      If the vertex format specifies vertex color, then the geometry will be colored according to the color of each
+   vertex. Otherwise, the geometry's color will come from the effect instance parameters. Similarly, the transparency parameter
+   affects all of the geometry associated with the effect, while the transparency of the individual vertices can also
+   be controlled via the transparency component of their colors.
+     </p>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.DirectContext3D
+      EffectInstance
+     </span>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="add918a7-3992-259e-518d-6583049a5e17.htm">
+       EffectInstance Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="f4ba10f0-55ea-5344-173b-688405391794.htm">
+       Autodesk.Revit.DB.DirectContext3D Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

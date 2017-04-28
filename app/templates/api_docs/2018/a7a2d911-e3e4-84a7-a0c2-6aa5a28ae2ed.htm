@@ -1,0 +1,191 @@
+<article id="api-content">
+ <div id="header">
+  <table id="bottomTable">
+   <tbody>
+    <tr id="headerTableRow3">
+     <td align="left">
+      <a href="fc0616b9-8da1-3ccf-3b29-5ddaccf95930.htm">
+       Members
+      </a>
+      <a href="#seeAlsoToggle" >
+       See Also
+      </a>
+     </td>
+    </tr>
+   </tbody>
+  </table>
+ </div>
+ <div id="mainSection">
+  <div id="mainBody">
+   <div class="saveHistory">
+    <span style="color: DarkGray">
+    </span>
+    <div class="summary">
+     The base class for DirectContext3D vertex streams, which are used to write vertex data into buffers.
+    </div>
+    <p>
+     <b>
+      Namespace:
+     </b>
+     <a href="f4ba10f0-55ea-5344-173b-688405391794.htm">
+      Autodesk.Revit.DB.DirectContext3D
+     </a>
+     <br/>
+     <b>
+      Assembly:
+     </b>
+     <span sdata="assembly">
+      RevitAPI
+     </span>
+     (in RevitAPI.dll) Version: 18.0.0.0 (18.0.0.420)
+     <br/>
+     <b>
+      Since:
+     </b>
+     2017
+    </p>
+    <h1 class="heading">
+     Syntax
+     <a name="syntaxToggle">
+     </a>
+    </h1>
+    <div class="section" id="syntaxSection" name="collapseableSection" style="">
+     <div class="code" id="syntaxCodeBlocks">
+      <span codelanguage="CSharp">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           C#
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="identifier">VertexStream</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="VisualBasicDeclaration">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual Basic
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">Public</span> <span class="keyword">Class</span> <span class="identifier">VertexStream</span> _
+	<span class="keyword">Implements</span> <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+      <span codelanguage="ManagedCPlusPlus">
+       <table>
+        <tbody>
+         <tr>
+          <th>
+           Visual C++
+          </th>
+         </tr>
+         <tr>
+          <td>
+           <pre><code><span class="keyword">public</span> <span class="keyword">ref class</span> <span class="identifier">VertexStream</span> : <a href="http://msdn2.microsoft.com/en-us/library/aax125c9" target="_blank">IDisposable</a></code></pre>
+          </td>
+         </tr>
+        </tbody>
+       </table>
+      </span>
+     </div>
+    </div>
+    <h1 class="heading">
+     Remarks
+     <a name="remarksToggle">
+     </a>
+    </h1>
+    <div class="section" id="remarksSection" name="collapseableSection" style="">
+     <p>
+      For each type of vertex (e.g., Autodesk::Revit::DB::DirectContext3D::VertexPositionNormal), there is a corresponding stream type.
+   The process of putting vertex data into a buffer involves using a stream-buffer pair as follows
+   (see Autodesk::Revit::DB::DirectContext3D::VertexBuffer).
+     </p>
+     <ol>
+      <li>
+       Map the vertex buffer.
+      </li>
+      <li>
+       Get a stream of the appropriate type from the buffer.
+      </li>
+      <li>
+       Add vertices of the same type to the stream. They will be written into the buffer that was used to create the stream.
+      </li>
+      <li>
+       Unmap the buffer.
+      </li>
+     </ol>
+     <p>
+      Alternatively to using streams, it is possible to write data into a buffer using a handle to its mapped memory.
+     </p>
+    </div>
+    <h1 class="heading">
+     Inheritance Hierarchy
+     <a name="familyToggle">
+     </a>
+    </h1>
+    <div class="section" id="familySection" name="collapseableSection" style="">
+     <a href="http://msdn2.microsoft.com/en-us/library/e5kfa45b" target="_blank">
+      System
+      Object
+     </a>
+     <br/>
+     <span class="selflink">
+      Autodesk.Revit.DB.DirectContext3D
+      VertexStream
+     </span>
+     <br/>
+     <a href="b6576b22-59f1-5cd1-962c-d65f17c198fb.htm">
+      Autodesk.Revit.DB.DirectContext3D
+      VertexStreamPosition
+     </a>
+     <br/>
+     <a href="588e57a7-b43e-50f0-47ba-11154cae9a24.htm">
+      Autodesk.Revit.DB.DirectContext3D
+      VertexStreamPositionColored
+     </a>
+     <br/>
+     <a href="fc9b191e-cbd9-844c-0289-b58ccc19ac8b.htm">
+      Autodesk.Revit.DB.DirectContext3D
+      VertexStreamPositionNormal
+     </a>
+     <br/>
+     <a href="2b52610e-fbc2-d983-d28c-6fd05a7a215e.htm">
+      Autodesk.Revit.DB.DirectContext3D
+      VertexStreamPositionNormalColored
+     </a>
+     <br/>
+    </div>
+    <h1 class="heading">
+     See Also
+     <a name="seeAlsoToggle">
+     </a>
+    </h1>
+    <div class="section" id="seeAlsoSection" name="collapseableSection" style="">
+     <div class="seeAlsoStyle">
+      <a href="fc0616b9-8da1-3ccf-3b29-5ddaccf95930.htm">
+       VertexStream Members
+      </a>
+     </div>
+     <div class="seeAlsoStyle">
+      <a href="f4ba10f0-55ea-5344-173b-688405391794.htm">
+       Autodesk.Revit.DB.DirectContext3D Namespace
+      </a>
+     </div>
+    </div>
+   </div>
+  </div>
+ </div>
+</article>

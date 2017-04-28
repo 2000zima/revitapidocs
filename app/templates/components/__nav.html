@@ -40,6 +40,7 @@
         {{ nav_button('2016') }}
         {{ nav_button('2017') }}
         {{ nav_button('2017.1') }}
+        {{ nav_button('2018') }}
         <!-- <li class="{{ 'active' if year == '2015' }} {{ 'missing' if '2015' not in available_in }}"><a href="/2015/{{ active_href if active_href is not none }}">2015</a></li> -->
         <li class="{{ 'active' if 'code' in request.path }}"><a href="{{ url_for('code')}}"  data-name="Code">Code Samples</a></li>
       </ul>
