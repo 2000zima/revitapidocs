@@ -16,7 +16,8 @@ from app.utils.db_utils import search_db
 from app.utils.db_utils import get_entry, get_best_entry_match
 from app.utils.db_utils import process_query, prioritize_match
 
-from app.utils.github import get_repo_data
+#######################UNCOMMENT
+# from app.utils.github_helper import get_repo_data
 from app.utils.misc import Timer
 from app.utils.logger import logger
 

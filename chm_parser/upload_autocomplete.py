@@ -28,9 +28,14 @@ def upload(filepath):
         if title in unique_names:
             continue
 
+
         item = {}
         score = 1
         tag = i['tag']
+        url = i['href']
+        member_of = i['member_of']
+        description = i['description']
+
         if tag and 'class' in tag.lower():
             score += 1
         if ['namespace'] == 'Autodesk.Revit.UI' or ['namespace'] == 'Autodesk.Revit.DB':
@@ -38,14 +43,22 @@ def upload(filepath):
         description = i['description']
 
         item['item_name'] = title
-        item['autocomplete_section'] = 'Search Suggestions'
+        # item['autocomplete_section'] = 'Search Suggestions'
+        item['autocomplete_section'] = 'Products'
         item['suggested_score'] = score
-        item['id'] = str(title)
+        item['keywords'] = [tag]
+        item['description'] = description
+        item['url'] = url
+        # item['id'] = '_'.join(href, title)
         items.append(item)
         unique_names[title] = True
+        # import pdb; pdb.set_trace()
+        break
 
-    # from pprint import pprint
+    from pprint import pprint
     # pprint(items)
+    # pprint(unique_names)
+    # sys.exit()
 
     headers = {"Content-Type": "application/json"}
     api_key = os.getenv('CONSTRUCTOR_IO_API_TOKEN')
@@ -69,8 +82,11 @@ def upload(filepath):
         print('Uploading data set: {}'.format(len(items_chunk)))
         print('Unique Items: {}'.format(len(unique_items)))
         payload = {'items': items_chunk,
-                   'autocomplete_section': 'Search Suggestions'
+                   'autocomplete_section': 'Products'
+                #    'autocomplete_section': 'Search Suggestions'
                    }
+        print('Payload:')
+        pprint(payload)
         url = "https://ac.cnstrc.com/v1/batch_items?force=1&autocomplete_key={key}".format(key=autocomplete_key)
         r = requests.put(url, headers=headers, auth=auth, json=payload)
         if r.status_code == 204:
@@ -87,4 +103,4 @@ def upload(filepath):
     if errors:
         print('Errors: {}'.format(len(errors)))
         print(errors)
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
