@@ -54,7 +54,7 @@ $(document).ready(function(e){
     }
 
     // Initialize Constructor IO with default or stored year
-    ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_KEY, 5, year)
+    ajaxHelper.createConstructor($searchBoxInput, 5, year)
 
     // Select Item from dropdown
     $('div#direct-search li').on('mousedown', function(){
@@ -68,7 +68,7 @@ $(document).ready(function(e){
       localStorageHelper.set('revitapidocs_year', year);
 
       // Restart Constructor IO with new Year
-      ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_KEY, 5, year)
+      ajaxHelper.createConstructor($searchBoxInput, 5, year)
 
     })
 
