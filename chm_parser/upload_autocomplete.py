@@ -1,5 +1,8 @@
 ''' Script to batch update index to Contructor.io
 autocomplete api.
+
+>>> python -m chm_parser upload chm_parser\data\out_Merged\db_index.json
+
 '''
 import sys
 import time
@@ -25,8 +28,9 @@ def upload(filepath):
             print('Skipping - Title too long: {}'.format(title))
             continue
 
-        if title in unique_names:
-            continue
+        # NOT ONLY UNIQUE
+        # if title in unique_names:
+            # continue
 
 
         item = {}
@@ -41,19 +45,28 @@ def upload(filepath):
         if ['namespace'] == 'Autodesk.Revit.UI' or ['namespace'] == 'Autodesk.Revit.DB':
             score += 1
         description = i['description']
+        if description:
+            combined_desc = description
+            # combined_desc = '{} - {}'.format(member_of, description)
+            if len(combined_desc) >= 300:
+                combined_desc = combined_desc[0:277] + '...'
+        else:
+            combined_desc = description
 
         item['item_name'] = title
         # item['autocomplete_section'] = 'Search Suggestions'
         item['autocomplete_section'] = 'Products'
         item['suggested_score'] = score
-        item['keywords'] = [tag]
-        item['description'] = description
+        # item['keywords'] = [tag]
+        item['description'] = combined_desc
+        item['metadata'] = {'member_of': member_of}
+        item['metadata'].update(i['years'])
         item['url'] = url
-        # item['id'] = '_'.join(href, title)
+        item['id'] = '_'.join([url, ''.join([c for c in title if c.isalnum()]) ])
         items.append(item)
-        unique_names[title] = True
+        # unique_names[title] = True
         # import pdb; pdb.set_trace()
-        break
+        # break
 
     from pprint import pprint
     # pprint(items)
@@ -75,18 +88,20 @@ def upload(filepath):
     t1 = time.time()
     print('Uploading items: {}'.format(len(items)))
     errors = []
+    # items = items[0:10]
     CHUNK_SIZE = 1000
     for i in range(0, len(items), CHUNK_SIZE):
         items_chunk = items[i: i + CHUNK_SIZE]
-        unique_items = set(i['item_name'] for i in items_chunk)
+        # unique_items = set(i['item_name'] for i in items_chunk)
         print('Uploading data set: {}'.format(len(items_chunk)))
-        print('Unique Items: {}'.format(len(unique_items)))
+        print('Chunk: {}'.format(CHUNK_SIZE))
+        # print('Unique Items: {}'.format(len(unique_items)))
         payload = {'items': items_chunk,
                    'autocomplete_section': 'Products'
                 #    'autocomplete_section': 'Search Suggestions'
                    }
-        print('Payload:')
-        pprint(payload)
+        # print('Payload:')
+        # pprint(payload)
         url = "https://ac.cnstrc.com/v1/batch_items?force=1&autocomplete_key={key}".format(key=autocomplete_key)
         r = requests.put(url, headers=headers, auth=auth, json=payload)
         if r.status_code == 204:

@@ -68,13 +68,34 @@ var ajaxHelper = new function() {
     ///////////////////////////
     /// CONSTRUCTOR.IO AJAX  //
     ///////////////////////////
-    this.createConstructor = function($inputbox, CONSTRUCTOR_KEY, maxResults) {
-        $.getScript("//cnstrc.com/js/ac.js", function() {
+    this.createConstructor = function($inputbox, CONSTRUCTOR_KEY, maxResults, year) {
+        var constructor = $.getScript("//cnstrc.com/js/ac.js", function() {
                 $inputbox.constructorAutocomplete({
                 key: CONSTRUCTOR_KEY,
                 boostRecentSearches : true,
                 maxResults : maxResults,
-                triggerSubmitOnSelect: true
+                triggerSubmitOnSelect: true,
+                directResultUrlPrefix: '/' + year + '/',
+                onSearchComplete: function(name, suggestions,c,d){
+
+                    $('.autocomplete-suggestion').each(function(index){
+
+                      if (!$(this).children('.autocomplete-suggestion-description')[0]) {
+                        $(this).append('<span class="autocomplete-suggestion-description"></span>')
+                      }
+
+                      // Wraps loose text in span
+                      $(this).children('span').wrapInner('<span class="description"></span>')
+
+                      // Wraps loose text in span
+                      var $memberOf = $('<span class="member-of"></span>')
+                      $memberOf.text(suggestions[index].data['member_of'])
+                      $(this).children('span').prepend($memberOf)
+
+
+
+                    })
+                }
                 });
         });
     }

@@ -50,7 +50,11 @@ $(document).ready(function(e){
     }
     else{
       localStorageHelper.set('revitapidocs_year', '2018');
+      var year = '2018'
     }
+
+    // Initialize Constructor IO with default or stored year
+    ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_KEY, 5, year)
 
     // Select Item from dropdown
     $('div#direct-search li').on('mousedown', function(){
@@ -62,6 +66,9 @@ $(document).ready(function(e){
       $("div#direct-search").find('.control-label').html("&nbsp;")
 
       localStorageHelper.set('revitapidocs_year', year);
+
+      // Restart Constructor IO with new Year
+      ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_KEY, 5, year)
 
     })
 
