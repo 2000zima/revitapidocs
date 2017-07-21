@@ -60,7 +60,7 @@ def upload(filepath):
         # item['keywords'] = [tag]
         item['description'] = combined_desc
         item['metadata'] = {'member_of': member_of}
-        item['metadata'].update(i['years'])
+        # item['metadata'].update(i['years']) # <<<<<<<<<<<<<<<<< REMOVE YEARS
         item['url'] = url
         item['id'] = '_'.join([url, ''.join([c for c in title if c.isalnum()]) ])
         items.append(item)
