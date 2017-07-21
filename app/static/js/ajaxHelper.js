@@ -68,11 +68,11 @@ var ajaxHelper = new function() {
     ///////////////////////////
     /// CONSTRUCTOR.IO AJAX  //
     ///////////////////////////
-    this.createConstructor = function($inputbox, CONSTRUCTOR_KEY, maxResults, year) {
+    this.createConstructor = function($inputbox, maxResults, year) {
 
       var key = localStorageHelper.get('CONSTRUCTOR_KEY')
 
-      if (key){
+      if (key != undefined){
         console.log('Storage Key found')
          create(key)
       }
