@@ -9,5 +9,6 @@ app/static/packed/
 .production
 .staging
 env/
+.env
 env/*
 chm_parser/data/*
