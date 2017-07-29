@@ -16,7 +16,7 @@ from app.utils.db_utils import search_db
 from app.utils.db_utils import get_entry, get_best_entry_match
 from app.utils.db_utils import process_query, prioritize_match
 
-from app.utils.github import get_repo_data
+from app.utils.github_helper import get_repo_data
 from app.utils.misc import Timer
 from app.utils.logger import logger
 
@@ -156,6 +156,11 @@ def code_api():
     repo = get_repo_data()
     return jsonify(repo)
 
+@app.route('/api/constructor_key', methods=['GET'])
+def constructor_key_api():
+    """ Get Constructor API Key from backend and pass to front end """
+    key = app.config['CONSTRUCTOR_IO_AUTOCOMPLETE_KEY']
+    return jsonify(key)
 
 @app.route('/api/insights', methods=['GET'])
 def api_python_insights():

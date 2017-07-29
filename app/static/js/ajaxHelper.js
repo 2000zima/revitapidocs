@@ -68,14 +68,58 @@ var ajaxHelper = new function() {
     ///////////////////////////
     /// CONSTRUCTOR.IO AJAX  //
     ///////////////////////////
-    this.createConstructor = function($inputbox, CONSTRUCTOR_KEY, maxResults) {
-        $.getScript("//cnstrc.com/js/ac.js", function() {
-                $inputbox.constructorAutocomplete({
-                key: CONSTRUCTOR_KEY,
-                boostRecentSearches : true,
-                maxResults : maxResults,
-                triggerSubmitOnSelect: true
-                });
+    this.createConstructor = function($inputbox, maxResults, year) {
+
+      var key = localStorageHelper.get('CONSTRUCTOR_KEY')
+
+      if (key != undefined){
+        console.log('Storage Key found')
+         create(key)
+      }
+      else {
+        var getKey = $.getJSON('/api/constructor_key', function(json) {
+            console.log('Key not found. Fetching...')
+            var key = json
+
+            getKey.done(function(){
+              console.log('Key not found. Fetching...')
+              localStorageHelper.set('CONSTRUCTOR_KEY', key)
+              create(key)
+            });
         });
+      }
+
+      function create(CONSTRUCTOR_KEY) {
+
+          var constructor = $.getScript("//cnstrc.com/js/ac.js", function() {
+                  $inputbox.constructorAutocomplete({
+                  key: CONSTRUCTOR_KEY,
+                  boostRecentSearches : true,
+                  maxResults : maxResults,
+                  triggerSubmitOnSelect: true,
+                  directResultUrlPrefix: '/' + year + '/',
+                  onSearchComplete: function(name, suggestions,c,d){
+
+                      $('.autocomplete-suggestion').each(function(index){
+
+                        if (!$(this).children('.autocomplete-suggestion-description')[0]) {
+                          $(this).append('<span class="autocomplete-suggestion-description"></span>')
+                        }
+
+                        // Wraps loose text in span
+                        $(this).children('span').wrapInner('<span class="description"></span>')
+
+                        // Wraps loose text in span
+                        var $memberOf = $('<span class="member-of"></span>')
+                        $memberOf.text(suggestions[index].data['member_of'])
+                        $(this).children('span').prepend($memberOf)
+
+
+
+                      })
+                  }
+                  });
+          });
+      }
     }
 };

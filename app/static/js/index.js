@@ -43,25 +43,36 @@ $(document).ready(function(e){
     })
 
     // Get Stored year
-    if(localStorageHelper.get('revitapidocs_year')){
+    var year = localStorageHelper.get('revitapidocs_year')
+    if(year && (year != undefined)){
       var year = localStorageHelper.get('revitapidocs_year');
       $('button#direct-search-year').attr('value', year)
       $('span#dropdown-label').text(year)
     }
     else{
       localStorageHelper.set('revitapidocs_year', '2018');
+      year = '2018'
     }
 
-    // Select Item from dropdown
-    $('div#direct-search li').on('mousedown', function(){
-      var year = $(this).text()
-      $('span#dropdown-label').text(year)
-      $('button#direct-search-year').attr('value', year)
-      $("button#direct-search-year").removeClass('btn-danger')
-      $("div#direct-search").find('.form-group').removeClass('has-error')
-      $("div#direct-search").find('.control-label').html("&nbsp;")
+    // Initialize Constructor IO with default or stored year
+    console.log('Calling Constructor. Year: '+ year)
+    var CONSTRUCTOR_MAX = 10
+    ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_MAX, year)
 
-      localStorageHelper.set('revitapidocs_year', year);
+    // Select Item from dropdown
+    $('#direct-search li').on('click', function(){
+        var year = $(this).text()
+        $('span#dropdown-label').text(year)
+        $('button#direct-search-year').attr('value', year)
+        $("button#direct-search-year").removeClass('btn-danger')
+        $("div#direct-search").find('.form-group').removeClass('has-error')
+        $("div#direct-search").find('.control-label').html("&nbsp;")
+
+        localStorageHelper.set('revitapidocs_year', year);
+
+        console.log('Recreating Constructor. Year: '+ year)
+        // Restart Constructor IO with new Year
+        ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_MAX, year)
 
     })
 

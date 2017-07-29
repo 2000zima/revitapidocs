@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
     var $searchBoxInput = $('#search-box')
-    ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_KEY, 10)
+    ajaxHelper.createConstructor($searchBoxInput, 15, activeYear)
 
     $("#sidebar-search > form").submit(function(e) {
         e.preventDefault() // Keeps page from submitting and reloading

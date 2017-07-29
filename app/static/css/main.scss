@@ -552,17 +552,35 @@ footer {
 
 .autocomplete-suggestion {
   padding: 5px 12px;
-  white-space: nowrap;
   overflow: hidden;
 
   font-size: $font-size-small;
-  font-weight: normal;
   color: $gray-dark;
+  font-weight: normal;
+
+  // white-space: nowrap;
+  white-space: normal;
 }
+
 .autocomplete-suggestions strong {
   color: $gray-light;
   font-weight: normal;
 }
+
+.autocomplete-suggestion-description {
+  margin-left: 4px;
+  margin-top: 4px;
+  line-height: 14px;
+  color: $gray-light;
+}
+.autocomplete-suggestion-description span{
+  display: block;
+}
+
+.autocomplete-suggestion-description span.member-of {
+  color: $gray;
+}
+
 
 #powered-by-constructor-io{
   @extend .autocomplete-suggestions;
