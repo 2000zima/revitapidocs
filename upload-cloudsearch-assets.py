@@ -1,4 +1,4 @@
-""" Draft CloudSearch Uploader """
+""" AWS CloudSearch Uploader """
 
 # import flask_s3
 import re
@@ -11,14 +11,11 @@ import logging
 logger = logging.getLogger('flask_s3')
 logger.setLevel(logging.DEBUG)
 
-# bucket_name = app.config['FLASKS3_BUCKET_NAME']
 print('Uploading CloudSearch Bucket...')
 
-# client = boto3.client('cloudsearch','us-east-1')
 client = boto3.client('cloudsearchdomain', 'us-east-1',
                        endpoint_url = "http://doc-revitapidocs-staging-aikyh7yoyt43gf4wv3pemwlq3i.us-east-1.cloudsearch.amazonaws.com"
                        )
-# client = boto3.client('cloudsearchdomain','us-east-1')
 
 filepath = r'chm_parser\data\out_Merged\db_index.json'
 with open(filepath) as fp:
