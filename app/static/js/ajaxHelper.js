@@ -102,6 +102,10 @@ var ajaxHelper = new function() {
 
                       $('.autocomplete-suggestion').each(function(index){
 
+                        if (suggestions.length == 0){
+                            return
+                        }
+
                         if (!$(this).children('.autocomplete-suggestion-description')[0]) {
                           $(this).append('<span class="autocomplete-suggestion-description"></span>')
                         }
