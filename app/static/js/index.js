@@ -56,8 +56,8 @@ $(document).ready(function(e){
 
     // Initialize Constructor IO with default or stored year
     console.log('Calling Constructor. Year: '+ year)
-    var CONSTRUCTOR_MAX = 10
-    ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_MAX, year)
+    var CONSTRUCTOR_MAX = 25
+    ajaxHelper.createConstructor($searchBoxInput, year)
 
     // Select Item from dropdown
     $('#direct-search li').on('click', function(){
@@ -72,7 +72,7 @@ $(document).ready(function(e){
 
         console.log('Recreating Constructor. Year: '+ year)
         // Restart Constructor IO with new Year
-        ajaxHelper.createConstructor($searchBoxInput, CONSTRUCTOR_MAX, year)
+        ajaxHelper.createConstructor($searchBoxInput, year)
 
     })
 

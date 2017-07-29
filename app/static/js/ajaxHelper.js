@@ -68,7 +68,7 @@ var ajaxHelper = new function() {
     ///////////////////////////
     /// CONSTRUCTOR.IO AJAX  //
     ///////////////////////////
-    this.createConstructor = function($inputbox, maxResults, year) {
+    this.createConstructor = function($inputbox, year) {
 
       var key = localStorageHelper.get('CONSTRUCTOR_KEY')
 
@@ -95,7 +95,10 @@ var ajaxHelper = new function() {
                   $inputbox.constructorAutocomplete({
                   key: CONSTRUCTOR_KEY,
                   boostRecentSearches : true,
-                  maxResults : maxResults,
+                  minChars: 3,
+                  maxHeight: 400,
+                  showNoSuggestionNotice: !1,
+                  maxResults : 300,
                   triggerSubmitOnSelect: true,
                   directResultUrlPrefix: '/' + year + '/',
                   onSearchComplete: function(name, suggestions,c,d){

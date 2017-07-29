@@ -554,12 +554,13 @@ footer {
   padding: 5px 12px;
   overflow: hidden;
 
+  font-size: 13px;
   // font-size: $font-size-small;
-  font-size: $font-size-base;
+  // font-size: $font-size-base;
 
   color: $brand-primary;
   // color: $gray-dark;
-  font-weight: bold;
+  font-weight: 600;
 
   // white-space: nowrap;
   white-space: normal;
@@ -583,7 +584,8 @@ footer {
 
 .autocomplete-suggestion-description span.member-of {
   color: $gray;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 
