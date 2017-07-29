@@ -96,7 +96,7 @@ var ajaxHelper = new function() {
                   key: CONSTRUCTOR_KEY,
                   boostRecentSearches : true,
                   minChars: 3,
-                  maxHeight: 400,
+                  maxHeight: 300,
                   showNoSuggestionNotice: !1,
                   maxResults : 300,
                   triggerSubmitOnSelect: true,

@@ -55,8 +55,8 @@ for n, entry in enumerate(jdata.values()):
 
 MAX = None
 
-with open('tests.json', 'w') as fp:
-    json.dump(items[0:MAX], fp)
+# with open('tests.json', 'w') as fp:
+#     json.dump(items[0:MAX], fp)
 
 CHUNK_SIZE = 2000
 for i in range(0, len(items), CHUNK_SIZE):
